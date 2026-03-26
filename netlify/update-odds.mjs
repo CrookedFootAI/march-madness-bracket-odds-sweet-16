@@ -34,7 +34,6 @@ function normalize(name) {
 }
 
 function getConsensusOdds(bookmakers, market) {
-  // Average the odds across all bookmakers for reliability
   const allOutcomes = {};
   let count = 0;
 
@@ -66,9 +65,12 @@ function getConsensusOdds(bookmakers, market) {
 export const handler = schedule("0 */4 * * *", async () => {
   const apiKey = process.env.ODDS_API_KEY;
 
+  // ✅ LOG CONFIRMATION OF API KEY
   if (!apiKey) {
-    console.error("ODDS_API_KEY not set");
+    console.error("❌ ODDS_API_KEY not set!");
     return { statusCode: 500 };
+  } else {
+    console.log("✅ ODDS_API_KEY loaded successfully");
   }
 
   try {
@@ -83,7 +85,6 @@ export const handler = schedule("0 */4 * * *", async () => {
 
     const games = await res.json();
 
-    // Transform into a clean lookup: { "Team A vs Team B": { spread, ml, ou } }
     const oddsLookup = {};
 
     for (const game of games) {
@@ -96,7 +97,6 @@ export const handler = schedule("0 */4 * * *", async () => {
 
       if (!h2h) continue;
 
-      // Determine favorite (more negative moneyline = favorite)
       const homeML = h2h[game.home_team]?.price ?? 0;
       const awayML = h2h[game.away_team]?.price ?? 0;
       const favName = homeML <= awayML ? home : away;
@@ -113,7 +113,6 @@ export const handler = schedule("0 */4 * * *", async () => {
         ? (totals["Over"]?.point ?? null)
         : null;
 
-      // Store by both team name combos so we can look up either way
       const entry = {
         fav: favName,
         dog: dogName,
