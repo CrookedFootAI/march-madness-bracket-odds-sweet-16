@@ -19,14 +19,6 @@ const TEAM_MAP = {
   "Florida Gators": "Florida",
   "Texas Tech Red Raiders": "Texas Tech",
   "Tennessee Volunteers": "Tennessee",
-  "Kentucky Wildcats": "Kentucky",
-  "Auburn Tigers": "Auburn",
-  "Creighton Bluejays": "Creighton",
-  "Marquette Golden Eagles": "Marquette",
-  "Kansas Jayhawks": "Kansas",
-  "Gonzaga Bulldogs": "Gonzaga",
-  "UCLA Bruins": "UCLA",
-  "Baylor Bears": "Baylor",
 };
 
 function normalize(name) {
@@ -65,7 +57,7 @@ function getConsensusOdds(bookmakers, market) {
 export const handler = schedule("0 */4 * * *", async () => {
   const apiKey = process.env.ODDS_API_KEY;
 
-  // ✅ LOG CONFIRMATION OF API KEY
+  // ✅ Log confirmation of API key
   if (!apiKey) {
     console.error("❌ ODDS_API_KEY not set!");
     return { statusCode: 500 };
@@ -79,12 +71,11 @@ export const handler = schedule("0 */4 * * *", async () => {
     );
 
     if (!res.ok) {
-      console.error("Odds API error:", res.status, await res.text());
+      console.error("❌ Odds API error:", res.status, await res.text());
       return { statusCode: 500 };
     }
 
     const games = await res.json();
-
     const oddsLookup = {};
 
     for (const game of games) {
@@ -133,10 +124,11 @@ export const handler = schedule("0 */4 * * *", async () => {
       odds: oddsLookup,
     });
 
-    console.log(`Stored odds for ${Object.keys(oddsLookup).length / 2} games`);
+    // ✅ Log successful storage
+    console.log(`✅ Stored odds for ${Object.keys(oddsLookup).length / 2} games`);
     return { statusCode: 200 };
   } catch (err) {
-    console.error("update-odds error:", err);
+    console.error("❌ update-odds error:", err);
     return { statusCode: 500 };
   }
 });
