@@ -57,7 +57,6 @@ function getConsensusOdds(bookmakers, market) {
 export const handler = schedule("0 */4 * * *", async () => {
   const apiKey = process.env.ODDS_API_KEY;
 
-  // ✅ Log confirmation of API key
   if (!apiKey) {
     console.error("❌ ODDS_API_KEY not set!");
     return { statusCode: 500 };
@@ -71,7 +70,7 @@ export const handler = schedule("0 */4 * * *", async () => {
     );
 
     if (!res.ok) {
-      console.error("❌ Odds API error:", res.status, await res.text());
+      console.error("Odds API error:", res.status, await res.text());
       return { statusCode: 500 };
     }
 
@@ -124,11 +123,10 @@ export const handler = schedule("0 */4 * * *", async () => {
       odds: oddsLookup,
     });
 
-    // ✅ Log successful storage
-    console.log(`✅ Stored odds for ${Object.keys(oddsLookup).length / 2} games`);
+    console.log(`Stored odds for ${Object.keys(oddsLookup).length / 2} games`);
     return { statusCode: 200 };
   } catch (err) {
-    console.error("❌ update-odds error:", err);
+    console.error("update-odds error:", err);
     return { statusCode: 500 };
   }
 });
