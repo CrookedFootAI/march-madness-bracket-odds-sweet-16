@@ -670,7 +670,7 @@ nav{top:32px!important}
             <span class="matchup-seed">#1</span>
             <span class="matchup-name dog">Duke</span>
           </div>
-          <span style="font-size:9px;color:#94A3B8">+235 Moneyline</span>
+          <span id="hero-ml-stjohns" style="font-size:9px;color:#94A3B8">+235 Moneyline</span>
         </div>
         <div style="margin-top:8px;font-size:9px;color:#C8102E;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Duke down to 7-man rotation · Foster DOUBTFUL · Pitino 52-26 career · St. John's 225mi from Queens</div>
       </div>
@@ -688,7 +688,7 @@ nav{top:32px!important}
             <span class="matchup-seed">#4</span>
             <span class="matchup-name dog">Nebraska</span>
           </div>
-          <span style="font-size:9px;color:#94A3B8">+123 Moneyline</span>
+          <span id="hero-ml-iowa" style="font-size:9px;color:#94A3B8">+123 Moneyline</span>
         </div>
         <div style="margin-top:8px;font-size:9px;color:#C8102E;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Iowa beat defending champs Florida · #9 seed Cinderella · McCollum's fearless team · nothing to lose</div>
       </div>
@@ -782,7 +782,7 @@ nav{top:32px!important}
           <span>🎯</span> Best S16 Upset Pick
         </div>
         <div class="callout-team">Alabama</div>
-        <div class="callout-stat" style="color:#B8952A">vs Michigan · +400 ML</div>
+        <div class="callout-stat" style="color:#B8952A" id="callout-alabama-ml">vs Michigan · <span id="callout-alabama-ml-val">+375 ML</span></div>
         <div class="callout-detail">Michigan lost L.J. Cason (ACL) and enters the Sweet 16 with Cadeau as sole primary ball-handler for a potential three-game run. Alabama has Mark Sears fully healthy — 20+ ppg scoring engine — and Oats' up-tempo system can shred a depleted backcourt. Michigan is still favored but this is the S16's most structurally dangerous upset setup.</div>
       </div>
       <div class="callout-card risk">
@@ -851,7 +851,7 @@ nav{top:32px!important}
   </div>
 
   <div class="tab-wrap">
-    <button class="tab-btn" onclick="showTab('predictions',this)">GAME PREDICTIONS</button>
+    <button class="tab-btn" data-tab="predictions" onclick="showTab('predictions',this)">GAME PREDICTIONS</button>
     <div class="tooltip">
       <div class="tooltip-title">Game Predictions</div>
       <div class="tooltip-desc">Every Sweet 16 matchup with projected spread, Moneyline (ML), and Over/Under total — plus a bet recommendation built from efficiency ratings, NIL spending, injuries, pace, and focus scores.</div>
@@ -1501,7 +1501,7 @@ nav{top:32px!important}
     <div class="sec-title">GAME PREDICTIONS</div>
     <div class="sec-sub">🏀 SWEET 16 · All 8 matchups · Projected spread, ML, O/U, and bet recommendation · March 26–27, 2026</div>
     <div class="info-box" style="border-left:3px solid #B8952A">
-      <span class="hl-gold">S16 DISCLAIMER: </span>For entertainment only. Lines are projected estimates — always check your sportsbook for live odds. <strong style="color:#C8102E">Check injury reports the night before each game</strong> — Ament (Tennessee, GTD knee) and Momcilovic (Iowa State, GTD back) are the key S16 variables to monitor.
+      <span class="hl-gold">S16 ODDS: </span>Lines powered by <strong style="color:#0B0F1E">The Odds API</strong> — consensus average across major sportsbooks, refreshed every 4 hours. <span id="odds-last-updated" style="font-size:10px;color:#94A3B8">Loading live lines…</span><br><span style="font-size:10px">For entertainment only. Always verify lines at your sportsbook. <strong style="color:#C8102E">Check injury reports night-of</strong> — Ament (TN, GTD knee) and Momcilovic (ISU, GTD back) are the key variables to monitor.</span>
     </div>
     <div id="game-predictions-grid"></div>
   </div>
@@ -3984,6 +3984,18 @@ document.addEventListener('DOMContentLoaded', function() {
   setInterval(scheduleTicker, 3600000);
 
   // ── LIVE ODDS FROM THE ODDS API ─────────────────────────────────────────
+  // ── ODDS API INTEGRATION ──────────────────────────────────────────────────
+  // Name map: GAME_PREDICTIONS display names → API-normalized names stored by update-odds.mjs
+  var ODDS_NAME_NORM = { 'UConn': 'UCONN', 'Michigan State': 'Michigan St.' };
+  function oddsNorm(t) { return ODDS_NAME_NORM[t] || t; }
+
+  // Build a fast lookup map: "fav|dog" → game prediction object
+  function buildPredMap() {
+    var m = {};
+    GAME_PREDICTIONS.forEach(function(g) { m[g.fav + '|' + g.dog] = g; });
+    return m;
+  }
+
   async function fetchLiveOdds() {
     try {
       var res = await fetch('/api/odds');
@@ -3992,43 +4004,148 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!data.odds) return;
 
       var updated = false;
+
+      // ── 1. Update GAME_PREDICTIONS from live API data ──────────────────────
       GAME_PREDICTIONS.forEach(function(g) {
-        var key1 = g.fav + ' vs ' + g.dog;
-        var key2 = g.dog + ' vs ' + g.fav;
-        var live = data.odds[key1] || data.odds[key2];
+        // Use normalized names to match the keys stored by update-odds.mjs
+        var nFav = oddsNorm(g.fav), nDog = oddsNorm(g.dog);
+        var live = data.odds[nFav + ' vs ' + nDog] || data.odds[nDog + ' vs ' + nFav];
         if (!live) return;
 
         if (live.spread !== null && live.spread !== undefined) {
           g.spread = live.spread;
           var spreadFav = live.spread < 0 ? g.fav : g.dog;
-          var spreadVal = live.spread < 0 ? live.spread : -live.spread;
-          g.spreadLean = spreadFav.toUpperCase() + ' ' + (spreadVal > 0 ? '+' : '') + spreadVal;
+          var sVal = live.spread < 0 ? live.spread : -live.spread;
+          g.spreadLean = spreadFav.toUpperCase() + ' ' + (sVal > 0 ? '+' : '') + sVal;
         }
-        if (live.ml !== null && live.ml !== undefined) {
-          g.ml = live.ml;
-          var mlLabel = (live.ml > 0 ? '+' : '') + live.ml;
-          g.mlLean = (live.fav || g.fav).toUpperCase() + ' ML (' + mlLabel + ')';
+        if (live.ml !== null && live.ml !== undefined) { g.ml = live.ml; }
+        if (live.dogML !== null && live.dogML !== undefined) { g.dogML = live.dogML; }
+        if (live.ou !== null && live.ou !== undefined) { g.ou = live.ou; }
+
+        // mlLean: upset-rated games lean on the dog ML; others on fav ML
+        var isUpset = g.betRating && g.betRating.includes('UPSET');
+        if (isUpset && g.dogML !== undefined) {
+          g.mlLean = g.dog.toUpperCase() + ' ML (' + (g.dogML > 0 ? '+' : '') + g.dogML + ')';
+        } else if (g.ml !== undefined) {
+          g.mlLean = g.fav.toUpperCase() + ' ML (' + (g.ml > 0 ? '+' : '') + g.ml + ')';
         }
-        if (live.ou !== null && live.ou !== undefined) {
-          g.ou = live.ou;
-        }
+
         updated = true;
       });
 
-      if (updated) {
-        // Add a green LIVE badge to the Predictions tab button
-        var tabBtn = document.querySelector('[data-tab="predictions"]');
-        if (tabBtn && !tabBtn.querySelector('.live-odds-badge')) {
-          var badge = document.createElement('span');
-          badge.className = 'live-odds-badge';
-          badge.style.cssText = 'font-size:7px;background:#16A34A;color:#fff;padding:1px 5px;border-radius:3px;margin-left:6px;font-weight:700;letter-spacing:0.5px';
-          badge.textContent = 'LIVE';
-          tabBtn.appendChild(badge);
+      if (!updated) return;
+
+      // Build pred map once for tier updates below
+      var predMap = buildPredMap();
+      function getPred(fav, dog) { return predMap[fav + '|' + dog]; }
+
+      // ── 2. Update TIER 2 upset moneylines ─────────────────────────────────
+      // Each entry maps to [favInPreds, dogInPreds] — the bet is always on the dog
+      var t2keys = [
+        ['Michigan',  'Alabama'     ],   // TIER2[0] Alabama ML
+        ['Duke',      "St. John's"  ],   // TIER2[1] St. John's ML
+        ['Nebraska',  'Iowa'        ],   // TIER2[2] Iowa ML
+        ['Purdue',    'Texas'       ]    // TIER2[3] Texas ML
+      ];
+      t2keys.forEach(function(pair, i) {
+        if (!TIER2_BETS[i]) return;
+        var pred = getPred(pair[0], pair[1]);
+        if (!pred || pred.dogML === undefined) return;
+        var dml = (pred.dogML > 0 ? '+' : '') + pred.dogML;
+        TIER2_BETS[i].bet = pred.dog.toUpperCase() + ' ML (' + dml + ')';
+        TIER2_BETS[i].estOdds = dml;
+      });
+
+      // ── 3. Update TIER 3 over/under lines ─────────────────────────────────
+      // Each entry maps to [fav, dog] and updates the total line
+      var t3keys = [
+        ['Houston',     'Illinois',   'UNDER'],  // TIER3[0]
+        ['Iowa State',  'Tennessee',  'UNDER'],  // TIER3[1]
+        ['Purdue',      'Texas',      'UNDER'],  // TIER3[2]
+        ['Duke',        "St. John's", 'OVER' ],  // TIER3[3]
+        ['Michigan',    'Alabama',    'OVER' ]   // TIER3[4]
+      ];
+      t3keys.forEach(function(entry, i) {
+        if (!TIER3_BETS[i]) return;
+        var pred = getPred(entry[0], entry[1]);
+        if (!pred || pred.ou === undefined) return;
+        TIER3_BETS[i].estLine = String(pred.ou);
+        TIER3_BETS[i].bet = entry[2] + ' ' + pred.ou;
+      });
+
+      // ── 4. Update TIER 1 best bets ────────────────────────────────────────
+      // [fav, dog, type: 'spread'|'ou'|'ml', direction: 'UNDER'|'OVER'|null]
+      var t1keys = [
+        ['Houston',    'Illinois',       'spread', null   ],  // TIER1[0] Houston ATS
+        ['Houston',    'Illinois',       'ou',     'UNDER'],  // TIER1[1] Houston/Illinois UNDER
+        ['Iowa State', 'Tennessee',      'ou',     'UNDER'],  // TIER1[2] Iowa State/TN UNDER
+        ['Arizona',    'Arkansas',       'spread', null   ],  // TIER1[3] Arizona ATS
+        ['UConn',      'Michigan State', 'ml',     null   ]   // TIER1[4] UConn ML
+      ];
+      t1keys.forEach(function(entry, i) {
+        if (!TIER1_BETS[i]) return;
+        // UConn is stored as 'UConn' in preds but needs special lookup
+        var favKey = entry[0], dogKey = entry[1];
+        var pred = getPred(favKey, dogKey);
+        if (!pred) return;
+        if (entry[2] === 'spread' && pred.spread !== undefined) {
+          var sp = (pred.spread > 0 ? '+' : '') + pred.spread;
+          TIER1_BETS[i].bet = pred.fav.toUpperCase() + ' ' + sp + ' (ATS)';
+        } else if (entry[2] === 'ou' && pred.ou !== undefined) {
+          TIER1_BETS[i].bet = entry[3] + ' ' + pred.ou + ' (' + pred.fav + ' vs ' + pred.dog + ')';
+        } else if (entry[2] === 'ml' && pred.ml !== undefined) {
+          var fml = (pred.ml > 0 ? '+' : '') + pred.ml;
+          TIER1_BETS[i].bet = pred.fav.toUpperCase() + ' ML (' + fml + ')';
+          TIER1_BETS[i].estOdds = fml;
         }
-        safeRender(renderGamePredictions, 'predictions');
-        console.log('[Odds] Updated from API at', data.updatedAt);
+      });
+
+      // ── 5. Update hero card ML spans ──────────────────────────────────────
+      var sjPred = getPred('Duke', "St. John's");
+      if (sjPred && sjPred.dogML !== undefined) {
+        var elSJ = document.getElementById('hero-ml-stjohns');
+        if (elSJ) elSJ.textContent = (sjPred.dogML > 0 ? '+' : '') + sjPred.dogML + ' Moneyline';
       }
+      var iaPred = getPred('Nebraska', 'Iowa');
+      if (iaPred && iaPred.dogML !== undefined) {
+        var elIA = document.getElementById('hero-ml-iowa');
+        if (elIA) elIA.textContent = (iaPred.dogML > 0 ? '+' : '') + iaPred.dogML + ' Moneyline';
+      }
+
+      // ── 6. Update Alabama upset callout (model section) ───────────────────
+      var alaPred = getPred('Michigan', 'Alabama');
+      if (alaPred && alaPred.dogML !== undefined) {
+        var elAla = document.getElementById('callout-alabama-ml-val');
+        if (elAla) elAla.textContent = (alaPred.dogML > 0 ? '+' : '') + alaPred.dogML + ' ML';
+      }
+
+      // ── 7. LIVE badge on Predictions tab button ───────────────────────────
+      var tabBtn = document.querySelector('[data-tab="predictions"]');
+      if (tabBtn && !tabBtn.querySelector('.live-odds-badge')) {
+        var badge = document.createElement('span');
+        badge.className = 'live-odds-badge';
+        badge.style.cssText = 'font-size:7px;background:#16A34A;color:#fff;padding:1px 5px;border-radius:3px;margin-left:6px;font-weight:700;letter-spacing:0.5px';
+        badge.textContent = 'LIVE';
+        tabBtn.appendChild(badge);
+      }
+
+      // ── 8. Last-updated timestamp in predictions tab ──────────────────────
+      var tsEl = document.getElementById('odds-last-updated');
+      if (tsEl && data.updatedAt) {
+        var minsAgo = Math.round((Date.now() - new Date(data.updatedAt).getTime()) / 60000);
+        tsEl.textContent = '⚡ Updated ' + (minsAgo < 2 ? 'just now' : minsAgo + ' min ago');
+        tsEl.style.color = '#16A34A';
+      }
+
+      // ── 9. Re-render predictions + parlay with live data ──────────────────
+      safeRender(renderGamePredictions, 'predictions');
+      safeRender(renderParlay, 'parlay');
+      console.log('[Odds] Live lines updated from The Odds API at', data.updatedAt);
+
     } catch(e) {
+      // Show fallback message in disclaimer
+      var tsEl = document.getElementById('odds-last-updated');
+      if (tsEl) { tsEl.textContent = 'Lines are model estimates — API unavailable'; tsEl.style.color = '#94A3B8'; }
       console.log('[Odds] Live odds not available yet:', e.message);
     }
   }
