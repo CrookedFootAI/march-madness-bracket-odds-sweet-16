@@ -1,32 +1,38 @@
 import { schedule } from "@netlify/functions";
 import { getStore } from "@netlify/blobs";
 
-// Sweet 16 teams mapping
+// Sweet 16 Teams – Normalized Names
 const TEAM_MAP = {
+  // East Region
   "Duke Blue Devils": "Duke",
-  "Saint John's Red Storm": "St. John's",
   "Connecticut Huskies": "UCONN",
   "UConn Huskies": "UCONN",
+  "Michigan State Spartans": "Michigan St.",
+  "St. John's Red Storm": "St. John's",
+
+  // West Region
   "Arizona Wildcats": "Arizona",
   "Purdue Boilermakers": "Purdue",
-  "Iowa Hawkeyes": "Iowa",
-  "Nebraska Cornhuskers": "Nebraska",
+  "Arkansas Razorbacks": "Arkansas",
+  "Texas Longhorns": "Texas",
+
+  // South Region
   "Houston Cougars": "Houston",
   "Illinois Fighting Illini": "Illinois",
+  "Nebraska Cornhuskers": "Nebraska",
+  "Iowa Hawkeyes": "Iowa",
+
+  // Midwest Region
   "Michigan Wolverines": "Michigan",
-  "Alabama Crimson Tide": "Alabama",
   "Iowa State Cyclones": "Iowa State",
-  "Florida Gators": "Florida",
-  "Texas Tech Red Raiders": "Texas Tech",
+  "Alabama Crimson Tide": "Alabama",
   "Tennessee Volunteers": "Tennessee",
 };
 
-// Normalize team names, return null if eliminated
 function normalize(name) {
-  return TEAM_MAP[name] || null;
+  return TEAM_MAP[name] || null; // ignore any teams not in Sweet 16
 }
 
-// Calculate consensus odds from bookmakers
 function getConsensusOdds(bookmakers, market) {
   const allOutcomes = {};
   let count = 0;
@@ -83,8 +89,7 @@ export const handler = schedule("0 */4 * * *", async () => {
       const home = normalize(game.home_team);
       const away = normalize(game.away_team);
 
-      // Skip games with eliminated teams
-      if (!home || !away) continue;
+      if (!home || !away) continue; // skip teams not in Sweet 16
 
       const h2h = getConsensusOdds(game.bookmakers, "h2h");
       const spreads = getConsensusOdds(game.bookmakers, "spreads");
@@ -128,7 +133,7 @@ export const handler = schedule("0 */4 * * *", async () => {
       odds: oddsLookup,
     });
 
-    console.log(`Stored odds for ${Object.keys(oddsLookup).length / 2} games`);
+    console.log(`✅ Stored odds for ${Object.keys(oddsLookup).length / 2} Sweet 16 games`);
     return { statusCode: 200 };
   } catch (err) {
     console.error("update-odds error:", err);
