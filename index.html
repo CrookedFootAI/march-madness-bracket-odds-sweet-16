@@ -623,15 +623,30 @@ nav{top:32px!important}
         <button class="btn-primary" onclick="document.getElementById('tab-bar').scrollIntoView({behavior:'smooth'})">Generate My Bracket</button>
         <button class="btn-secondary" onclick="document.getElementById('signals-section').scrollIntoView({behavior:'smooth'})">See How It Works</button>
       </div>
-      <div class="hero-champion-strip">
-        <span class="hcs-label">🏆 AI Champion Pick</span>
-        <span class="hcs-pick" id="hero-champ">Michigan</span>
-        <span class="hcs-label" style="border-left:1px solid rgba(255,255,255,0.1);border-right:none">S16 Picks</span>
-        <div id="champ-ff" style="display:flex;gap:0;align-items:center">
-          <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.7);padding:8px 10px;border-left:1px solid rgba(255,255,255,0.1)">Duke ▸ E8</span>
-          <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.7);padding:8px 10px;border-left:1px solid rgba(255,255,255,0.1)">Arizona ▸ E8</span>
-          <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:#B8952A;padding:8px 10px;border-left:1px solid rgba(255,255,255,0.1)">Michigan ▸ 🏆</span>
-          <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.7);padding:8px 10px;border-left:1px solid rgba(255,255,255,0.1)">Iowa State ▸ FF</span>
+      <!-- AI FINAL FOUR PREDICTIONS BOX -->
+      <div style="background:#0B0F1E;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:14px 16px;max-width:100%">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-bottom:10px">🤖 AI Tournament Predictions</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:10px 12px">
+            <div style="font-size:8px;color:rgba(255,255,255,0.35);letter-spacing:1px;margin-bottom:4px">EAST</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#FFFFFF;line-height:1">Duke</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-top:2px">▸ Elite Eight</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:10px 12px">
+            <div style="font-size:8px;color:rgba(255,255,255,0.35);letter-spacing:1px;margin-bottom:4px">WEST</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#FFFFFF;line-height:1">Arizona</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-top:2px">▸ Elite Eight</div>
+          </div>
+          <div style="background:rgba(184,149,42,0.12);border:1px solid rgba(184,149,42,0.3);border-radius:6px;padding:10px 12px">
+            <div style="font-size:8px;color:#B8952A;letter-spacing:1px;margin-bottom:4px">MIDWEST · 🏆 CHAMPION</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#B8952A;line-height:1" id="hero-champ">Michigan</div>
+            <div style="font-size:9px;color:#B8952A;opacity:0.8;margin-top:2px">▸ National Champion</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:10px 12px">
+            <div style="font-size:8px;color:rgba(255,255,255,0.35);letter-spacing:1px;margin-bottom:4px">SOUTH</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#FFFFFF;line-height:1">Iowa State</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-top:2px">▸ Final Four</div>
+          </div>
         </div>
       </div>
     </div>
