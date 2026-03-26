@@ -1,7 +1,7 @@
 import { schedule } from "@netlify/functions";
 import { getStore } from "@netlify/blobs";
 
-// Maps The Odds API team names → short names used in your site
+// Sweet 16 teams mapping
 const TEAM_MAP = {
   "Duke Blue Devils": "Duke",
   "Saint John's Red Storm": "St. John's",
@@ -21,10 +21,12 @@ const TEAM_MAP = {
   "Tennessee Volunteers": "Tennessee",
 };
 
+// Normalize team names, return null if eliminated
 function normalize(name) {
-  return TEAM_MAP[name] || name;
+  return TEAM_MAP[name] || null;
 }
 
+// Calculate consensus odds from bookmakers
 function getConsensusOdds(bookmakers, market) {
   const allOutcomes = {};
   let count = 0;
@@ -80,6 +82,9 @@ export const handler = schedule("0 */4 * * *", async () => {
     for (const game of games) {
       const home = normalize(game.home_team);
       const away = normalize(game.away_team);
+
+      // Skip games with eliminated teams
+      if (!home || !away) continue;
 
       const h2h = getConsensusOdds(game.bookmakers, "h2h");
       const spreads = getConsensusOdds(game.bookmakers, "spreads");
