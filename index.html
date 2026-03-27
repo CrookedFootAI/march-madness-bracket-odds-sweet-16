@@ -3895,12 +3895,43 @@ function applyGameResults() {
     });
   });
 
-  // ── Auto-replace ALL data-stale-game elements site-wide ──────────────────
-  // Any element tagged data-stale-game="Fav|Dog" gets replaced with the
-  // final score the moment ESPN returns STATUS_FINAL for that game.
+  // ── Auto-scanner: replace ANY stale descriptive text site-wide ──────────────
+  // No manual tagging needed. Scans all known text containers and any element
+  // that mentions BOTH team names from a completed game (min 50 chars to skip
+  // badges/labels) gets auto-replaced with the final score.
+  var SCAN_SELECTORS = [
+    '.callout-detail',
+    '.intel-text',
+    '.matchup-card [style*="border-top"]',
+    '[data-stale-game]',          // explicit overrides still work
+    '.prediction-note',
+    '.edge-note',
+    '[class*="detail"]',
+    '[class*="note"]',
+    '[class*="desc"]'
+  ];
+  // Build deduplicated candidate list
+  var _candidates = [];
+  SCAN_SELECTORS.forEach(function(sel) {
+    try {
+      document.querySelectorAll(sel).forEach(function(el) {
+        if (_candidates.indexOf(el) === -1) _candidates.push(el);
+      });
+    } catch(e) {}
+  });
+  // For each completed game, check every candidate for team name mentions
   Object.keys(GAME_RESULTS).forEach(function(key) {
     var r = GAME_RESULTS[key];
-    document.querySelectorAll('[data-stale-game="' + key + '"]:not([data-result-applied])').forEach(function(el) {
+    var parts = key.split('|');
+    var t1 = parts[0].toLowerCase();
+    var t2 = parts[1].toLowerCase();
+    _candidates.forEach(function(el) {
+      if (el.getAttribute('data-result-applied')) return;
+      var lc = el.textContent.toLowerCase();
+      // Must be descriptive text (≥50 chars) and mention BOTH teams
+      if (lc.length < 50) return;
+      if (lc.indexOf(t1) === -1 || lc.indexOf(t2) === -1) return;
+      // Replace content with final result
       var winColor = r.isUpset ? '#C8102E' : '#16A34A';
       var icon = r.isUpset ? '🔥 UPSET — ' : '✅ FINAL — ';
       el.innerHTML = icon +
