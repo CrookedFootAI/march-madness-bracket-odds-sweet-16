@@ -3724,29 +3724,29 @@ function buildStaticTickerItems() {
 
   // ── BRACKET BUSTERS injected dynamically by fetchTourneyHistory() via ESPN ──
 
-  // ── SWEET 16 SCHEDULE ───────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'📅 MAR 27', text:'EAST: #1 Duke vs #5 St. John\'s · #3 Michigan State vs #2 UConn · Capital One Arena, Washington D.C.' });
-  items.push({ cls:'tick-alert', badge:'📅 MAR 27', text:'MIDWEST: #1 Michigan vs #4 Alabama · #6 Tennessee vs #2 Iowa State · United Center, Chicago IL' });
+  // ── SWEET 16 SCHEDULE — only show before game day ───────────────────────────
+  var _today = parseInt(new Date().toISOString().slice(0,10).replace(/-/g,''));
+  if (_today < 20260327) {
+    items.push({ cls:'tick-alert', badge:'📅 MAR 27', text:'EAST: #1 Duke vs #5 St. John\'s · #3 Michigan State vs #2 UConn · Capital One Arena, Washington D.C.' });
+    items.push({ cls:'tick-alert', badge:'📅 MAR 27', text:'MIDWEST: #1 Michigan vs #4 Alabama · #6 Tennessee vs #2 Iowa State · United Center, Chicago IL' });
+  }
 
   // ── SWEET 16 INJURIES ───────────────────────────────────────────────────────
   items.push({ cls:'tick-inj', badge:'🚑 SUSP', text:'Alabama Aden Holloway — SUSPENDED (felony arrest) · 16.8 PPG · did NOT travel to Chicago · biggest off-court loss in S16' });
   items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Michigan L.J. Cason — OUT (ACL) · Cadeau sole PG vs Alabama\'s 71.8-possession attack' });
   items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Arizona Koa Peat — OUT (foot) · Arizona won Big 12 Title without him — resilience proven' });
   items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Michigan State Divine Ugochukwu — OUT (foot · season-ending) · MSU rotation thinner vs UConn' });
-  items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Nebraska Connor Essegian — OUT (ankle · season-ending)' });
   items.push({ cls:'tick-inj', badge:'⚠️ DOUBTFUL', text:'Duke Caleb Foster — DOUBTFUL (foot fracture · "outside chance" per Scheyer · treat Duke as 7-man rotation)' });
   items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Iowa State Joshua Jefferson — GTD (ankle · missed R32 · most critical GTD in the S16)' });
   items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Duke Patrick Ngongba II — GTD (foot · wore boot after R32 · expected limited minutes)' });
   items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Purdue CJ Cox — GTD (knee · 38.4% 3PT shooter · game-time decision)' });
   items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Iowa State M. Momcilovic — GTD (back tightness · Lipsey carries regardless)' });
   items.push({ cls:'tick-inj', badge:'✅ HEALTHY', text:'Houston — Full roster healthy playing AT HOME at Toyota Center · Sampson defense-first at full strength' });
-  items.push({ cls:'tick-inj', badge:'✅ HEALTHY', text:'Iowa — Full health Cinderella · Banks, Folgueiras, Koch all locked in · no injury concerns' });
 
   // ── SWEET 16 PLAYER FOCUS ───────────────────────────────────────────────────
   items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Cameron Boozer (Duke) 22.8 ppg/10.2 rpg — must carry Duke with Foster DOUBTFUL in S16 vs St. John\'s' });
   items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Chaz Lanier (Tennessee) 19.4 ppg — led Vols past Virginia in R32 · now faces Iowa State in S16' });
   items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Tamin Lipsey (Iowa State) — steady floor general · leads Cyclones into S16 vs Tennessee in Chicago' });
-  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Iowa Cinderella run — #9 seed stunned defending champion Florida · Results live via ESPN above' });
 
   // ── SWEET 16 UPSET ALERTS ───────────────────────────────────────────────────
   items.push({ cls:'tick-upset', badge:'🔥 S16 UPSET', text:'St. John\'s vs Duke (MAR 27) — Pitino\'s depleted-Duke matchup · Foster DOUBTFUL · 7-man rotation · Upset Alert 68/100!' });
@@ -4093,10 +4093,12 @@ async function fetchTourneyHistory() {
     // Feed result into card updater
     storeGameResult(winName, loseName, winScore, loseScore, winSeed, loseSeed);
 
+    // Only surface S16+ results in the ticker — earlier round noise stays out
+    if (!isS16Plus) return;
     if (isUpset) {
       histItems.push({ cls:'tick-upset', badge:'💥 BUSTED',
         text:ss(winSeed)+winName+' def. '+ss(loseSeed)+loseName+' '+scoreLine+' — UPSET!' });
-    } else if (isS16Plus) {
+    } else {
       histItems.push({ cls:'tick-alert', badge:'✅ S16 FINAL',
         text:ss(winSeed)+winName+' def. '+ss(loseSeed)+loseName+' '+scoreLine });
     }
