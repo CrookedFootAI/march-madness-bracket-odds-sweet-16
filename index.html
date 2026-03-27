@@ -3720,16 +3720,9 @@ function buildStaticTickerItems() {
   var items = [];
 
   // ── SWEET 16 STATUS ─────────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'🏀 SWEET 16', text:'2026 NCAA Sweet 16 · March 26 results below · March 27: East & Midwest · Elite 8 March 28–29' });
+  items.push({ cls:'tick-alert', badge:'🏀 SWEET 16', text:'2026 NCAA Tournament · Results & scores powered by ESPN · Updates live as games finish' });
 
-  // ── BRACKET BUSTERS — R64/R32 ────────────────────────────────────────────────
-  items.push({ cls:'tick-upset', badge:'💥 BUSTED', text:'#1 Florida ELIMINATED by #9 Iowa — biggest upset of 2026 tournament! Defending champs out in R32!' });
-  items.push({ cls:'tick-upset', badge:'💥 BUSTED', text:'#3 Gonzaga ELIMINATED by #11 Texas — 11-seed beats the Bulldogs in R32! Huff injury a factor.' });
-  items.push({ cls:'tick-upset', badge:'💥 BUSTED', text:'#4 Kansas ELIMINATED by #5 St. John\'s — Red Storm edge the Jayhawks in R32 · advance to Sweet 16!' });
-  items.push({ cls:'tick-upset', badge:'💥 BUSTED', text:'#3 Virginia ELIMINATED by #6 Tennessee — Pack-Line no match for Lanier + Barnes · Vols in S16.' });
-
-  // ── SWEET 16 RESULTS — MAR 26 ────────────────────────────────────────────────
-  items.push({ cls:'tick-upset', badge:'💥 S16 OUT', text:'#11 Texas ELIMINATED by #2 Purdue — Cinderella run is over · First Four → R32 → S16 run was historic!' });
+  // ── BRACKET BUSTERS injected dynamically by fetchTourneyHistory() via ESPN ──
 
   // ── SWEET 16 SCHEDULE ───────────────────────────────────────────────────────
   items.push({ cls:'tick-alert', badge:'📅 MAR 26', text:'SOUTH: #9 Iowa vs #4 Nebraska · #3 Illinois vs #2 Houston · Toyota Center, Houston TX' });
@@ -3972,6 +3965,90 @@ function injectScoreItems(liveHTML) {
   });
 }
 
+// Inject historical results (upsets + S16 finals) after the first static item
+function injectHistoryItems(items) {
+  ['ticker-track', 'ticker-track-clone'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    Array.from(el.querySelectorAll('.tick-history-item')).forEach(function(n){ n.remove(); });
+    var afterFirst = el.firstChild ? el.firstChild.nextSibling : null;
+    var frag = document.createDocumentFragment();
+    items.forEach(function(it) {
+      var d = document.createElement('div');
+      d.className = 'tick-item tick-history-item';
+      d.innerHTML = '<span class="' + it.cls + '">' + it.badge + '</span><span style="color:rgba(255,255,255,0.9)">' + it.text + '</span>';
+      frag.appendChild(d);
+    });
+    el.insertBefore(frag, afterFirst);
+  });
+}
+
+// ── TOURNAMENT HISTORY — all completed round results from ESPN ────────────────
+// Runs on load (30-min cache). Fetches R64 → R32 → S16 → E8 automatically.
+// All upsets from any round + every S16+ final populate the ticker dynamically.
+var _histFetchedAt = 0;
+
+async function fetchTourneyHistory() {
+  if (Date.now() - _histFetchedAt < 1800000) return; // 30-min cache
+  var now = new Date();
+  var todayNum = parseInt(now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0'));
+  var allDates = ['20260319','20260320','20260321','20260322','20260326','20260327','20260328','20260329','20260404','20260406'];
+  var s16Plus  = {'20260326':1,'20260327':1,'20260328':1,'20260329':1,'20260404':1,'20260406':1};
+  var toFetch  = allDates.filter(function(d){ return parseInt(d) <= todayNum; });
+  if (!toFetch.length) return;
+
+  var allEvents = [], seenIds = {};
+  await Promise.all(toFetch.map(function(dateStr) {
+    return fetch(ESPN_URL + '&dates=' + dateStr, { cache:'default' })
+      .then(function(r){ return r.ok ? r.json() : {events:[]}; })
+      .then(function(data){
+        (data.events||[]).forEach(function(ev){
+          if (!seenIds[ev.id]) { seenIds[ev.id]=true; ev._d=dateStr; allEvents.push(ev); }
+        });
+      }).catch(function(){});
+  }));
+
+  var histItems = [];
+  allEvents.forEach(function(ev) {
+    var comp = (ev.competitions||[])[0]; if (!comp) return;
+    if (((ev.status||{}).type||{}).name !== 'STATUS_FINAL') return;
+    var competitors = comp.competitors||[];
+    var away = competitors.find(function(c){return c.homeAway==='away';});
+    var home = competitors.find(function(c){return c.homeAway==='home';});
+    if (!away||!home) return;
+
+    var aScore=parseInt(away.score||0,10), hScore=parseInt(home.score||0,10);
+    var awayWon = aScore > hScore;
+    var aName=espnNorm((away.team||{}).shortDisplayName||(away.team||{}).abbreviation||'');
+    var hName=espnNorm((home.team||{}).shortDisplayName||(home.team||{}).abbreviation||'');
+    var aSeed=parseInt((away.curatedRank||{}).current||0,10)||null;
+    var hSeed=parseInt((home.curatedRank||{}).current||0,10)||null;
+
+    var winName=awayWon?aName:hName, loseName=awayWon?hName:aName;
+    var winScore=awayWon?aScore:hScore, loseScore=awayWon?hScore:aScore;
+    var winSeed=awayWon?aSeed:hSeed, loseSeed=awayWon?hSeed:aSeed;
+    var ss=function(s){return s?'#'+s+' ':'';};
+    var scoreLine=winScore+'-'+loseScore;
+    var isUpset = winSeed && loseSeed && winSeed > loseSeed;
+    var isS16Plus = !!s16Plus[ev._d];
+
+    // Feed result into card updater
+    storeGameResult(winName, loseName, winScore, loseScore, winSeed, loseSeed);
+
+    if (isUpset) {
+      histItems.push({ cls:'tick-upset', badge:'💥 BUSTED',
+        text:ss(winSeed)+winName+' def. '+ss(loseSeed)+loseName+' '+scoreLine+' — UPSET!' });
+    } else if (isS16Plus) {
+      histItems.push({ cls:'tick-alert', badge:'✅ S16 FINAL',
+        text:ss(winSeed)+winName+' def. '+ss(loseSeed)+loseName+' '+scoreLine });
+    }
+  });
+
+  if (histItems.length) injectHistoryItems(histItems);
+  if (Object.keys(GAME_RESULTS).length) applyGameResults();
+  _histFetchedAt = Date.now();
+}
+
 // Process a list of ESPN events: update ticker items AND store final results
 function processESPNEvents(events, scoreItems, flags) {
   events.forEach(function(ev) {
@@ -4152,6 +4229,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Start ticker scroll
   startTicker();
+
+  // Fetch all completed tournament results (R64→R32→S16→E8) — populates BUSTED items dynamically
+  fetchTourneyHistory();
+  // Refresh history every 30 min in case new games finished
+  setInterval(fetchTourneyHistory, 1800000);
 
   // Init tooltips
   initTooltips();
