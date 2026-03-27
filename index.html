@@ -3896,30 +3896,52 @@ function applyGameResults() {
   });
 
   // ── Auto-scanner: replace ANY stale descriptive text site-wide ──────────────
-  // No manual tagging needed. Scans all known text containers and any element
-  // that mentions BOTH team names from a completed game (min 50 chars to skip
-  // badges/labels) gets auto-replaced with the final score.
-  var SCAN_SELECTORS = [
+  // Two-pass approach:
+  //  PASS 1 — explicit data-stale-game="Fav|Dog" tags: replace by key match,
+  //            no text content check needed (the tag IS the authority).
+  //  PASS 2 — untagged containers: scan .callout-detail, .intel-text, etc.
+  //            and replace any element ≥50 chars that mentions BOTH team names.
+  function applyResult(el, r) {
+    var winColor = r.isUpset ? '#C8102E' : '#16A34A';
+    var icon = r.isUpset ? '🔥 UPSET — ' : '✅ FINAL — ';
+    el.innerHTML = icon +
+      '<strong style="color:' + winColor + '">' + r.winner + '</strong>' +
+      ' def. ' + r.loser +
+      ' <strong style="font-family:\'IBM Plex Mono\',monospace;color:#0B0F1E">' +
+      r.winScore + '–' + r.loseScore + '</strong>';
+    el.style.color = '#64748B';
+    el.setAttribute('data-result-applied', '1');
+  }
+
+  // PASS 1: explicit tags — key match only, no text check
+  Object.keys(GAME_RESULTS).forEach(function(key) {
+    var r = GAME_RESULTS[key];
+    document.querySelectorAll('[data-stale-game="' + key + '"]:not([data-result-applied])').forEach(function(el) {
+      applyResult(el, r);
+    });
+  });
+
+  // PASS 2: auto-scan untagged descriptive containers for both team names
+  var AUTO_SELECTORS = [
     '.callout-detail',
     '.intel-text',
     '.matchup-card [style*="border-top"]',
-    '[data-stale-game]',          // explicit overrides still work
     '.prediction-note',
     '.edge-note',
     '[class*="detail"]',
     '[class*="note"]',
     '[class*="desc"]'
   ];
-  // Build deduplicated candidate list
   var _candidates = [];
-  SCAN_SELECTORS.forEach(function(sel) {
+  AUTO_SELECTORS.forEach(function(sel) {
     try {
       document.querySelectorAll(sel).forEach(function(el) {
-        if (_candidates.indexOf(el) === -1) _candidates.push(el);
+        if (!el.getAttribute('data-result-applied') && _candidates.indexOf(el) === -1) {
+          _candidates.push(el);
+        }
       });
     } catch(e) {}
   });
-  // For each completed game, check every candidate for team name mentions
   Object.keys(GAME_RESULTS).forEach(function(key) {
     var r = GAME_RESULTS[key];
     var parts = key.split('|');
@@ -3928,19 +3950,9 @@ function applyGameResults() {
     _candidates.forEach(function(el) {
       if (el.getAttribute('data-result-applied')) return;
       var lc = el.textContent.toLowerCase();
-      // Must be descriptive text (≥50 chars) and mention BOTH teams
-      if (lc.length < 50) return;
-      if (lc.indexOf(t1) === -1 || lc.indexOf(t2) === -1) return;
-      // Replace content with final result
-      var winColor = r.isUpset ? '#C8102E' : '#16A34A';
-      var icon = r.isUpset ? '🔥 UPSET — ' : '✅ FINAL — ';
-      el.innerHTML = icon +
-        '<strong style="color:' + winColor + '">' + r.winner + '</strong>' +
-        ' def. ' + r.loser +
-        ' <strong style="font-family:\'IBM Plex Mono\',monospace;color:#0B0F1E">' +
-        r.winScore + '–' + r.loseScore + '</strong>';
-      el.style.color = '#64748B';
-      el.setAttribute('data-result-applied', '1');
+      // Must be descriptive text (≥50 chars) mentioning BOTH team names
+      if (lc.length < 50 || lc.indexOf(t1) === -1 || lc.indexOf(t2) === -1) return;
+      applyResult(el, r);
     });
   });
 
