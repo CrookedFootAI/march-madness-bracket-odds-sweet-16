@@ -62,7 +62,7 @@ function getConsensusOdds(bookmakers, market) {
   return result;
 }
 
-export const handler = schedule("0 */4 * * *", async () => {
+export const handler = schedule("0 */2 * * *", async () => {
   const apiKey = process.env.ODDS_API_KEY;
 
   if (!apiKey) {
