@@ -3697,55 +3697,55 @@ function buildStaticTickerItems() {
   var items = [];
 
   // ── SWEET 16 STATUS ─────────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'🏀 SWEET 16', text:'2026 NCAA Sweet 16 · March 26 (South/West) · March 27 (East/Midwest) · Elite 8 March 28–29' });
+  items.push({ cls:'tick-alert', badge:'🏀 SWEET 16', text:'2026 NCAA Sweet 16 · March 26 results below · March 27: East & Midwest · Elite 8 March 28–29' });
 
-  // ── BRACKET BUSTERS ─────────────────────────────────────────────────────────
-  items.push({ cls:'tick-upset', badge:'💥 BUSTED', text:'#1 Florida ELIMINATED by #9 Iowa — biggest upset of 2026 tournament! Defending champs gone in R32!' });
-  items.push({ cls:'tick-upset', badge:'💥 BUSTED', text:'#3 Gonzaga ELIMINATED by #11 Texas — First Four team takes down the Bulldogs! Huff injury factored in.' });
-  items.push({ cls:'tick-upset', badge:'💥 BUSTED', text:'#4 Kansas ELIMINATED by #5 St. John\'s — Pitino\'s team beats Self in the R32! St. John\'s in the S16!' });
-  items.push({ cls:'tick-upset', badge:'💥 BUSTED', text:'#3 Virginia ELIMINATED by #6 Tennessee — Pack-Line defense no match for Lanier + Barnes in R32.' });
+  // ── BRACKET BUSTERS — R64/R32 ────────────────────────────────────────────────
+  items.push({ cls:'tick-upset', badge:'💥 BUSTED', text:'#1 Florida ELIMINATED by #9 Iowa — biggest upset of 2026 tournament! Defending champs out in R32!' });
+  items.push({ cls:'tick-upset', badge:'💥 BUSTED', text:'#3 Gonzaga ELIMINATED by #11 Texas — 11-seed beats the Bulldogs in R32! Huff injury a factor.' });
+  items.push({ cls:'tick-upset', badge:'💥 BUSTED', text:'#4 Kansas ELIMINATED by #5 St. John\'s — Red Storm edge the Jayhawks in R32 · advance to Sweet 16!' });
+  items.push({ cls:'tick-upset', badge:'💥 BUSTED', text:'#3 Virginia ELIMINATED by #6 Tennessee — Pack-Line no match for Lanier + Barnes · Vols in S16.' });
+
+  // ── SWEET 16 RESULTS — MAR 26 ────────────────────────────────────────────────
+  items.push({ cls:'tick-upset', badge:'💥 S16 OUT', text:'#11 Texas ELIMINATED by #2 Purdue — Cinderella run is over · First Four → R32 → S16 run was historic!' });
 
   // ── SWEET 16 SCHEDULE ───────────────────────────────────────────────────────
   items.push({ cls:'tick-alert', badge:'📅 MAR 26', text:'SOUTH: #9 Iowa vs #4 Nebraska · #3 Illinois vs #2 Houston · Toyota Center, Houston TX' });
-  items.push({ cls:'tick-alert', badge:'📅 MAR 26', text:'WEST: #1 Arizona vs #4 Arkansas · #11 Texas vs #2 Purdue · SAP Center, San Jose CA' });
+  items.push({ cls:'tick-alert', badge:'📅 MAR 26', text:'WEST: #1 Arizona vs #4 Arkansas · SAP Center, San Jose CA · Live scores powered by ESPN' });
   items.push({ cls:'tick-alert', badge:'📅 MAR 27', text:'EAST: #1 Duke vs #5 St. John\'s · #3 Michigan State vs #2 UConn · Capital One Arena, Washington D.C.' });
   items.push({ cls:'tick-alert', badge:'📅 MAR 27', text:'MIDWEST: #1 Michigan vs #4 Alabama · #6 Tennessee vs #2 Iowa State · United Center, Chicago IL' });
 
   // ── SWEET 16 INJURIES ───────────────────────────────────────────────────────
   items.push({ cls:'tick-inj', badge:'🚑 SUSP', text:'Alabama Aden Holloway — SUSPENDED (felony arrest) · 16.8 PPG · did NOT travel to Chicago · biggest off-court loss in S16' });
-  items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Michigan L.J. Cason — OUT (ACL · Cadeau sole PG vs Alabama\'s 71.8-possession attack)' });
-  items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Arizona Koa Peat — OUT (foot · Arizona won Big 12 Title without him — resilience proven)' });
-  items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Michigan State Divine Ugochukwu — OUT (foot · season-ending · MSU rotation thinner vs UConn)' });
-  items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Nebraska Connor Essegian — OUT (ankle · season-ending · reduces 3-pt ceiling vs Iowa)' });
-  items.push({ cls:'tick-inj', badge:'⚠️ DOUBTFUL', text:'Duke Caleb Foster — DOUBTFUL (foot fracture · "outside chance" per Scheyer · treat as 7-man rotation)' });
-  items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Iowa State Joshua Jefferson — GTD (ankle · missed R32 · "continuing to progress" · most critical GTD in S16)' });
-  items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Duke Patrick Ngongba II — GTD (foot · wore boot after R32 · expected to play limited minutes)' });
-  items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Purdue CJ Cox — GTD (knee vs Miami · game-time decision · 38.4% 3PT shooter)' });
-  items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Texas Jordan Pope — GTD (ankle vs Gonzaga · limited practice · primary ball-handler)' });
+  items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Michigan L.J. Cason — OUT (ACL) · Cadeau sole PG vs Alabama\'s 71.8-possession attack' });
+  items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Arizona Koa Peat — OUT (foot) · Arizona won Big 12 Title without him — resilience proven' });
+  items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Michigan State Divine Ugochukwu — OUT (foot · season-ending) · MSU rotation thinner vs UConn' });
+  items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Nebraska Connor Essegian — OUT (ankle · season-ending) · reduces 3-pt ceiling vs Iowa' });
+  items.push({ cls:'tick-inj', badge:'⚠️ DOUBTFUL', text:'Duke Caleb Foster — DOUBTFUL (foot fracture · "outside chance" per Scheyer · treat Duke as 7-man rotation)' });
+  items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Iowa State Joshua Jefferson — GTD (ankle · missed R32 · most critical GTD in the S16)' });
+  items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Duke Patrick Ngongba II — GTD (foot · wore boot after R32 · expected limited minutes)' });
+  items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Purdue CJ Cox — GTD (knee · 38.4% 3PT shooter · game-time decision)' });
   items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Iowa State M. Momcilovic — GTD (back tightness · Lipsey carries regardless)' });
-  items.push({ cls:'tick-inj', badge:'✅ HEALTHY', text:'Houston — Full roster healthy playing AT HOME at Toyota Center · Sampson\'s defense-first at full strength' });
-  items.push({ cls:'tick-inj', badge:'✅ HEALTHY', text:'Iowa — Full health Cinderella · Tavion Banks, Folgueiras, Koch all locked in · no injuries in S16 run' });
+  items.push({ cls:'tick-inj', badge:'✅ HEALTHY', text:'Houston — Full roster healthy playing AT HOME at Toyota Center · Sampson defense-first at full strength' });
+  items.push({ cls:'tick-inj', badge:'✅ HEALTHY', text:'Iowa — Full health Cinderella · Banks, Folgueiras, Koch all locked in · no injury concerns' });
 
   // ── SWEET 16 PLAYER FOCUS ───────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Cameron Boozer (Duke) 22.8 ppg/10.2 rpg — sole star vs St. John\'s· Foster OUT pressure all on him' });
-  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Chaz Lanier (Tennessee) 19.4 ppg — leads Vols past Virginia · now faces Iowa State in S16' });
-  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Tamin Lipsey (Iowa State) — all-basketball, no drama · leads Cyclones into S16 vs Tennessee' });
-  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Iowa Cinderella — 9-seed beat defending champ Florida · McCollum\'s team on fire entering Houston (Toyota Center)' });
+  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Cameron Boozer (Duke) 22.8 ppg/10.2 rpg — must carry Duke with Foster DOUBTFUL in S16 vs St. John\'s' });
+  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Chaz Lanier (Tennessee) 19.4 ppg — led Vols past Virginia in R32 · now faces Iowa State in S16' });
+  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Tamin Lipsey (Iowa State) — steady floor general · leads Cyclones into S16 vs Tennessee in Chicago' });
+  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Iowa Cinderella — 9-seed beat defending champ Florida · McCollum\'s team on fire entering Toyota Center' });
 
   // ── SWEET 16 UPSET ALERTS ───────────────────────────────────────────────────
-  items.push({ cls:'tick-upset', badge:'🔥 S16 UPSET', text:'St. John\'s vs Duke — Pitino beat Self in R32, now faces depleted 7-man Duke. S16 Upset Alert!' });
-  items.push({ cls:'tick-upset', badge:'🔥 S16 UPSET', text:'Texas vs Purdue — 11-seed First Four team took out Gonzaga · Painter faces a hot underdog in Vegas' });
-  items.push({ cls:'tick-upset', badge:'🔥 S16 UPSET', text:'Alabama vs Michigan — Oats\' 71.8-poss attack vs Cason-less Michigan backcourt · best S16 upset value' });
+  items.push({ cls:'tick-upset', badge:'🔥 S16 UPSET', text:'St. John\'s vs Duke (MAR 27) — Red Storm beat Kansas in R32, now faces depleted 7-man Duke. Upset Alert 68/100!' });
+  items.push({ cls:'tick-upset', badge:'🔥 S16 UPSET', text:'Alabama vs Michigan (MAR 27) — Oats\' 71.8-poss attack vs Cason-less backcourt · best S16 upset value +375 ML' });
 
   // ── SWEET 16 SHARP PLAYS ────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'📊 S16 SHARP', text:'Iowa vs Nebraska OVER — 9-seed Cinderella vs 4-seed in Houston · both teams on hot streaks · high-energy game' });
-  items.push({ cls:'tick-alert', badge:'📊 S16 SHARP', text:'Houston vs Illinois UNDER — Sampson 64.4 poss + Illinois Big Ten physical = defensive grinder' });
-  items.push({ cls:'tick-alert', badge:'📊 S16 SHARP', text:'Texas vs Purdue OVER — First Four team runs fast · Purdue AdjO 119.8 · San Jose SAP Center game' });
-  items.push({ cls:'tick-alert', badge:'📊 S16 SHARP', text:'Iowa State vs Tennessee UNDER — Otzelberger defense vs Barnes Pack discipline · expect sub-130' });
+  items.push({ cls:'tick-alert', badge:'📊 S16 SHARP', text:'Iowa vs Nebraska OVER — 9-seed Cinderella vs 4-seed in Houston · high-energy coin-flip game (-1.5)' });
+  items.push({ cls:'tick-alert', badge:'📊 S16 SHARP', text:'Houston vs Illinois UNDER — Sampson 64.4 poss + Illinois defense = grinder · lean UNDER 140.5' });
+  items.push({ cls:'tick-alert', badge:'📊 S16 SHARP', text:'Iowa State vs Tennessee UNDER — Otzelberger defense vs Barnes physical SEC style · expect sub-130' });
 
   // ── AI PICK ─────────────────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'🏆 AI PICK', text:'Updated S16 Champion pick: Michigan · Final Four: Duke · Arizona · Michigan · Iowa State', gold:true });
-  items.push({ cls:'tick-alert', badge:'🏆 S16 PICK', text:'S16 Upset Watch: St. John\'s over Duke · Alabama over Michigan · Texas over Purdue', gold:false });
+  items.push({ cls:'tick-alert', badge:'🏆 AI PICK', text:'AI Champion: Michigan 🏆 · Final Four: Duke · Arizona · Michigan · Houston', gold:true });
+  items.push({ cls:'tick-alert', badge:'🏆 S16 PICK', text:'S16 Upset Watch: St. John\'s over Duke · Alabama over Michigan · UConn over Michigan State', gold:false });
 
   // Render into DOM
   track.innerHTML = items.map(function(it) {
