@@ -656,8 +656,8 @@ nav{top:32px!important}
     <div class="hero-right">
       <div class="hero-right-label">🏀 Sweet 16 · March 26–27</div>
       <!-- Sweet 16 matchup preview cards -->
-      <div class="matchup-card">
-        <div class="matchup-card-region" style="color:#e63946">EAST · MAR 27 · WASHINGTON D.C.</div>
+      <div class="matchup-card" data-game="Duke|St. John's">
+        <div class="matchup-card-region" id="mc-region-duke-sju" style="color:#e63946">EAST · MAR 27 · WASHINGTON D.C.</div>
         <div class="matchup-team-row">
           <div class="matchup-team">
             <span class="matchup-seed">#1</span>
@@ -674,7 +674,7 @@ nav{top:32px!important}
         </div>
         <div style="margin-top:8px;font-size:9px;color:#94A3B8;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Duke 7-man rotation · Foster OUT · Ngongba GTD · Pitino 52 career wins · St. John's near-home</div>
       </div>
-      <div class="matchup-card">
+      <div class="matchup-card" data-game="Duke|St. John's">
         <div class="matchup-card-region" style="color:#C8102E">UPSET WATCH · EAST · MAR 27</div>
         <div class="matchup-team-row">
           <div class="matchup-team">
@@ -692,7 +692,7 @@ nav{top:32px!important}
         </div>
         <div style="margin-top:8px;font-size:9px;color:#C8102E;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Duke down to 7-man rotation · Foster DOUBTFUL · Pitino 52-26 career · St. John's 225mi from Queens</div>
       </div>
-      <div class="matchup-card">
+      <div class="matchup-card" data-game="Nebraska|Iowa">
         <div class="matchup-card-region" style="color:#22c55e">SOUTH · MAR 26 · HOUSTON</div>
         <div class="matchup-team-row">
           <div class="matchup-team">
@@ -710,7 +710,7 @@ nav{top:32px!important}
         </div>
         <div style="margin-top:8px;font-size:9px;color:#C8102E;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Iowa beat defending champs Florida · #9 seed Cinderella · McCollum's fearless team · nothing to lose</div>
       </div>
-      <div class="matchup-card">
+      <div class="matchup-card" data-game="Michigan|Alabama">
         <div class="matchup-card-region" style="color:#f59e0b">MIDWEST · MAR 27 · CHICAGO</div>
         <div class="matchup-team-row">
           <div class="matchup-team">
@@ -3197,8 +3197,29 @@ function renderGamePredictions() {
       var isUpset = g.betRating.includes('UPSET');
       var isLock = g.betRating === 'LOCK';
       var isUnder = g.betRating.includes('UNDER');
+      var res = g.result; // populated by ESPN API when game is FINAL
 
       html += '<div style="background:#FFFFFF;border:1px solid '+bc+'33;border-radius:12px;overflow:hidden;'+(isUpset?'border-left:3px solid '+bc:'border-top:2px solid '+bc)+'">';
+
+      // ── Result banner (shown when game is final) ───────────────────────────
+      if (res) {
+        var aiCorrect = (res.winner === g.fav && !isUpset) || (res.winner === g.dog && isUpset);
+        var rColor = res.isUpset ? '#C8102E' : '#16A34A';
+        var rLabel = res.isUpset ? '🔥 UPSET — ' + res.winner + ' wins' : '✅ ' + res.winner + ' wins';
+        var coverDiff = res.winScore - res.loseScore;
+        var spread = Math.abs(g.spread);
+        var favWon = res.winner === g.fav;
+        var coverResult = favWon
+          ? (coverDiff > spread ? '📊 ' + g.fav + ' COVERED (-' + spread + ')' : '📊 ' + g.fav + ' DID NOT COVER')
+          : ('📊 ' + g.dog + ' COVERED (+' + spread + ')');
+        html += '<div style="background:'+rColor+'12;border-bottom:1px solid '+rColor+'30;padding:6px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">';
+        html += '<span style="font-size:10px;font-weight:700;color:'+rColor+';letter-spacing:0.5px">'+rLabel+'</span>';
+        html += '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:12px;font-weight:700;color:#0B0F1E">'+res.winScore+'–'+res.loseScore+'</span>';
+        html += '</div>';
+        html += '<div style="background:#F8F7F4;border-bottom:1px solid #EEECE8;padding:4px 14px">';
+        html += '<span style="font-size:9px;color:#64748B">'+coverResult+'</span>';
+        html += '</div>';
+      }
 
       // Header
       html += '<div style="padding:12px 14px;background:'+bc+'0d;border-bottom:1px solid '+bc+'22">';
@@ -3209,9 +3230,11 @@ function renderGamePredictions() {
       html += '</div>';
       html += '</div>';
       html += '<div style="display:flex;align-items:baseline;gap:6px">';
-      html += '<span style="font-family:Barlow Condensed,sans-serif;font-size:20px;font-weight:900;color:#0B0F1E">'+g.fav+'</span>';
+      var favStyle = res ? (res.winner===g.fav ? 'color:#0B0F1E;font-weight:900' : 'color:#0B0F1E;opacity:0.3;text-decoration:line-through') : 'color:#0B0F1E';
+      var dogStyle = res ? (res.winner===g.dog ? 'color:'+(isUpset?bc:'#64748B')+';font-weight:700' : 'opacity:0.3;text-decoration:line-through;color:#64748B') : 'color:'+(isUpset?bc:'#64748B');
+      html += '<span style="font-family:Barlow Condensed,sans-serif;font-size:20px;font-weight:900;'+favStyle+'">'+g.fav+'</span>';
       html += '<span style="font-size:11px;color:#94A3B8">vs</span>';
-      html += '<span style="font-family:Barlow Condensed,sans-serif;font-size:16px;font-weight:700;color:'+(isUpset?bc:'#64748B')+'">'+g.dog+'</span>';
+      html += '<span style="font-family:Barlow Condensed,sans-serif;font-size:16px;font-weight:700;'+dogStyle+'">'+g.dog+'</span>';
       html += '</div>';
       html += '</div>';
 
@@ -3794,6 +3817,98 @@ function updateTickerLabel(hasLive, hasFinished) {
   }
 }
 
+// ── GAME RESULTS STORE (populated by ESPN API) ────────────────────────────────
+// key: "Fav|Dog" matching GAME_PREDICTIONS entries
+// value: { winner, loser, winScore, loseScore, isUpset }
+var GAME_RESULTS = {};
+
+// ESPN shortDisplayName → our display names
+var ESPN_NAME_MAP = {
+  'Connecticut': 'UConn', 'UConn Huskies': 'UConn',
+  'Michigan St.': 'Michigan State', 'Michigan State Spartans': 'Michigan State',
+  'Iowa St.': 'Iowa State', 'Iowa State Cyclones': 'Iowa State',
+  "St. John's (NY)": "St. John's", "SJU": "St. John's",
+  'Purdue Boilermakers': 'Purdue', 'Duke Blue Devils': 'Duke',
+  'Iowa Hawkeyes': 'Iowa', 'Nebraska Cornhuskers': 'Nebraska',
+  'Michigan Wolverines': 'Michigan', 'Alabama Crimson Tide': 'Alabama',
+  'Houston Cougars': 'Houston', 'Illinois Fighting Illini': 'Illinois',
+  'Arizona Wildcats': 'Arizona', 'Arkansas Razorbacks': 'Arkansas',
+  'Tennessee Volunteers': 'Tennessee', 'Texas Longhorns': 'Texas',
+};
+function espnNorm(n) { return ESPN_NAME_MAP[n] || n; }
+
+function storeGameResult(winnerRaw, loserRaw, winScore, loseScore, awaySeed, homeSeed) {
+  var winner = espnNorm(winnerRaw), loser = espnNorm(loserRaw);
+  var pred = null;
+  for (var i = 0; i < GAME_PREDICTIONS.length; i++) {
+    var g = GAME_PREDICTIONS[i];
+    if ((g.fav === winner || g.dog === winner) && (g.fav === loser || g.dog === loser)) {
+      pred = g; break;
+    }
+  }
+  if (!pred) return;
+  var key = pred.fav + '|' + pred.dog;
+  var wSeed = (winner === pred.fav) ? pred.favSeed : pred.dogSeed;
+  var lSeed = (loser === pred.fav) ? pred.favSeed : pred.dogSeed;
+  var isUpset = wSeed > lSeed; // underdog won
+  GAME_RESULTS[key] = { winner: winner, loser: loser, winScore: winScore, loseScore: loseScore, isUpset: isUpset, final: true };
+  pred.result = GAME_RESULTS[key];
+}
+
+// Update hero matchup cards (.matchup-card[data-game]) with final scores
+function applyGameResults() {
+  document.querySelectorAll('.matchup-card[data-game]').forEach(function(card) {
+    var key = card.getAttribute('data-game');
+    var r = GAME_RESULTS[key];
+    if (!r) return;
+    // Only apply once
+    if (card.querySelector('.mc-result-bar')) return;
+
+    var isUpset = r.isUpset;
+    var winColor = isUpset ? '#C8102E' : '#16A34A';
+    var score = r.winScore + '–' + r.loseScore;
+
+    // ① Insert result bar at top
+    var bar = document.createElement('div');
+    bar.className = 'mc-result-bar';
+    bar.style.cssText = 'background:' + winColor + '18;border-bottom:1px solid ' + winColor + '33;padding:4px 10px;display:flex;align-items:center;justify-content:space-between';
+    bar.innerHTML = '<span style="font-size:9px;font-weight:700;color:' + winColor + ';letter-spacing:0.5px">✅ FINAL</span>' +
+      '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;font-weight:700;color:#0B0F1E">' + score + '</span>';
+    card.insertBefore(bar, card.firstChild);
+
+    // ② Dim losing team rows + bold winner
+    card.querySelectorAll('.matchup-name').forEach(function(el) {
+      var name = el.textContent.replace('🔥','').trim();
+      if (name === r.loser) {
+        el.style.opacity = '0.35';
+        el.style.textDecoration = 'line-through';
+      } else if (name === r.winner) {
+        el.style.color = winColor;
+        el.style.fontWeight = '900';
+      }
+    });
+
+    // ③ Update region label
+    var regionEl = card.querySelector('.matchup-card-region');
+    if (regionEl) {
+      regionEl.textContent = regionEl.textContent.replace(/MAR \d+/, 'FINAL');
+    }
+
+    // ④ Replace AI PICK / UPSET WATCH badge with result badge
+    card.querySelectorAll('.matchup-badge').forEach(function(el) {
+      var aiPick = el.textContent.includes('AI PICK') || el.textContent.includes('CHAMPION PATH');
+      var correct = aiPick && !isUpset;
+      el.style.background = correct ? 'rgba(22,163,74,0.12)' : 'rgba(200,16,46,0.1)';
+      el.style.color = correct ? '#16A34A' : '#C8102E';
+      el.style.border = '1px solid ' + (correct ? 'rgba(22,163,74,0.25)' : 'rgba(200,16,46,0.2)');
+      el.textContent = correct ? '✅ CORRECT' : (isUpset ? '🔥 UPSET!' : '✅ WON');
+    });
+  });
+
+  // Re-render prediction cards to show result banners
+  safeRender(renderGamePredictions, 'predictions');
+}
+
 // ── ESPN PUBLIC API LIVE SCORES ───────────────────────────────────────────────
 // ESPN's public scoreboard API — no API key, CORS-friendly
 var ESPN_URL = 'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?groups=100&limit=50';
@@ -3857,96 +3972,121 @@ function injectScoreItems(liveHTML) {
   });
 }
 
+// Process a list of ESPN events: update ticker items AND store final results
+function processESPNEvents(events, scoreItems, flags) {
+  events.forEach(function(ev) {
+    var comp = (ev.competitions || [])[0];
+    if (!comp) return;
+    var competitors = comp.competitors || [];
+    var away = competitors.find(function(c){ return c.homeAway === 'away'; });
+    var home = competitors.find(function(c){ return c.homeAway === 'home'; });
+    if (!away || !home) return;
+
+    var status     = ev.status || {};
+    var stName     = (status.type || {}).name || '';
+    var isLive     = stName === 'STATUS_IN_PROGRESS';
+    var isFinal    = stName === 'STATUS_FINAL';
+    var isHalftime = stName === 'STATUS_HALFTIME';
+    if (!isLive && !isFinal && !isHalftime) return;
+
+    if (isLive || isHalftime) flags.hasLive = true;
+    if (isFinal) flags.hasFinished = true;
+
+    var awayScore = parseInt(away.score || 0, 10);
+    var homeScore = parseInt(home.score || 0, 10);
+    var awayAhead = awayScore > homeScore;
+    var homeAhead = homeScore > awayScore;
+
+    var awayName = espnNorm((away.team || {}).shortDisplayName || (away.team || {}).abbreviation || 'AWAY');
+    var homeName = espnNorm((home.team || {}).shortDisplayName || (home.team || {}).abbreviation || 'HOME');
+
+    var awaySeed = parseInt((away.curatedRank || {}).current || 0, 10) || null;
+    var homeSeed = parseInt((home.curatedRank || {}).current || 0, 10) || null;
+
+    // ── Store final result for card updates ─────────────────────────────────
+    if (isFinal) {
+      var winTeam = awayAhead ? awayName : homeName;
+      var loseTeam = awayAhead ? homeName : awayName;
+      var winScore = awayAhead ? awayScore : homeScore;
+      var loseScore = awayAhead ? homeScore : awayScore;
+      storeGameResult(winTeam, loseTeam, winScore, loseScore, awaySeed, homeSeed);
+    }
+
+    // ── Build ticker HTML ────────────────────────────────────────────────────
+    var clock     = status.displayClock || '';
+    var period    = status.period || 1;
+    var periodLbl = isHalftime ? 'HALF' : getPeriodLabel(period);
+
+    var statusBadge = isLive
+      ? '<span class="tick-live">● LIVE</span>'
+      : isHalftime
+        ? '<span class="tick-live">HALF</span>'
+        : '<span class="tick-final">FINAL</span>';
+
+    var awayStyle = 'color:' + (awayAhead ? '#FFFFFF' : 'rgba(255,255,255,0.6)') + ';font-weight:' + (awayAhead ? '700' : '400');
+    var homeStyle = 'color:' + (homeAhead ? '#FFFFFF' : 'rgba(255,255,255,0.6)') + ';font-weight:' + (homeAhead ? '700' : '400');
+    var seedBadge = function(seed) { return seed ? '<sup style="font-size:7px;color:rgba(255,255,255,0.4);">' + seed + '</sup>' : ''; };
+    var clockBadge = (isLive && clock && !isHalftime) ? ' <span class="tick-clock">' + periodLbl + ' ' + clock + '</span>' : '';
+
+    var upsetBadge = '';
+    if (isFinal && awaySeed && homeSeed) {
+      if (awayAhead && awaySeed > homeSeed + 3) upsetBadge = ' <span class="tick-upset">🔥 UPSET</span>';
+      if (homeAhead && homeSeed > awaySeed + 3) upsetBadge = ' <span class="tick-upset">🔥 UPSET</span>';
+    }
+
+    scoreItems.push(
+      statusBadge +
+      ' <span style="' + awayStyle + '">' + awayName + seedBadge(awaySeed) + '</span>' +
+      ' <span class="tick-score">' + awayScore + '</span>' +
+      '<span style="color:rgba(255,255,255,0.3);margin:0 3px">–</span>' +
+      '<span class="tick-score">' + homeScore + '</span> ' +
+      '<span style="' + homeStyle + '">' + homeName + seedBadge(homeSeed) + '</span>' +
+      clockBadge + upsetBadge
+    );
+  });
+}
+
 async function fetchTickerScores() {
   if (!isTourneyWindow()) return;
   try {
-    var resp = await fetch(ESPN_URL + '&t=' + Date.now(), { cache: 'no-store' });
-    if (!resp.ok) return;
-    var data = await resp.json();
-    var events = data.events || [];
-    if (!events.length) return;
+    // Always fetch today. Also fetch prior S16 dates so results persist after midnight.
+    var now = new Date();
+    var fmt = function(d) {
+      return d.getFullYear() + String(d.getMonth()+1).padStart(2,'0') + String(d.getDate()).padStart(2,'0');
+    };
+    var todayStr = fmt(now);
+    var s16Dates = ['20260326','20260327']; // both S16 days always in scope
+    var datesToFetch = Array.from(new Set([todayStr].concat(s16Dates)));
+
+    var allEvents = [];
+    var seenIds = {};
+    await Promise.all(datesToFetch.map(function(dateStr) {
+      return fetch(ESPN_URL + '&dates=' + dateStr + '&t=' + Date.now(), { cache:'no-store' })
+        .then(function(r){ return r.ok ? r.json() : {events:[]}; })
+        .then(function(d){
+          (d.events || []).forEach(function(ev) {
+            if (!seenIds[ev.id]) { seenIds[ev.id] = true; allEvents.push(ev); }
+          });
+        }).catch(function(){});
+    }));
+
+    if (!allEvents.length) return;
 
     var scoreItems = [];
-    var hasLive = false, hasFinished = false;
-
-    events.forEach(function(ev) {
-      var comp = (ev.competitions || [])[0];
-      if (!comp) return;
-      var competitors = comp.competitors || [];
-      var away = competitors.find(function(c){ return c.homeAway === 'away'; });
-      var home = competitors.find(function(c){ return c.homeAway === 'home'; });
-      if (!away || !home) return;
-
-      var status   = ev.status || {};
-      var stName   = (status.type || {}).name || '';
-      var isLive   = stName === 'STATUS_IN_PROGRESS';
-      var isFinal  = stName === 'STATUS_FINAL';
-      var isHalftime = stName === 'STATUS_HALFTIME';
-      if (!isLive && !isFinal && !isHalftime) return;
-
-      if (isLive || isHalftime) hasLive = true;
-      if (isFinal) hasFinished = true;
-
-      var awayScore = parseInt(away.score || 0, 10);
-      var homeScore = parseInt(home.score || 0, 10);
-      var awayAhead = awayScore > homeScore;
-      var homeAhead = homeScore > awayScore;
-
-      // Short team names — ESPN provides several variants
-      var awayName = (away.team || {}).shortDisplayName || (away.team || {}).abbreviation || 'AWAY';
-      var homeName = (home.team || {}).shortDisplayName || (home.team || {}).abbreviation || 'HOME';
-
-      // Seed detection from notes/competitors
-      var awaySeed = parseInt((away.curatedRank || {}).current || 0, 10) || null;
-      var homeSeed = parseInt((home.curatedRank || {}).current || 0, 10) || null;
-
-      // Clock / period
-      var clock  = status.displayClock || '';
-      var period = status.period || 1;
-      var periodLbl = isHalftime ? 'HALF' : getPeriodLabel(period);
-
-      // Build HTML
-      var statusBadge = isLive
-        ? '<span class="tick-live">● LIVE</span>'
-        : isHalftime
-          ? '<span class="tick-live">HALF</span>'
-          : '<span class="tick-final">FINAL</span>';
-
-      var awayStyle = 'color:' + (awayAhead ? '#FFFFFF' : 'rgba(255,255,255,0.6)') + ';font-weight:' + (awayAhead ? '700' : '400');
-      var homeStyle = 'color:' + (homeAhead ? '#FFFFFF' : 'rgba(255,255,255,0.6)') + ';font-weight:' + (homeAhead ? '700' : '400');
-
-      var seedBadge = function(seed) {
-        return seed ? '<sup style="font-size:7px;color:rgba(255,255,255,0.4);">' + seed + '</sup>' : '';
-      };
-
-      var clockBadge = (isLive && clock && !isHalftime)
-        ? ' <span class="tick-clock">' + periodLbl + ' ' + clock + '</span>'
-        : '';
-
-      // Upset detection: underdog (higher seed #) winning at final
-      var upsetBadge = '';
-      if (isFinal && awaySeed && homeSeed) {
-        if (awayAhead && awaySeed > homeSeed + 3) upsetBadge = ' <span class="tick-upset">🔥 UPSET</span>';
-        if (homeAhead && homeSeed > awaySeed + 3) upsetBadge = ' <span class="tick-upset">🔥 UPSET</span>';
-      }
-
-      scoreItems.push(
-        statusBadge +
-        ' <span style="' + awayStyle + '">' + awayName + seedBadge(awaySeed) + '</span>' +
-        ' <span class="tick-score">' + awayScore + '</span>' +
-        '<span style="color:rgba(255,255,255,0.3);margin:0 3px">–</span>' +
-        '<span class="tick-score">' + homeScore + '</span> ' +
-        '<span style="' + homeStyle + '">' + homeName + seedBadge(homeSeed) + '</span>' +
-        clockBadge + upsetBadge
-      );
-    });
+    var flags = { hasLive: false, hasFinished: false };
+    processESPNEvents(allEvents, scoreItems, flags);
 
     if (scoreItems.length) {
       injectScoreItems(scoreItems);
-      updateTickerLabel(hasLive, hasFinished);
-      // Speed up scroll when live games are happening
-      tickerSpeed = hasLive ? 0.7 : 0.5;
+      updateTickerLabel(flags.hasLive, flags.hasFinished);
+      tickerSpeed = flags.hasLive ? 0.7 : 0.5;
     }
+
+    // Apply final results to cards (runs even if no ticker items to show)
+    if (flags.hasFinished || Object.keys(GAME_RESULTS).length) {
+      applyGameResults();
+    }
+
   } catch(e) {
     console.log('ESPN ticker fetch failed:', e.message || e);
   }
