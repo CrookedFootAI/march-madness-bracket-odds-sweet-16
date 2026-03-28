@@ -3731,39 +3731,41 @@ function buildStaticTickerItems() {
     items.push({ cls:'tick-alert', badge:'📅 MAR 27', text:'MIDWEST: #1 Michigan vs #4 Alabama · #6 Tennessee vs #2 Iowa State · United Center, Chicago IL' });
   }
 
-  // ── SWEET 16 INJURIES ───────────────────────────────────────────────────────
-  items.push({ cls:'tick-inj', badge:'🚑 SUSP', text:'Alabama Aden Holloway — SUSPENDED (felony arrest) · 16.8 PPG · did NOT travel to Chicago · biggest off-court loss in S16' });
-  items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Michigan L.J. Cason — OUT (ACL) · Cadeau sole PG vs Alabama\'s 71.8-possession attack' });
-  items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Arizona Koa Peat — OUT (foot) · Arizona won Big 12 Title without him — resilience proven' });
-  items.push({ cls:'tick-inj', badge:'🚑 OUT', text:'Michigan State Divine Ugochukwu — OUT (foot · season-ending) · MSU rotation thinner vs UConn' });
-  items.push({ cls:'tick-inj', badge:'⚠️ DOUBTFUL', text:'Duke Caleb Foster — DOUBTFUL (foot fracture · "outside chance" per Scheyer · treat Duke as 7-man rotation)' });
-  items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Iowa State Joshua Jefferson — GTD (ankle · missed R32 · most critical GTD in the S16)' });
-  items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Duke Patrick Ngongba II — GTD (foot · wore boot after R32 · expected limited minutes)' });
-  items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Purdue CJ Cox — GTD (knee · 38.4% 3PT shooter · game-time decision)' });
-  items.push({ cls:'tick-inj', badge:'⚠️ GTD', text:'Iowa State M. Momcilovic — GTD (back tightness · Lipsey carries regardless)' });
-  items.push({ cls:'tick-inj', badge:'✅ HEALTHY', text:'Houston — Full roster healthy playing AT HOME at Toyota Center · Sampson defense-first at full strength' });
+  // ── SWEET 16 INJURIES (auto-removed when game goes FINAL via data-game-ref) ──
+  items.push({ cls:'tick-inj', badge:'🚑 SUSP',     game:"Michigan|Alabama",    text:'Alabama Aden Holloway — SUSPENDED (felony arrest) · 16.8 PPG · did NOT travel to Chicago · biggest off-court loss in S16' });
+  items.push({ cls:'tick-inj', badge:'🚑 OUT',      game:"Michigan|Alabama",    text:'Michigan L.J. Cason — OUT (ACL) · Cadeau sole PG vs Alabama\'s 71.8-possession attack' });
+  items.push({ cls:'tick-inj', badge:'🚑 OUT',      game:"Arizona|Arkansas",    text:'Arizona Koa Peat — OUT (foot) · Arizona won Big 12 Title without him — resilience proven' });
+  items.push({ cls:'tick-inj', badge:'🚑 OUT',      game:"UConn|Michigan State",text:'Michigan State Divine Ugochukwu — OUT (foot · season-ending) · MSU rotation thinner vs UConn' });
+  items.push({ cls:'tick-inj', badge:'⚠️ DOUBTFUL', game:"Duke|St. John's",     text:'Duke Caleb Foster — DOUBTFUL (foot fracture · "outside chance" per Scheyer · treat Duke as 7-man rotation)' });
+  items.push({ cls:'tick-inj', badge:'⚠️ GTD',      game:"Iowa State|Tennessee",text:'Iowa State Joshua Jefferson — GTD (ankle · missed R32 · most critical GTD in the S16)' });
+  items.push({ cls:'tick-inj', badge:'⚠️ GTD',      game:"Duke|St. John's",     text:'Duke Patrick Ngongba II — GTD (foot · wore boot after R32 · expected limited minutes)' });
+  items.push({ cls:'tick-inj', badge:'⚠️ GTD',      game:"Purdue|Texas",        text:'Purdue CJ Cox — GTD (knee · 38.4% 3PT shooter · game-time decision)' });
+  items.push({ cls:'tick-inj', badge:'⚠️ GTD',      game:"Iowa State|Tennessee",text:'Iowa State M. Momcilovic — GTD (back tightness · Lipsey carries regardless)' });
+  items.push({ cls:'tick-inj', badge:'✅ HEALTHY',   game:"Houston|Illinois",    text:'Houston — Full roster healthy playing AT HOME at Toyota Center · Sampson defense-first at full strength' });
 
-  // ── SWEET 16 PLAYER FOCUS ───────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Cameron Boozer (Duke) 22.8 ppg/10.2 rpg — must carry Duke with Foster DOUBTFUL in S16 vs St. John\'s' });
-  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Chaz Lanier (Tennessee) 19.4 ppg — led Vols past Virginia in R32 · now faces Iowa State in S16' });
-  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', text:'Tamin Lipsey (Iowa State) — steady floor general · leads Cyclones into S16 vs Tennessee in Chicago' });
+  // ── SWEET 16 PLAYER FOCUS (auto-removed when game goes FINAL) ───────────────
+  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', game:"Duke|St. John's",      text:'Cameron Boozer (Duke) 22.8 ppg/10.2 rpg — must carry Duke with Foster DOUBTFUL in S16 vs St. John\'s' });
+  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', game:"Iowa State|Tennessee", text:'Chaz Lanier (Tennessee) 19.4 ppg — led Vols past Virginia in R32 · now faces Iowa State in S16' });
+  items.push({ cls:'tick-alert', badge:'🌟 PLAYER', game:"Iowa State|Tennessee", text:'Tamin Lipsey (Iowa State) — steady floor general · leads Cyclones into S16 vs Tennessee in Chicago' });
 
-  // ── SWEET 16 UPSET ALERTS ───────────────────────────────────────────────────
-  items.push({ cls:'tick-upset', badge:'🔥 S16 UPSET', text:'St. John\'s vs Duke (MAR 27) — Pitino\'s depleted-Duke matchup · Foster DOUBTFUL · 7-man rotation · Upset Alert 68/100!' });
-  items.push({ cls:'tick-upset', badge:'🔥 S16 UPSET', text:'Alabama vs Michigan (MAR 27) — Oats\' 71.8-poss attack vs Cason-less backcourt · best S16 upset value +375 ML' });
+  // ── SWEET 16 UPSET ALERTS (auto-removed when game goes FINAL) ───────────────
+  items.push({ cls:'tick-upset', badge:'🔥 S16 UPSET', game:"Duke|St. John's",     text:'St. John\'s vs Duke (MAR 27) — Pitino\'s depleted-Duke matchup · Foster DOUBTFUL · 7-man rotation · Upset Alert 68/100!' });
+  items.push({ cls:'tick-upset', badge:'🔥 S16 UPSET', game:"Michigan|Alabama",    text:'Alabama vs Michigan (MAR 27) — Oats\' 71.8-poss attack vs Cason-less backcourt · best S16 upset value +375 ML' });
 
-  // ── SWEET 16 SHARP PLAYS ────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'📊 S16 SHARP', text:'Houston vs Illinois UNDER — Sampson 64.4 poss + Illinois defense = grinder · lean UNDER 140.5' });
-  items.push({ cls:'tick-alert', badge:'📊 S16 SHARP', text:'Iowa State vs Tennessee UNDER — Otzelberger defense vs Barnes physical SEC style · expect sub-130' });
+  // ── SWEET 16 SHARP PLAYS (auto-removed when game goes FINAL) ────────────────
+  items.push({ cls:'tick-alert', badge:'📊 S16 SHARP', game:"Houston|Illinois",    text:'Houston vs Illinois UNDER — Sampson 64.4 poss + Illinois defense = grinder · lean UNDER 140.5' });
+  items.push({ cls:'tick-alert', badge:'📊 S16 SHARP', game:"Iowa State|Tennessee",text:'Iowa State vs Tennessee UNDER — Otzelberger defense vs Barnes physical SEC style · expect sub-130' });
 
   // ── AI PICK ─────────────────────────────────────────────────────────────────
   items.push({ cls:'tick-alert', badge:'🏆 AI PICK', text:'AI Champion: Michigan 🏆 · Final Four: Duke · Arizona · Michigan · Houston', gold:true });
   items.push({ cls:'tick-alert', badge:'🏆 S16 PICK', text:'S16 Upset Watch: St. John\'s over Duke · Alabama over Michigan · UConn over Michigan State', gold:false });
 
-  // Render into DOM
+  // Render into DOM — stamp data-game-ref so applyGameResults() auto-removes
+  // pre-game items (injuries, GTD, upset alerts, sharp plays) when game is FINAL
   track.innerHTML = items.map(function(it) {
     var textStyle = it.gold ? 'color:#f0c040;font-weight:700' : 'color:rgba(255,255,255,0.9)';
-    return '<div class="tick-item"><span class="' + it.cls + '">' + it.badge + '</span><span style="' + textStyle + '">' + it.text + '</span></div>';
+    var gameAttr  = it.game ? ' data-game-ref="' + it.game + '"' : '';
+    return '<div class="tick-item"' + gameAttr + '><span class="' + it.cls + '">' + it.badge + '</span><span style="' + textStyle + '">' + it.text + '</span></div>';
   }).join('');
 }
 
@@ -3953,6 +3955,19 @@ function applyGameResults() {
       // Must be descriptive text (≥50 chars) mentioning BOTH team names
       if (lc.length < 50 || lc.indexOf(t1) === -1 || lc.indexOf(t2) === -1) return;
       applyResult(el, r);
+    });
+  });
+
+  // ── Auto-remove stale pre-game ticker items when game is FINAL ───────────────
+  // Injury reports, GTD/DOUBTFUL, upset alerts, sharp plays all tagged with
+  // data-game-ref="Fav|Dog". Once that game is in GAME_RESULTS, they go away.
+  Object.keys(GAME_RESULTS).forEach(function(key) {
+    ['ticker-track', 'ticker-track-clone'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.querySelectorAll('[data-game-ref="' + key + '"]').forEach(function(node) {
+        node.remove();
+      });
     });
   });
 
