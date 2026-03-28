@@ -3817,7 +3817,7 @@ var ESPN_NAME_MAP = {
   'Connecticut': 'UConn', 'UConn Huskies': 'UConn',
   'Michigan St.': 'Michigan State', 'Michigan State Spartans': 'Michigan State',
   'Iowa St.': 'Iowa State', 'Iowa State Cyclones': 'Iowa State',
-  "St. John's (NY)": "St. John's", "SJU": "St. John's",
+  "St. John's (NY)": "St. John's", "SJU": "St. John's", "St. Johns": "St. John's", "St Johns": "St. John's",
   'Purdue Boilermakers': 'Purdue', 'Duke Blue Devils': 'Duke',
   'Iowa Hawkeyes': 'Iowa', 'Nebraska Cornhuskers': 'Nebraska',
   'Michigan Wolverines': 'Michigan', 'Alabama Crimson Tide': 'Alabama',
@@ -4047,7 +4047,7 @@ function injectHistoryItems(items) {
 var _histFetchedAt = 0;
 
 async function fetchTourneyHistory() {
-  if (Date.now() - _histFetchedAt < 1800000) return; // 30-min cache
+  if (Date.now() - _histFetchedAt < 300000) return; // 5-min cache
   var now = new Date();
   var todayNum = parseInt(now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0'));
   var allDates = ['20260319','20260320','20260321','20260322','20260326','20260327','20260328','20260329','20260404','20260406'];
@@ -4184,7 +4184,8 @@ function processESPNEvents(events, scoreItems, flags) {
 }
 
 async function fetchTickerScores() {
-  if (!isTourneyWindow()) return;
+  var liveMode = isTourneyWindow();
+  // Outside live windows still fetch to catch final results — just skip ticker UI injection
   try {
     // Always fetch today. Also fetch prior S16 dates so results persist after midnight.
     var now = new Date();
@@ -4213,13 +4214,14 @@ async function fetchTickerScores() {
     var flags = { hasLive: false, hasFinished: false };
     processESPNEvents(allEvents, scoreItems, flags);
 
-    if (scoreItems.length) {
+    // Live ticker UI only during game windows; card result updates always run
+    if (liveMode && scoreItems.length) {
       injectScoreItems(scoreItems);
       updateTickerLabel(flags.hasLive, flags.hasFinished);
       tickerSpeed = flags.hasLive ? 0.7 : 0.5;
     }
 
-    // Apply final results to cards (runs even if no ticker items to show)
+    // Always apply final results to cards — this is the key path for post-game updates
     if (flags.hasFinished || Object.keys(GAME_RESULTS).length) {
       applyGameResults();
     }
@@ -4292,8 +4294,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Fetch all completed tournament results (R64→R32→S16→E8) — populates BUSTED items dynamically
   fetchTourneyHistory();
-  // Refresh history every 30 min in case new games finished
-  setInterval(fetchTourneyHistory, 1800000);
+  // Refresh history every 5 min — short enough to catch a game ending
+  setInterval(fetchTourneyHistory, 300000);
 
   // Init tooltips
   initTooltips();
