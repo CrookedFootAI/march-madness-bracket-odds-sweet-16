@@ -1000,7 +1000,7 @@ nav{top:32px!important}
 
     <div class="intel-grid">
       <div class="intel-card"><div class="intel-icon">🩺</div><div><div class="intel-title">S16 INJURY UPDATE</div><div class="intel-text">Foster RETURNED vs St. John's (11 pts, 18 min) — injury watch resolved. Ngongba played (4/4/4). Duke won 80-75 to reach Elite Eight. Michigan lost Cason (ACL). Iowa State Jefferson GTD for Tennessee game.</div></div></div>
-      <div class="intel-card"><div class="intel-icon">🔥</div><div><div class="intel-title">IOWA CINDERELLA RUN</div><div class="intel-text">#9 Iowa beat defending champion Florida — biggest upset of the 2026 tournament. Ben McCollum's fearless team now faces Nebraska (#4) in Houston. Cinderella momentum + nothing-to-lose mindset = real threat to go deeper.</div></div></div>
+      <div class="intel-card"><div class="intel-icon">🔥</div><div><div class="intel-title">IOWA CINDERELLA RUN — OVER</div><div class="intel-text">#9 Iowa beat Florida, then Nebraska to reach the Elite Eight — the deepest 9-seed run in years. Illinois ended it 71-59 (Mar 28). Wagler's 25 pts shut down the Hawkeyes. Great run, McCollum.</div></div></div>
       <div class="intel-card"><div class="intel-icon">📊</div><div><div class="intel-title">SWEET 16 UPSET RATES</div><div class="intel-text">5-seeds beat 1-seeds 21% historically in S16. 6-seeds beat 2-seeds 18% of the time. St. John's over Duke and Alabama over Michigan are structurally backed by data and injury context.</div></div></div>
       <div class="intel-card"><div class="intel-icon">✈️</div><div><div class="intel-title">S16 TRAVEL EDGES</div><div class="intel-text">UConn (350mi to D.C.), Michigan (240mi to Chicago), St. John's (225mi to D.C.), Arizona (800mi to San Jose). Texas traveled 1,800mi after three games. Iowa covers 1,350mi to Houston on Cinderella legs.</div></div></div>
       <div class="intel-card"><div class="intel-icon">🧠</div><div><div class="intel-title">FOCUS RISK: S16 EDITION</div><div class="intel-text">Duke (55/100) — Foster out, Boozer under pressure. Michigan (66/100) — Cason loss adds backcourt burden to Cadeau. Texas (61/100) — First Four fatigue + 1,400-mi cross-country trip compounds pressure.</div></div></div>
@@ -1674,7 +1674,7 @@ function applyFirstFourResults() {
 
 // ── DATA ─────────────────────────────────────────────────────────────────────
 var bracket = {
-  lastUpdated: "🏀 SWEET 16 RESULTS — March 27 2026 · Duke 80 St. John's 75 (Duke E8) · Evans 25 · Boozer 22/10 · Foster returned 11 pts",
+  lastUpdated: "🏀 ELITE EIGHT — March 28 2026 · Illinois 71 Iowa 59 (Final Four!) · Duke 80 SJU 75 · Illinois 65 Houston 55 · Iowa 77 Nebraska 71",
   champion: "Michigan",
   finalFour: ["Duke","Arizona","Michigan","Iowa State"],
   regions: [
@@ -3143,7 +3143,8 @@ var GAME_PREDICTIONS = [
     betRating:"UPSET ALERT", betColor:"#ff6b35",
     spreadLean:"IOWA +1.5", mlLean:"IOWA ML (+108)",
     edge:"Game complete — result shown above via ESPN. Iowa entered as a 9-seed Cinderella after beating defending champion Florida. Nebraska's Essegian OUT + Jarusevicius OUT hurt depth going in. Line was Nebraska -1.5 / Iowa +108 — essentially a coin flip.",
-    flags:["📉 Line -1.5, ML -130/-108 — true coin-flip game","🔥 Iowa upset defending champ Florida — Cinderella momentum","🚑 Nebraska: Essegian OUT + Jarusevicius OUT — depth hit","🎰 Iowa ML +108 — even-money value for tournament's hottest team"] },
+    flags:["📉 Line -1.5, ML -130/-108 — true coin-flip game","🔥 Iowa upset defending champ Florida — Cinderella momentum","🚑 Nebraska: Essegian OUT + Jarusevicius OUT — depth hit","🎰 Iowa ML +108 — even-money value for tournament's hottest team"],
+    result:{ winner:"Iowa", loser:"Nebraska", winScore:77, loseScore:71, isUpset:true, final:true } },
 
   { region:"South", rc:"#22c55e",
     fav:"Houston", favSeed:2, dog:"Illinois", dogSeed:3,
@@ -3151,7 +3152,8 @@ var GAME_PREDICTIONS = [
     betRating:"UNDER LEAN", betColor:"#1A56DB",
     spreadLean:"HOUSTON -2.5", mlLean:"HOUSTON ML (-155)",
     edge:"Houston spread settled back to -2.5 — home crowd advantage is real but not as dominant as earlier lines implied. AT HOME at Toyota Center. Sampson plays 64.4 possessions per game — slowest in the S16 field. Defense clamps everything. UNDER 140.5 is the lean — two defensive-first teams with Sampson's clock-management system grinding for 40 minutes.",
-    flags:["🏠 Houston AT HOME — Toyota Center only true home game in S16","⏱️ Sampson 64.4 poss — slowest tempo in S16 field","📉 UNDER 140.5 lean — Sampson defense elite","👔 Underwood 0 Elite Eights vs Sampson 1 Final Four"] },
+    flags:["🏠 Houston AT HOME — Toyota Center only true home game in S16","⏱️ Sampson 64.4 poss — slowest tempo in S16 field","📉 UNDER 140.5 lean — Sampson defense elite","👔 Underwood 0 Elite Eights vs Sampson 1 Final Four"],
+    result:{ winner:"Illinois", loser:"Houston", winScore:65, loseScore:55, isUpset:true, final:true } },
 
   // ── SWEET 16 · MIDWEST · CHICAGO, IL (March 27) ─────────────────────────
   { region:"Midwest", rc:"#f59e0b",
@@ -3757,9 +3759,15 @@ function buildStaticTickerItems() {
   items.push({ cls:'tick-alert', badge:'📊 S16 SHARP', game:"Houston|Illinois",    text:'Houston vs Illinois UNDER — Sampson 64.4 poss + Illinois defense = grinder · lean UNDER 140.5' });
   items.push({ cls:'tick-alert', badge:'📊 S16 SHARP', game:"Iowa State|Tennessee",text:'Iowa State vs Tennessee UNDER — Otzelberger defense vs Barnes physical SEC style · expect sub-130' });
 
+  // ── E8 RESULTS ──────────────────────────────────────────────────────────────
+  items.push({ cls:'tick-upset', badge:'💥 E8 UPSET', text:'#3 Illinois 71 · #9 Iowa 59 — Illinois to the Final Four! Wagler 25 pts · Cinderella Iowa ELIMINATED' });
+  items.push({ cls:'tick-upset', badge:'💥 S16 UPSET', text:'#3 Illinois 65 · #2 Houston 55 — Illinois stunned Sampson\'s home team · 17-0 run sealed it' });
+  items.push({ cls:'tick-upset', badge:'💥 S16 UPSET', text:'#9 Iowa 77 · #4 Nebraska 71 — Cinderella Iowa advances · Banks leads Hawkeyes past Huskers' });
+  items.push({ cls:'tick-upset', badge:'✅ S16 FINAL', text:'#1 Duke 80 · #5 St. John\'s 75 — Duke survives · Evans 25 · Boozer 22/10 · Foster 11 off bench' });
+
   // ── AI PICK ─────────────────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'🏆 AI PICK', text:'AI Champion: Michigan 🏆 · Final Four: Duke · Arizona · Michigan · Houston', gold:true });
-  items.push({ cls:'tick-alert', badge:'🏆 S16 PICK', text:'S16 Upset Watch: St. John\'s over Duke · Alabama over Michigan · UConn over Michigan State', gold:false });
+  items.push({ cls:'tick-alert', badge:'🏆 AI PICK', text:'AI Champion: Michigan 🏆 · Final Four: Duke · Arizona · Michigan · Iowa State', gold:true });
+  items.push({ cls:'tick-alert', badge:'🏆 E8 WATCH', text:'Illinois in Final Four · E8 still live: Duke · Arizona · Michigan · Iowa State games today/tomorrow', gold:false });
 
   // Render into DOM — stamp data-game-ref so applyGameResults() auto-removes
   // pre-game items (injuries, GTD, upset alerts, sharp plays) when game is FINAL
@@ -3815,7 +3823,11 @@ function updateTickerLabel(hasLive, hasFinished) {
 // value: { winner, loser, winScore, loseScore, isUpset }
 var GAME_RESULTS = {
   // Duke 80, St. John's 75 — FINAL (March 27, 2026) — ESPN API fallback
-  "Duke|St. John's": { winner:"Duke", loser:"St. John's", winScore:80, loseScore:75, isUpset:false, final:true }
+  "Duke|St. John's": { winner:"Duke", loser:"St. John's", winScore:80, loseScore:75, isUpset:false, final:true },
+  // Iowa 77, Nebraska 71 — FINAL (March 26, 2026) — upset (9 over 4)
+  "Nebraska|Iowa": { winner:"Iowa", loser:"Nebraska", winScore:77, loseScore:71, isUpset:true, final:true },
+  // Illinois 65, Houston 55 — FINAL (March 26, 2026) — upset (3 over 2)
+  "Houston|Illinois": { winner:"Illinois", loser:"Houston", winScore:65, loseScore:55, isUpset:true, final:true }
 };
 
 // ESPN shortDisplayName → our display names
