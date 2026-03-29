@@ -609,7 +609,7 @@ nav{top:32px!important}
 <!-- NAV -->
 <nav>
   <div class="nav-logo">BRACKET AGENT 2026</div>
-  <div class="nav-deadline">🏀 ELITE EIGHT · MAR 29</div>
+  <div class="nav-deadline">🏀 SWEET 16 · MAR 26–27</div>
 </nav>
 
 <!-- HERO -->
@@ -623,113 +623,92 @@ nav{top:32px!important}
         <button class="btn-primary" onclick="document.getElementById('tab-bar').scrollIntoView({behavior:'smooth'})">Generate My Bracket</button>
         <button class="btn-secondary" onclick="document.getElementById('signals-section').scrollIntoView({behavior:'smooth'})">See How It Works</button>
       </div>
-      <!-- AI FINAL FOUR PREDICTIONS BOX -->
-      <div style="background:#0B0F1E;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:14px 16px;max-width:100%">
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-bottom:10px">🤖 AI Final Four Predictions</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
-          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:10px 12px">
-            <div style="font-size:8px;color:rgba(255,255,255,0.35);letter-spacing:1px;margin-bottom:4px">EAST</div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#FFFFFF;line-height:1">Duke</div>
-            <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-top:2px">▸ Final Four</div>
-          </div>
-          <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);border-radius:6px;padding:10px 12px">
-            <div style="font-size:8px;color:#22c55e;letter-spacing:1px;margin-bottom:4px">WEST · ✅ FINAL FOUR</div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#FFFFFF;line-height:1">Arizona</div>
-            <div style="font-size:9px;color:#22c55e;margin-top:2px">▸ Won 79-64 vs Purdue</div>
-          </div>
-          <div style="background:rgba(184,149,42,0.12);border:1px solid rgba(184,149,42,0.3);border-radius:6px;padding:10px 12px">
-            <div style="font-size:8px;color:#B8952A;letter-spacing:1px;margin-bottom:4px">MIDWEST · 🏆 CHAMPION</div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#B8952A;line-height:1" id="hero-champ">Michigan</div>
-            <div style="font-size:9px;color:#B8952A;opacity:0.8;margin-top:2px">▸ Plays Tennessee today 2:15 ET</div>
-          </div>
-          <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);border-radius:6px;padding:10px 12px">
-            <div style="font-size:8px;color:#22c55e;letter-spacing:1px;margin-bottom:4px">SOUTH · ✅ FINAL FOUR</div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#FFFFFF;line-height:1">Illinois</div>
-            <div style="font-size:9px;color:#22c55e;margin-top:2px">▸ Won 71-59 vs Iowa</div>
-          </div>
-        </div>
-        <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:8px;font-family:'Barlow Condensed',sans-serif;font-size:11px;color:rgba(255,255,255,0.4)">
-          Championship: <span style="color:#FFFFFF;font-weight:700">Michigan</span> vs <span style="color:rgba(255,255,255,0.7)">Duke</span> · <span style="color:#B8952A;font-weight:700">Michigan wins 🏆</span>
+      <div class="hero-champion-strip">
+        <span class="hcs-label">🏆 AI Champion Pick</span>
+        <span class="hcs-pick" id="hero-champ">Michigan</span>
+        <span class="hcs-label" style="border-left:1px solid rgba(255,255,255,0.1);border-right:none">S16 Picks</span>
+        <div id="champ-ff" style="display:flex;gap:0;align-items:center">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.7);padding:8px 10px;border-left:1px solid rgba(255,255,255,0.1)">Duke ▸ E8</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.7);padding:8px 10px;border-left:1px solid rgba(255,255,255,0.1)">Arizona ▸ E8</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:#B8952A;padding:8px 10px;border-left:1px solid rgba(255,255,255,0.1)">Michigan ▸ 🏆</span>
+          <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.7);padding:8px 10px;border-left:1px solid rgba(255,255,255,0.1)">Iowa State ▸ FF</span>
         </div>
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-right-label">🏀 Elite Eight · March 29</div>
-      <!-- E8 Game 1: Michigan vs Tennessee -->
-      <div class="matchup-card" data-game="Michigan|Tennessee">
-        <div class="matchup-card-region" style="color:#f59e0b">MIDWEST · MAR 29 · CHICAGO · 2:15 PM ET</div>
-        <div class="matchup-team-row">
-          <div class="matchup-team">
-            <span class="matchup-seed">#1</span>
-            <span class="matchup-name pick">Michigan</span>
-          </div>
-          <span class="matchup-badge badge-lock">AI PICK</span>
-        </div>
-        <div class="matchup-team-row">
-          <div class="matchup-team">
-            <span class="matchup-seed">#6</span>
-            <span class="matchup-name dog" style="color:#C8102E">Tennessee</span>
-          </div>
-          <span style="font-size:9px;color:#C8102E;font-weight:700">UPSET WATCH</span>
-        </div>
-        <div style="margin-top:8px;font-size:9px;color:#94A3B8;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Michigan -7.5 · ML -360 · O/U 146.5 · Cason OUT · Lendeborg 14.9 ppg leads Wolverines · Gillespie 18.3 ppg for Vols · CBS</div>
-      </div>
-      <!-- E8 Game 1: Michigan vs Tennessee upset detail -->
-      <div class="matchup-card" data-game="Michigan|Tennessee">
-        <div class="matchup-card-region" style="color:#C8102E">UPSET WATCH · MIDWEST · MAR 29</div>
-        <div class="matchup-team-row">
-          <div class="matchup-team">
-            <span class="matchup-seed">#6</span>
-            <span class="matchup-name pick">Tennessee</span>
-          </div>
-          <span class="matchup-badge badge-upset-alert">UPSET RISK: 44/100</span>
-        </div>
-        <div class="matchup-team-row">
-          <div class="matchup-team">
-            <span class="matchup-seed">#1</span>
-            <span class="matchup-name dog">Michigan</span>
-          </div>
-          <span style="font-size:9px;color:#94A3B8">+290 Moneyline</span>
-        </div>
-        <div style="margin-top:8px;font-size:9px;color:#C8102E;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Barnes physical defense vs Michigan's 87.5 PPG · Michigan hit 90+ in all 3 tourney games · Cason OUT (ACL) is the only crack · Vols must slow pace drastically</div>
-      </div>
-      <!-- E8 Game 2: Duke vs UConn -->
-      <div class="matchup-card" data-game="Duke|UConn">
-        <div class="matchup-card-region" style="color:#e63946">EAST · MAR 29 · WASHINGTON D.C. · 5:05 PM ET</div>
+      <div class="hero-right-label">🏀 Sweet 16 · March 26–27</div>
+      <!-- Sweet 16 matchup preview cards -->
+      <div class="matchup-card">
+        <div class="matchup-card-region" style="color:#16A34A">EAST · FINAL · DUKE WINS ✅</div>
         <div class="matchup-team-row">
           <div class="matchup-team">
             <span class="matchup-seed">#1</span>
             <span class="matchup-name pick">Duke</span>
           </div>
-          <span class="matchup-badge badge-lock">AI PICK</span>
+          <span class="matchup-badge badge-lock">80 ✓ E8</span>
         </div>
         <div class="matchup-team-row">
           <div class="matchup-team">
-            <span class="matchup-seed">#2</span>
-            <span class="matchup-name dog" style="color:#C8102E">UConn</span>
+            <span class="matchup-seed">#5</span>
+            <span class="matchup-name dog">St. John's</span>
           </div>
-          <span style="font-size:9px;color:#C8102E;font-weight:700">UPSET WATCH</span>
+          <span style="font-size:9px;color:#94A3B8;font-weight:700">75 — ELIMINATED</span>
         </div>
-        <div style="margin-top:8px;font-size:9px;color:#94A3B8;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Duke -5.5 · ML -203 · O/U 133.5 · Foster RETURNED (11 pts vs SJU) · Ngongba healthy · Demary Jr. ankle limited · Boozer + Evans lead Duke · CBS</div>
+        <div style="margin-top:8px;font-size:9px;color:#16A34A;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Duke survived 80-75 · Evans 25 pts · Boozer 22/10 · Foster returned (11 pts, 18 min) · Duke advances to Elite Eight</div>
       </div>
-      <!-- E8 Game 2: Duke vs UConn upset detail -->
-      <div class="matchup-card" data-game="Duke|UConn">
-        <div class="matchup-card-region" style="color:#C8102E">UPSET WATCH · EAST · MAR 29</div>
-        <div class="matchup-team-row">
-          <div class="matchup-team">
-            <span class="matchup-seed">#2</span>
-            <span class="matchup-name pick">UConn</span>
-          </div>
-          <span class="matchup-badge badge-upset-alert">UPSET RISK: 34/100</span>
-        </div>
+      <div class="matchup-card">
+        <div class="matchup-card-region" style="color:#16A34A">AI PICK CORRECT · EAST · FINAL</div>
         <div class="matchup-team-row">
           <div class="matchup-team">
             <span class="matchup-seed">#1</span>
-            <span class="matchup-name dog">Duke</span>
+            <span class="matchup-name pick">Duke</span>
           </div>
-          <span style="font-size:9px;color:#94A3B8">+180 Moneyline</span>
+          <span class="matchup-badge badge-lock">WON 80–75</span>
         </div>
-        <div style="margin-top:8px;font-size:9px;color:#C8102E;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Duke #1 defense nationally · Foster + Ngongba healthy boost · Demary Jr. ankle limiting UConn · Reed Jr. + Karaban must carry Huskies · first time UConn is an underdog all season</div>
+        <div class="matchup-team-row">
+          <div class="matchup-team">
+            <span class="matchup-seed">#5</span>
+            <span class="matchup-name dog">St. John's</span>
+          </div>
+          <span id="hero-ml-stjohns" style="font-size:9px;color:#94A3B8">ELIMINATED</span>
+        </div>
+        <div style="margin-top:8px;font-size:9px;color:#16A34A;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Duke trailed by 10 in 2H · rallied to lead with 3:54 left · Evans 25 · Boozer 22/10 · Foster 11 pts off bench · Ngongba 4/4/4</div>
+      </div>
+      <div class="matchup-card">
+        <div class="matchup-card-region" style="color:#22c55e">SOUTH · MAR 26 · HOUSTON</div>
+        <div class="matchup-team-row">
+          <div class="matchup-team">
+            <span class="matchup-seed">#9</span>
+            <span class="matchup-name pick" style="color:#C8102E">Iowa 🔥</span>
+          </div>
+          <span class="matchup-badge" style="background:rgba(200,16,46,0.08);color:#C8102E;border:1px solid rgba(200,16,46,0.15)">CINDERELLA</span>
+        </div>
+        <div class="matchup-team-row">
+          <div class="matchup-team">
+            <span class="matchup-seed">#4</span>
+            <span class="matchup-name dog">Nebraska</span>
+          </div>
+          <span id="hero-ml-iowa" style="font-size:9px;color:#94A3B8">+123 Moneyline</span>
+        </div>
+        <div style="margin-top:8px;font-size:9px;color:#C8102E;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Iowa beat defending champs Florida · #9 seed Cinderella · McCollum's fearless team · nothing to lose</div>
+      </div>
+      <div class="matchup-card">
+        <div class="matchup-card-region" style="color:#f59e0b">MIDWEST · MAR 27 · CHICAGO</div>
+        <div class="matchup-team-row">
+          <div class="matchup-team">
+            <span class="matchup-seed">#1</span>
+            <span class="matchup-name pick">Michigan</span>
+          </div>
+          <span class="matchup-badge badge-lock">CHAMPION PATH</span>
+        </div>
+        <div class="matchup-team-row">
+          <div class="matchup-team">
+            <span class="matchup-seed">#4</span>
+            <span class="matchup-name dog" style="color:#C8102E">Alabama</span>
+          </div>
+          <span style="font-size:9px;color:#C8102E;font-weight:700">UPSET WATCH</span>
+        </div>
+        <div style="margin-top:8px;font-size:9px;color:#B8952A;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Cason OUT (ACL) · Cadeau sole PG · Sears healthy for Alabama · Oats up-tempo threat · near-home Chicago</div>
       </div>
     </div>
   </div>
@@ -782,59 +761,37 @@ nav{top:32px!important}
     <div class="model-section-eyebrow eyebrow">Why the model picked this</div>
     <div class="model-section-title">Tournament Intelligence</div>
     <div class="callout-grid">
-      <!-- E8 GAME 1: Michigan vs Tennessee — 2:15 PM ET today -->
       <div class="callout-card cinderella">
         <div class="callout-type" style="color:#C8102E">
-          <span>🔥</span> E8 Upset Watch
+          <span>🔥</span> S16 Upset Alert
         </div>
-        <div class="callout-team">Tennessee</div>
-        <div class="callout-stat" style="color:#C8102E">vs Michigan · Upset Alert: 44/100</div>
-        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:5px 0 4px">
-          <span style="font-size:10px;font-weight:700;background:rgba(0,0,0,0.07);color:#555;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">MICH -360</span>
-          <span style="font-size:10px;font-weight:700;background:rgba(200,16,46,0.1);color:#C8102E;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">TENN ML +290</span>
-          <span style="font-size:10px;color:#999;font-family:'Barlow Condensed',sans-serif">Spread -7.5 · O/U 146.5</span>
-        </div>
-        <div class="callout-detail" data-game-ref="Michigan|Tennessee">Michigan enters without Cason (ACL, season-ending) — Lendeborg 14.9 ppg carries the load. Tennessee is Barnes' best shot at history: Vols have NEVER reached a Final Four. Barnes' physical defense won the glass battle 43-22 vs Iowa State. If Tennessee can slow Michigan's 87.5 PPG pace, this gets dangerous. 2:15 PM ET · United Center, Chicago · CBS.</div>
+        <div class="callout-team">Duke ✅ E8</div>
+        <div class="callout-stat" style="color:#16A34A">vs St. John's · FINAL: Duke 80–75</div>
+        <div class="callout-detail">Duke survived the upset threat. Down by 10 in the second half, the Blue Devils rallied to lead for good with 3:54 left — winning 80-75. Isaiah Evans led with 25 pts. Cameron Boozer added 22/10 (3rd straight double-double). Caleb Foster returned from his foot fracture to score 11 pts in 18 min. Ngongba 4/4/4. Duke advances to the Elite Eight.</div>
       </div>
-      <!-- E8 GAME 2: Duke vs UConn — 5:05 PM ET today -->
-      <div class="callout-card risk">
-        <div class="callout-type" style="color:#1A56DB">
-          <span>⚡</span> E8 Upset Watch
-        </div>
-        <div class="callout-team">UConn</div>
-        <div class="callout-stat" style="color:#1A56DB">vs Duke · First time underdog all season</div>
-        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:5px 0 4px">
-          <span style="font-size:10px;font-weight:700;background:rgba(0,0,0,0.07);color:#555;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">DUKE -203</span>
-          <span style="font-size:10px;font-weight:700;background:rgba(26,86,219,0.1);color:#1A56DB;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">UCONN ML +180</span>
-          <span style="font-size:10px;color:#999;font-family:'Barlow Condensed',sans-serif">Spread -5.5 · O/U 133.5</span>
-        </div>
-        <div class="callout-detail" data-game-ref="Duke|UConn">Duke #1 nationally in defense — Foster RETURNED (11 pts vs SJU), Ngongba healthy, near-home D.C. crowd. UConn's Demary Jr. ankle (limited since Big East) is the key injury to watch. Hurley won 2 titles with UConn; this is the first time all season the Huskies are underdogs. UNDER 133.5 lean — defensive grinder. 5:05 PM ET · Capital One Arena, D.C. · CBS.</div>
-      </div>
-      <!-- FINAL FOUR LOCKED -->
       <div class="callout-card lock">
-        <div class="callout-type" style="color:#16A34A">
-          <span>🏆</span> Final Four Locked
+        <div class="callout-type" style="color:#C8102E">
+          <span>🏀</span> Tournament Story
         </div>
-        <div class="callout-team">Illinois + Arizona</div>
-        <div class="callout-stat" style="color:#16A34A">2 of 4 spots clinched Saturday</div>
-        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:5px 0 4px">
-          <span style="font-size:10px;font-weight:700;background:rgba(22,163,74,0.1);color:#16A34A;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">ILL 71 · IOWA 59 ✅</span>
-          <span style="font-size:10px;font-weight:700;background:rgba(22,163,74,0.1);color:#16A34A;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">ARIZ 79 · PUR 64 ✅</span>
-        </div>
-        <div class="callout-detail">Illinois first Final Four since 2005 — beat #2 Houston 65-55 (17-0 run) then #9 Iowa 71-59. Arizona ended a 25-year drought — rallied from halftime deficit to beat Purdue 79-64. Michigan and Duke are the AI model's picks for the other two spots.</div>
+        <div class="callout-team">Iowa</div>
+        <div class="callout-stat" style="color:#C8102E">Beat Florida · #9 Cinderella</div>
+        <div class="callout-detail">#9 Iowa beat defending champion Florida in the Round of 32 — the biggest upset of the 2026 tournament. Ben McCollum's fearless team enters Houston on pure Cinderella momentum. They now face Nebraska (#4) in what could be the most open game of the Sweet 16. Nothing-to-lose energy after beating the champs.</div>
       </div>
-      <!-- AI MODEL PICK -->
       <div class="callout-card upset">
         <div class="callout-type" style="color:#92400E">
-          <span>🤖</span> AI Model Pick
+          <span>🎯</span> Best S16 Upset Pick
         </div>
-        <div class="callout-team">Michigan</div>
-        <div class="callout-stat" style="color:#B8952A">AI Champion · Final Four Prediction</div>
-        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:5px 0 4px">
-          <span style="font-size:10px;font-weight:700;background:rgba(184,149,42,0.12);color:#B8952A;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">MICH CHAMP +350</span>
-          <span style="font-size:10px;color:#999;font-family:'Barlow Condensed',sans-serif">Model accuracy 62% this tournament</span>
+        <div class="callout-team">Alabama</div>
+        <div class="callout-stat" style="color:#B8952A" id="callout-alabama-ml">vs Michigan · <span id="callout-alabama-ml-val">+375 ML</span></div>
+        <div class="callout-detail">Michigan lost L.J. Cason (ACL) and enters the Sweet 16 with Cadeau as sole primary ball-handler for a potential three-game run. Alabama has Mark Sears fully healthy — 20+ ppg scoring engine — and Oats' up-tempo system can shred a depleted backcourt. Michigan is still favored but this is the S16's most structurally dangerous upset setup.</div>
+      </div>
+      <div class="callout-card risk">
+        <div class="callout-type" style="color:#1A56DB">
+          <span>⚠️</span> High-Risk Pick
         </div>
-        <div class="callout-detail" data-game-ref="Michigan|Tennessee">Model calls Michigan over Tennessee today (Lendeborg 14.9 ppg, near-home Chicago crowd) then Duke over UConn (defense + home D.C. edge). Final Four: Illinois · Arizona · Michigan · Duke. Michigan vs Duke in the Championship — model hit Illinois (S16 upset) + Iowa (S16 upset) + Arizona correctly this tournament.</div>
+        <div class="callout-team">Texas</div>
+        <div class="callout-stat" style="color:#1A56DB">First Four fatigue · vs Purdue</div>
+        <div class="callout-detail">Texas played three tournament games (First Four → R1 → R32) and now faces #2 Purdue in San Jose after 1,800 miles of cross-country travel. The Cinderella story of beating Gonzaga is real — but so is the fatigue. Painter's half-court system is designed to expose exactly this type of depleted, pace-dependent opponent.</div>
       </div>
     </div>
   </div>
@@ -1004,12 +961,12 @@ nav{top:32px!important}
     <div id="team-detail-panel" style="display:none;background:#FFFFFF;border:1px solid #D9D5CC;border-radius:12px;padding:16px;margin-bottom:16px;box-shadow:0 1px 3px rgba(11,15,30,0.08)"></div>
 
     <div class="intel-grid">
-      <div class="intel-card"><div class="intel-icon">🩺</div><div><div class="intel-title">E8 INJURY REPORT — TODAY</div><div class="intel-text">Duke at full strength: Foster (foot) RETURNED vs SJU (11 pts, 19 min), Ngongba HEALTHY — biggest injury reversal of the tournament. Michigan: Cason OUT (ACL, season-ending) — Lendeborg carries the load. UConn: Demary Jr. playing through ankle sprain (Big East), 23 min vs MSU but visibly limited both ends. Tennessee: full roster healthy.</div></div></div>
-      <div class="intel-card"><div class="intel-icon">🏆</div><div><div class="intel-title">FINAL FOUR LOCKED: ILLINOIS &amp; ARIZONA</div><div class="intel-text">Illinois reached their first Final Four since 2005 — beat #2 Houston 65-55 (17-0 run) and #9 Iowa 71-59 (Wagler 25 pts). Arizona ended a 25-year drought, back in the Final Four for the first time since 2001 — rallied from halftime deficit to beat Purdue 79-64. Two spots still open: Michigan vs Tennessee and Duke vs UConn today.</div></div></div>
-      <div class="intel-card"><div class="intel-icon">📊</div><div><div class="intel-title">E8 HISTORICAL UPSET RATES</div><div class="intel-text">1-seeds win Elite Eight games ~65% historically. UConn (#2) vs Duke (#1) is the closer matchup — 2-seeds beat 1-seeds in the E8 about 35% of the time. Tennessee (#6) faces the steepest climb: 6-seeds win E8 games only ~22% of the time. Duke's top-ranked defense and near-home D.C. crowd are the structural moat.</div></div></div>
-      <div class="intel-card"><div class="intel-icon">✈️</div><div><div class="intel-title">E8 TRAVEL EDGES — TODAY</div><div class="intel-text">Michigan near-home: Ann Arbor → Chicago ~240 miles (United Center). Tennessee making a longer haul: Knoxville → Chicago ~530 miles. Duke essentially playing a home game: Durham → Washington D.C. ~250 miles with massive Cameron Indoors fanbase bused in. UConn close: Storrs → D.C. ~350 miles — both East teams travel well but Duke owns this crowd.</div></div></div>
-      <div class="intel-card"><div class="intel-icon">🧠</div><div><div class="intel-title">FOCUS RISK: E8 EDITION</div><div class="intel-text">Michigan (45/100) — Cason OUT is the only crack; team hit 90+ pts in all 3 tourney games, remarkably focused. UConn (62/100) — Demary Jr. ankle limits their offense facilitator; first time all season as underdogs adds mental load. Tennessee (38/100) — chasing school's first-ever Final Four = massive motivation spike, not a pressure sink. Duke (28/100) — healthy, near-home, focused.</div></div></div>
-      <div class="intel-card"><div class="intel-icon">🔥</div><div><div class="intel-title">TENNESSEE CHASING HISTORY</div><div class="intel-text">Rick Barnes has now reached 3 straight Elite Eights — but Tennessee has NEVER reached the Final Four in program history. Iowa State's Jefferson DNP in the S16 handed the Vols a path; now Michigan stands between Barnes and history. Tennessee won the glass battle 43-22 vs Iowa State. If they out-rebound Michigan like that, this gets interesting. Michigan still -360 for a reason.</div></div></div>
+      <div class="intel-card"><div class="intel-icon">🩺</div><div><div class="intel-title">S16 INJURY UPDATE</div><div class="intel-text">Foster RETURNED vs St. John's (11 pts, 18 min) — injury watch resolved. Ngongba played (4/4/4). Duke won 80-75 to reach Elite Eight. Michigan lost Cason (ACL). Iowa State Jefferson GTD for Tennessee game.</div></div></div>
+      <div class="intel-card"><div class="intel-icon">🔥</div><div><div class="intel-title">IOWA CINDERELLA RUN</div><div class="intel-text">#9 Iowa beat defending champion Florida — biggest upset of the 2026 tournament. Ben McCollum's fearless team now faces Nebraska (#4) in Houston. Cinderella momentum + nothing-to-lose mindset = real threat to go deeper.</div></div></div>
+      <div class="intel-card"><div class="intel-icon">📊</div><div><div class="intel-title">SWEET 16 UPSET RATES</div><div class="intel-text">5-seeds beat 1-seeds 21% historically in S16. 6-seeds beat 2-seeds 18% of the time. Duke survived St. John's (80-75). Alabama over Michigan still alive. Texas-Purdue still in play.</div></div></div>
+      <div class="intel-card"><div class="intel-icon">✈️</div><div><div class="intel-title">S16 TRAVEL EDGES</div><div class="intel-text">UConn (350mi to D.C.), Michigan (240mi to Chicago), St. John's (225mi to D.C.), Arizona (800mi to San Jose). Texas traveled 1,800mi after three games. Iowa covers 1,350mi to Houston on Cinderella legs.</div></div></div>
+      <div class="intel-card"><div class="intel-icon">🧠</div><div><div class="intel-title">FOCUS RISK: S16 EDITION</div><div class="intel-text">Duke (55/100) resolved — Foster returned, Evans carried (25 pts), Duke to E8. Michigan (66/100) — Cason loss still looms vs Alabama. Texas (61/100) — First Four fatigue + 1,400-mi cross-country trip compounds pressure.</div></div></div>
+      <div class="intel-card"><div class="intel-icon">🔥</div><div><div class="intel-title">IZZO SWEET 16 LOCK</div><div class="intel-text">Tom Izzo is 54-23 all-time in March with 8 Final Fours. Michigan State vs UConn in Washington D.C. — Izzo's teams are historically at their best as the slight underdog in neutral-site Sweet 16 games. Best value play in the East.</div></div></div>
     </div>
 
   </div><!-- end tab-bracket -->
@@ -1345,7 +1302,7 @@ nav{top:32px!important}
             <span style="font-size:9px;background:rgba(34,197,94,0.12);color:#16A34A;border:1px solid rgba(34,197,94,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟢 LOW</span>
           </div>
           <div style="font-size:10px;color:#64748B;margin-bottom:6px">Jamaica, Queens NY → Washington D.C. · <strong style="color:#0B0F1E">~225 miles</strong> · Same timezone (Eastern)</div>
-          <div style="font-size:11px;color:#64748B;line-height:1.6">St. John's plays 225 miles from their Queens campus — a near-home environment. The Red Storm fan base will flood I-95 south to D.C. NYC-to-D.C. Amtrak corridor means huge fan turnout at Capital One Arena. Best travel draw for an underdog in the East bracket.</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">St. John's plays 225 miles from their Queens campus — a near-home environment. Pitino's team beat Kansas in the Round of 32 to earn this matchup with Duke. The Red Storm fan base will flood I-95 south to D.C. NYC-to-D.C. Amtrak corridor means huge fan turnout at Capital One Arena. Best travel draw for an underdog in the East bracket.</div>
           <div style="font-size:9px;color:#16A34A;font-weight:700;margin-top:6px">✅ NEAR-HOME EDGE — St. John's plays 200 miles from campus in a Big East-friendly city</div>
         </div>
         <div style="background:#FFFFFF;border:1px solid rgba(34,197,94,0.2);border-left:4px solid #16A34A;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
@@ -1679,7 +1636,7 @@ function applyFirstFourResults() {
 
 // ── DATA ─────────────────────────────────────────────────────────────────────
 var bracket = {
-  lastUpdated: "🏀 ELITE EIGHT — March 28 2026 · Illinois 71 Iowa 59 (Final Four!) · Duke 80 SJU 75 · Illinois 65 Houston 55 · Iowa 77 Nebraska 71",
+  lastUpdated: "🏀 SWEET 16 RESULTS — March 27 2026 · Duke 80 St. John's 75 (Duke E8) · Evans 25 · Boozer 22/10 · Foster returned 11 pts",
   champion: "Michigan",
   finalFour: ["Duke","Arizona","Michigan","Iowa State"],
   regions: [
@@ -1775,8 +1732,8 @@ var INJURIES = [
   // ── GTD / QUESTIONABLE ────────────────────────────────────────────────────
   {team:"Iowa State",player:"Joshua Jefferson",pos:"F",status:"GTD",statusColor:"#ff9800",note:"Ankle — missed R32 vs Kentucky. 'Continuing to progress' per Otzelberger ahead of Tennessee S16 matchup. If Jefferson plays even at 70%, Iowa State is the Midwest favorite. If he sits, Tennessee's physical defense turns this into a grind they can win. Most critical GTD in the S16.",pre:15.2,post:null,eta:"Expected vs Tennessee Mar 27",pct:70,impact:-16,regionColor:"#f59e0b",seed:2},
   {team:"Iowa State",player:"M. Momcilovic",pos:"G",status:"GTD",statusColor:"#ff9800",note:"Back tightness — limited in conference tournament. Lipsey and the system carry regardless. Iowa State's defense doesn't depend on Momcilovic — still trust them deep, but watch the pre-game lineup report.",pre:13.1,post:11.6,impact:-7,regionColor:"#f59e0b",seed:2},
-  {team:"Duke",player:"Patrick Ngongba II",pos:"C",status:"PLAYED",statusColor:"#4ade80",note:"PLAYED vs St. John's Sweet 16 — 4 pts, 4 reb, 4 assists. Duke wins 80-75 and advances to the Elite Eight.",pre:8.2,post:5.0,eta:"Played Mar 27",pct:100,impact:0,regionColor:"#e63946",seed:1},
-  {team:"Duke",player:"Caleb Foster",pos:"G",status:"PLAYED",statusColor:"#4ade80",note:"RETURNED vs St. John's Sweet 16 — 11 pts on 5-of-8 shooting in 18 minutes. First postseason game back from foot fracture (March 7). All points came in the second half. Duke wins 80-75 and advances to the Elite Eight.",pre:8.5,post:11.0,eta:"Played Mar 27",pct:100,impact:5,regionColor:"#e63946",seed:1},
+  {team:"Duke",player:"Patrick Ngongba II",pos:"C",status:"PLAYED",statusColor:"#4ade80",note:"PLAYED vs St. John's Sweet 16 — 4 pts, 4 reb, 4 assists. Wore boot after R32 but made it back. Duke advances to Elite Eight.",pre:8.2,post:5.0,eta:"Played Mar 27",pct:100,impact:0,regionColor:"#e63946",seed:1},
+  {team:"Duke",player:"Caleb Foster",pos:"G",status:"PLAYED",statusColor:"#4ade80",note:"RETURNED vs St. John's Sweet 16 — 11 pts on 5-of-8 shooting in 18 minutes. First postseason appearance since foot fracture (March 7). All of his points came in the second half. Duke wins 80-75 and advances to the Elite Eight.",pre:8.5,post:11.0,eta:"Played Mar 27",pct:100,impact:5,regionColor:"#e63946",seed:1},
   {team:"Purdue",player:"CJ Cox",pos:"G",status:"GTD",statusColor:"#ff9800",note:"Knee injury vs Miami — didn't return to that game. Game-time decision for Texas matchup. Cox was shooting 38.4% from 3 this season and went 6-of-8 from three in tournament play. Losing him would significantly reduce Purdue's perimeter spacing against Texas's up-tempo style.",pre:9.8,post:null,eta:"GTD vs Texas Mar 26",pct:60,impact:-12,regionColor:"#2196f3",seed:2},
   {team:"Texas",player:"Jordan Pope",pos:"G",status:"GTD",statusColor:"#ff9800",note:"Twisted ankle vs Gonzaga in R32 — participated only in limited practice. Pope is Texas's primary ball-handler. A compromised Pope against Purdue's disciplined half-court defense neutralizes the Longhorns' best offensive weapon in an already-fatigued lineup.",pre:14.6,post:null,eta:"GTD vs Purdue Mar 26",pct:55,impact:-14,regionColor:"#2196f3",seed:11},
   {team:"Arkansas",player:"Nick Pringle",pos:"F",status:"GTD",statusColor:"#ff9800",note:"Hamstring — questionable for S16 vs Arizona. Pringle is Arkansas's starting center and primary rebounder. Against Arizona's frontcourt (even without Koa Peat), losing interior presence would be a significant problem for Calipari's first-year squad.",pre:10.4,post:null,eta:"GTD vs Arizona Mar 26",pct:50,impact:-10,regionColor:"#2196f3",seed:5},
@@ -1796,7 +1753,7 @@ var UPSETS_2025 = [
 ];
 
 var OUR_UPSETS = [
-  {dog:"St. John's",dS:5,fav:"Duke",fS:1,alert:68,region:"East",note:"Sweet 16's biggest upset alert. Duke missing Caleb Foster (OUT all tournament) + Cayden Boozer as sole PG. St. John's plays near-home in Washington D.C. (225 miles from Queens via I-95) with Big East crowd energy. Scheyer has NEVER won an Elite Eight as head coach. Pitino has 52 career tourney wins. Upset Alert 68/100."},
+  {dog:"St. John's",dS:5,fav:"Duke",fS:1,alert:68,region:"East",note:"RESULT: Duke 80, St. John's 75 — Upset did NOT materialize. Duke trailed by 10 in 2H but Evans (25 pts), Boozer (22/10), and Foster (11 pts, returned from injury) carried the Blue Devils to the Elite Eight. St. John's eliminated. Pre-game upset risk was 68/100."},
   {dog:"Alabama",dS:4,fav:"Michigan",fS:1,alert:61,region:"Midwest",note:"Alabama's up-tempo 71.8-possession system is the exact style that exploits Michigan's depleted backcourt (Cason OUT, ACL). Oats' scheme creates mayhem in 40 minutes. Holloway SUSP (16.8 PPG) hurts Alabama but line moved to -10.5 — Michigan is now a big favorite. Alabama at +400 ML is a high-risk swing but Sears (20.1 PPG) and Oats' pace can still produce an upset."},
   {dog:"Texas",dS:11,fav:"Purdue",fS:2,alert:52,region:"West",note:"Texas is the ultimate Cinderella: First Four winner who beat BYU in R1, then stunned #3 Gonzaga in the Round of 32. That's three tournament games of momentum vs Purdue's polished half-court system. If Texas's pace attacks Purdue before Painter can adjust, the 11-seed upset is real. 1,800-mile trip to San Jose after three games is the counter-argument — fading Texas on fatigue is also reasonable. Upset Alert 52/100."},
   {dog:"Arkansas",dS:5,fav:"Arizona",fS:1,alert:45,region:"West",note:"Koa Peat is OUT but Arizona still reached the Sweet 16 — so this is partly baked in. Arkansas made the Sweet 16 as a 5-seed in 2021 and 2022. The Razorbacks have SEC Tournament title momentum. Arizona plays in California (San Jose, 800 mi from Tucson) and recruits heavily there — significant home-region counter-signal. This is more of a value moneyline than high probability."},
@@ -1823,7 +1780,7 @@ var FOCUS_SCORES = [
 
   // EAST — Washington D.C. · Capital One Arena (March 27)
   {team:"Duke",score:55,region:"East",rc:"#e63946",seed:1,coach:"Jon Scheyer",coachTourney:"4-2 career (0 Elite Eights)",note:"⚠️ S16 FOCUS RISK. Foster OUT. Boozer as sole PG: 'that can mess with your mind.' 7-man rotation. Scheyer has NEVER won an Elite Eight as head coach. The media pressure in Washington D.C. with a depleted roster is exactly the environment that exposes coaching weaknesses. Biggest coaching pressure point of the S16."},
-  {team:"St. John's",score:75,region:"East",rc:"#e63946",seed:5,coach:"Rick Pitino",coachTourney:"52-26 career, 2 Final Fours",note:"Pitino's St. John's earned the Sweet 16 and now plays 225 miles from Queens, NY, in a D.C. environment filled with NYC-corridor fan energy. Near-home crowd advantage is a real edge for a 5-seed facing a depleted Duke. Pitino has 52 career tournament wins — he knows how to win in March. St. John's enters as a legitimate underdog with elite coaching."},
+  {team:"St. John's",score:75,region:"East",rc:"#e63946",seed:5,coach:"Rick Pitino",coachTourney:"52-26 career, 2 Final Fours",note:"Pitino's masterpiece just reached the Sweet 16 by beating Kansas — their biggest win of the era. Playing 225 miles from Queens, NY, in a D.C. environment filled with NYC-corridor fan energy. Near-home crowd advantage is a real edge for a 5-seed facing a depleted Duke. Pitino has 52 career tournament wins — he knows how to win in March. St. John's enters as a legitimate underdog with top-coaching."},
   {team:"Michigan State",score:79,region:"East",rc:"#e63946",seed:3,coach:"Tom Izzo",coachTourney:"54-23 career, 1 title, 8 Final Fours",note:"Tom Izzo is the greatest March coach alive. 54 career tournament wins is the highest of any active coach. Michigan State's 3-seed in Washington D.C. (540 miles, same Eastern TZ) is manageable. Izzo always has his teams mentally locked in. Against UConn in D.C., this is the most elite coaching matchup of the S16."},
   {team:"UConn",score:74,region:"East",rc:"#e63946",seed:3,coach:"Dan Hurley",coachTourney:"15-3 career, 2 titles",note:"Traveling 350 miles to Washington D.C. — no longer the 90-mile Boston home game of prior years, but still a near-home trip with strong I-95 corridor fan support. Hurley's teams reset fast after losses (Big East tournament). 15-3 record, 2 rings. The D.C. environment still favors UConn over a team traveling farther — but the home-crowd edge is significantly reduced. Against MSU and Izzo? Best game of the S16."},
 
@@ -2838,13 +2795,13 @@ var TIER2_BETS = [
     color:"#ff6b35"
   },
   {
-    game:"Iowa ML vs Nebraska (S16 South · Houston · Mar 26) — COMPLETED",
+    game:"Iowa ML vs Nebraska (S16 South · Houston · Mar 26) — CINDERELLA VALUE",
     bet:"IOWA ML (+108)",
     signal:"UPSET",
     alertScore:52,
     estOdds:"+100 to +115",
-    edge:"COMPLETED — Game result shown via ESPN live scores. Pre-game line was Nebraska -130 / Iowa +108 — a true coin-flip. Iowa entered as the hottest Cinderella in the field after beating Florida.",
-    layers:["✅ GAME COMPLETE — result updated via ESPN","📉 Pre-game line: Nebraska -130 / Iowa +108 — coin flip","🔥 Iowa beat defending champs Florida — Cinderella run","🚑 Nebraska: Essegian OUT + Jarusevicius OUT — depth hit"],
+    edge:"Fully a coin-flip — ML is Nebraska -130 / Iowa +108. Iowa's Cinderella momentum after beating defending champion Florida is completely priced in. Nebraska lost Essegian (OUT) + Jarusevicius (OUT) — real depth hit. Iowa ML +108 is essentially even-money for the tournament's hottest team. Best near-even Cinderella value in the S16.",
+    layers:["📉 Nebraska -130 / Iowa +108 — market says this is a coin flip","🔥 Iowa beat defending champs Florida — Cinderella momentum","🚑 Nebraska Essegian OUT + Jarusevicius OUT — depth hit","💰 Iowa ML +108 — even-money on the hottest team in S16"],
     color:"#ff6b35"
   },
   {
@@ -2935,7 +2892,7 @@ var PARLAYS = [
   },
   {
     name:"THE S16 UPSET DOUBLE",
-    legs:["St. John's ML (+230 vs Duke)","Iowa ML +108 vs Nebraska (COMPLETED)"],
+    legs:["St. John's ML (+230 vs Duke)","Iowa ML (+108 vs Nebraska)"],
     estOdds:"+560 to +680",
     units:"0.5 unit",
     rationale:"Two ML upset plays with data backing. Duke 7-man rotation (Foster DOUBTFUL, Ngongba GTD) vs Pitino's St. John's near-home at +235. Iowa Cinderella momentum after beating Florida — line compressed to -1.5, Iowa ML +123 at essentially a pick-em. Best near-term upset parlay on the board.",
@@ -2966,7 +2923,7 @@ var PARLAYS = [
 ];
 
 var FUTURES_BETS = [
-  {team:"Iowa",pick:"CINDERELLA RUN — S16 RESULT LIVE",estOdds:"See ESPN",signal:"RESULT PENDING",signalColor:"#94A3B8",note:"🔥 CINDERELLA STORY. Iowa beat defending champion Florida as a 9-seed — biggest upset of the 2026 tournament. S16 result vs Nebraska now complete — check live scores above. Ben McCollum won 4 D2 titles and this fearless team played without fear all tournament."},
+  {team:"Iowa",pick:"CINDERELLA FINAL FOUR",estOdds:"+2200 to +2800",signal:"WATCH LIST",signalColor:"#f0c040",note:"🔥 THE TOURNAMENT'S BIGGEST STORY. Iowa already beat defending champion Florida as a 9-seed. If they beat Nebraska in S16 (a winnable matchup), they become the most dangerous Cinderella in recent memory. Tiny futures play with massive upside — Ben McCollum won 4 D2 titles and this fearless team shows it."},
   {team:"UConn",pick:"WIN TITLE",estOdds:"+700 to +950",signal:"BET IT",signalColor:"#22c55e",note:"Hurley 15-3, 2 titles, traveling 350 miles to D.C. (shorter than MSU's 540 miles). Chasing a historically unprecedented 3rd straight title. If they beat Michigan State in S16, the East bracket is their path to complete the dynasty. I-95 corridor fan support at Capital One Arena."},
   {team:"Michigan",pick:"ELITE EIGHT",estOdds:"+350 to +500",signal:"VALUE BET",signalColor:"#4a9eff",note:"Top offense + defense. Near-home crowd in Chicago (240mi from Ann Arbor). The Cason OUT concern is real vs Alabama's pace — but Holloway SUSP for Alabama equalizes both teams' backcourt depth. If Michigan survives S16, they have a legitimate path to the Elite Eight. Dusty May continues to prove himself in March."},
   {team:"Iowa State",pick:"FINAL FOUR",estOdds:"+500 to +700",signal:"VALUE BET",signalColor:"#4a9eff",note:"Second-highest focus score in S16 (80/100). Otzelberger's defense-first culture is elite. Momcilovic GTD is the only concern — system overcomes it. Iowa State path through Tennessee and potentially Michigan is very winnable. Best value in the Midwest bracket."},
@@ -3112,9 +3069,8 @@ var GAME_PREDICTIONS = [
     spread:-6.5, ml:-285, ou:141.5, ouLean:"LEAN OVER",
     betRating:"UPSET ALERT", betColor:"#ff6b35",
     spreadLean:"ST. JOHN'S +6.5", mlLean:"ST. JOHN'S ML (+230)",
-    edge:"Duke's S16 weakness fully exposed: Foster DOUBTFUL (foot, 'outside chance'), Ngongba GTD (wore boot after R32), 7-man rotation max. St. John's plays 225 miles from Queens — NYC fans flood Capital One Arena via I-95. Pitino has 52 career tourney wins vs Scheyer's 0 Elite Eights. St. John's +230 ML at 68/100 upset risk is the best value in the East.",
-    flags:["🚑 Foster DOUBTFUL + Ngongba GTD — Duke 7-man max","👔 Pitino 52 tourney wins vs Scheyer 0 Elite Eights","🏠 St. John's 225mi from Queens — NYC fans flood D.C. via I-95","⚠️ Upset Risk 68/100 — St. John's +230 ML is the play"],
-    result:{ winner:"Duke", loser:"St. John's", winScore:80, loseScore:75, isUpset:false, final:true } },
+    edge:"Duke's S16 weakness fully exposed: Foster DOUBTFUL (foot, 'outside chance'), Ngongba GTD (wore boot after R32), 7-man rotation max. Pitino's St. John's just beat Kansas in R32 and plays 225 miles from Queens — NYC fans flood Capital One Arena via I-95. Pitino has 52 career tourney wins vs Scheyer's 0 Elite Eights. St. John's +230 ML at 68/100 upset risk is the best value in the East.",
+    flags:["🚑 Foster DOUBTFUL + Ngongba GTD — Duke 7-man max","👔 Pitino 52 tourney wins vs Scheyer 0 Elite Eights","🏠 St. John's 225mi from Queens — NYC fans flood D.C. via I-95","⚠️ Upset Risk 68/100 — St. John's +230 ML is the play"] },
 
   { region:"East", rc:"#e63946",
     fav:"UConn", favSeed:3, dog:"Michigan State", dogSeed:2,
@@ -3147,9 +3103,8 @@ var GAME_PREDICTIONS = [
     spread:-1.5, ml:-130, ou:131.5, ouLean:"LEAN OVER",
     betRating:"UPSET ALERT", betColor:"#ff6b35",
     spreadLean:"IOWA +1.5", mlLean:"IOWA ML (+108)",
-    edge:"Game complete — result shown above via ESPN. Iowa entered as a 9-seed Cinderella after beating defending champion Florida. Nebraska's Essegian OUT + Jarusevicius OUT hurt depth going in. Line was Nebraska -1.5 / Iowa +108 — essentially a coin flip.",
-    flags:["📉 Line -1.5, ML -130/-108 — true coin-flip game","🔥 Iowa upset defending champ Florida — Cinderella momentum","🚑 Nebraska: Essegian OUT + Jarusevicius OUT — depth hit","🎰 Iowa ML +108 — even-money value for tournament's hottest team"],
-    result:{ winner:"Iowa", loser:"Nebraska", winScore:77, loseScore:71, isUpset:true, final:true } },
+    edge:"Line compressed to -1.5 and ML now -130/-108 — essentially a coin flip. Iowa's Cinderella momentum after beating defending champion Florida is fully priced in. Ben McCollum's fearless team (Tavion Banks 20 pts, Folgueiras game-winning 3) vs Hoiberg's 3-point system. Nebraska's Essegian OUT + Jarusevicius OUT hurts depth. Iowa +108 is dead-even value for the hottest team in the tournament.",
+    flags:["📉 Line -1.5, ML -130/-108 — true coin-flip game","🔥 Iowa upset defending champ Florida — Cinderella momentum","🚑 Nebraska: Essegian OUT + Jarusevicius OUT — depth hit","🎰 Iowa ML +108 — even-money value for tournament's hottest team"] },
 
   { region:"South", rc:"#22c55e",
     fav:"Houston", favSeed:2, dog:"Illinois", dogSeed:3,
@@ -3157,8 +3112,7 @@ var GAME_PREDICTIONS = [
     betRating:"UNDER LEAN", betColor:"#1A56DB",
     spreadLean:"HOUSTON -2.5", mlLean:"HOUSTON ML (-155)",
     edge:"Houston spread settled back to -2.5 — home crowd advantage is real but not as dominant as earlier lines implied. AT HOME at Toyota Center. Sampson plays 64.4 possessions per game — slowest in the S16 field. Defense clamps everything. UNDER 140.5 is the lean — two defensive-first teams with Sampson's clock-management system grinding for 40 minutes.",
-    flags:["🏠 Houston AT HOME — Toyota Center only true home game in S16","⏱️ Sampson 64.4 poss — slowest tempo in S16 field","📉 UNDER 140.5 lean — Sampson defense elite","👔 Underwood 0 Elite Eights vs Sampson 1 Final Four"],
-    result:{ winner:"Illinois", loser:"Houston", winScore:65, loseScore:55, isUpset:true, final:true } },
+    flags:["🏠 Houston AT HOME — Toyota Center only true home game in S16","⏱️ Sampson 64.4 poss — slowest tempo in S16 field","📉 UNDER 140.5 lean — Sampson defense elite","👔 Underwood 0 Elite Eights vs Sampson 1 Final Four"] },
 
   // ── SWEET 16 · MIDWEST · CHICAGO, IL (March 27) ─────────────────────────
   { region:"Midwest", rc:"#f59e0b",
@@ -3205,29 +3159,8 @@ function renderGamePredictions() {
       var isUpset = g.betRating.includes('UPSET');
       var isLock = g.betRating === 'LOCK';
       var isUnder = g.betRating.includes('UNDER');
-      var res = g.result; // populated by ESPN API when game is FINAL
 
       html += '<div style="background:#FFFFFF;border:1px solid '+bc+'33;border-radius:12px;overflow:hidden;'+(isUpset?'border-left:3px solid '+bc:'border-top:2px solid '+bc)+'">';
-
-      // ── Result banner (shown when game is final) ───────────────────────────
-      if (res) {
-        var aiCorrect = (res.winner === g.fav && !isUpset) || (res.winner === g.dog && isUpset);
-        var rColor = res.isUpset ? '#C8102E' : '#16A34A';
-        var rLabel = res.isUpset ? '🔥 UPSET — ' + res.winner + ' wins' : '✅ ' + res.winner + ' wins';
-        var coverDiff = res.winScore - res.loseScore;
-        var spread = Math.abs(g.spread);
-        var favWon = res.winner === g.fav;
-        var coverResult = favWon
-          ? (coverDiff > spread ? '📊 ' + g.fav + ' COVERED (-' + spread + ')' : '📊 ' + g.fav + ' DID NOT COVER')
-          : ('📊 ' + g.dog + ' COVERED (+' + spread + ')');
-        html += '<div style="background:'+rColor+'12;border-bottom:1px solid '+rColor+'30;padding:6px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">';
-        html += '<span style="font-size:10px;font-weight:700;color:'+rColor+';letter-spacing:0.5px">'+rLabel+'</span>';
-        html += '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:12px;font-weight:700;color:#0B0F1E">'+res.winScore+'–'+res.loseScore+'</span>';
-        html += '</div>';
-        html += '<div style="background:#F8F7F4;border-bottom:1px solid #EEECE8;padding:4px 14px">';
-        html += '<span style="font-size:9px;color:#64748B">'+coverResult+'</span>';
-        html += '</div>';
-      }
 
       // Header
       html += '<div style="padding:12px 14px;background:'+bc+'0d;border-bottom:1px solid '+bc+'22">';
@@ -3238,11 +3171,9 @@ function renderGamePredictions() {
       html += '</div>';
       html += '</div>';
       html += '<div style="display:flex;align-items:baseline;gap:6px">';
-      var favStyle = res ? (res.winner===g.fav ? 'color:#0B0F1E;font-weight:900' : 'color:#0B0F1E;opacity:0.3;text-decoration:line-through') : 'color:#0B0F1E';
-      var dogStyle = res ? (res.winner===g.dog ? 'color:'+(isUpset?bc:'#64748B')+';font-weight:700' : 'opacity:0.3;text-decoration:line-through;color:#64748B') : 'color:'+(isUpset?bc:'#64748B');
-      html += '<span style="font-family:Barlow Condensed,sans-serif;font-size:20px;font-weight:900;'+favStyle+'">'+g.fav+'</span>';
+      html += '<span style="font-family:Barlow Condensed,sans-serif;font-size:20px;font-weight:900;color:#0B0F1E">'+g.fav+'</span>';
       html += '<span style="font-size:11px;color:#94A3B8">vs</span>';
-      html += '<span style="font-family:Barlow Condensed,sans-serif;font-size:16px;font-weight:700;'+dogStyle+'">'+g.dog+'</span>';
+      html += '<span style="font-family:Barlow Condensed,sans-serif;font-size:16px;font-weight:700;color:'+(isUpset?bc:'#64748B')+'">'+g.dog+'</span>';
       html += '</div>';
       html += '</div>';
 
@@ -3719,101 +3650,31 @@ var tickerSpeed = 0.5;
 var tickerPaused = false;
 
 // ── STATIC TICKER BUILDER ─────────────────────────────────────────────────────
-// Builds ticker items from data. Pre-game items are tagged data-game-ref so
-// applyGameResults() removes them the moment that game lands in GAME_RESULTS.
-// Results are auto-generated from GAME_RESULTS — no manual edits needed.
+// Builds ticker items from data. Edit arrays below to update.
 function buildStaticTickerItems() {
   var track = document.getElementById('ticker-track');
   if (!track) return;
 
   var items = [];
 
-  // ── AUTO-GENERATED RESULTS from GAME_RESULTS ──────────────────────────────
-  // Only entries with showInTicker:true appear here (E8+ results).
-  // S16 and earlier results stay in GAME_RESULTS for card/text updates but
-  // don't clutter the ticker with old news.
-  var seenResultKeys = {};
-  Object.keys(GAME_RESULTS).forEach(function(key) {
-    var r = GAME_RESULTS[key];
-    if (!r || !r.final || !r.showInTicker) return;
-    var canon = [r.winner, r.loser].sort().join('|');
-    if (seenResultKeys[canon]) return;
-    seenResultKeys[canon] = true;
-    var ws = r.winScore != null ? ' ' + r.winScore + '–' + r.loseScore : '';
-    if (r.isUpset) {
-      items.push({ cls:'tick-upset', badge:'💥 E8 UPSET',
-        text: r.winner + ws + ' def. ' + r.loser + ' — UPSET! Final Four bound' });
-    } else {
-      items.push({ cls:'tick-alert', badge:'✅ E8 FINAL',
-        text: r.winner + ws + ' def. ' + r.loser + ' — Final Four ✅' });
-    }
-  });
+  // ── ELITE 8 STATUS ──────────────────────────────────────────────────────────
+  items.push({ cls:'tick-alert', badge:'🏀 ELITE 8', text:'2026 NCAA Elite Eight · March 28–29 · Four games to determine Final Four spots' });
 
-  // ── ELITE EIGHT STATUS ───────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'🏀 ELITE EIGHT', text:'March 29 · 2 games today · Michigan vs Tennessee 2:15 PM ET · Duke vs UConn 5:05 PM ET · CBS' });
-
-  // ── BRACKET BUSTERS injected dynamically by fetchTourneyHistory() via ESPN ──
-
-  // ── E8 TODAY — SCHEDULE ─────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'📅 TODAY 2:15',  game:"Michigan|Tennessee", text:'MIDWEST E8: #1 Michigan vs #6 Tennessee · United Center, Chicago · Michigan -7.5 · O/U 146.5 · CBS' });
-  items.push({ cls:'tick-alert', badge:'📅 TODAY 5:05',  game:"Duke|UConn",         text:'EAST E8: #1 Duke vs #2 UConn · Capital One Arena, Washington D.C. · Duke -5.5 · O/U 133.5 · CBS' });
-
-  // ── E8 TODAY — INJURIES ─────────────────────────────────────────────────────
-  items.push({ cls:'tick-inj', badge:'🚑 OUT',      game:"Michigan|Tennessee", text:'Michigan L.J. Cason — OUT (ACL season-ending) · Michigan -360 despite injury · depth question vs physical Vols' });
-  items.push({ cls:'tick-inj', badge:'✅ RETURNED', game:"Duke|UConn",         text:'Duke Caleb Foster — RETURNED (foot fracture) · played 19 min, scored 11 vs SJU · Duke now close to full strength' });
-  items.push({ cls:'tick-inj', badge:'✅ HEALTHY',  game:"Duke|UConn",         text:'Duke Patrick Ngongba II — HEALTHY · returned vs SJU · Duke rotation back to full depth for UConn' });
-  items.push({ cls:'tick-inj', badge:'⚠️ LIMITED', game:"Duke|UConn",         text:'UConn Silas Demary Jr. — ankle sprain (Big East Championships) · 23 min vs MSU but visibly limited both ends' });
-
-  // ── E8 TODAY — PLAYER WATCH ─────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'🌟 WATCH',  game:"Michigan|Tennessee", text:'Yaxel Lendeborg (Michigan) 14.9 ppg — leads Wolverines into E8 · Michigan 90+ in all 3 tourney games' });
-  items.push({ cls:'tick-alert', badge:'🌟 WATCH',  game:"Michigan|Tennessee", text:'Ja\'Kobi Gillespie (Tennessee) 18.3 ppg — Vols need him to carry in pace-control win to upset Michigan' });
-  items.push({ cls:'tick-alert', badge:'🌟 WATCH',  game:"Duke|UConn",         text:'Cameron Boozer (Duke) — Player of the Year candidate · 22.8 ppg · leads Duke vs first underdog UConn all year' });
-  items.push({ cls:'tick-alert', badge:'🌟 WATCH',  game:"Duke|UConn",         text:'Tarris Reed Jr. + Alex Karaban (UConn) — must carry Huskies with Demary Jr. limited · inside-out attack key' });
-
-  // ── E8 TODAY — UPSET ALERTS ─────────────────────────────────────────────────
-  items.push({ cls:'tick-upset', badge:'🔥 UPSET WATCH', game:"Michigan|Tennessee", text:'Tennessee vs Michigan (2:15 ET) — Barnes physical defense + Cason OUT = only crack in Michigan armor · +290 ML · Upset Alert 44/100' });
-  items.push({ cls:'tick-upset', badge:'🔥 UPSET WATCH', game:"Duke|UConn",         text:'UConn vs Duke (5:05 ET) — first time all season UConn is underdog · Demary Jr. ankle + Boozer is a problem · +180 ML · Upset Alert 34/100' });
-
-  // ── E8 TODAY — SHARP PLAYS ──────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'📊 E8 SHARP', game:"Michigan|Tennessee", text:'Michigan vs Tennessee O/U 146.5 — OVER: Michigan 87.5 PPG + 90+ in every tourney game · lean OVER vs Vols' });
-  items.push({ cls:'tick-alert', badge:'📊 E8 SHARP', game:"Duke|UConn",         text:'Duke vs UConn UNDER 133.5 — Duke #1 defense nationally + UConn limited Demary Jr. = defensive grinder' });
-
+  // ── ELITE 8 RESULTS ─────────────────────────────────────────────────────────
+  items.push({ cls:'tick-upset', badge:'✅ E8 FINAL', text:'Arizona 79–64 def. Purdue — Wildcats advance to Final Four!' });
+  items.push({ cls:'tick-upset', badge:'✅ S16 FINAL', text:'#1 Duke def. #5 St. John\'s 80-75 — Duke advances to Elite Eight!' });
+  items.push({ cls:'tick-upset', badge:'✅ S16 FINAL', text:'#1 Michigan def. #4 Alabama 90-77 — Wolverines advance to Elite Eight!' });
+  items.push({ cls:'tick-upset', badge:'✅ S16 FINAL', text:'#2 UConn def. #3 Michigan St 67-63 — Huskies advance to Elite Eight!' });
+  items.push({ cls:'tick-upset', badge:'💥 BUSTED', text:'#6 Tennessee def. #2 Iowa State 76-62 — UPSET! Cyclones eliminated by the Vols!' });
 
   // ── AI PICK ─────────────────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'🏆 AI PICK',  text:'AI Champion: Michigan 🏆 · Championship: Michigan vs Duke · Final Four set: Arizona ✅ · Illinois ✅ · Michigan + Duke TBD', gold:true });
-  items.push({ cls:'tick-alert', badge:'📊 AI MODEL', text:'AI accuracy 62% this tournament · S16: Duke ✅ · Michigan ✅ · Arizona ✅ · Illinois UPSET HIT 🔥 · Iowa UPSET HIT 🔥', gold:false });
+  items.push({ cls:'tick-alert', badge:'🏆 AI PICK', text:'Final Four picks: Duke · Arizona · Michigan · Iowa State (Tennessee upset busted pick)', gold:true });
 
-  // Render into DOM — stamp data-game-ref so applyGameResults() auto-removes
-  // pre-game items (injuries, GTD, upset alerts, sharp plays) when game is FINAL
+  // Render into DOM
   track.innerHTML = items.map(function(it) {
     var textStyle = it.gold ? 'color:#f0c040;font-weight:700' : 'color:rgba(255,255,255,0.9)';
-    var gameAttr  = it.game ? ' data-game-ref="' + it.game + '"' : '';
-    return '<div class="tick-item"' + gameAttr + '><span class="' + it.cls + '">' + it.badge + '</span><span style="' + textStyle + '">' + it.text + '</span></div>';
+    return '<div class="tick-item"><span class="' + it.cls + '">' + it.badge + '</span><span style="' + textStyle + '">' + it.text + '</span></div>';
   }).join('');
-}
-
-// ── TICKER REBUILD — syncs content + clone every 2 minutes ───────────────────
-// Re-runs buildStaticTickerItems() so auto-generated results stay fresh,
-// then removes the old clone and creates a new one with the updated content.
-// applyGameResults() is called after to immediately strip any completed games.
-function rebuildTicker() {
-  var wrap  = document.getElementById('ticker-track-wrap');
-  var track = document.getElementById('ticker-track');
-  if (!wrap || !track) return;
-  // Rebuild static content (auto-results + today's pre-game items)
-  buildStaticTickerItems();
-  // Re-apply completed-game removals immediately
-  if (Object.keys(GAME_RESULTS).length) applyGameResults();
-  // Re-inject any ESPN history items that were already fetched
-  // (they live in GAME_RESULTS so they're covered by auto-generation above)
-  // Replace clone with fresh copy of updated track
-  var oldClone = document.getElementById('ticker-track-clone');
-  if (oldClone) oldClone.remove();
-  tickerPos = 0;
-  track.style.transform = 'translateX(0)';
-  var newClone = track.cloneNode(true);
-  newClone.id = 'ticker-track-clone';
-  wrap.appendChild(newClone);
 }
 
 function startTicker() {
@@ -3854,191 +3715,6 @@ function updateTickerLabel(hasLive, hasFinished) {
     label.innerHTML = '🏀 NCAA';
     label.style.background = 'rgba(0,0,0,0.25)';
   }
-}
-
-// ── GAME RESULTS STORE (populated by ESPN API) ────────────────────────────────
-// key: "Fav|Dog" matching GAME_PREDICTIONS entries
-// value: { winner, loser, winScore, loseScore, isUpset }
-var GAME_RESULTS = {
-  // S16 results — used for card/text updates but NOT shown in ticker (no showInTicker)
-  "Duke|St. John's": { winner:"Duke", loser:"St. John's", winScore:80, loseScore:75, isUpset:false, final:true },
-  "Nebraska|Iowa":   { winner:"Iowa", loser:"Nebraska",   winScore:77, loseScore:71, isUpset:true,  final:true },
-  "Houston|Illinois":{ winner:"Illinois", loser:"Houston", winScore:65, loseScore:55, isUpset:true,  final:true },
-  // E8 results — showInTicker:true means these appear in the live ticker
-  "Purdue|Arizona":  { winner:"Arizona", loser:"Purdue",  winScore:79, loseScore:64, isUpset:false, final:true, showInTicker:true },
-  "Illinois|Iowa":   { winner:"Illinois", loser:"Iowa",   winScore:71, loseScore:59, isUpset:false, final:true, showInTicker:true }
-};
-
-// ESPN shortDisplayName → our display names
-var ESPN_NAME_MAP = {
-  'Connecticut': 'UConn', 'UConn Huskies': 'UConn',
-  'Michigan St.': 'Michigan State', 'Michigan State Spartans': 'Michigan State',
-  'Iowa St.': 'Iowa State', 'Iowa State Cyclones': 'Iowa State',
-  "St. John's (NY)": "St. John's", "SJU": "St. John's", "St. Johns": "St. John's", "St Johns": "St. John's",
-  'Purdue Boilermakers': 'Purdue', 'Duke Blue Devils': 'Duke',
-  'Iowa Hawkeyes': 'Iowa', 'Nebraska Cornhuskers': 'Nebraska',
-  'Michigan Wolverines': 'Michigan', 'Alabama Crimson Tide': 'Alabama',
-  'Houston Cougars': 'Houston', 'Illinois Fighting Illini': 'Illinois',
-  'Arizona Wildcats': 'Arizona', 'Arkansas Razorbacks': 'Arkansas',
-  'Tennessee Volunteers': 'Tennessee', 'Texas Longhorns': 'Texas',
-};
-function espnNorm(n) { return ESPN_NAME_MAP[n] || n; }
-
-// E8/Final Four dates — results from these dates get showInTicker:true
-var E8_PLUS_DATES = { '20260328':1, '20260329':1, '20260404':1, '20260406':1 };
-
-function storeGameResult(winnerRaw, loserRaw, winScore, loseScore, winnerSeed, loserSeed, gameDate) {
-  var winner = espnNorm(winnerRaw), loser = espnNorm(loserRaw);
-  var showInTicker = !!(gameDate && E8_PLUS_DATES[gameDate]);
-  var pred = null;
-  for (var i = 0; i < GAME_PREDICTIONS.length; i++) {
-    var g = GAME_PREDICTIONS[i];
-    if ((g.fav === winner || g.dog === winner) && (g.fav === loser || g.dog === loser)) {
-      pred = g; break;
-    }
-  }
-  if (pred) {
-    var key = pred.fav + '|' + pred.dog;
-    var wSeed = (winner === pred.fav) ? pred.favSeed : pred.dogSeed;
-    var lSeed = (loser === pred.fav) ? pred.favSeed : pred.dogSeed;
-    var isUpset = wSeed > lSeed;
-    GAME_RESULTS[key] = { winner: winner, loser: loser, winScore: winScore, loseScore: loseScore, isUpset: isUpset, final: true, showInTicker: showInTicker };
-    pred.result = GAME_RESULTS[key];
-  } else {
-    // No prediction card (E8/Final Four) — store both orderings so key always matches.
-    var isUpset = winnerSeed && loserSeed && winnerSeed > loserSeed;
-    var result = { winner: winner, loser: loser, winScore: winScore, loseScore: loseScore, isUpset: isUpset, final: true, showInTicker: showInTicker };
-    GAME_RESULTS[winner + '|' + loser] = result;
-    GAME_RESULTS[loser  + '|' + winner] = result;
-  }
-}
-
-// Update hero matchup cards (.matchup-card[data-game]) with final scores
-function applyGameResults() {
-  document.querySelectorAll('.matchup-card[data-game]').forEach(function(card) {
-    var key = card.getAttribute('data-game');
-    var r = GAME_RESULTS[key];
-    if (!r) return;
-    // Only apply once
-    if (card.querySelector('.mc-result-bar')) return;
-
-    var isUpset = r.isUpset;
-    var winColor = isUpset ? '#C8102E' : '#16A34A';
-    var score = r.winScore + '–' + r.loseScore;
-
-    // ① Insert result bar at top
-    var bar = document.createElement('div');
-    bar.className = 'mc-result-bar';
-    bar.style.cssText = 'background:' + winColor + '18;border-bottom:1px solid ' + winColor + '33;padding:4px 10px;display:flex;align-items:center;justify-content:space-between';
-    bar.innerHTML = '<span style="font-size:9px;font-weight:700;color:' + winColor + ';letter-spacing:0.5px">✅ FINAL</span>' +
-      '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;font-weight:700;color:#0B0F1E">' + score + '</span>';
-    card.insertBefore(bar, card.firstChild);
-
-    // ② Dim losing team rows + bold winner
-    card.querySelectorAll('.matchup-name').forEach(function(el) {
-      var name = el.textContent.replace('🔥','').trim();
-      if (name === r.loser) {
-        el.style.opacity = '0.35';
-        el.style.textDecoration = 'line-through';
-      } else if (name === r.winner) {
-        el.style.color = winColor;
-        el.style.fontWeight = '900';
-      }
-    });
-
-    // ③ Update region label
-    var regionEl = card.querySelector('.matchup-card-region');
-    if (regionEl) {
-      regionEl.textContent = regionEl.textContent.replace(/MAR \d+/, 'FINAL');
-    }
-
-    // ④ Replace AI PICK / UPSET WATCH badge with result badge
-    card.querySelectorAll('.matchup-badge').forEach(function(el) {
-      var aiPick = el.textContent.includes('AI PICK') || el.textContent.includes('CHAMPION PATH');
-      var correct = aiPick && !isUpset;
-      el.style.background = correct ? 'rgba(22,163,74,0.12)' : 'rgba(200,16,46,0.1)';
-      el.style.color = correct ? '#16A34A' : '#C8102E';
-      el.style.border = '1px solid ' + (correct ? 'rgba(22,163,74,0.25)' : 'rgba(200,16,46,0.2)');
-      el.textContent = correct ? '✅ CORRECT' : (isUpset ? '🔥 UPSET!' : '✅ WON');
-    });
-  });
-
-  // ── Auto-scanner: replace ANY stale descriptive text site-wide ──────────────
-  // Two-pass approach:
-  //  PASS 1 — explicit data-stale-game="Fav|Dog" tags: replace by key match,
-  //            no text content check needed (the tag IS the authority).
-  //  PASS 2 — untagged containers: scan .callout-detail, .intel-text, etc.
-  //            and replace any element ≥50 chars that mentions BOTH team names.
-  function applyResult(el, r) {
-    var winColor = r.isUpset ? '#C8102E' : '#16A34A';
-    var icon = r.isUpset ? '🔥 UPSET — ' : '✅ FINAL — ';
-    el.innerHTML = icon +
-      '<strong style="color:' + winColor + '">' + r.winner + '</strong>' +
-      ' def. ' + r.loser +
-      ' <strong style="font-family:\'IBM Plex Mono\',monospace;color:#0B0F1E">' +
-      r.winScore + '–' + r.loseScore + '</strong>';
-    el.style.color = '#64748B';
-    el.setAttribute('data-result-applied', '1');
-  }
-
-  // PASS 1: explicit tags — key match only, no text check
-  Object.keys(GAME_RESULTS).forEach(function(key) {
-    var r = GAME_RESULTS[key];
-    document.querySelectorAll('[data-stale-game="' + key + '"]:not([data-result-applied])').forEach(function(el) {
-      applyResult(el, r);
-    });
-  });
-
-  // PASS 2: auto-scan untagged descriptive containers for both team names
-  var AUTO_SELECTORS = [
-    '.callout-detail',
-    '.intel-text',
-    '.matchup-card [style*="border-top"]',
-    '.prediction-note',
-    '.edge-note',
-    '[class*="detail"]',
-    '[class*="note"]',
-    '[class*="desc"]'
-  ];
-  var _candidates = [];
-  AUTO_SELECTORS.forEach(function(sel) {
-    try {
-      document.querySelectorAll(sel).forEach(function(el) {
-        if (!el.getAttribute('data-result-applied') && _candidates.indexOf(el) === -1) {
-          _candidates.push(el);
-        }
-      });
-    } catch(e) {}
-  });
-  Object.keys(GAME_RESULTS).forEach(function(key) {
-    var r = GAME_RESULTS[key];
-    var parts = key.split('|');
-    var t1 = parts[0].toLowerCase();
-    var t2 = parts[1].toLowerCase();
-    _candidates.forEach(function(el) {
-      if (el.getAttribute('data-result-applied')) return;
-      var lc = el.textContent.toLowerCase();
-      // Must be descriptive text (≥50 chars) mentioning BOTH team names
-      if (lc.length < 50 || lc.indexOf(t1) === -1 || lc.indexOf(t2) === -1) return;
-      applyResult(el, r);
-    });
-  });
-
-  // ── Auto-remove stale pre-game ticker items when game is FINAL ───────────────
-  // Injury reports, GTD/DOUBTFUL, upset alerts, sharp plays all tagged with
-  // data-game-ref="Fav|Dog". Once that game is in GAME_RESULTS, they go away.
-  Object.keys(GAME_RESULTS).forEach(function(key) {
-    ['ticker-track', 'ticker-track-clone'].forEach(function(id) {
-      var el = document.getElementById(id);
-      if (!el) return;
-      el.querySelectorAll('[data-game-ref="' + key + '"]').forEach(function(node) {
-        node.remove();
-      });
-    });
-  });
-
-  // Re-render prediction cards to show result banners
-  safeRender(renderGamePredictions, 'predictions');
 }
 
 // ── ESPN PUBLIC API LIVE SCORES ───────────────────────────────────────────────
@@ -4104,211 +3780,96 @@ function injectScoreItems(liveHTML) {
   });
 }
 
-// Inject historical results (upsets + S16 finals) after the first static item
-function injectHistoryItems(items) {
-  ['ticker-track', 'ticker-track-clone'].forEach(function(id) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    Array.from(el.querySelectorAll('.tick-history-item')).forEach(function(n){ n.remove(); });
-    var afterFirst = el.firstChild ? el.firstChild.nextSibling : null;
-    var frag = document.createDocumentFragment();
-    items.forEach(function(it) {
-      var d = document.createElement('div');
-      d.className = 'tick-item tick-history-item';
-      d.innerHTML = '<span class="' + it.cls + '">' + it.badge + '</span><span style="color:rgba(255,255,255,0.9)">' + it.text + '</span>';
-      frag.appendChild(d);
-    });
-    el.insertBefore(frag, afterFirst);
-  });
-}
-
-// ── TOURNAMENT HISTORY — all completed round results from ESPN ────────────────
-// Runs on load (30-min cache). Fetches R64 → R32 → S16 → E8 automatically.
-// All upsets from any round + every S16+ final populate the ticker dynamically.
-var _histFetchedAt = 0;
-
-async function fetchTourneyHistory() {
-  if (Date.now() - _histFetchedAt < 300000) return; // 5-min cache
-  var now = new Date();
-  var todayNum = parseInt(now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0'));
-  var allDates = ['20260319','20260320','20260321','20260322','20260326','20260327','20260328','20260329','20260404','20260406'];
-  var s16Plus  = {'20260326':1,'20260327':1,'20260328':1,'20260329':1,'20260404':1,'20260406':1};
-  var toFetch  = allDates.filter(function(d){ return parseInt(d) <= todayNum; });
-  if (!toFetch.length) return;
-
-  var allEvents = [], seenIds = {};
-  await Promise.all(toFetch.map(function(dateStr) {
-    return fetch(ESPN_URL + '&dates=' + dateStr, { cache:'default' })
-      .then(function(r){ return r.ok ? r.json() : {events:[]}; })
-      .then(function(data){
-        (data.events||[]).forEach(function(ev){
-          if (!seenIds[ev.id]) { seenIds[ev.id]=true; ev._d=dateStr; allEvents.push(ev); }
-        });
-      }).catch(function(){});
-  }));
-
-  var histItems = [];
-  allEvents.forEach(function(ev) {
-    var comp = (ev.competitions||[])[0]; if (!comp) return;
-    if (((ev.status||{}).type||{}).name !== 'STATUS_FINAL') return;
-    var competitors = comp.competitors||[];
-    var away = competitors.find(function(c){return c.homeAway==='away';});
-    var home = competitors.find(function(c){return c.homeAway==='home';});
-    if (!away||!home) return;
-
-    var aScore=parseInt(away.score||0,10), hScore=parseInt(home.score||0,10);
-    var awayWon = aScore > hScore;
-    var aName=espnNorm((away.team||{}).shortDisplayName||(away.team||{}).abbreviation||'');
-    var hName=espnNorm((home.team||{}).shortDisplayName||(home.team||{}).abbreviation||'');
-    var aSeed=parseInt((away.curatedRank||{}).current||0,10)||null;
-    var hSeed=parseInt((home.curatedRank||{}).current||0,10)||null;
-
-    var winName=awayWon?aName:hName, loseName=awayWon?hName:aName;
-    var winScore=awayWon?aScore:hScore, loseScore=awayWon?hScore:aScore;
-    var winSeed=awayWon?aSeed:hSeed, loseSeed=awayWon?hSeed:aSeed;
-    var ss=function(s){return s?'#'+s+' ':'';};
-    var scoreLine=winScore+'-'+loseScore;
-    var isUpset = winSeed && loseSeed && winSeed > loseSeed;
-    var isS16Plus = !!s16Plus[ev._d];
-
-    // Feed result into card updater — pass date so E8+ results get showInTicker:true
-    storeGameResult(winName, loseName, winScore, loseScore, winSeed, loseSeed, ev._d);
-
-    // Only surface S16+ results in the ticker — earlier round noise stays out
-    if (!isS16Plus) return;
-    if (isUpset) {
-      histItems.push({ cls:'tick-upset', badge:'💥 BUSTED',
-        text:ss(winSeed)+winName+' def. '+ss(loseSeed)+loseName+' '+scoreLine+' — UPSET!' });
-    } else {
-      histItems.push({ cls:'tick-alert', badge:'✅ S16 FINAL',
-        text:ss(winSeed)+winName+' def. '+ss(loseSeed)+loseName+' '+scoreLine });
-    }
-  });
-
-  if (histItems.length) injectHistoryItems(histItems);
-  if (Object.keys(GAME_RESULTS).length) applyGameResults();
-  _histFetchedAt = Date.now();
-}
-
-// Process a list of ESPN events: update ticker items AND store final results
-function processESPNEvents(events, scoreItems, flags) {
-  events.forEach(function(ev) {
-    var comp = (ev.competitions || [])[0];
-    if (!comp) return;
-    var competitors = comp.competitors || [];
-    var away = competitors.find(function(c){ return c.homeAway === 'away'; });
-    var home = competitors.find(function(c){ return c.homeAway === 'home'; });
-    if (!away || !home) return;
-
-    var status     = ev.status || {};
-    var stName     = (status.type || {}).name || '';
-    var isLive     = stName === 'STATUS_IN_PROGRESS';
-    var isFinal    = stName === 'STATUS_FINAL';
-    var isHalftime = stName === 'STATUS_HALFTIME';
-    if (!isLive && !isFinal && !isHalftime) return;
-
-    if (isLive || isHalftime) flags.hasLive = true;
-    if (isFinal) flags.hasFinished = true;
-
-    var awayScore = parseInt(away.score || 0, 10);
-    var homeScore = parseInt(home.score || 0, 10);
-    var awayAhead = awayScore > homeScore;
-    var homeAhead = homeScore > awayScore;
-
-    var awayName = espnNorm((away.team || {}).shortDisplayName || (away.team || {}).abbreviation || 'AWAY');
-    var homeName = espnNorm((home.team || {}).shortDisplayName || (home.team || {}).abbreviation || 'HOME');
-
-    var awaySeed = parseInt((away.curatedRank || {}).current || 0, 10) || null;
-    var homeSeed = parseInt((home.curatedRank || {}).current || 0, 10) || null;
-
-    // ── Store final result for card updates ─────────────────────────────────
-    if (isFinal) {
-      var winTeam = awayAhead ? awayName : homeName;
-      var loseTeam = awayAhead ? homeName : awayName;
-      var winScore = awayAhead ? awayScore : homeScore;
-      var loseScore = awayAhead ? homeScore : awayScore;
-      var d = new Date(); var todayStr = d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
-      storeGameResult(winTeam, loseTeam, winScore, loseScore, awaySeed, homeSeed, todayStr);
-    }
-
-    // ── Build ticker HTML ────────────────────────────────────────────────────
-    var clock     = status.displayClock || '';
-    var period    = status.period || 1;
-    var periodLbl = isHalftime ? 'HALF' : getPeriodLabel(period);
-
-    var statusBadge = isLive
-      ? '<span class="tick-live">● LIVE</span>'
-      : isHalftime
-        ? '<span class="tick-live">HALF</span>'
-        : '<span class="tick-final">FINAL</span>';
-
-    var awayStyle = 'color:' + (awayAhead ? '#FFFFFF' : 'rgba(255,255,255,0.6)') + ';font-weight:' + (awayAhead ? '700' : '400');
-    var homeStyle = 'color:' + (homeAhead ? '#FFFFFF' : 'rgba(255,255,255,0.6)') + ';font-weight:' + (homeAhead ? '700' : '400');
-    var seedBadge = function(seed) { return seed ? '<sup style="font-size:7px;color:rgba(255,255,255,0.4);">' + seed + '</sup>' : ''; };
-    var clockBadge = (isLive && clock && !isHalftime) ? ' <span class="tick-clock">' + periodLbl + ' ' + clock + '</span>' : '';
-
-    var upsetBadge = '';
-    if (isFinal && awaySeed && homeSeed) {
-      if (awayAhead && awaySeed > homeSeed + 3) upsetBadge = ' <span class="tick-upset">🔥 UPSET</span>';
-      if (homeAhead && homeSeed > awaySeed + 3) upsetBadge = ' <span class="tick-upset">🔥 UPSET</span>';
-    }
-
-    scoreItems.push(
-      statusBadge +
-      ' <span style="' + awayStyle + '">' + awayName + seedBadge(awaySeed) + '</span>' +
-      ' <span class="tick-score">' + awayScore + '</span>' +
-      '<span style="color:rgba(255,255,255,0.3);margin:0 3px">–</span>' +
-      '<span class="tick-score">' + homeScore + '</span> ' +
-      '<span style="' + homeStyle + '">' + homeName + seedBadge(homeSeed) + '</span>' +
-      clockBadge + upsetBadge
-    );
-  });
-}
-
 async function fetchTickerScores() {
-  var liveMode = isTourneyWindow();
-  // Outside live windows still fetch to catch final results — just skip ticker UI injection
+  if (!isTourneyWindow()) return;
   try {
-    // Always fetch today. Also fetch prior S16 dates so results persist after midnight.
-    var now = new Date();
-    var fmt = function(d) {
-      return d.getFullYear() + String(d.getMonth()+1).padStart(2,'0') + String(d.getDate()).padStart(2,'0');
-    };
-    var todayStr = fmt(now);
-    // All completed round dates always in scope so results persist after midnight
-    var pastDates = ['20260326','20260327','20260328','20260329'];
-    var datesToFetch = Array.from(new Set([todayStr].concat(pastDates)));
-
-    var allEvents = [];
-    var seenIds = {};
-    await Promise.all(datesToFetch.map(function(dateStr) {
-      return fetch(ESPN_URL + '&dates=' + dateStr + '&t=' + Date.now(), { cache:'no-store' })
-        .then(function(r){ return r.ok ? r.json() : {events:[]}; })
-        .then(function(d){
-          (d.events || []).forEach(function(ev) {
-            if (!seenIds[ev.id]) { seenIds[ev.id] = true; allEvents.push(ev); }
-          });
-        }).catch(function(){});
-    }));
-
-    if (!allEvents.length) return;
+    var resp = await fetch(ESPN_URL + '&t=' + Date.now(), { cache: 'no-store' });
+    if (!resp.ok) return;
+    var data = await resp.json();
+    var events = data.events || [];
+    if (!events.length) return;
 
     var scoreItems = [];
-    var flags = { hasLive: false, hasFinished: false };
-    processESPNEvents(allEvents, scoreItems, flags);
+    var hasLive = false, hasFinished = false;
 
-    // Live ticker UI only during game windows; card result updates always run
-    if (liveMode && scoreItems.length) {
+    events.forEach(function(ev) {
+      var comp = (ev.competitions || [])[0];
+      if (!comp) return;
+      var competitors = comp.competitors || [];
+      var away = competitors.find(function(c){ return c.homeAway === 'away'; });
+      var home = competitors.find(function(c){ return c.homeAway === 'home'; });
+      if (!away || !home) return;
+
+      var status   = ev.status || {};
+      var stName   = (status.type || {}).name || '';
+      var isLive   = stName === 'STATUS_IN_PROGRESS';
+      var isFinal  = stName === 'STATUS_FINAL';
+      var isHalftime = stName === 'STATUS_HALFTIME';
+      if (!isLive && !isFinal && !isHalftime) return;
+
+      if (isLive || isHalftime) hasLive = true;
+      if (isFinal) hasFinished = true;
+
+      var awayScore = parseInt(away.score || 0, 10);
+      var homeScore = parseInt(home.score || 0, 10);
+      var awayAhead = awayScore > homeScore;
+      var homeAhead = homeScore > awayScore;
+
+      // Short team names — ESPN provides several variants
+      var awayName = (away.team || {}).shortDisplayName || (away.team || {}).abbreviation || 'AWAY';
+      var homeName = (home.team || {}).shortDisplayName || (home.team || {}).abbreviation || 'HOME';
+
+      // Seed detection from notes/competitors
+      var awaySeed = parseInt((away.curatedRank || {}).current || 0, 10) || null;
+      var homeSeed = parseInt((home.curatedRank || {}).current || 0, 10) || null;
+
+      // Clock / period
+      var clock  = status.displayClock || '';
+      var period = status.period || 1;
+      var periodLbl = isHalftime ? 'HALF' : getPeriodLabel(period);
+
+      // Build HTML
+      var statusBadge = isLive
+        ? '<span class="tick-live">● LIVE</span>'
+        : isHalftime
+          ? '<span class="tick-live">HALF</span>'
+          : '<span class="tick-final">FINAL</span>';
+
+      var awayStyle = 'color:' + (awayAhead ? '#FFFFFF' : 'rgba(255,255,255,0.6)') + ';font-weight:' + (awayAhead ? '700' : '400');
+      var homeStyle = 'color:' + (homeAhead ? '#FFFFFF' : 'rgba(255,255,255,0.6)') + ';font-weight:' + (homeAhead ? '700' : '400');
+
+      var seedBadge = function(seed) {
+        return seed ? '<sup style="font-size:7px;color:rgba(255,255,255,0.4);">' + seed + '</sup>' : '';
+      };
+
+      var clockBadge = (isLive && clock && !isHalftime)
+        ? ' <span class="tick-clock">' + periodLbl + ' ' + clock + '</span>'
+        : '';
+
+      // Upset detection: underdog (higher seed #) winning at final
+      var upsetBadge = '';
+      if (isFinal && awaySeed && homeSeed) {
+        if (awayAhead && awaySeed > homeSeed + 3) upsetBadge = ' <span class="tick-upset">🔥 UPSET</span>';
+        if (homeAhead && homeSeed > awaySeed + 3) upsetBadge = ' <span class="tick-upset">🔥 UPSET</span>';
+      }
+
+      scoreItems.push(
+        statusBadge +
+        ' <span style="' + awayStyle + '">' + awayName + seedBadge(awaySeed) + '</span>' +
+        ' <span class="tick-score">' + awayScore + '</span>' +
+        '<span style="color:rgba(255,255,255,0.3);margin:0 3px">–</span>' +
+        '<span class="tick-score">' + homeScore + '</span> ' +
+        '<span style="' + homeStyle + '">' + homeName + seedBadge(homeSeed) + '</span>' +
+        clockBadge + upsetBadge
+      );
+    });
+
+    if (scoreItems.length) {
       injectScoreItems(scoreItems);
-      updateTickerLabel(flags.hasLive, flags.hasFinished);
-      tickerSpeed = flags.hasLive ? 0.7 : 0.5;
+      updateTickerLabel(hasLive, hasFinished);
+      // Speed up scroll when live games are happening
+      tickerSpeed = hasLive ? 0.7 : 0.5;
     }
-
-    // Always apply final results to cards — this is the key path for post-game updates
-    if (flags.hasFinished || Object.keys(GAME_RESULTS).length) {
-      applyGameResults();
-    }
-
   } catch(e) {
     console.log('ESPN ticker fetch failed:', e.message || e);
   }
@@ -4361,8 +3922,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Build ticker items (First Four scores + injuries + sharp plays)
   buildStaticTickerItems();
-  // Apply any pre-seeded game results (ESPN API fallback for completed games)
-  if (Object.keys(GAME_RESULTS).length) applyGameResults();
 
   // Render all tabs
   safeRender(renderRegions, 'regions');
@@ -4376,17 +3935,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Start ticker scroll
   startTicker();
-
-  // Fetch all completed tournament results (R64→R32→S16→E8) — populates BUSTED items dynamically
-  fetchTourneyHistory();
-  // Refresh history every 5 min — short enough to catch a game ending
-  setInterval(fetchTourneyHistory, 300000);
-
-  // Rebuild ticker every 2 min: re-generates result items from GAME_RESULTS,
-  // strips completed pre-game items, and refreshes the scroll clone.
-  // This is what makes the ticker "live" — new results appear automatically
-  // as soon as they land in GAME_RESULTS (either via ESPN API or hardcoded).
-  setInterval(rebuildTicker, 120000);
 
   // Init tooltips
   initTooltips();
@@ -4531,29 +4079,6 @@ document.addEventListener('DOMContentLoaded', function() {
         var elAla = document.getElementById('callout-alabama-ml-val');
         if (elAla) elAla.textContent = (alaPred.dogML > 0 ? '+' : '') + alaPred.dogML + ' ML';
       }
-
-      // ── 6b. Update all 4 Tournament Intelligence card odds strips ─────────
-      var cardOdds = [
-        // [fav, dog, favMLId, dogMLId, spreadId, ouId]
-        ['Duke',    "St. John's", 'callout-duke-ml',  'callout-stjohns-ml', 'callout-duke-spread', 'callout-duke-ou'],
-        ['Nebraska','Iowa',       'callout-neb-ml',   'callout-iowa-ml',    'callout-neb-spread',  'callout-iowa-ou'],
-        ['Michigan','Alabama',    'callout-mich-ml',  null,                 'callout-mich-spread', 'callout-ala-ou'],
-        ['Purdue',  'Texas',      'callout-pur-ml',   'callout-texas-ml',   'callout-pur-spread',  'callout-texas-ou']
-      ];
-      cardOdds.forEach(function(row) {
-        var pred = getPred(row[0], row[1]);
-        if (!pred) return;
-        var elFavML = document.getElementById(row[2]);
-        if (elFavML && pred.ml !== undefined) elFavML.textContent = (pred.ml > 0 ? '+' : '') + pred.ml;
-        if (row[3]) {
-          var elDogML = document.getElementById(row[3]);
-          if (elDogML && pred.dogML !== undefined) elDogML.textContent = (pred.dogML > 0 ? '+' : '') + pred.dogML;
-        }
-        var elSp = document.getElementById(row[4]);
-        if (elSp && pred.spread !== undefined) elSp.textContent = (pred.spread > 0 ? '+' : '') + pred.spread;
-        var elOu = document.getElementById(row[5]);
-        if (elOu && pred.ou !== undefined) elOu.textContent = pred.ou;
-      });
 
       // ── 7. LIVE badge on Predictions tab button ───────────────────────────
       var tabBtn = document.querySelector('[data-tab="predictions"]');
