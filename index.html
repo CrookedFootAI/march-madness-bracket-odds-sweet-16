@@ -3840,7 +3840,7 @@ var ESPN_NAME_MAP = {
 };
 function espnNorm(n) { return ESPN_NAME_MAP[n] || n; }
 
-function storeGameResult(winnerRaw, loserRaw, winScore, loseScore, awaySeed, homeSeed) {
+function storeGameResult(winnerRaw, loserRaw, winScore, loseScore, winnerSeed, loserSeed) {
   var winner = espnNorm(winnerRaw), loser = espnNorm(loserRaw);
   var pred = null;
   for (var i = 0; i < GAME_PREDICTIONS.length; i++) {
@@ -3849,13 +3849,22 @@ function storeGameResult(winnerRaw, loserRaw, winScore, loseScore, awaySeed, hom
       pred = g; break;
     }
   }
-  if (!pred) return;
-  var key = pred.fav + '|' + pred.dog;
-  var wSeed = (winner === pred.fav) ? pred.favSeed : pred.dogSeed;
-  var lSeed = (loser === pred.fav) ? pred.favSeed : pred.dogSeed;
-  var isUpset = wSeed > lSeed; // underdog won
-  GAME_RESULTS[key] = { winner: winner, loser: loser, winScore: winScore, loseScore: loseScore, isUpset: isUpset, final: true };
-  pred.result = GAME_RESULTS[key];
+  if (pred) {
+    var key = pred.fav + '|' + pred.dog;
+    var wSeed = (winner === pred.fav) ? pred.favSeed : pred.dogSeed;
+    var lSeed = (loser === pred.fav) ? pred.favSeed : pred.dogSeed;
+    var isUpset = wSeed > lSeed;
+    GAME_RESULTS[key] = { winner: winner, loser: loser, winScore: winScore, loseScore: loseScore, isUpset: isUpset, final: true };
+    pred.result = GAME_RESULTS[key];
+  } else {
+    // No S16 prediction card (e.g. E8/Final Four games) — still store result so
+    // hero cards (data-game) and ticker items (data-game-ref) auto-update.
+    // Store both orderings so the key matches regardless of which team is listed first.
+    var isUpset = winnerSeed && loserSeed && winnerSeed > loserSeed;
+    var result = { winner: winner, loser: loser, winScore: winScore, loseScore: loseScore, isUpset: isUpset, final: true };
+    GAME_RESULTS[winner + '|' + loser] = result;
+    GAME_RESULTS[loser  + '|' + winner] = result;
+  }
 }
 
 // Update hero matchup cards (.matchup-card[data-game]) with final scores
@@ -4219,8 +4228,9 @@ async function fetchTickerScores() {
       return d.getFullYear() + String(d.getMonth()+1).padStart(2,'0') + String(d.getDate()).padStart(2,'0');
     };
     var todayStr = fmt(now);
-    var s16Dates = ['20260326','20260327']; // both S16 days always in scope
-    var datesToFetch = Array.from(new Set([todayStr].concat(s16Dates)));
+    // All completed round dates always in scope so results persist after midnight
+    var pastDates = ['20260326','20260327','20260328','20260329'];
+    var datesToFetch = Array.from(new Set([todayStr].concat(pastDates)));
 
     var allEvents = [];
     var seenIds = {};
