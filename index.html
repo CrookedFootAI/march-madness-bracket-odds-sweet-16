@@ -3717,13 +3717,34 @@ var tickerSpeed = 0.5;
 var tickerPaused = false;
 
 // ── STATIC TICKER BUILDER ─────────────────────────────────────────────────────
-// Builds ticker items from data. First Four scores show until R64 starts (Mar 19).
-// To add/remove items just edit the arrays below.
+// Builds ticker items from data. Pre-game items are tagged data-game-ref so
+// applyGameResults() removes them the moment that game lands in GAME_RESULTS.
+// Results are auto-generated from GAME_RESULTS — no manual edits needed.
 function buildStaticTickerItems() {
   var track = document.getElementById('ticker-track');
   if (!track) return;
 
   var items = [];
+
+  // ── AUTO-GENERATED RESULTS from GAME_RESULTS ──────────────────────────────
+  // Any game added to GAME_RESULTS (hardcoded or via ESPN API) auto-appears here.
+  // Dedup by canonical key (lower team name first alphabetically) to avoid doubles.
+  var seenResultKeys = {};
+  Object.keys(GAME_RESULTS).forEach(function(key) {
+    var r = GAME_RESULTS[key];
+    if (!r || !r.final) return;
+    var canon = [r.winner, r.loser].sort().join('|');
+    if (seenResultKeys[canon]) return;
+    seenResultKeys[canon] = true;
+    var ws = r.winScore != null ? ' ' + r.winScore + '–' + r.loseScore : '';
+    if (r.isUpset) {
+      items.push({ cls:'tick-upset', badge:'💥 UPSET FINAL',
+        text: r.winner + ws + ' def. ' + r.loser + ' — UPSET!' });
+    } else {
+      items.push({ cls:'tick-alert', badge:'✅ FINAL',
+        text: r.winner + ws + ' def. ' + r.loser });
+    }
+  });
 
   // ── ELITE EIGHT STATUS ───────────────────────────────────────────────────────
   items.push({ cls:'tick-alert', badge:'🏀 ELITE EIGHT', text:'March 29 · 2 games today · Michigan vs Tennessee 2:15 PM ET · Duke vs UConn 5:05 PM ET · CBS' });
@@ -3754,9 +3775,6 @@ function buildStaticTickerItems() {
   items.push({ cls:'tick-alert', badge:'📊 E8 SHARP', game:"Michigan|Tennessee", text:'Michigan vs Tennessee O/U 146.5 — OVER: Michigan 87.5 PPG + 90+ in every tourney game · lean OVER vs Vols' });
   items.push({ cls:'tick-alert', badge:'📊 E8 SHARP', game:"Duke|UConn",         text:'Duke vs UConn UNDER 133.5 — Duke #1 defense nationally + UConn limited Demary Jr. = defensive grinder' });
 
-  // ── E8 SAT RESULTS (March 28) ───────────────────────────────────────────────
-  items.push({ cls:'tick-upset', badge:'💥 E8 SAT',   text:'#1 Arizona 79 · #2 Purdue 64 — Arizona to Final Four! First since 2001 · West region final sealed' });
-  items.push({ cls:'tick-upset', badge:'💥 E8 SAT',   text:'#3 Illinois 71 · #9 Iowa 59 — Illinois to Final Four! Wagler 25 pts · Cinderella Iowa run ends' });
 
   // ── AI PICK ─────────────────────────────────────────────────────────────────
   items.push({ cls:'tick-alert', badge:'🏆 AI PICK',  text:'AI Champion: Michigan 🏆 · Championship: Michigan vs Duke · Final Four set: Arizona ✅ · Illinois ✅ · Michigan + Duke TBD', gold:true });
@@ -3769,6 +3787,30 @@ function buildStaticTickerItems() {
     var gameAttr  = it.game ? ' data-game-ref="' + it.game + '"' : '';
     return '<div class="tick-item"' + gameAttr + '><span class="' + it.cls + '">' + it.badge + '</span><span style="' + textStyle + '">' + it.text + '</span></div>';
   }).join('');
+}
+
+// ── TICKER REBUILD — syncs content + clone every 2 minutes ───────────────────
+// Re-runs buildStaticTickerItems() so auto-generated results stay fresh,
+// then removes the old clone and creates a new one with the updated content.
+// applyGameResults() is called after to immediately strip any completed games.
+function rebuildTicker() {
+  var wrap  = document.getElementById('ticker-track-wrap');
+  var track = document.getElementById('ticker-track');
+  if (!wrap || !track) return;
+  // Rebuild static content (auto-results + today's pre-game items)
+  buildStaticTickerItems();
+  // Re-apply completed-game removals immediately
+  if (Object.keys(GAME_RESULTS).length) applyGameResults();
+  // Re-inject any ESPN history items that were already fetched
+  // (they live in GAME_RESULTS so they're covered by auto-generation above)
+  // Replace clone with fresh copy of updated track
+  var oldClone = document.getElementById('ticker-track-clone');
+  if (oldClone) oldClone.remove();
+  tickerPos = 0;
+  track.style.transform = 'translateX(0)';
+  var newClone = track.cloneNode(true);
+  newClone.id = 'ticker-track-clone';
+  wrap.appendChild(newClone);
 }
 
 function startTicker() {
@@ -3821,8 +3863,10 @@ var GAME_RESULTS = {
   "Nebraska|Iowa": { winner:"Iowa", loser:"Nebraska", winScore:77, loseScore:71, isUpset:true, final:true },
   // Illinois 65, Houston 55 — FINAL (March 26, 2026) — upset (3 over 2)
   "Houston|Illinois": { winner:"Illinois", loser:"Houston", winScore:65, loseScore:55, isUpset:true, final:true },
-  // Arizona 79, Purdue 64 — FINAL (March 28, 2026) — E8 West (Arizona 1 over Purdue 2)
-  "Purdue|Arizona": { winner:"Arizona", loser:"Purdue", winScore:79, loseScore:64, isUpset:false, final:true }
+  // Arizona 79, Purdue 64 — E8 FINAL (March 28, 2026) — Arizona to Final Four
+  "Purdue|Arizona": { winner:"Arizona", loser:"Purdue", winScore:79, loseScore:64, isUpset:false, final:true },
+  // Illinois 71, Iowa 59 — E8 FINAL (March 28, 2026) — Illinois to Final Four
+  "Illinois|Iowa": { winner:"Illinois", loser:"Iowa", winScore:71, loseScore:59, isUpset:false, final:true }
 };
 
 // ESPN shortDisplayName → our display names
@@ -4334,6 +4378,12 @@ document.addEventListener('DOMContentLoaded', function() {
   fetchTourneyHistory();
   // Refresh history every 5 min — short enough to catch a game ending
   setInterval(fetchTourneyHistory, 300000);
+
+  // Rebuild ticker every 2 min: re-generates result items from GAME_RESULTS,
+  // strips completed pre-game items, and refreshes the scroll clone.
+  // This is what makes the ticker "live" — new results appear automatically
+  // as soon as they land in GAME_RESULTS (either via ESPN API or hardcoded).
+  setInterval(rebuildTicker, 120000);
 
   // Init tooltips
   initTooltips();
