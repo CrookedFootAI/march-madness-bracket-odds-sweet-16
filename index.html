@@ -3729,22 +3729,23 @@ function buildStaticTickerItems() {
   var items = [];
 
   // ── AUTO-GENERATED RESULTS from GAME_RESULTS ──────────────────────────────
-  // Any game added to GAME_RESULTS (hardcoded or via ESPN API) auto-appears here.
-  // Dedup by canonical key (lower team name first alphabetically) to avoid doubles.
+  // Only entries with showInTicker:true appear here (E8+ results).
+  // S16 and earlier results stay in GAME_RESULTS for card/text updates but
+  // don't clutter the ticker with old news.
   var seenResultKeys = {};
   Object.keys(GAME_RESULTS).forEach(function(key) {
     var r = GAME_RESULTS[key];
-    if (!r || !r.final) return;
+    if (!r || !r.final || !r.showInTicker) return;
     var canon = [r.winner, r.loser].sort().join('|');
     if (seenResultKeys[canon]) return;
     seenResultKeys[canon] = true;
     var ws = r.winScore != null ? ' ' + r.winScore + '–' + r.loseScore : '';
     if (r.isUpset) {
-      items.push({ cls:'tick-upset', badge:'💥 UPSET FINAL',
-        text: r.winner + ws + ' def. ' + r.loser + ' — UPSET!' });
+      items.push({ cls:'tick-upset', badge:'💥 E8 UPSET',
+        text: r.winner + ws + ' def. ' + r.loser + ' — UPSET! Final Four bound' });
     } else {
-      items.push({ cls:'tick-alert', badge:'✅ FINAL',
-        text: r.winner + ws + ' def. ' + r.loser });
+      items.push({ cls:'tick-alert', badge:'✅ E8 FINAL',
+        text: r.winner + ws + ' def. ' + r.loser + ' — Final Four ✅' });
     }
   });
 
@@ -3859,16 +3860,13 @@ function updateTickerLabel(hasLive, hasFinished) {
 // key: "Fav|Dog" matching GAME_PREDICTIONS entries
 // value: { winner, loser, winScore, loseScore, isUpset }
 var GAME_RESULTS = {
-  // Duke 80, St. John's 75 — FINAL (March 27, 2026) — ESPN API fallback
+  // S16 results — used for card/text updates but NOT shown in ticker (no showInTicker)
   "Duke|St. John's": { winner:"Duke", loser:"St. John's", winScore:80, loseScore:75, isUpset:false, final:true },
-  // Iowa 77, Nebraska 71 — FINAL (March 26, 2026) — upset (9 over 4)
-  "Nebraska|Iowa": { winner:"Iowa", loser:"Nebraska", winScore:77, loseScore:71, isUpset:true, final:true },
-  // Illinois 65, Houston 55 — FINAL (March 26, 2026) — upset (3 over 2)
-  "Houston|Illinois": { winner:"Illinois", loser:"Houston", winScore:65, loseScore:55, isUpset:true, final:true },
-  // Arizona 79, Purdue 64 — E8 FINAL (March 28, 2026) — Arizona to Final Four
-  "Purdue|Arizona": { winner:"Arizona", loser:"Purdue", winScore:79, loseScore:64, isUpset:false, final:true },
-  // Illinois 71, Iowa 59 — E8 FINAL (March 28, 2026) — Illinois to Final Four
-  "Illinois|Iowa": { winner:"Illinois", loser:"Iowa", winScore:71, loseScore:59, isUpset:false, final:true }
+  "Nebraska|Iowa":   { winner:"Iowa", loser:"Nebraska",   winScore:77, loseScore:71, isUpset:true,  final:true },
+  "Houston|Illinois":{ winner:"Illinois", loser:"Houston", winScore:65, loseScore:55, isUpset:true,  final:true },
+  // E8 results — showInTicker:true means these appear in the live ticker
+  "Purdue|Arizona":  { winner:"Arizona", loser:"Purdue",  winScore:79, loseScore:64, isUpset:false, final:true, showInTicker:true },
+  "Illinois|Iowa":   { winner:"Illinois", loser:"Iowa",   winScore:71, loseScore:59, isUpset:false, final:true, showInTicker:true }
 };
 
 // ESPN shortDisplayName → our display names
@@ -3886,8 +3884,12 @@ var ESPN_NAME_MAP = {
 };
 function espnNorm(n) { return ESPN_NAME_MAP[n] || n; }
 
-function storeGameResult(winnerRaw, loserRaw, winScore, loseScore, winnerSeed, loserSeed) {
+// E8/Final Four dates — results from these dates get showInTicker:true
+var E8_PLUS_DATES = { '20260328':1, '20260329':1, '20260404':1, '20260406':1 };
+
+function storeGameResult(winnerRaw, loserRaw, winScore, loseScore, winnerSeed, loserSeed, gameDate) {
   var winner = espnNorm(winnerRaw), loser = espnNorm(loserRaw);
+  var showInTicker = !!(gameDate && E8_PLUS_DATES[gameDate]);
   var pred = null;
   for (var i = 0; i < GAME_PREDICTIONS.length; i++) {
     var g = GAME_PREDICTIONS[i];
@@ -3900,14 +3902,12 @@ function storeGameResult(winnerRaw, loserRaw, winScore, loseScore, winnerSeed, l
     var wSeed = (winner === pred.fav) ? pred.favSeed : pred.dogSeed;
     var lSeed = (loser === pred.fav) ? pred.favSeed : pred.dogSeed;
     var isUpset = wSeed > lSeed;
-    GAME_RESULTS[key] = { winner: winner, loser: loser, winScore: winScore, loseScore: loseScore, isUpset: isUpset, final: true };
+    GAME_RESULTS[key] = { winner: winner, loser: loser, winScore: winScore, loseScore: loseScore, isUpset: isUpset, final: true, showInTicker: showInTicker };
     pred.result = GAME_RESULTS[key];
   } else {
-    // No S16 prediction card (e.g. E8/Final Four games) — still store result so
-    // hero cards (data-game) and ticker items (data-game-ref) auto-update.
-    // Store both orderings so the key matches regardless of which team is listed first.
+    // No prediction card (E8/Final Four) — store both orderings so key always matches.
     var isUpset = winnerSeed && loserSeed && winnerSeed > loserSeed;
-    var result = { winner: winner, loser: loser, winScore: winScore, loseScore: loseScore, isUpset: isUpset, final: true };
+    var result = { winner: winner, loser: loser, winScore: winScore, loseScore: loseScore, isUpset: isUpset, final: true, showInTicker: showInTicker };
     GAME_RESULTS[winner + '|' + loser] = result;
     GAME_RESULTS[loser  + '|' + winner] = result;
   }
@@ -4171,8 +4171,8 @@ async function fetchTourneyHistory() {
     var isUpset = winSeed && loseSeed && winSeed > loseSeed;
     var isS16Plus = !!s16Plus[ev._d];
 
-    // Feed result into card updater
-    storeGameResult(winName, loseName, winScore, loseScore, winSeed, loseSeed);
+    // Feed result into card updater — pass date so E8+ results get showInTicker:true
+    storeGameResult(winName, loseName, winScore, loseScore, winSeed, loseSeed, ev._d);
 
     // Only surface S16+ results in the ticker — earlier round noise stays out
     if (!isS16Plus) return;
@@ -4227,7 +4227,8 @@ function processESPNEvents(events, scoreItems, flags) {
       var loseTeam = awayAhead ? homeName : awayName;
       var winScore = awayAhead ? awayScore : homeScore;
       var loseScore = awayAhead ? homeScore : awayScore;
-      storeGameResult(winTeam, loseTeam, winScore, loseScore, awaySeed, homeSeed);
+      var d = new Date(); var todayStr = d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+      storeGameResult(winTeam, loseTeam, winScore, loseScore, awaySeed, homeSeed, todayStr);
     }
 
     // ── Build ticker HTML ────────────────────────────────────────────────────
