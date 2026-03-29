@@ -999,7 +999,7 @@ nav{top:32px!important}
     <div id="team-detail-panel" style="display:none;background:#FFFFFF;border:1px solid #D9D5CC;border-radius:12px;padding:16px;margin-bottom:16px;box-shadow:0 1px 3px rgba(11,15,30,0.08)"></div>
 
     <div class="intel-grid">
-      <div class="intel-card"><div class="intel-icon">🩺</div><div><div class="intel-title">SWEET 16 INJURY WATCH</div><div class="intel-text">Duke enters with 7-man rotation (Foster OUT, Ngongba GTD). Michigan lost Cason (ACL). Tennessee's Ament GTD (knee) and Iowa State's Momcilovic GTD (back) are the two night-of injury variables to track.</div></div></div>
+      <div class="intel-card"><div class="intel-icon">🩺</div><div><div class="intel-title">S16 INJURY UPDATE</div><div class="intel-text">Foster RETURNED vs St. John's (11 pts, 18 min) — injury watch resolved. Ngongba played (4/4/4). Duke won 80-75 to reach Elite Eight. Michigan lost Cason (ACL). Iowa State Jefferson GTD for Tennessee game.</div></div></div>
       <div class="intel-card"><div class="intel-icon">🔥</div><div><div class="intel-title">IOWA CINDERELLA RUN</div><div class="intel-text">#9 Iowa beat defending champion Florida — biggest upset of the 2026 tournament. Ben McCollum's fearless team now faces Nebraska (#4) in Houston. Cinderella momentum + nothing-to-lose mindset = real threat to go deeper.</div></div></div>
       <div class="intel-card"><div class="intel-icon">📊</div><div><div class="intel-title">SWEET 16 UPSET RATES</div><div class="intel-text">5-seeds beat 1-seeds 21% historically in S16. 6-seeds beat 2-seeds 18% of the time. St. John's over Duke and Alabama over Michigan are structurally backed by data and injury context.</div></div></div>
       <div class="intel-card"><div class="intel-icon">✈️</div><div><div class="intel-title">S16 TRAVEL EDGES</div><div class="intel-text">UConn (350mi to D.C.), Michigan (240mi to Chicago), St. John's (225mi to D.C.), Arizona (800mi to San Jose). Texas traveled 1,800mi after three games. Iowa covers 1,350mi to Houston on Cinderella legs.</div></div></div>
@@ -1674,7 +1674,7 @@ function applyFirstFourResults() {
 
 // ── DATA ─────────────────────────────────────────────────────────────────────
 var bracket = {
-  lastUpdated: "🏀 SWEET 16 UPDATED — March 23 2026 · Iowa beat Florida (9-seed Cinderella) · Texas beat Gonzaga (11-seed upset) · St. John's beat Kansas · Tennessee beat Virginia",
+  lastUpdated: "🏀 SWEET 16 RESULTS — March 27 2026 · Duke 80 St. John's 75 (Duke E8) · Evans 25 · Boozer 22/10 · Foster returned 11 pts",
   champion: "Michigan",
   finalFour: ["Duke","Arizona","Michigan","Iowa State"],
   regions: [
@@ -1770,8 +1770,8 @@ var INJURIES = [
   // ── GTD / QUESTIONABLE ────────────────────────────────────────────────────
   {team:"Iowa State",player:"Joshua Jefferson",pos:"F",status:"GTD",statusColor:"#ff9800",note:"Ankle — missed R32 vs Kentucky. 'Continuing to progress' per Otzelberger ahead of Tennessee S16 matchup. If Jefferson plays even at 70%, Iowa State is the Midwest favorite. If he sits, Tennessee's physical defense turns this into a grind they can win. Most critical GTD in the S16.",pre:15.2,post:null,eta:"Expected vs Tennessee Mar 27",pct:70,impact:-16,regionColor:"#f59e0b",seed:2},
   {team:"Iowa State",player:"M. Momcilovic",pos:"G",status:"GTD",statusColor:"#ff9800",note:"Back tightness — limited in conference tournament. Lipsey and the system carry regardless. Iowa State's defense doesn't depend on Momcilovic — still trust them deep, but watch the pre-game lineup report.",pre:13.1,post:11.6,impact:-7,regionColor:"#f59e0b",seed:2},
-  {team:"Duke",player:"Patrick Ngongba II",pos:"C",status:"GTD",statusColor:"#ff9800",note:"Foot soreness — wore walking boot and used scooter after R32 win over TCU. Returned to play 13 minutes vs TCU (4 pts/4 reb/4 ast) after missing 5 straight games. Expected to play vs St. John's with managed minutes. With Foster already OUT, Ngongba missing would push Duke to a 6-man rotation — monitor pre-game warmups.",pre:8.2,post:null,eta:"Expected vs St. John's Mar 27",pct:75,impact:-11,regionColor:"#e63946",seed:1},
-  {team:"Duke",player:"Caleb Foster",pos:"G",status:"DOUBTFUL",statusColor:"#ff4444",note:"Foot fracture (March 7) — Jon Scheyer says 'outside chance' for S16 vs St. John's. Originally not expected back until Final Four. Cayden Boozer has started all 5 games since. Even if Foster dresses, he'll be severely limited. Treat Duke as a 7-man rotation for this game.",pre:8.5,post:null,eta:"'Outside chance' — Mar 27",pct:15,impact:-15,regionColor:"#e63946",seed:1},
+  {team:"Duke",player:"Patrick Ngongba II",pos:"C",status:"PLAYED",statusColor:"#4ade80",note:"PLAYED vs St. John's Sweet 16 — 4 pts, 4 reb, 4 assists. Duke wins 80-75 and advances to the Elite Eight.",pre:8.2,post:5.0,eta:"Played Mar 27",pct:100,impact:0,regionColor:"#e63946",seed:1},
+  {team:"Duke",player:"Caleb Foster",pos:"G",status:"PLAYED",statusColor:"#4ade80",note:"RETURNED vs St. John's Sweet 16 — 11 pts on 5-of-8 shooting in 18 minutes. First postseason game back from foot fracture (March 7). All points came in the second half. Duke wins 80-75 and advances to the Elite Eight.",pre:8.5,post:11.0,eta:"Played Mar 27",pct:100,impact:5,regionColor:"#e63946",seed:1},
   {team:"Purdue",player:"CJ Cox",pos:"G",status:"GTD",statusColor:"#ff9800",note:"Knee injury vs Miami — didn't return to that game. Game-time decision for Texas matchup. Cox was shooting 38.4% from 3 this season and went 6-of-8 from three in tournament play. Losing him would significantly reduce Purdue's perimeter spacing against Texas's up-tempo style.",pre:9.8,post:null,eta:"GTD vs Texas Mar 26",pct:60,impact:-12,regionColor:"#2196f3",seed:2},
   {team:"Texas",player:"Jordan Pope",pos:"G",status:"GTD",statusColor:"#ff9800",note:"Twisted ankle vs Gonzaga in R32 — participated only in limited practice. Pope is Texas's primary ball-handler. A compromised Pope against Purdue's disciplined half-court defense neutralizes the Longhorns' best offensive weapon in an already-fatigued lineup.",pre:14.6,post:null,eta:"GTD vs Purdue Mar 26",pct:55,impact:-14,regionColor:"#2196f3",seed:11},
   {team:"Arkansas",player:"Nick Pringle",pos:"F",status:"GTD",statusColor:"#ff9800",note:"Hamstring — questionable for S16 vs Arizona. Pringle is Arkansas's starting center and primary rebounder. Against Arizona's frontcourt (even without Koa Peat), losing interior presence would be a significant problem for Calipari's first-year squad.",pre:10.4,post:null,eta:"GTD vs Arizona Mar 26",pct:50,impact:-10,regionColor:"#2196f3",seed:5},
@@ -3108,7 +3108,8 @@ var GAME_PREDICTIONS = [
     betRating:"UPSET ALERT", betColor:"#ff6b35",
     spreadLean:"ST. JOHN'S +6.5", mlLean:"ST. JOHN'S ML (+230)",
     edge:"Duke's S16 weakness fully exposed: Foster DOUBTFUL (foot, 'outside chance'), Ngongba GTD (wore boot after R32), 7-man rotation max. St. John's plays 225 miles from Queens — NYC fans flood Capital One Arena via I-95. Pitino has 52 career tourney wins vs Scheyer's 0 Elite Eights. St. John's +230 ML at 68/100 upset risk is the best value in the East.",
-    flags:["🚑 Foster DOUBTFUL + Ngongba GTD — Duke 7-man max","👔 Pitino 52 tourney wins vs Scheyer 0 Elite Eights","🏠 St. John's 225mi from Queens — NYC fans flood D.C. via I-95","⚠️ Upset Risk 68/100 — St. John's +230 ML is the play"] },
+    flags:["🚑 Foster DOUBTFUL + Ngongba GTD — Duke 7-man max","👔 Pitino 52 tourney wins vs Scheyer 0 Elite Eights","🏠 St. John's 225mi from Queens — NYC fans flood D.C. via I-95","⚠️ Upset Risk 68/100 — St. John's +230 ML is the play"],
+    result:{ winner:"Duke", loser:"St. John's", winScore:80, loseScore:75, isUpset:false, final:true } },
 
   { region:"East", rc:"#e63946",
     fav:"UConn", favSeed:3, dog:"Michigan State", dogSeed:2,
@@ -3812,7 +3813,10 @@ function updateTickerLabel(hasLive, hasFinished) {
 // ── GAME RESULTS STORE (populated by ESPN API) ────────────────────────────────
 // key: "Fav|Dog" matching GAME_PREDICTIONS entries
 // value: { winner, loser, winScore, loseScore, isUpset }
-var GAME_RESULTS = {};
+var GAME_RESULTS = {
+  // Duke 80, St. John's 75 — FINAL (March 27, 2026) — ESPN API fallback
+  "Duke|St. John's": { winner:"Duke", loser:"St. John's", winScore:80, loseScore:75, isUpset:false, final:true }
+};
 
 // ESPN shortDisplayName → our display names
 var ESPN_NAME_MAP = {
@@ -4293,6 +4297,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Build ticker items (First Four scores + injuries + sharp plays)
   buildStaticTickerItems();
+  // Apply any pre-seeded game results (ESPN API fallback for completed games)
+  if (Object.keys(GAME_RESULTS).length) applyGameResults();
 
   // Render all tabs
   safeRender(renderRegions, 'regions');
