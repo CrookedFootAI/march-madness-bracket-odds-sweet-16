@@ -4120,8 +4120,8 @@ function injectHistoryItems(items) {
 }
 
 // ── TOURNAMENT HISTORY — all completed round results from ESPN ────────────────
-// Runs on load (30-min cache). Fetches R64 → R32 → S16 → E8 automatically.
-// All upsets from any round + every S16+ final populate the ticker dynamically.
+// Runs on load (5-min cache). Fetches R64 → R32 → S16 → E8 → F4 automatically.
+// Only E8+ results appear in the ticker — S16 and earlier stay out.
 var _histFetchedAt = 0;
 
 async function fetchTourneyHistory() {
@@ -4129,7 +4129,8 @@ async function fetchTourneyHistory() {
   var now = new Date();
   var todayNum = parseInt(now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0'));
   var allDates = ['20260319','20260320','20260321','20260322','20260326','20260327','20260328','20260329','20260404','20260406'];
-  var s16Plus  = {'20260326':1,'20260327':1,'20260328':1,'20260329':1,'20260404':1,'20260406':1};
+  var e8Plus   = {'20260328':1,'20260329':1,'20260404':1,'20260406':1};
+  var roundLabel = {'20260328':'E8','20260329':'E8','20260404':'F4','20260406':'F4'};
   var toFetch  = allDates.filter(function(d){ return parseInt(d) <= todayNum; });
   if (!toFetch.length) return;
 
@@ -4166,18 +4167,19 @@ async function fetchTourneyHistory() {
     var ss=function(s){return s?'#'+s+' ':'';};
     var scoreLine=winScore+'-'+loseScore;
     var isUpset = winSeed && loseSeed && winSeed > loseSeed;
-    var isS16Plus = !!s16Plus[ev._d];
+    var isE8Plus = !!e8Plus[ev._d];
+    var rLabel   = roundLabel[ev._d] || 'FINAL';
 
     // Feed result into card updater — pass date so E8+ results get showInTicker:true
     storeGameResult(winName, loseName, winScore, loseScore, winSeed, loseSeed, ev._d);
 
-    // Only surface S16+ results in the ticker — earlier round noise stays out
-    if (!isS16Plus) return;
+    // Only surface E8+ results in the ticker — S16 and earlier noise stays out
+    if (!isE8Plus) return;
     if (isUpset) {
-      histItems.push({ cls:'tick-upset', badge:'💥 BUSTED',
+      histItems.push({ cls:'tick-upset', badge:'💥 ' + rLabel + ' UPSET',
         text:ss(winSeed)+winName+' def. '+ss(loseSeed)+loseName+' '+scoreLine+' — UPSET!' });
     } else {
-      histItems.push({ cls:'tick-alert', badge:'✅ S16 FINAL',
+      histItems.push({ cls:'tick-alert', badge:'✅ ' + rLabel + ' FINAL',
         text:ss(winSeed)+winName+' def. '+ss(loseSeed)+loseName+' '+scoreLine });
     }
   });
