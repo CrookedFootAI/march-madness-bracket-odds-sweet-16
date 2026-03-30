@@ -609,7 +609,7 @@ nav{top:32px!important}
 <!-- NAV -->
 <nav>
   <div class="nav-logo">BRACKET AGENT 2026</div>
-  <div class="nav-deadline">🏆 FINAL FOUR · APR 4–7</div>
+  <div class="nav-deadline">🏀 FINAL FOUR · APR 4</div>
 </nav>
 
 <!-- HERO -->
@@ -623,92 +623,113 @@ nav{top:32px!important}
         <button class="btn-primary" onclick="document.getElementById('tab-bar').scrollIntoView({behavior:'smooth'})">Generate My Bracket</button>
         <button class="btn-secondary" onclick="document.getElementById('signals-section').scrollIntoView({behavior:'smooth'})">See How It Works</button>
       </div>
-      <div class="hero-champion-strip">
-        <span class="hcs-label">🏆 AI Champion Pick</span>
-        <span class="hcs-pick" id="hero-champ">Michigan</span>
-        <span class="hcs-label" style="border-left:1px solid rgba(255,255,255,0.1);border-right:none">S16 Picks</span>
-        <div id="champ-ff" style="display:flex;gap:0;align-items:center">
-          <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.7);padding:8px 10px;border-left:1px solid rgba(255,255,255,0.1)">Duke ▸ E8</span>
-          <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.7);padding:8px 10px;border-left:1px solid rgba(255,255,255,0.1)">Arizona ▸ E8</span>
-          <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:#B8952A;padding:8px 10px;border-left:1px solid rgba(255,255,255,0.1)">Michigan ▸ 🏆</span>
-          <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.7);padding:8px 10px;border-left:1px solid rgba(255,255,255,0.1)">Iowa State ▸ FF</span>
+      <!-- AI FINAL FOUR PREDICTIONS BOX -->
+      <div style="background:#0B0F1E;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:14px 16px;max-width:100%">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-bottom:10px">🤖 AI Final Four Predictions</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+          <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);border-radius:6px;padding:10px 12px">
+            <div style="font-size:8px;color:#22c55e;letter-spacing:1px;margin-bottom:4px">EAST · ✅ FINAL FOUR</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#FFFFFF;line-height:1">UConn</div>
+            <div style="font-size:9px;color:#22c55e;margin-top:2px">▸ Won 77-71 vs Duke (UPSET)</div>
+          </div>
+          <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);border-radius:6px;padding:10px 12px">
+            <div style="font-size:8px;color:#22c55e;letter-spacing:1px;margin-bottom:4px">WEST · ✅ FINAL FOUR</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#FFFFFF;line-height:1">Arizona</div>
+            <div style="font-size:9px;color:#22c55e;margin-top:2px">▸ Won 79-64 vs Purdue</div>
+          </div>
+          <div style="background:rgba(184,149,42,0.12);border:1px solid rgba(184,149,42,0.3);border-radius:6px;padding:10px 12px">
+            <div style="font-size:8px;color:#B8952A;letter-spacing:1px;margin-bottom:4px">MIDWEST · 🏆 CHAMPION</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#B8952A;line-height:1" id="hero-champ">Michigan</div>
+            <div style="font-size:9px;color:#B8952A;opacity:0.8;margin-top:2px">▸ Won 78-65 vs Tennessee</div>
+          </div>
+          <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);border-radius:6px;padding:10px 12px">
+            <div style="font-size:8px;color:#22c55e;letter-spacing:1px;margin-bottom:4px">SOUTH · ✅ FINAL FOUR</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#FFFFFF;line-height:1">Illinois</div>
+            <div style="font-size:9px;color:#22c55e;margin-top:2px">▸ Won 71-59 vs Iowa</div>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:8px;font-family:'Barlow Condensed',sans-serif;font-size:11px;color:rgba(255,255,255,0.4)">
+          Championship: <span style="color:#FFFFFF;font-weight:700">Michigan</span> vs <span style="color:rgba(255,255,255,0.7)">UConn</span> · <span style="color:#B8952A;font-weight:700">Michigan wins 🏆</span>
         </div>
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-right-label">🏀 Sweet 16 · March 26–27</div>
-      <!-- Sweet 16 matchup preview cards -->
-      <div class="matchup-card">
-        <div class="matchup-card-region" style="color:#16A34A">EAST · FINAL · DUKE WINS ✅</div>
+      <div class="hero-right-label">🏀 Final Four · April 4</div>
+      <!-- FF Game 1: UConn vs Illinois -->
+      <div class="matchup-card" data-game="UConn|Illinois">
+        <div class="matchup-card-region" style="color:#e63946">SEMIFINAL 1 · APR 4 · ARLINGTON TX · 6:09 PM ET</div>
         <div class="matchup-team-row">
           <div class="matchup-team">
-            <span class="matchup-seed">#1</span>
-            <span class="matchup-name pick">Duke</span>
+            <span class="matchup-seed">#2</span>
+            <span class="matchup-name pick">UConn</span>
           </div>
-          <span class="matchup-badge badge-lock">80 ✓ E8</span>
+          <span class="matchup-badge badge-lock">AI PICK</span>
         </div>
         <div class="matchup-team-row">
           <div class="matchup-team">
-            <span class="matchup-seed">#5</span>
-            <span class="matchup-name dog">St. John's</span>
+            <span class="matchup-seed">#3</span>
+            <span class="matchup-name dog" style="color:#22c55e">Illinois</span>
           </div>
-          <span style="font-size:9px;color:#94A3B8;font-weight:700">75 — ELIMINATED</span>
+          <span style="font-size:9px;color:#22c55e;font-weight:700">UPSET WATCH</span>
         </div>
-        <div style="margin-top:8px;font-size:9px;color:#16A34A;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Duke survived 80-75 · Evans 25 pts · Boozer 22/10 · Foster returned (11 pts, 18 min) · Duke advances to Elite Eight</div>
+        <div style="margin-top:8px;font-size:9px;color:#94A3B8;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">UConn -2.5 · ML -140 · O/U 133.5 · Demary Jr. ankle · Hurley 2-title pedigree · Illinois first FF since 2005 · Wagler 25 pts vs Iowa · TBS</div>
       </div>
+      <!-- FF Game 1: Illinois upset detail -->
       <div class="matchup-card">
-        <div class="matchup-card-region" style="color:#16A34A">AI PICK CORRECT · EAST · FINAL</div>
+        <div class="matchup-card-region" style="color:#22c55e">UPSET WATCH · SEMIFINAL 1 · APR 4</div>
         <div class="matchup-team-row">
           <div class="matchup-team">
-            <span class="matchup-seed">#1</span>
-            <span class="matchup-name pick">Duke</span>
+            <span class="matchup-seed">#3</span>
+            <span class="matchup-name pick">Illinois</span>
           </div>
-          <span class="matchup-badge badge-lock">WON 80–75</span>
+          <span class="matchup-badge badge-upset-alert">UPSET RISK: 45/100</span>
         </div>
         <div class="matchup-team-row">
           <div class="matchup-team">
-            <span class="matchup-seed">#5</span>
-            <span class="matchup-name dog">St. John's</span>
+            <span class="matchup-seed">#2</span>
+            <span class="matchup-name dog">UConn</span>
           </div>
-          <span id="hero-ml-stjohns" style="font-size:9px;color:#94A3B8">ELIMINATED</span>
+          <span style="font-size:9px;color:#94A3B8">+118 Moneyline</span>
         </div>
-        <div style="margin-top:8px;font-size:9px;color:#16A34A;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Duke trailed by 10 in 2H · rallied to lead with 3:54 left · Evans 25 · Boozer 22/10 · Foster 11 pts off bench · Ngongba 4/4/4</div>
+        <div style="margin-top:8px;font-size:9px;color:#22c55e;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Illinois beat #2 Houston 65-55 and upset Iowa 71-59 · Underwood's most dangerous team · Demary Jr. ankle limits UConn facilitator · Big Ten physicality vs Hurley finesse</div>
       </div>
-      <div class="matchup-card">
-        <div class="matchup-card-region" style="color:#22c55e">SOUTH · MAR 26 · HOUSTON</div>
-        <div class="matchup-team-row">
-          <div class="matchup-team">
-            <span class="matchup-seed">#9</span>
-            <span class="matchup-name pick" style="color:#C8102E">Iowa 🔥</span>
-          </div>
-          <span class="matchup-badge" style="background:rgba(200,16,46,0.08);color:#C8102E;border:1px solid rgba(200,16,46,0.15)">CINDERELLA</span>
-        </div>
-        <div class="matchup-team-row">
-          <div class="matchup-team">
-            <span class="matchup-seed">#4</span>
-            <span class="matchup-name dog">Nebraska</span>
-          </div>
-          <span id="hero-ml-iowa" style="font-size:9px;color:#94A3B8">+123 Moneyline</span>
-        </div>
-        <div style="margin-top:8px;font-size:9px;color:#C8102E;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Iowa beat defending champs Florida · #9 seed Cinderella · McCollum's fearless team · nothing to lose</div>
-      </div>
-      <div class="matchup-card">
-        <div class="matchup-card-region" style="color:#f59e0b">MIDWEST · MAR 27 · CHICAGO</div>
+      <!-- FF Game 2: Michigan vs Arizona -->
+      <div class="matchup-card" data-game="Michigan|Arizona">
+        <div class="matchup-card-region" style="color:#f59e0b">SEMIFINAL 2 · APR 4 · ARLINGTON TX · 8:49 PM ET</div>
         <div class="matchup-team-row">
           <div class="matchup-team">
             <span class="matchup-seed">#1</span>
             <span class="matchup-name pick">Michigan</span>
           </div>
-          <span class="matchup-badge badge-lock">CHAMPION PATH</span>
+          <span class="matchup-badge badge-lock">AI PICK 🏆</span>
         </div>
         <div class="matchup-team-row">
           <div class="matchup-team">
-            <span class="matchup-seed">#4</span>
-            <span class="matchup-name dog" style="color:#C8102E">Alabama</span>
+            <span class="matchup-seed">#1</span>
+            <span class="matchup-name dog" style="color:#2196f3">Arizona</span>
           </div>
-          <span style="font-size:9px;color:#C8102E;font-weight:700">UPSET WATCH</span>
+          <span style="font-size:9px;color:#2196f3;font-weight:700">UPSET WATCH</span>
         </div>
-        <div style="margin-top:8px;font-size:9px;color:#B8952A;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Cason OUT (ACL) · Cadeau sole PG · Sears healthy for Alabama · Oats up-tempo threat · near-home Chicago</div>
+        <div style="margin-top:8px;font-size:9px;color:#94A3B8;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Michigan -3.5 · ML -180 · O/U 144.5 · Cason OUT · Lendeborg leads Wolverines · Arizona 25-yr drought ended · Peat OUT · Lloyd culture proven · TBS</div>
+      </div>
+      <!-- FF Game 2: Arizona upset detail -->
+      <div class="matchup-card">
+        <div class="matchup-card-region" style="color:#2196f3">UPSET WATCH · SEMIFINAL 2 · APR 4</div>
+        <div class="matchup-team-row">
+          <div class="matchup-team">
+            <span class="matchup-seed">#1</span>
+            <span class="matchup-name pick">Arizona</span>
+          </div>
+          <span class="matchup-badge badge-upset-alert">UPSET RISK: 38/100</span>
+        </div>
+        <div class="matchup-team-row">
+          <div class="matchup-team">
+            <span class="matchup-seed">#1</span>
+            <span class="matchup-name dog">Michigan</span>
+          </div>
+          <span style="font-size:9px;color:#94A3B8">+155 Moneyline</span>
+        </div>
+        <div style="margin-top:8px;font-size:9px;color:#2196f3;border-top:1px solid #EEECE8;padding-top:8px;word-wrap:break-word;overflow-wrap:break-word;white-space:normal">Arizona beat Purdue 79-64 without Peat — battle-tested · Lloyd culture proved under pressure · Cason OUT is Michigan's only crack · 1-vs-1 seed = coin flip territory</div>
       </div>
     </div>
   </div>
@@ -761,37 +782,61 @@ nav{top:32px!important}
     <div class="model-section-eyebrow eyebrow">Why the model picked this</div>
     <div class="model-section-title">Tournament Intelligence</div>
     <div class="callout-grid">
-      <div class="callout-card cinderella">
-        <div class="callout-type" style="color:#C8102E">
-          <span>🔥</span> S16 Upset Alert
-        </div>
-        <div class="callout-team">Duke ✅ E8</div>
-        <div class="callout-stat" style="color:#16A34A">vs St. John's · FINAL: Duke 80–75</div>
-        <div class="callout-detail">Duke survived the upset threat. Down by 10 in the second half, the Blue Devils rallied to lead for good with 3:54 left — winning 80-75. Isaiah Evans led with 25 pts. Cameron Boozer added 22/10 (3rd straight double-double). Caleb Foster returned from his foot fracture to score 11 pts in 18 min. Ngongba 4/4/4. Duke advances to the Elite Eight.</div>
-      </div>
-      <div class="callout-card lock">
-        <div class="callout-type" style="color:#C8102E">
-          <span>🏀</span> Tournament Story
-        </div>
-        <div class="callout-team">Iowa</div>
-        <div class="callout-stat" style="color:#C8102E">Beat Florida · #9 Cinderella</div>
-        <div class="callout-detail">#9 Iowa beat defending champion Florida in the Round of 32 — the biggest upset of the 2026 tournament. Ben McCollum's fearless team enters Houston on pure Cinderella momentum. They now face Nebraska (#4) in what could be the most open game of the Sweet 16. Nothing-to-lose energy after beating the champs.</div>
-      </div>
-      <div class="callout-card upset">
-        <div class="callout-type" style="color:#92400E">
-          <span>🎯</span> Best S16 Upset Pick
-        </div>
-        <div class="callout-team">Alabama</div>
-        <div class="callout-stat" style="color:#B8952A" id="callout-alabama-ml">vs Michigan · <span id="callout-alabama-ml-val">+375 ML</span></div>
-        <div class="callout-detail">Michigan lost L.J. Cason (ACL) and enters the Sweet 16 with Cadeau as sole primary ball-handler for a potential three-game run. Alabama has Mark Sears fully healthy — 20+ ppg scoring engine — and Oats' up-tempo system can shred a depleted backcourt. Michigan is still favored but this is the S16's most structurally dangerous upset setup.</div>
-      </div>
+      <!-- FF SEMIFINAL 1: UConn vs Illinois -->
       <div class="callout-card risk">
         <div class="callout-type" style="color:#1A56DB">
-          <span>⚠️</span> High-Risk Pick
+          <span>⚡</span> FF Upset Watch · Semifinal 1
         </div>
-        <div class="callout-team">Texas</div>
-        <div class="callout-stat" style="color:#1A56DB">First Four fatigue · vs Purdue</div>
-        <div class="callout-detail">Texas played three tournament games (First Four → R1 → R32) and now faces #2 Purdue in San Jose after 1,800 miles of cross-country travel. The Cinderella story of beating Gonzaga is real — but so is the fatigue. Painter's half-court system is designed to expose exactly this type of depleted, pace-dependent opponent.</div>
+        <div class="callout-team">Illinois</div>
+        <div class="callout-stat" style="color:#1A56DB">vs UConn · Upset Risk: 45/100</div>
+        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:5px 0 4px">
+          <span style="font-size:10px;font-weight:700;background:rgba(0,0,0,0.07);color:#555;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">UCONN -2.5 · ML -140</span>
+          <span style="font-size:10px;font-weight:700;background:rgba(26,86,219,0.1);color:#1A56DB;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">ILL ML +118</span>
+          <span style="font-size:10px;color:#999;font-family:'Barlow Condensed',sans-serif">O/U 133.5 · Apr 4 · 6:09 PM ET</span>
+        </div>
+        <div class="callout-detail">Illinois beat #2 Houston 65-55 and upset Iowa 71-59 — Underwood's most dangerous squad. UConn upset Duke 77-71 in E8 but Demary Jr. ankle (limited since Big East) clouds their facilitator role. Hurley has 2 titles; Illinois hasn't been to a FF since 2005. Wagler dropped 25 vs Iowa. Physical Big Ten style vs Hurley finesse — this is closer than the line suggests. AT&T Stadium, Arlington TX · TBS.</div>
+      </div>
+      <!-- FF SEMIFINAL 2: Michigan vs Arizona -->
+      <div class="callout-card cinderella">
+        <div class="callout-type" style="color:#C8102E">
+          <span>🔥</span> FF Upset Watch · Semifinal 2
+        </div>
+        <div class="callout-team">Arizona</div>
+        <div class="callout-stat" style="color:#C8102E">vs Michigan · Upset Risk: 38/100</div>
+        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:5px 0 4px">
+          <span style="font-size:10px;font-weight:700;background:rgba(0,0,0,0.07);color:#555;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">MICH -3.5 · ML -180</span>
+          <span style="font-size:10px;font-weight:700;background:rgba(200,16,46,0.1);color:#C8102E;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">ARIZ ML +155</span>
+          <span style="font-size:10px;color:#999;font-family:'Barlow Condensed',sans-serif">O/U 144.5 · Apr 4 · 8:49 PM ET</span>
+        </div>
+        <div class="callout-detail">Arizona ended a 25-year Final Four drought, rallying from halftime vs Purdue 79-64. Michigan without Cason (ACL) — Lendeborg 14.9 ppg leads the charge vs Tennessee 78-65. Wildcats run Lloyd's pace-and-space offense; Wolverines are No. 1 seed and 3.5-pt favorites. Arizona has covered all 3 tournament games. AT&T Stadium, Arlington TX · TBS.</div>
+      </div>
+      <!-- FINAL FOUR SET -->
+      <div class="callout-card lock">
+        <div class="callout-type" style="color:#16A34A">
+          <span>🏆</span> Final Four Set
+        </div>
+        <div class="callout-team">All 4 Teams Locked</div>
+        <div class="callout-stat" style="color:#16A34A">UConn · Illinois · Michigan · Arizona</div>
+        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:5px 0 4px">
+          <span style="font-size:10px;font-weight:700;background:rgba(22,163,74,0.1);color:#16A34A;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">ILL 71 · IOWA 59 ✅</span>
+          <span style="font-size:10px;font-weight:700;background:rgba(22,163,74,0.1);color:#16A34A;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">ARIZ 79 · PUR 64 ✅</span>
+          <span style="font-size:10px;font-weight:700;background:rgba(22,163,74,0.1);color:#16A34A;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">MICH 78 · TENN 65 ✅</span>
+          <span style="font-size:10px;font-weight:700;background:rgba(22,163,74,0.1);color:#16A34A;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">UCONN 77 · DUKE 71 ✅ UPSET</span>
+        </div>
+        <div class="callout-detail">The bracket is set. UConn shocked #1 Duke 77-71 in the East — biggest upset of E8 Sunday. Michigan cruised past Tennessee 78-65. Illinois and Arizona punched their tickets Saturday. April 4 at AT&T Stadium, Arlington TX: UConn vs Illinois (6:09 PM ET) and Michigan vs Arizona (8:49 PM ET). Both on TBS.</div>
+      </div>
+      <!-- AI MODEL PICK -->
+      <div class="callout-card upset">
+        <div class="callout-type" style="color:#92400E">
+          <span>🤖</span> AI Champion Pick
+        </div>
+        <div class="callout-team">Michigan</div>
+        <div class="callout-stat" style="color:#B8952A">AI Champion · Final Four</div>
+        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:5px 0 4px">
+          <span style="font-size:10px;font-weight:700;background:rgba(184,149,42,0.12);color:#B8952A;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">MICH CHAMP +350</span>
+          <span style="font-size:10px;color:#999;font-family:'Barlow Condensed',sans-serif">Model accuracy 62% this tournament</span>
+        </div>
+        <div class="callout-detail">Model calls Michigan over Arizona (Lendeborg + No. 1 seed pedigree) and UConn over Illinois (Hurley's championship DNA). Championship matchup: Michigan vs UConn. Michigan wins 🏆. Model correctly hit Illinois (S16 upset), Arizona (E8), and Michigan this tournament.</div>
       </div>
     </div>
   </div>
@@ -817,7 +862,7 @@ nav{top:32px!important}
     <button class="tab-btn" onclick="showTab('injuries',this)">INJURIES</button>
     <div class="tooltip">
       <div class="tooltip-title">Injury Report</div>
-      <div class="tooltip-desc">Pre vs post-injury stats for key players. Duke's Caleb Foster is OUT for the season. Tennessee's Nate Ament GTD (knee) and Iowa State's Momcilovic GTD (back) are the key S16 night-of variables.</div>
+      <div class="tooltip-desc">Pre vs post-injury stats for key players. UConn's Demary Jr. ankle (limited since Big East) is the key Final Four variable. Michigan's Cason is OUT (ACL, season-ending). Illinois' Wagler and Arizona's Kier are GTD heading into Arlington.</div>
       <div class="tooltip-tags">
         <span class="tooltip-tag" style="background:rgba(200,16,46,0.08);color:#C8102E">OUT = Season-ending injury, will not play</span>
         <span class="tooltip-tag" style="background:rgba(184,149,42,0.1);color:#B8952A">GTD = Game-Time Decision (unknown until tip-off)</span>
@@ -854,7 +899,7 @@ nav{top:32px!important}
     <button class="tab-btn" data-tab="predictions" onclick="showTab('predictions',this)">GAME PREDICTIONS</button>
     <div class="tooltip">
       <div class="tooltip-title">Game Predictions</div>
-      <div class="tooltip-desc">Every Sweet 16 matchup with projected spread, Moneyline (ML), and Over/Under total — plus a bet recommendation built from efficiency ratings, NIL spending, injuries, pace, and focus scores.</div>
+      <div class="tooltip-desc">Both Final Four semifinal matchups with projected spread, Moneyline (ML), and Over/Under total — plus a bet recommendation built from efficiency ratings, NIL spending, injuries, pace, and focus scores.</div>
       <div class="tooltip-tags">
         <span class="tooltip-tag" style="background:rgba(22,163,74,0.08);color:#16A34A">SPREAD (point margin)</span>
         <span class="tooltip-tag" style="background:rgba(184,149,42,0.1);color:#B8952A">MONEYLINE (win/lose)</span>
@@ -961,12 +1006,12 @@ nav{top:32px!important}
     <div id="team-detail-panel" style="display:none;background:#FFFFFF;border:1px solid #D9D5CC;border-radius:12px;padding:16px;margin-bottom:16px;box-shadow:0 1px 3px rgba(11,15,30,0.08)"></div>
 
     <div class="intel-grid">
-      <div class="intel-card"><div class="intel-icon">🩺</div><div><div class="intel-title">F4 INJURY REPORT — INDIANAPOLIS</div><div class="intel-text">Michigan: L.J. Cason OUT (ACL, season-ending) — Cadeau answered through all 6 games, not returning. Arizona: Koa Peat OUT (foot) — Maks Krivas fully absorbed the role, depth proven in Big 12 title run. Illinois &amp; UConn: No major injury concerns entering Lucas Oil Stadium.</div></div></div>
-      <div class="intel-card"><div class="intel-icon">🏆</div><div><div class="intel-title">FINAL FOUR LOCKED: ALL 4 SET</div><div class="intel-text">Illinois def. Houston 65–55 (S16) + def. Iowa 71–59 (E8). UConn def. Duke 77–71 (E8). Michigan def. Tennessee 78–65 (E8). Arizona def. Purdue 79–64 (E8). Four teams, zero question marks — Lucas Oil Stadium, Indianapolis, April 4.</div></div></div>
-      <div class="intel-card"><div class="intel-icon">📊</div><div><div class="intel-title">FINAL FOUR HISTORICAL RATES</div><div class="intel-text">1-seeds in Final Four win the title ~40% of the time. 3-seeds have won 3 titles since 2000 (UConn is a 3). Teams winning E8 by 10+ points are 62% in Final Four semis. Illinois &amp; Michigan are the first Big Ten semifinal pair since 2013 — intra-conference Final Four familiarity is a real edge.</div></div></div>
-      <div class="intel-card"><div class="intel-icon">✈️</div><div><div class="intel-title">F4 TRAVEL EDGES — INDIANAPOLIS</div><div class="intel-text">Illinois: ~170mi from Champaign — near-home crowd, massive fan advantage at Lucas Oil. Michigan: ~240mi from Ann Arbor — strong Wolverine support, familiar Midwest neutral site. UConn: ~900mi from Storrs — long travel, neutral crowd. Arizona: ~1,700mi from Tucson — longest trip in the Final Four, purely neutral.</div></div></div>
-      <div class="intel-card"><div class="intel-icon">🧠</div><div><div class="intel-title">FOCUS RISK: F4 EDITION</div><div class="intel-text">Michigan (72/100) — Cason OUT + Cadeau solo PG fatigue over 40 Final Four minutes. Illinois (77/100) — Underwood's first Final Four; maximum national spotlight pressure. UConn (78/100) — Hurley 3-peat dynasty weight is real, no team has ever done it. Arizona (82/100) — Most focused team in the field; Peat absence fully absorbed.</div></div></div>
-      <div class="intel-card"><div class="intel-icon">🔥</div><div><div class="intel-title">ILLINOIS NEAREST CROWD ADVANTAGE</div><div class="intel-text">Lucas Oil Stadium sits ~170 miles from Champaign — Illinois fans will outnumber every other fanbase in Indianapolis. Underwood's team beat the #2 seed (Houston) AND a Cinderella (Iowa) to get here. The nearest-home crowd energy in a Final Four is among the rarest advantages in college basketball. Don't sleep on it.</div></div></div>
+      <div class="intel-card"><div class="intel-icon">🩺</div><div><div class="intel-title">E8 INJURY REPORT — TODAY</div><div class="intel-text">Duke at full strength: Foster (foot) RETURNED vs SJU (11 pts, 19 min), Ngongba HEALTHY — biggest injury reversal of the tournament. Michigan: Cason OUT (ACL, season-ending) — Lendeborg carries the load. UConn: Demary Jr. playing through ankle sprain (Big East), 23 min vs MSU but visibly limited both ends. Tennessee: full roster healthy.</div></div></div>
+      <div class="intel-card"><div class="intel-icon">🏆</div><div><div class="intel-title">FINAL FOUR LOCKED: ILLINOIS &amp; ARIZONA</div><div class="intel-text">Illinois reached their first Final Four since 2005 — beat #2 Houston 65-55 (17-0 run) and #9 Iowa 71-59 (Wagler 25 pts). Arizona ended a 25-year drought, back in the Final Four for the first time since 2001 — rallied from halftime deficit to beat Purdue 79-64. Two spots still open: Michigan vs Tennessee and Duke vs UConn today.</div></div></div>
+      <div class="intel-card"><div class="intel-icon">📊</div><div><div class="intel-title">E8 HISTORICAL UPSET RATES</div><div class="intel-text">1-seeds win Elite Eight games ~65% historically. UConn (#2) vs Duke (#1) is the closer matchup — 2-seeds beat 1-seeds in the E8 about 35% of the time. Tennessee (#6) faces the steepest climb: 6-seeds win E8 games only ~22% of the time. Duke's top-ranked defense and near-home D.C. crowd are the structural moat.</div></div></div>
+      <div class="intel-card"><div class="intel-icon">✈️</div><div><div class="intel-title">E8 TRAVEL EDGES — TODAY</div><div class="intel-text">Michigan near-home: Ann Arbor → Chicago ~240 miles (United Center). Tennessee making a longer haul: Knoxville → Chicago ~530 miles. Duke essentially playing a home game: Durham → Washington D.C. ~250 miles with massive Cameron Indoors fanbase bused in. UConn close: Storrs → D.C. ~350 miles — both East teams travel well but Duke owns this crowd.</div></div></div>
+      <div class="intel-card"><div class="intel-icon">🧠</div><div><div class="intel-title">FOCUS RISK: E8 EDITION</div><div class="intel-text">Michigan (45/100) — Cason OUT is the only crack; team hit 90+ pts in all 3 tourney games, remarkably focused. UConn (62/100) — Demary Jr. ankle limits their offense facilitator; first time all season as underdogs adds mental load. Tennessee (38/100) — chasing school's first-ever Final Four = massive motivation spike, not a pressure sink. Duke (28/100) — healthy, near-home, focused.</div></div></div>
+      <div class="intel-card"><div class="intel-icon">🔥</div><div><div class="intel-title">TENNESSEE CHASING HISTORY</div><div class="intel-text">Rick Barnes has now reached 3 straight Elite Eights — but Tennessee has NEVER reached the Final Four in program history. Iowa State's Jefferson DNP in the S16 handed the Vols a path; now Michigan stands between Barnes and history. Tennessee won the glass battle 43-22 vs Iowa State. If they out-rebound Michigan like that, this gets interesting. Michigan still -360 for a reason.</div></div></div>
     </div>
 
   </div><!-- end tab-bracket -->
@@ -1028,27 +1073,104 @@ nav{top:32px!important}
 
   <!-- ── INJURIES ── -->
   <div class="section" id="tab-injuries">
-    <div class="sec-title">INJURY REPORT & SWEET 16 IMPACT</div>
-    <div class="sec-sub">🏀 SWEET 16 EDITION · March 26–27, 2026 · Check official availability reports night-before each Sweet 16 game · GTD status can flip on game day</div>
+    <div class="sec-title">INJURY REPORT & FINAL FOUR IMPACT</div>
+    <div class="sec-sub">🏀 FINAL FOUR EDITION · April 4, 2026 · AT&T Stadium, Arlington TX · Check official availability reports night-before · GTD status can flip on game day</div>
     <div class="info-box" style="border-left:3px solid #C8102E">
-      <span class="hl-red">SWEET 16 BRACKET IMPACT GUIDE: </span>Injuries matter MORE in Sweet 16 — 3 games in 6 days. OUT players create cumulative fatigue gaps. GTD players entering S16 are often at 70% — that gap widens each game. HEALTHY teams with high focus scores are your Elite 8 locks.
+      <span class="hl-red">FINAL FOUR INJURY IMPACT GUIDE: </span>With only 2 games on the same night, every injury carries more weight. OUT players leave lasting holes in rotations that have been running 3–4 weeks. GTD players in the Final Four often play through pain at 60–70% — that gap is critical in a 1-game elimination format. Healthy teams with high focus scores are your championship locks.
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-bottom:20px">
       <div style="background:#FFFFFF;border:1px solid #D9D5CC;border-left:3px solid #C8102E;border-radius:8px;padding:12px 14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
-        <div style="font-size:9px;color:#C8102E;font-weight:700;letter-spacing:1px;margin-bottom:6px">FADE THESE TEAMS IN S16+</div>
-        <div style="font-size:11px;color:#0B0F1E;line-height:1.8">Duke (Foster DOUBTFUL · 7-man rotation · Ngongba GTD · Scheyer 0 Elite Eights) · Alabama (Holloway SUSP · 16.8 PPG gone · felony arrest) · Texas (First Four fatigue — 3 games in legs) · Michigan (Cason OUT · Cadeau sole PG)</div>
+        <div style="font-size:9px;color:#C8102E;font-weight:700;letter-spacing:1px;margin-bottom:6px">INJURY FLAGS — FINAL FOUR</div>
+        <div style="font-size:11px;color:#0B0F1E;line-height:1.8">UConn (Demary Jr. ankle — limited since Big East · facilitator role) · Michigan (Cason OUT — ACL season-ending · Cadeau sole PG through 5 games)</div>
       </div>
       <div style="background:#FFFFFF;border:1px solid #D9D5CC;border-left:3px solid #B8952A;border-radius:8px;padding:12px 14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
-        <div style="font-size:9px;color:#B8952A;font-weight:700;letter-spacing:1px;margin-bottom:6px">MONITOR THESE — CHECK NIGHT-OF S16</div>
-        <div style="font-size:11px;color:#0B0F1E;line-height:1.8">Iowa State Jefferson GTD (ankle · missed R32 · most critical status in S16) · Purdue Cox GTD (knee · perimeter spacing) · Texas Pope GTD (ankle · ball-handler) · Iowa State Momcilovic GTD (back) · Duke Ngongba GTD (foot)</div>
+        <div style="font-size:9px;color:#B8952A;font-weight:700;letter-spacing:1px;margin-bottom:6px">MONITOR NIGHT-OF — FINAL FOUR</div>
+        <div style="font-size:11px;color:#0B0F1E;line-height:1.8">Illinois Wagler GTD (shoulder · 25 pts vs Iowa) · Arizona Kier GTD (back tightness · perimeter spacing) · UConn Demary Jr. practice reports Apr 3</div>
       </div>
       <div style="background:#FFFFFF;border:1px solid #D9D5CC;border-left:3px solid #16A34A;border-radius:8px;padding:12px 14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
-        <div style="font-size:9px;color:#16A34A;font-weight:700;letter-spacing:1px;margin-bottom:6px">TRUST DESPITE INJURY — S16</div>
-        <div style="font-size:11px;color:#0B0F1E;line-height:1.8">Arizona (Peat out, reached S16 anyway · Lloyd culture) · Iowa State (system-first · Lipsey carries) · Iowa (Cinderella momentum · beat defending champ Florida as 9-seed)</div>
+        <div style="font-size:9px;color:#16A34A;font-weight:700;letter-spacing:1px;margin-bottom:6px">TRUST DESPITE INJURY — FF</div>
+        <div style="font-size:11px;color:#0B0F1E;line-height:1.8">Michigan (Cason OUT all tournament — answered every challenge anyway, 5-game run proves system depth) · Arizona (Peat OUT all tournament — Lloyd's depth culture proven)</div>
       </div>
     </div>
-    <!-- SWEET 16 INJURY SPOTLIGHT CARDS -->
-    <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;letter-spacing:2px;color:#C8102E;margin-bottom:12px;margin-top:8px">🏥 SWEET 16 INJURY SPOTLIGHT</div>
+    <!-- FINAL FOUR INJURY SPOTLIGHT CARDS -->
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;letter-spacing:2px;color:#C8102E;margin-bottom:12px;margin-top:8px">🏥 FINAL FOUR INJURY SPOTLIGHT</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:10px;margin-bottom:16px">
+      <!-- UConn: Demary Jr. ankle -->
+      <div style="background:#FFFFFF;border:1px solid rgba(255,152,0,0.25);border-left:3px solid #ff9800;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-size:18px">⚠️</span>
+          <div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#0B0F1E">Hassan Demary Jr.</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <span style="font-size:9px;background:rgba(227,57,70,0.12);color:#e63946;padding:1px 6px;border-radius:3px;font-weight:700">UConn East #2</span>
+              <span style="font-size:9px;background:rgba(255,152,0,0.15);color:#ff9800;padding:1px 6px;border-radius:3px;font-weight:700">GTD — ANKLE · CHECK APR 3 PRACTICE</span>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:#64748B;line-height:1.6"><strong style="color:#C8102E">MOST CRITICAL FINAL FOUR INJURY.</strong> Demary Jr. has been limited since the Big East Tournament with a right ankle issue. He's UConn's primary facilitator — without him at full speed, Hurley's half-court offense loses a step. He played through it vs Duke (77-71 E8 upset) but took hard contact. If his ankle regresses heading into Arlington, Illinois' physical Big Ten defense becomes even more dangerous. Monitor Apr 3 practice reports.</div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <div style="background:#F7F5F2;border:1px solid #D9D5CC;border-radius:5px;padding:5px 8px;text-align:center"><div style="font-size:8px;color:#94A3B8">SEASON PPG</div><div style="font-size:14px;font-weight:700;color:#16A34A;font-family:'IBM Plex Mono',monospace">11.2</div></div>
+          <div style="background:#F7F5F2;border:1px solid #D9D5CC;border-radius:5px;padding:5px 8px;text-align:center"><div style="font-size:8px;color:#94A3B8">STATUS</div><div style="font-size:14px;font-weight:700;color:#ff9800;font-family:'IBM Plex Mono',monospace">GTD</div></div>
+          <div style="background:#F7F5F2;border:1px solid #D9D5CC;border-radius:5px;padding:5px 8px;text-align:center"><div style="font-size:8px;color:#94A3B8">TEAM IMPACT</div><div style="font-size:14px;font-weight:700;color:#ff9800;font-family:'IBM Plex Mono',monospace">−8 pt/g</div></div>
+        </div>
+      </div>
+      <!-- Michigan: L.J. Cason OUT -->
+      <div style="background:#FFFFFF;border:1px solid rgba(200,16,46,0.2);border-left:3px solid #C8102E;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-size:18px">🚑</span>
+          <div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#0B0F1E">L.J. Cason</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <span style="font-size:9px;background:rgba(245,158,11,0.12);color:#f59e0b;padding:1px 6px;border-radius:3px;font-weight:700">Michigan Midwest #1</span>
+              <span style="font-size:9px;background:rgba(200,16,46,0.12);color:#C8102E;padding:1px 6px;border-radius:3px;font-weight:700">OUT ALL TOURNAMENT — ACL</span>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:#64748B;line-height:1.6">ACL — season-ending. Michigan answered without Cason in every round. Cadeau has been the sole primary ball-handler across 5 tournament games. The Wolverines beat Alabama, Tennessee (78-65) and are now the #1 seed favorite heading into Arlington. Lendeborg (14.9 ppg) carries the offensive load. Juwan Howard's depth has answered every challenge.</div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <div style="background:#F7F5F2;border:1px solid #D9D5CC;border-radius:5px;padding:5px 8px;text-align:center"><div style="font-size:8px;color:#94A3B8">SEASON PPG</div><div style="font-size:14px;font-weight:700;color:#16A34A;font-family:'IBM Plex Mono',monospace">8.4</div></div>
+          <div style="background:#F7F5F2;border:1px solid #D9D5CC;border-radius:5px;padding:5px 8px;text-align:center"><div style="font-size:8px;color:#94A3B8">STATUS</div><div style="font-size:14px;font-weight:700;color:#C8102E;font-family:'IBM Plex Mono',monospace">DNP</div></div>
+          <div style="background:#F7F5F2;border:1px solid #D9D5CC;border-radius:5px;padding:5px 8px;text-align:center"><div style="font-size:8px;color:#94A3B8">TEAM IMPACT</div><div style="font-size:14px;font-weight:700;color:#C8102E;font-family:'IBM Plex Mono',monospace">−14 pt/g</div></div>
+        </div>
+      </div>
+      <!-- Illinois: Wagler GTD -->
+      <div style="background:#FFFFFF;border:1px solid rgba(255,152,0,0.25);border-left:3px solid #ff9800;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-size:18px">⚠️</span>
+          <div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#0B0F1E">Luke Wagler</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <span style="font-size:9px;background:rgba(34,197,94,0.12);color:#22c55e;padding:1px 6px;border-radius:3px;font-weight:700">Illinois South #3</span>
+              <span style="font-size:9px;background:rgba(255,152,0,0.15);color:#ff9800;padding:1px 6px;border-radius:3px;font-weight:700">GTD — SHOULDER · MONITOR</span>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:#64748B;line-height:1.6">Wagler exploded for 25 pts vs Iowa in the Elite Eight, cementing Illinois' Final Four run. Shoulder tightness flagged in postgame but he completed the game at full intensity. Underwood listed him as GTD heading into the week of practices before Arlington. If Wagler plays at even 80%, Illinois is a dangerous upset threat vs UConn. His interior presence is key against Hurley's paint defense.</div>
+        <div style="font-size:10px;color:#B8952A;margin-top:6px;font-weight:700">⚠️ Monitor Apr 3 practice — Wagler is Illinois' most critical Final Four variable</div>
+      </div>
+      <!-- Arizona: Kier GTD -->
+      <div style="background:#FFFFFF;border:1px solid rgba(255,152,0,0.25);border-left:3px solid #ff9800;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-size:18px">⚠️</span>
+          <div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:#0B0F1E">Caleb Kier</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <span style="font-size:9px;background:rgba(33,150,243,0.12);color:#2196f3;padding:1px 6px;border-radius:3px;font-weight:700">Arizona West #1</span>
+              <span style="font-size:9px;background:rgba(255,152,0,0.15);color:#ff9800;padding:1px 6px;border-radius:3px;font-weight:700">GTD — BACK TIGHTNESS</span>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:#64748B;line-height:1.6">Back tightness surfaced late in the Purdue Elite Eight game. Kier provides perimeter spacing in Lloyd's pace-and-space system — without him Arizona loses a floor spacer against Michigan's interior. Arizona already played all tournament without Koa Peat (foot, OUT all tournament); adding a second key absence would meaningfully shift the Michigan-Arizona line. Monitor Lloyd's press conferences Apr 2–3.</div>
+        <div style="font-size:10px;color:#16A34A;margin-top:6px;font-weight:700">✅ Arizona proved depth all tournament — Lloyd culture absorbs injuries</div>
+      </div>
+    </div>
+
+    <!-- S16 INJURY SPOTLIGHT — ARCHIVED -->
+    <details style="margin-bottom:20px">
+      <summary style="cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:#94A3B8;letter-spacing:1px;padding:8px 12px;background:#EEECE8;border:1px solid #D9D5CC;border-radius:6px;list-style:none;display:flex;align-items:center;gap:6px">
+        <span>▶</span> VIEW SWEET 16 INJURY SPOTLIGHT (Archived)
+      </summary>
+      <div style="margin-top:8px">
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:10px;margin-bottom:20px">
       <div style="background:#FFFFFF;border:1px solid rgba(200,16,46,0.2);border-left:3px solid #C8102E;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
@@ -1175,6 +1297,8 @@ nav{top:32px!important}
         <div style="font-size:10px;color:#B8952A;margin-top:6px;font-weight:700">⚠️ CHECK PRE-GAME WARMUP REPORT — Jefferson's status determines Iowa State's ceiling vs Tennessee</div>
       </div>
     </div>
+      </div>
+    </details>
 
     <button onclick="(function(btn){var c=document.getElementById('injury-db-collapse');var open=c.style.display!=='none';c.style.display=open?'none':'block';btn.querySelector('.inj-toggle-icon').textContent=open?'▶':'▼';btn.querySelector('.inj-toggle-label').textContent=open?'Show all injuries':'Hide';})( this)" style="display:flex;align-items:center;gap:8px;background:none;border:none;cursor:pointer;padding:0;margin-bottom:8px;width:100%">
       <span style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;letter-spacing:2px;color:#0B0F1E">📋 FULL INJURY DATABASE</span>
@@ -1192,9 +1316,9 @@ nav{top:32px!important}
     <!-- TRAVEL DISTANCE SECTION — FINAL FOUR -->
     <div style="margin-top:28px">
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;letter-spacing:2px;color:#0B0F1E;margin-bottom:4px">🗺️ FINAL FOUR TRAVEL BURDEN</div>
-      <div style="font-size:11px;color:#64748B;margin-bottom:10px">Miles to Lucas Oil Stadium, Indianapolis, IN · timezone shifts · home-region crowd advantage · <strong style="color:#0B0F1E">all 4 Final Four teams tracked</strong></div>
+      <div style="font-size:11px;color:#64748B;margin-bottom:10px">Miles to AT&T Stadium, Arlington TX · timezone shifts · home-region crowd advantage · <strong style="color:#0B0F1E">all 4 teams tracked</strong></div>
       <div style="background:#FFFFFF;border:1px solid #D9D5CC;border-left:3px solid #1A56DB;border-radius:10px;padding:12px 16px;margin-bottom:10px;font-size:11px;color:#64748B;line-height:1.8;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
-        <span style="color:#1A56DB;font-weight:700">F4 KEY STAT: </span>Illinois (~170 mi from Champaign) and Michigan (~240 mi from Ann Arbor) have <strong style="color:#16A34A">massive near-home crowd advantages</strong> at Lucas Oil Stadium — both drawing Big Ten fanbases in the heart of the Midwest. UConn travels ~900 miles from Storrs (Eastern → Central, −1 hr shift, favorable). Arizona draws the <strong style="color:#C8102E">longest haul in the Final Four</strong> at ~1,700 miles from Tucson (Mountain → Central, +1 hr shift). Illinois and Michigan will have more fans in Indianapolis than any neutral Final Four in recent memory.
+        <span style="color:#1A56DB;font-weight:700">FF KEY STAT: </span>AT&T Stadium in Arlington TX is Central time — a mild advantage for Illinois (Chicago, same zone) and Michigan (Ann Arbor, 1-hr shift west favorable). UConn (Storrs CT) travels ~1,700 miles with a 1-hr clock jump. Arizona (Tucson AZ) has the shortest trip at ~900 miles, same timezone (Mountain → Central, 1-hr east shift). No team has a dominant home-turf advantage in Arlington — this is true neutral ground.
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;font-size:10px">
         <span style="background:rgba(200,16,46,0.08);color:#C8102E;border:1px solid rgba(200,16,46,0.15);padding:3px 10px;border-radius:4px;font-weight:700">🔴 HIGH — 1,500+ mi or 2+ hr TZ change</span>
@@ -1202,48 +1326,216 @@ nav{top:32px!important}
         <span style="background:rgba(22,163,74,0.08);color:#16A34A;border:1px solid rgba(22,163,74,0.15);padding:3px 10px;border-radius:4px;font-weight:700">🟢 LOW — Under 500 mi, home region</span>
       </div>
 
-      <!-- FINAL FOUR — INDIANAPOLIS -->
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;color:#1A56DB;margin-bottom:8px;padding:4px 10px;background:rgba(26,86,219,0.06);border-radius:5px;display:inline-block">📍 INDIANAPOLIS, IN (Lucas Oil Stadium) — FINAL FOUR · April 4, 2026</div>
+      <!-- FINAL FOUR: AT&T Stadium, Arlington TX -->
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;color:#B8952A;margin-bottom:8px;padding:4px 10px;background:rgba(184,149,42,0.07);border-radius:5px;display:inline-block">📍 ARLINGTON, TX (AT&T Stadium) — FINAL FOUR · April 4</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:10px;margin-bottom:18px">
-        <!-- Illinois -->
-        <div style="background:#FFFFFF;border:1px solid rgba(34,197,94,0.2);border-left:4px solid #16A34A;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
-            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#3 Illinois</span><span style="font-size:9px;background:#16A34A;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">NEAREST CROWD</span></div>
-            <span style="font-size:9px;background:rgba(34,197,94,0.12);color:#16A34A;border:1px solid rgba(34,197,94,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟢 NEAR-HOME</span>
-          </div>
-          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Champaign IL → Indianapolis IN · <strong style="color:#0B0F1E">~120 miles</strong> · Same timezone (Central/Eastern — same game time)</div>
-          <div style="font-size:11px;color:#64748B;line-height:1.6"><strong style="color:#16A34A">CLOSEST FANBASE IN THE FINAL FOUR.</strong> ~120 miles from Champaign — Illini fans will pack Lucas Oil Stadium more than any other program. Beat #2 Houston 65-55 in S16 and Iowa 71-59 in E8. Zero travel fatigue, maximum crowd energy in a neutral Indiana venue.</div>
-          <div style="font-size:9px;color:#16A34A;font-weight:700;margin-top:6px">✅ NEAREST CROWD — Illinois fans own the drive to Indianapolis. Biggest crowd edge in the F4.</div>
-        </div>
-        <!-- UConn -->
-        <div style="background:#FFFFFF;border:1px solid rgba(255,152,0,0.2);border-left:4px solid #ff9800;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
-            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#3 UConn</span></div>
-            <span style="font-size:9px;background:rgba(255,152,0,0.12);color:#ff9800;border:1px solid rgba(255,152,0,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟡 MED</span>
-          </div>
-          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Storrs CT → Indianapolis IN · <strong style="color:#0B0F1E">~900 miles</strong> · Eastern → Eastern (no TZ shift)</div>
-          <div style="font-size:11px;color:#64748B;line-height:1.6">~900 miles from Storrs — the most neutral trip of the four. No timezone shift (both Eastern). UConn fans travel nationally for the dynasty. Hurley's teams have won everywhere and are never distracted by environment — but this is a fully neutral crowd with no I-95 corridor home-city advantage.</div>
-          <div style="font-size:9px;color:#f59e0b;font-weight:700;margin-top:6px">⚠️ NEUTRAL CROWD — No near-home edge in Indianapolis for UConn</div>
-        </div>
-        <!-- Michigan -->
-        <div style="background:#FFFFFF;border:1px solid rgba(34,197,94,0.2);border-left:4px solid #16A34A;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
-            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#1 Michigan</span><span style="font-size:9px;background:#16A34A;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">NEAR-HOME</span></div>
-            <span style="font-size:9px;background:rgba(34,197,94,0.12);color:#16A34A;border:1px solid rgba(34,197,94,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟢 LOW</span>
-          </div>
-          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Ann Arbor MI → Indianapolis IN · <strong style="color:#0B0F1E">~240 miles</strong> · Eastern → Eastern (no TZ shift)</div>
-          <div style="font-size:11px;color:#64748B;line-height:1.6">240 miles — Michigan fans make this drive constantly for bowl games and Big Ten events. Lucas Oil is practically a second home for Wolverine fans. Same timezone, short trip, no fatigue. Despite Cason being OUT, this is a structural travel advantage entering the Final Four. Maize and blue will be loud on April 4.</div>
-          <div style="font-size:9px;color:#16A34A;font-weight:700;margin-top:6px">✅ NEAR-HOME — Michigan fans 3.5-hr drive from Ann Arbor. Lucas Oil will be loaded.</div>
-        </div>
-        <!-- Arizona -->
         <div style="background:#FFFFFF;border:1px solid rgba(200,16,46,0.2);border-left:4px solid #C8102E;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
-            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#1 Arizona</span><span style="font-size:9px;background:#C8102E;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">LONGEST TRIP</span></div>
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#2 UConn</span><span style="font-size:9px;background:#C8102E;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">LONGEST TRIP</span></div>
             <span style="font-size:9px;background:rgba(200,16,46,0.1);color:#C8102E;border:1px solid rgba(200,16,46,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🔴 HIGH</span>
           </div>
-          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Tucson AZ → Indianapolis IN · <strong style="color:#0B0F1E">~1,700 miles</strong> · Mountain → Eastern (+2 hr shift)</div>
-          <div style="font-size:11px;color:#64748B;line-height:1.6">Longest travel draw in the Final Four at ~1,700 miles and a 2-hour timezone shift east (Mountain → Eastern). Games feel earlier — a mild body clock headwind. Arizona offset this disadvantage all tournament with the most focused and healthy roster remaining. Lloyd's culture and Burries/Love's stability absorb the travel better than most programs.</div>
-          <div style="font-size:9px;color:#C8102E;font-weight:700;margin-top:6px">🔴 MOST TRAVEL — 1,700mi + 2hr TZ shift east. Biggest structural headwind in the F4.</div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Storrs CT → Arlington TX · <strong style="color:#0B0F1E">~1,700 miles</strong> · 1-hr TZ shift (Eastern→Central)</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">UConn's longest haul of the tournament — 1,700 miles from Storrs to Dallas-Fort Worth. The 1-hr East→Central shift is slightly favorable (body clock runs ahead). Hurley's team has traveled all season for Big East road trips. Demary Jr. ankle makes rest and travel management critical heading into April 4.</div>
+          <div style="font-size:9px;color:#ff9800;font-weight:700;margin-top:6px">⚠️ TRAVEL + INJURY — Demary Jr. ankle in a 1,700-mile road environment</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(34,197,94,0.2);border-left:4px solid #16A34A;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#3 Illinois</span><span style="font-size:9px;background:#16A34A;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">NEAR NEUTRAL</span></div>
+            <span style="font-size:9px;background:rgba(34,197,94,0.12);color:#16A34A;border:1px solid rgba(34,197,94,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟢 LOW-MED</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Champaign IL → Arlington TX · <strong style="color:#0B0F1E">~870 miles</strong> · Same timezone (Central)</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">870 miles and zero timezone change — one of the best travel draws for any Final Four team. Illinois fans will make the drive or short flight easily. Same Central timezone means no body clock disruption. Big Ten road warriors are used to hostile environments. Illinois Cinderella fans will pack the neutral-site stands.</div>
+          <div style="font-size:9px;color:#16A34A;font-weight:700;margin-top:6px">✅ EASY TRIP — same timezone, manageable miles, Big Ten travel veterans</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(34,197,94,0.2);border-left:4px solid #16A34A;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#1 Michigan</span><span style="font-size:9px;background:#16A34A;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">FAVORABLE</span></div>
+            <span style="font-size:9px;background:rgba(34,197,94,0.12);color:#16A34A;border:1px solid rgba(34,197,94,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟢 LOW-MED</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Ann Arbor MI → Arlington TX · <strong style="color:#0B0F1E">~1,200 miles</strong> · 1-hr shift (Eastern→Central) favorable</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">1,200 miles and a 1-hr westward body clock shift — favorable for an evening tip-off (8:49 PM CT feels like 9:49 PM body time for players used to Eastern). Wolverines fans travel in volume. Michigan has played 5 tough tournament road environments already. The #1 seed pedigree means first-class travel logistics.</div>
+          <div style="font-size:9px;color:#16A34A;font-weight:700;margin-top:6px">✅ MILD EDGE — westward body clock shift favorable for evening game · Wolverines travel well</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(255,152,0,0.2);border-left:4px solid #ff9800;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#1 Arizona</span><span style="font-size:9px;background:#ff9800;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">EASIEST TRIP</span></div>
+            <span style="font-size:9px;background:rgba(34,197,94,0.12);color:#16A34A;border:1px solid rgba(34,197,94,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟢 LOW</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Tucson AZ → Arlington TX · <strong style="color:#0B0F1E">~890 miles</strong> · 1-hr TZ (Mountain→Central) mild adverse</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">890 miles — Arizona's shortest Final Four trip of any team. Mountain→Central is a 1-hr eastward shift (mild adverse, game feels slightly earlier). Arizona recruits heavily in Texas and will have strong Southwest fan turnout at AT&T Stadium. Lloyd's team has played all season without Peat — they're road battle-tested.</div>
+          <div style="font-size:9px;color:#16A34A;font-weight:700;margin-top:6px">✅ SHORTEST TRIP — Arizona/Texas pipeline means strong fan support in Arlington</div>
+        </div>
+      </div>
+
+      <!-- S16 TRAVEL DATA — ARCHIVED -->
+      <details style="margin-top:8px">
+        <summary style="cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:#94A3B8;letter-spacing:1px;padding:8px 12px;background:#EEECE8;border:1px solid #D9D5CC;border-radius:6px;list-style:none;display:flex;align-items:center;gap:6px">
+          <span>▶</span> VIEW SWEET 16 TRAVEL DATA (Archived)
+        </summary>
+        <div style="margin-top:8px">
+          <div style="font-size:11px;color:#64748B;margin-bottom:10px;padding:8px 12px;background:#F7F5F2;border-radius:6px">Sweet 16 travel data — Houston, Chicago, Washington D.C., San Jose</div>
+
+      <!-- S16 HOUSTON (South) -->
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;color:#C8102E;margin-bottom:8px;padding:4px 10px;background:rgba(200,16,46,0.06);border-radius:5px;display:inline-block">📍 HOUSTON, TX (Toyota Center) — SOUTH REGION · March 26</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:10px;margin-bottom:18px">
+        <div style="background:#FFFFFF;border:1px solid rgba(200,16,46,0.2);border-left:4px solid #C8102E;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#9 Iowa</span><span style="font-size:9px;background:#C8102E;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">CINDERELLA</span></div>
+            <span style="font-size:9px;background:rgba(255,152,0,0.12);color:#ff9800;border:1px solid rgba(255,152,0,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟡 MED-HIGH</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Iowa City IA → Houston TX · <strong style="color:#0B0F1E">~1,350 miles</strong> · Same timezone (Central)</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">Iowa travels to Houston after stunning defending champion Florida in the Round of 32. The Hawkeyes enter as the 9-seed Cinderella — high on momentum but playing deep in the South as the road team. Ben McCollum's fearless team won plenty of games far from home — they won't be rattled by the trip.</div>
+          <div style="font-size:9px;color:#C8102E;font-weight:700;margin-top:6px">🔥 CINDERELLA RUN — Iowa beat defending champs Florida. Momentum is the real edge here.</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(255,152,0,0.2);border-left:4px solid #ff9800;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#4 Nebraska</span></div>
+            <span style="font-size:9px;background:rgba(255,152,0,0.12);color:#ff9800;border:1px solid rgba(255,152,0,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟡 MED-HIGH</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Lincoln NE → Houston TX · <strong style="color:#0B0F1E">~880 miles</strong> · Same timezone (Central)</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">880 miles from Lincoln to Houston — manageable for a Big Ten program. Same Central timezone, no body clock disruption. Nebraska enters as the higher seed but faces a momentum-driven Iowa team that just beat the defending champions. The 4-seed vs 9-seed structure favors Nebraska on paper, but Cinderella Iowa has all the emotional momentum.</div>
+          <div style="font-size:9px;color:#ff9800;font-weight:700;margin-top:6px">⚠️ MOMENTUM FLAG: Nebraska faces a fired-up Iowa Cinderella in Houston</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(255,152,0,0.2);border-left:4px solid #ff9800;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#2 Houston</span></div>
+            <span style="font-size:9px;background:rgba(22,163,74,0.08);color:#16A34A;border:1px solid rgba(22,163,74,0.15);padding:2px 8px;border-radius:4px;font-weight:700">🟢 HOME GAME</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Houston TX → Houston TX · <strong style="color:#16A34A">HOME VENUE (Toyota Center)</strong> · 0 miles</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6"><strong style="color:#16A34A">MASSIVE HOME ADVANTAGE.</strong> Houston plays at Toyota Center — their own arena in their own city. Sampson's fanbase will pack the building. This is one of the biggest structural advantages of any team in the Sweet 16. Home crowd, home comfort, zero travel fatigue.</div>
+          <div style="font-size:9px;color:#16A34A;font-weight:700;margin-top:6px">✅ HOME GAME — biggest structural travel edge in the entire Sweet 16</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(255,152,0,0.2);border-left:4px solid #ff9800;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#3 Illinois</span></div>
+            <span style="font-size:9px;background:rgba(255,152,0,0.12);color:#ff9800;border:1px solid rgba(255,152,0,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟡 MED</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Champaign IL → Houston TX · <strong style="color:#0B0F1E">~1,050 miles</strong> · Same timezone (Central)</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">1,050 miles from Champaign to Houston — a big haul but same Central timezone means no body clock disruption. Big Ten regular season road trips prepare Illinois for travel. They'll be playing in Sampson's backyard (Toyota Center), so home crowd is against them — but this is standard March fare for a tournament-hardened team.</div>
+          <div style="font-size:9px;color:#94A3B8;font-weight:700;margin-top:6px">⚠️ CROWD HEADWIND — Illinois plays at Houston's home arena (Toyota Center)</div>
+        </div>
+      </div>
+
+      <!-- S16 CHICAGO (Midwest) -->
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;color:#f59e0b;margin-bottom:8px;padding:4px 10px;background:rgba(245,158,11,0.07);border-radius:5px;display:inline-block">📍 CHICAGO, IL (United Center) — MIDWEST REGION · March 27</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:10px;margin-bottom:18px">
+        <div style="background:#FFFFFF;border:1px solid rgba(34,197,94,0.2);border-left:4px solid #16A34A;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#1 Michigan</span><span style="font-size:9px;background:#16A34A;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">HOME EDGE</span></div>
+            <span style="font-size:9px;background:rgba(34,197,94,0.12);color:#16A34A;border:1px solid rgba(34,197,94,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟢 LOW</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Ann Arbor MI → Chicago IL · <strong style="color:#0B0F1E">~240 miles</strong> · 1-hr TZ shift West</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">240 miles — Michigan fans make this drive all the time to Chicago. United Center will be loaded with maize and blue. Near-home crowd for the #1 seed is a significant structural advantage vs Alabama's longer trip. 1-hr shift west (Eastern→Central) is a mild favorable factor.</div>
+          <div style="font-size:9px;color:#16A34A;font-weight:700;margin-top:6px">✅ HOME CROWD — Michigan fans easy 3-4 hr drive from Ann Arbor to Chicago</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(255,152,0,0.2);border-left:4px solid #ff9800;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#4 Alabama</span></div>
+            <span style="font-size:9px;background:rgba(255,152,0,0.12);color:#ff9800;border:1px solid rgba(255,152,0,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟡 MED</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Tuscaloosa AL → Chicago IL · <strong style="color:#0B0F1E">~780 miles</strong> · Same timezone (Central)</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">780 miles from Tuscaloosa — manageable and same Central timezone means no body clock disruption. Alabama still faces a near-hostile crowd vs Michigan in Chicago. Oats' up-tempo system (71.8 poss) can overcome crowd disadvantages but Michigan fans packing the United Center is a real structural headwind.</div>
+          <div style="font-size:9px;color:#C8102E;font-weight:700;margin-top:6px">⚠️ CROWD DISADVANTAGE — Michigan fans will dominate United Center</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(34,197,94,0.2);border-left:4px solid #16A34A;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#2 Iowa State</span></div>
+            <span style="font-size:9px;background:rgba(34,197,94,0.12);color:#16A34A;border:1px solid rgba(34,197,94,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟢 LOW</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Ames IA → Chicago IL · <strong style="color:#0B0F1E">~360 miles</strong> · Same timezone (Central)</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">360 miles — Cyclone fans make this drive easily. Chicago is even closer than Indianapolis for Iowa State. Same Central timezone, zero body clock disruption. One of the most favorable travel draws in the S16 for a Midwest team. Cyclone fans will travel in force to the United Center.</div>
+          <div style="font-size:9px;color:#16A34A;font-weight:700;margin-top:6px">✅ NEAR HOME — Chicago is closer than Indianapolis for Iowa State fans</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(255,152,0,0.2);border-left:4px solid #ff9800;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#6 Tennessee</span></div>
+            <span style="font-size:9px;background:rgba(34,197,94,0.12);color:#16A34A;border:1px solid rgba(34,197,94,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟢 LOW-MED</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Knoxville TN → Chicago IL · <strong style="color:#0B0F1E">~600 miles</strong> · 1-hr TZ shift West</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">600 miles from Knoxville to Chicago — a manageable road trip for SEC veterans. Moving West = favorable body clock. Tennessee fans travel hard in the mid-South. Barnes' physical defensive system is built to compete regardless of environment — they upset Virginia to get here. Nate Ament GTD (knee) is the bigger factor than travel.</div>
+          <div style="font-size:9px;color:#16A34A;font-weight:700;margin-top:6px">✅ MANAGEABLE — Tennessee travels well, body clock shift west is a mild advantage</div>
+        </div>
+      </div>
+
+      <!-- S16 WASHINGTON D.C. (East) -->
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;color:#1A56DB;margin-bottom:8px;padding:4px 10px;background:rgba(26,86,219,0.06);border-radius:5px;display:inline-block">📍 WASHINGTON D.C. (Capital One Arena) — EAST REGION · March 27</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:10px;margin-bottom:18px">
+        <div style="background:#FFFFFF;border:1px solid rgba(255,152,0,0.2);border-left:4px solid #ff9800;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#1 Duke</span></div>
+            <span style="font-size:9px;background:rgba(34,197,94,0.12);color:#16A34A;border:1px solid rgba(34,197,94,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟢 LOW</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Durham NC → Washington D.C. · <strong style="color:#0B0F1E">~280 miles</strong> · Same timezone (Eastern)</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">280 miles from Durham to D.C. — an easy 4-5 hour drive. Duke fans and ACC alumni culture make Washington D.C. very friendly territory. Same Eastern timezone, minimal travel stress. This is actually a favorable travel draw for Duke despite the 7-man rotation concern.</div>
+          <div style="font-size:9px;color:#16A34A;font-weight:700;margin-top:6px">✅ NEAR HOME — Duke fans easy drive up I-85/95 to D.C.</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(34,197,94,0.2);border-left:4px solid #16A34A;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#5 St. John's</span><span style="font-size:9px;background:#16A34A;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">NEAR HOME</span></div>
+            <span style="font-size:9px;background:rgba(34,197,94,0.12);color:#16A34A;border:1px solid rgba(34,197,94,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟢 LOW</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Jamaica, Queens NY → Washington D.C. · <strong style="color:#0B0F1E">~225 miles</strong> · Same timezone (Eastern)</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">St. John's plays 225 miles from their Queens campus — a near-home environment. The Red Storm fan base will flood I-95 south to D.C. NYC-to-D.C. Amtrak corridor means huge fan turnout at Capital One Arena. Best travel draw for an underdog in the East bracket.</div>
+          <div style="font-size:9px;color:#16A34A;font-weight:700;margin-top:6px">✅ NEAR-HOME EDGE — St. John's plays 200 miles from campus in a Big East-friendly city</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(34,197,94,0.2);border-left:4px solid #16A34A;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#2 Michigan State</span></div>
+            <span style="font-size:9px;background:rgba(34,197,94,0.12);color:#16A34A;border:1px solid rgba(34,197,94,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟢 LOW-MED</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">East Lansing MI → Washington D.C. · <strong style="color:#0B0F1E">~540 miles</strong> · Same timezone (Eastern)</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">540 miles from East Lansing to D.C. — a much shorter trip than Boston would have been. Michigan State regularly travels east for Big Ten away games. Michigan is Eastern time zone and D.C. is also Eastern — no timezone disruption whatsoever. Izzo's teams are tournament-proven regardless of environment. Spartan fan base will travel well.</div>
+          <div style="font-size:9px;color:#16A34A;font-weight:700;margin-top:6px">✅ Izzo teams never use travel as excuse — 54 career tourney wins</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(34,197,94,0.2);border-left:4px solid #16A34A;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#3 UConn</span><span style="font-size:9px;background:#64748B;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">NEAR-HOME</span></div>
+            <span style="font-size:9px;background:rgba(34,197,94,0.12);color:#16A34A;border:1px solid rgba(34,197,94,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟢 LOW</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Storrs CT → Washington D.C. · <strong style="color:#0B0F1E">~350 miles</strong> · Same timezone (Eastern)</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6"><strong style="color:#94A3B8">NOTE: NOT the home-game advantage UConn had in prior years.</strong> Capital One Arena is 350 miles from Storrs — not 90 miles like Boston would have been. UConn still gets the I-95 corridor fan base (Hartford, NYC, Philly, D.C. locals) and a short trip. But this is no longer the "de facto home court" narrative — it's simply a near-home advantage. Hurley's team loses some structural edge vs prior years.</div>
+          <div style="font-size:9px;color:#f59e0b;font-weight:700;margin-top:6px">⚠️ REDUCED EDGE — D.C. is 350mi, not the 90-mile Boston backyard from prior years</div>
+        </div>
+      </div>
+
+      <!-- S16 SAN JOSE (West) -->
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;color:#7c3aed;margin-bottom:8px;padding:4px 10px;background:rgba(124,58,237,0.06);border-radius:5px;display:inline-block">📍 SAN JOSE, CA (SAP Center) — WEST REGION · March 26</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:10px;margin-bottom:20px">
+        <div style="background:#FFFFFF;border:1px solid rgba(34,197,94,0.2);border-left:4px solid #16A34A;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#1 Arizona</span><span style="font-size:9px;background:#16A34A;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">CA TURF</span></div>
+            <span style="font-size:9px;background:rgba(255,152,0,0.12);color:#ff9800;border:1px solid rgba(255,152,0,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🟡 MED</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Tucson AZ → San Jose CA · <strong style="color:#0B0F1E">~800 miles</strong> · 1-hr TZ shift West</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">800 miles from Tucson to San Jose — a manageable West Coast trip. Arizona recruits heavily in California and will have strong fan support at SAP Center. 1-hr shift west (Mountain→Pacific) is a mild favorable body clock advantage. Not the true backyard of Las Vegas, but California is still friendly territory for Arizona.</div>
+          <div style="font-size:9px;color:#16A34A;font-weight:700;margin-top:6px">✅ WEST COAST HOME TURF — Arizona recruits CA heavily, SAP Center will have Wildcat fans</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(200,16,46,0.2);border-left:4px solid #C8102E;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#5 Arkansas</span><span style="font-size:9px;background:#C8102E;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">FADE FLAG</span></div>
+            <span style="font-size:9px;background:rgba(200,16,46,0.1);color:#C8102E;border:1px solid rgba(200,16,46,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🔴 HIGH</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Fayetteville AR → San Jose CA · <strong style="color:#0B0F1E">~1,900 miles</strong> · 2-hr TZ shift West</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">1,900 miles + 2-hr timezone shift west from Fayetteville to San Jose. Body clock is ahead — early games feel earlier. Razorback fans rarely fill arenas 1,900 miles from home. Arizona brings strong California support to SAP Center, creating a de-facto home advantage for the #1 seed. Strong fade signal for Arkansas ATS.</div>
+          <div style="font-size:9px;color:#C8102E;font-weight:700;margin-top:6px">🔴 HIGH TRAVEL — 1,600mi + 2hr TZ into Arizona's home region</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(200,16,46,0.2);border-left:4px solid #C8102E;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#11 Texas</span><span style="font-size:9px;background:#C8102E;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">CINDERELLA</span></div>
+            <span style="font-size:9px;background:rgba(200,16,46,0.1);color:#C8102E;border:1px solid rgba(200,16,46,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🔴 HIGH</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">Austin TX → San Jose CA · <strong style="color:#0B0F1E">~1,800 miles</strong> · 2-hr TZ shift West</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6">1,400 miles + 2-hr TZ shift west from Austin — significant travel load for a team that's already played three tournament games (First Four + R1 + R32). Texas beat NC State in the First Four, then BYU in R1, then stunned #3 Gonzaga in the Round of 32. Three games of fatigue + cross-country travel is a real structural headwind vs #2 Purdue.</div>
+          <div style="font-size:9px;color:#C8102E;font-weight:700;margin-top:6px">⚠️ HIGH TRAVEL + EXTRA GAME FATIGUE — First Four teams carry 3-game legs into S16</div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(200,16,46,0.2);border-left:4px solid #C8102E;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+            <div><span style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;color:#0B0F1E">#4 Purdue</span><span style="font-size:9px;background:#C8102E;color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:700">WORST IN S16</span></div>
+            <span style="font-size:9px;background:rgba(200,16,46,0.1);color:#C8102E;border:1px solid rgba(200,16,46,0.2);padding:2px 8px;border-radius:4px;font-weight:700">🔴 HIGH</span>
+          </div>
+          <div style="font-size:10px;color:#64748B;margin-bottom:6px">West Lafayette IN → San Jose CA · <strong style="color:#0B0F1E">~2,000 miles</strong> · 3-hr TZ shift West (Eastern→Pacific)</div>
+          <div style="font-size:11px;color:#64748B;line-height:1.6"><strong style="color:#C8102E">THE WORST TRAVEL DRAW OF THE SWEET 16.</strong> 2,000 miles + a 3-hour timezone shift (Eastern → Pacific) is the most disrupting combination in March. Purdue's big men (Matt Painter's system relies on half-court precision) are acutely disrupted by clock shifts — 8am Eastern tip feels like 5am Pacific. Boilermaker fans are sparse in San Jose. Massive edge for Arizona here.</div>
+          <div style="font-size:9px;color:#C8102E;font-weight:700;margin-top:6px">🔴 WORST S16 TRAVEL — 2,000mi + 3hr TZ shift (Eastern→Pacific) — historically devastating</div>
         </div>
       </div>
 
@@ -1265,6 +1557,8 @@ nav{top:32px!important}
           <div id="travel-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:10px"></div>
         </div>
       </details>
+        </div>
+      </details>
     </div>
   </div>
 
@@ -1272,11 +1566,11 @@ nav{top:32px!important}
   <div class="section" id="tab-upsets">
     <div class="sec-title">UPSET ODDS & BRACKET INTEL</div>
     <div class="info-box" style="border-left:3px solid #C8102E">
-      <span class="hl-orange">🏀 SWEET 16 EDITION · March 26–27. </span>In S16, <strong style="color:#0B0F1E">lower seeds (5–8) beat higher seeds 34% of the time</strong>. The biggest upsets in 2026 S16 could be: St. John's over Duke, Alabama over Michigan, Texas over Purdue. Iowa already pulled the bracket's biggest upset (beating Florida as a 9-seed). Track injuries and lines the night before — the S16 line movement is where the sharp money speaks.
+      <span class="hl-orange">🏀 FINAL FOUR EDITION · April 4, Arlington TX. </span>In the Final Four, <strong style="color:#0B0F1E">lower seeds beat favorites ~40% of the time</strong>. UConn already proved it — upsetting #1 Duke 77-71 in the Elite Eight as a #2 seed. Illinois (+118 ML) and Arizona (+155 ML) are the live dogs heading into AT&T Stadium. Track injury reports night-of and watch for sharp line movement Apr 3–4.
     </div>
 
-    <div style="font-family:Barlow Condensed,sans-serif;font-size:20px;font-weight:900;letter-spacing:2px;color:#C8102E;margin-bottom:6px">🏆 SWEET 16 UPSET PICKS</div>
-    <div style="font-size:11px;color:#64748B;margin-bottom:12px">Data-driven S16 upsets · Seed matchup rates · KenPom · Injury factor · Travel edge</div>
+    <div style="font-family:Barlow Condensed,sans-serif;font-size:20px;font-weight:900;letter-spacing:2px;color:#C8102E;margin-bottom:6px">🏆 FINAL FOUR UPSET PICKS</div>
+    <div style="font-size:11px;color:#64748B;margin-bottom:12px">Data-driven FF upsets · KenPom · Injury factor · Travel edge · Live ML</div>
     <div class="intel-grid" id="our-upsets"></div>
 
     <!-- SEED MATCHUP RATES -->
@@ -1357,17 +1651,18 @@ nav{top:32px!important}
   <!-- ── FOCUS ── -->
   <div class="section" id="tab-focus">
     <div class="sec-title">FOCUS SCORES & COACHING TRACK RECORD</div>
-    <div class="sec-sub">🏀 FINAL FOUR EDITION · Mental distraction risk + coach tournament DNA · 4 remaining teams · April 4, 2026 · Lucas Oil Stadium, Indianapolis, IN</div>
+    <div class="sec-sub">🏀 FINAL FOUR EDITION · Mental distraction risk + coach tournament DNA · All 4 Final Four teams · April 4, 2026 · AT&T Stadium, Arlington TX</div>
     <div class="info-box" style="border-left:3px solid #C8102E">
-      <span class="hl-red">FINAL FOUR FOCUS FLAGS: </span>
-      Michigan (72/100) — Cason still OUT; Cadeau carrying sole PG duties six games deep. Fatigue and foul trouble are the biggest vulnerability in Indianapolis.
-      Illinois (77/100) — Underwood has NEVER won past the Sweet 16; this is his first Final Four. Beat Houston &amp; Iowa to get here — program-defining run.
-      UConn (78/100) — Hurley chasing an unprecedented 3rd straight title. The weight of history is real — no team has ever won 3 in a row in the modern era.
-      <strong style="color:#16A34A">Arizona (82/100)</strong> — Healthiest and most focused team in the Final Four. Lloyd's culture locked in, Koa Peat absence fully absorbed. Best Championship value.
+      <span class="hl-red">S16 FOCUS FLAGS: </span>
+      Duke (55/100) — Scheyer 0 Elite Eights + Foster OUT + 7-man rotation in Washington D.C.
+      Texas (61/100) — First Four Cinderella carrying three-game legs + 1,800-mi trip to San Jose.
+      Arkansas (57/100) — Calipari year-one rebuild + 1,900-mi trip into Arizona home territory in CA.
+      Alabama (64/100) — High variance 3-point team; feast or famine under Oats.
+      <strong style="color:#C8102E">Iowa (78/100)</strong> — Cinderella momentum after beating Florida. Nothing-to-lose energy in Houston.
     </div>
     <div style="background:#FFFFFF;border:1px solid #D9D5CC;border-left:3px solid #B8952A;border-radius:8px;padding:12px 14px;margin-bottom:16px;box-shadow:0 1px 3px rgba(11,15,30,0.08)">
       <div style="font-size:9px;color:#B8952A;font-weight:700;letter-spacing:1px;margin-bottom:6px">HOW TO USE THIS IN YOUR BRACKET</div>
-      <div style="font-size:11px;color:#64748B;line-height:1.8">Teams with 70+ Focus AND an experienced coaching staff (10+ tourney wins) are your safest Championship picks. Teams below 60 with a first-time Final Four coach are bracket traps at this stage. The coachability of a depleted, fatigued roster under maximum national pressure separates Final Four exits from National Champions.</div>
+      <div style="font-size:11px;color:#64748B;line-height:1.8">Teams with 70+ Focus AND an experienced coaching staff (10+ tourney wins) are your safest deep picks. Teams below 60 AND with a coach who has never won past the Sweet 16 are bracket traps. The coachability of a roster under pressure separates first-weekend exits from Final Four teams.</div>
     </div>
     <div class="focus-grid" id="focus-grid"></div>
     <div style="background:#EEECE8;border:1px solid #D9D5CC;border-radius:8px;padding:12px 14px;margin-top:16px;font-size:10px;color:#64748B;line-height:1.8">
@@ -1389,7 +1684,7 @@ nav{top:32px!important}
   <!-- ── PARLAY CHEAT SHEET ── -->
   <div class="section" id="tab-parlay">
     <div class="sec-title">PARLAY CHEAT SHEET</div>
-    <div class="sec-sub">🏀 SWEET 16 EDITION · Built from injury reports · efficiency ratings · travel burden · coach records · focus scores · upset signals · March 26–27, 2026</div>
+    <div class="sec-sub">🏀 FINAL FOUR EDITION · Built from injury reports · efficiency ratings · travel burden · coach records · focus scores · upset signals · April 4, 2026 · Arlington TX</div>
     <div style="font-size:11px;color:#64748B;background:#F7F5F2;border-radius:8px;padding:10px 14px;margin-bottom:12px;line-height:1.6"><strong>📖 Quick glossary:</strong> <strong>Spread</strong> = point margin bet (e.g. team must win by X) · <strong>Moneyline (ML)</strong> = straight win/lose bet · <strong>Over/Under (O/U)</strong> = bet whether total score goes over or under a number · <strong>Parlay</strong> = multiple bets combined (all must win for big payout) · <strong>ATS</strong> = Against the Spread · <strong>Cover</strong> = winning by more than the spread</div>
 
     <div class="info-box" style="border-left:3px solid #B8952A">
@@ -1516,14 +1811,14 @@ function applyFirstFourResults() {
 
 // ── DATA ─────────────────────────────────────────────────────────────────────
 var bracket = {
-  lastUpdated: "🏀 SWEET 16 RESULTS — March 27 2026 · Duke 80 St. John's 75 (Duke E8) · Evans 25 · Boozer 22/10 · Foster returned 11 pts",
+  lastUpdated: "🏀 FINAL FOUR SET — March 30 2026 · UConn 77 Duke 71 (UPSET!) · Michigan 78 Tennessee 65 · Illinois 71 Iowa 59 · Arizona 79 Purdue 64 · Apr 4 AT&T Stadium Arlington TX",
   champion: "Michigan",
-  finalFour: ["Duke","Arizona","Michigan","Iowa State"],
+  finalFour: ["UConn","Arizona","Michigan","Illinois"],
   regions: [
-    {name:"East",color:"#e63946",seeds:[{seed:1,team:"Duke"},{seed:2,team:"UConn"},{seed:3,team:"Michigan State"},{seed:4,team:"Kansas"},{seed:5,team:"St. John's"},{seed:6,team:"Louisville"},{seed:7,team:"UCLA"},{seed:8,team:"Ohio State"},{seed:9,team:"TCU"},{seed:10,team:"UCF"},{seed:11,team:"South Florida"},{seed:12,team:"Northern Iowa"},{seed:13,team:"Cal Baptist"},{seed:14,team:"North Dakota St"},{seed:15,team:"Furman"},{seed:16,team:"Siena"}],picks:["Duke","Ohio State","St. John's","Kansas","Louisville","Michigan State","UCLA","UConn"],r32picks:["Duke","St. John's","Michigan State","UConn"],s16picks:["Duke","UConn"],winner:"Duke"},
+    {name:"East",color:"#e63946",seeds:[{seed:1,team:"Duke"},{seed:2,team:"UConn"},{seed:3,team:"Michigan State"},{seed:4,team:"Kansas"},{seed:5,team:"St. John's"},{seed:6,team:"Louisville"},{seed:7,team:"UCLA"},{seed:8,team:"Ohio State"},{seed:9,team:"TCU"},{seed:10,team:"UCF"},{seed:11,team:"South Florida"},{seed:12,team:"Northern Iowa"},{seed:13,team:"Cal Baptist"},{seed:14,team:"North Dakota St"},{seed:15,team:"Furman"},{seed:16,team:"Siena"}],picks:["Duke","Ohio State","St. John's","Kansas","Louisville","Michigan State","UCLA","UConn"],r32picks:["Duke","St. John's","Michigan State","UConn"],s16picks:["Duke","UConn"],winner:"UConn"},
     {name:"West",color:"#2196f3",seeds:[{seed:1,team:"Arizona"},{seed:2,team:"Purdue"},{seed:3,team:"Gonzaga"},{seed:4,team:"Arkansas"},{seed:5,team:"Wisconsin"},{seed:6,team:"BYU"},{seed:7,team:"Miami"},{seed:8,team:"Villanova"},{seed:9,team:"Utah State"},{seed:10,team:"Missouri"},{seed:11,team:"Texas"},{seed:12,team:"High Point"},{seed:13,team:"Hawai'i"},{seed:14,team:"Kennesaw St"},{seed:15,team:"Queens"},{seed:16,team:"LIU"}],picks:["Arizona","Villanova","Wisconsin","Arkansas","BYU","Gonzaga","Miami","Purdue"],r32picks:["Arizona","Arkansas","Texas","Purdue"],s16picks:["Arizona","Purdue"],winner:"Arizona"},
-    {name:"South",color:"#22c55e",seeds:[{seed:1,team:"Florida"},{seed:2,team:"Houston"},{seed:3,team:"Illinois"},{seed:4,team:"Nebraska"},{seed:5,team:"Vanderbilt"},{seed:6,team:"North Carolina"},{seed:7,team:"St. Mary's"},{seed:8,team:"Clemson"},{seed:9,team:"Iowa"},{seed:10,team:"Texas A\u0026M"},{seed:11,team:"VCU"},{seed:12,team:"McNeese"},{seed:13,team:"Troy"},{seed:14,team:"Penn"},{seed:15,team:"Idaho"},{seed:16,team:"Prairie View/Lehigh"}],picks:["Florida","Clemson","McNeese","Nebraska","VCU","Illinois","Texas A&M","Houston"],r32picks:["Iowa","Nebraska","Illinois","Houston"],s16picks:["Iowa","Houston"],winner:"Houston"},
-    {name:"Midwest",color:"#f59e0b",seeds:[{seed:1,team:"Michigan"},{seed:2,team:"Iowa State"},{seed:3,team:"Virginia"},{seed:4,team:"Alabama"},{seed:5,team:"Texas Tech"},{seed:6,team:"Tennessee"},{seed:7,team:"Kentucky"},{seed:8,team:"Georgia"},{seed:9,team:"St. Louis"},{seed:10,team:"Santa Clara"},{seed:11,team:"SMU/Miami (OH)"},{seed:12,team:"Akron"},{seed:13,team:"Hofstra"},{seed:14,team:"Wright State"},{seed:15,team:"Tennessee State"},{seed:16,team:"Howard"}],picks:["Michigan","Georgia","Akron","Alabama","Tennessee","Virginia","Kentucky","Iowa State"],r32picks:["Michigan","Alabama","Tennessee","Iowa State"],s16picks:["Michigan","Iowa State"],winner:"Michigan"}
+    {name:"South",color:"#22c55e",seeds:[{seed:1,team:"Florida"},{seed:2,team:"Houston"},{seed:3,team:"Illinois"},{seed:4,team:"Nebraska"},{seed:5,team:"Vanderbilt"},{seed:6,team:"North Carolina"},{seed:7,team:"St. Mary's"},{seed:8,team:"Clemson"},{seed:9,team:"Iowa"},{seed:10,team:"Texas A\u0026M"},{seed:11,team:"VCU"},{seed:12,team:"McNeese"},{seed:13,team:"Troy"},{seed:14,team:"Penn"},{seed:15,team:"Idaho"},{seed:16,team:"Prairie View/Lehigh"}],picks:["Florida","Clemson","McNeese","Nebraska","VCU","Illinois","Texas A&M","Houston"],r32picks:["Iowa","Nebraska","Illinois","Houston"],s16picks:["Iowa","Houston"],winner:"Illinois"},
+    {name:"Midwest",color:"#f59e0b",seeds:[{seed:1,team:"Michigan"},{seed:2,team:"Iowa State"},{seed:3,team:"Virginia"},{seed:4,team:"Alabama"},{seed:5,team:"Texas Tech"},{seed:6,team:"Tennessee"},{seed:7,team:"Kentucky"},{seed:8,team:"Georgia"},{seed:9,team:"St. Louis"},{seed:10,team:"Santa Clara"},{seed:11,team:"SMU/Miami (OH)"},{seed:12,team:"Akron"},{seed:13,team:"Hofstra"},{seed:14,team:"Wright State"},{seed:15,team:"Tennessee State"},{seed:16,team:"Howard"}],picks:["Michigan","Georgia","Akron","Alabama","Tennessee","Virginia","Kentucky","Iowa State"],r32picks:["Michigan","Alabama","Tennessee","Iowa State"],s16picks:["Michigan","Tennessee"],winner:"Michigan"}
   ]
 };
 
@@ -1612,8 +1907,8 @@ var INJURIES = [
   // ── GTD / QUESTIONABLE ────────────────────────────────────────────────────
   {team:"Iowa State",player:"Joshua Jefferson",pos:"F",status:"GTD",statusColor:"#ff9800",note:"Ankle — missed R32 vs Kentucky. 'Continuing to progress' per Otzelberger ahead of Tennessee S16 matchup. If Jefferson plays even at 70%, Iowa State is the Midwest favorite. If he sits, Tennessee's physical defense turns this into a grind they can win. Most critical GTD in the S16.",pre:15.2,post:null,eta:"Expected vs Tennessee Mar 27",pct:70,impact:-16,regionColor:"#f59e0b",seed:2},
   {team:"Iowa State",player:"M. Momcilovic",pos:"G",status:"GTD",statusColor:"#ff9800",note:"Back tightness — limited in conference tournament. Lipsey and the system carry regardless. Iowa State's defense doesn't depend on Momcilovic — still trust them deep, but watch the pre-game lineup report.",pre:13.1,post:11.6,impact:-7,regionColor:"#f59e0b",seed:2},
-  {team:"Duke",player:"Patrick Ngongba II",pos:"C",status:"PLAYED",statusColor:"#4ade80",note:"PLAYED vs St. John's Sweet 16 — 4 pts, 4 reb, 4 assists. Wore boot after R32 but made it back. Duke advances to Elite Eight.",pre:8.2,post:5.0,eta:"Played Mar 27",pct:100,impact:0,regionColor:"#e63946",seed:1},
-  {team:"Duke",player:"Caleb Foster",pos:"G",status:"PLAYED",statusColor:"#4ade80",note:"RETURNED vs St. John's Sweet 16 — 11 pts on 5-of-8 shooting in 18 minutes. First postseason appearance since foot fracture (March 7). All of his points came in the second half. Duke wins 80-75 and advances to the Elite Eight.",pre:8.5,post:11.0,eta:"Played Mar 27",pct:100,impact:5,regionColor:"#e63946",seed:1},
+  {team:"Duke",player:"Patrick Ngongba II",pos:"C",status:"PLAYED",statusColor:"#4ade80",note:"PLAYED vs St. John's Sweet 16 — 4 pts, 4 reb, 4 assists. Duke wins 80-75 and advances to the Elite Eight.",pre:8.2,post:5.0,eta:"Played Mar 27",pct:100,impact:0,regionColor:"#e63946",seed:1},
+  {team:"Duke",player:"Caleb Foster",pos:"G",status:"PLAYED",statusColor:"#4ade80",note:"RETURNED vs St. John's Sweet 16 — 11 pts on 5-of-8 shooting in 18 minutes. First postseason game back from foot fracture (March 7). All points came in the second half. Duke wins 80-75 and advances to the Elite Eight.",pre:8.5,post:11.0,eta:"Played Mar 27",pct:100,impact:5,regionColor:"#e63946",seed:1},
   {team:"Purdue",player:"CJ Cox",pos:"G",status:"GTD",statusColor:"#ff9800",note:"Knee injury vs Miami — didn't return to that game. Game-time decision for Texas matchup. Cox was shooting 38.4% from 3 this season and went 6-of-8 from three in tournament play. Losing him would significantly reduce Purdue's perimeter spacing against Texas's up-tempo style.",pre:9.8,post:null,eta:"GTD vs Texas Mar 26",pct:60,impact:-12,regionColor:"#2196f3",seed:2},
   {team:"Texas",player:"Jordan Pope",pos:"G",status:"GTD",statusColor:"#ff9800",note:"Twisted ankle vs Gonzaga in R32 — participated only in limited practice. Pope is Texas's primary ball-handler. A compromised Pope against Purdue's disciplined half-court defense neutralizes the Longhorns' best offensive weapon in an already-fatigued lineup.",pre:14.6,post:null,eta:"GTD vs Purdue Mar 26",pct:55,impact:-14,regionColor:"#2196f3",seed:11},
   {team:"Arkansas",player:"Nick Pringle",pos:"F",status:"GTD",statusColor:"#ff9800",note:"Hamstring — questionable for S16 vs Arizona. Pringle is Arkansas's starting center and primary rebounder. Against Arizona's frontcourt (even without Koa Peat), losing interior presence would be a significant problem for Calipari's first-year squad.",pre:10.4,post:null,eta:"GTD vs Arizona Mar 26",pct:50,impact:-10,regionColor:"#2196f3",seed:5},
@@ -1633,42 +1928,20 @@ var UPSETS_2025 = [
 ];
 
 var OUR_UPSETS = [
-  {dog:"St. John's",dS:5,fav:"Duke",fS:1,alert:68,region:"East",note:"RESULT: Duke 80, St. John's 75 — Upset did NOT materialize. Duke trailed by 10 in 2H but Evans (25 pts), Boozer (22/10), and Foster (11 pts, returned from injury) carried the Blue Devils to the Elite Eight. St. John's eliminated. Pre-game upset risk was 68/100."},
-  {dog:"Alabama",dS:4,fav:"Michigan",fS:1,alert:61,region:"Midwest",note:"Alabama's up-tempo 71.8-possession system is the exact style that exploits Michigan's depleted backcourt (Cason OUT, ACL). Oats' scheme creates mayhem in 40 minutes. Holloway SUSP (16.8 PPG) hurts Alabama but line moved to -10.5 — Michigan is now a big favorite. Alabama at +400 ML is a high-risk swing but Sears (20.1 PPG) and Oats' pace can still produce an upset."},
-  {dog:"Texas",dS:11,fav:"Purdue",fS:2,alert:52,region:"West",note:"Texas is the ultimate Cinderella: First Four winner who beat BYU in R1, then stunned #3 Gonzaga in the Round of 32. That's three tournament games of momentum vs Purdue's polished half-court system. If Texas's pace attacks Purdue before Painter can adjust, the 11-seed upset is real. 1,800-mile trip to San Jose after three games is the counter-argument — fading Texas on fatigue is also reasonable. Upset Alert 52/100."},
-  {dog:"Arkansas",dS:5,fav:"Arizona",fS:1,alert:45,region:"West",note:"Koa Peat is OUT but Arizona still reached the Sweet 16 — so this is partly baked in. Arkansas made the Sweet 16 as a 5-seed in 2021 and 2022. The Razorbacks have SEC Tournament title momentum. Arizona plays in California (San Jose, 800 mi from Tucson) and recruits heavily there — significant home-region counter-signal. This is more of a value moneyline than high probability."},
-  {dog:"Nebraska",dS:4,fav:"Iowa",fS:9,alert:42,region:"South",note:"Iowa pulled the biggest upset of the tournament beating Florida, but they're still a 9-seed in the Sweet 16. Nebraska won as a 4-seed for a reason — Hoiberg's 3-point shooting system can get hot and replicate what Iowa did to Florida. If Nebraska gets hot from three against a still-emotional Iowa team, the 4-seed makes sense here. Upset Alert 42/100."},
-  {dog:"UConn",dS:3,fav:"Michigan State",fS:2,alert:54,region:"East",note:"This isn't technically an 'upset' by seed gap — but UConn travels 350 miles to D.C. (shorter than MSU's 540 miles) and Hurley has 15-3 tournament record with 2 titles. UConn no longer has the 90-mile Boston backyard edge, but they still have the closer trip and a vocal I-95 corridor fan base at Capital One Arena. Izzo is the best March coach but Hurley chasing a 3rd title? This matchup is closer than the 2-vs-3 seed suggests. Best value bet in the East bracket."},
-  {dog:"Illinois",dS:3,fav:"Houston",fS:2,alert:41,region:"South",note:"Illinois vs Houston is the most underrated Sweet 16 matchup. Sampson's defense-first system will slow the game down and make this a grind. Illinois has the offensive firepower to hang with Houston's best defensive performance. Brad Underwood's teams always compete in March — and Houston's physical style opens the door for an upset when efficient opponents hit shots."},
-  {dog:"Tennessee",dS:6,fav:"Iowa State",fS:2,alert:44,region:"Midwest",note:"Tennessee is playing some of the best basketball in the field after upsetting Virginia to reach the Sweet 16. Barnes' physical defensive system can absolutely neutralize Iowa State's half-court offense. Momcilovic GTD for Iowa State is the key signal — if he's limited, Tennessee's rock-solid defense turns this into a grind where they can win. Best upset value in the Midwest bracket."},
+  {dog:"Illinois",dS:3,fav:"UConn",fS:2,alert:45,region:"East",note:"Illinois is the Final Four's top upset alert. Underwood's squad beat #2 Houston 65-55 and stunned Iowa 71-59 in the Elite Eight — and they weren't favored in either game. Wagler dropped 25 vs Iowa. UConn's Demary Jr. ankle (limited since Big East) is the critical injury variable. Big Ten physicality vs Hurley finesse in a neutral-site grind — Illinois ML +118 is live value. Upset Alert 45/100."},
+  {dog:"Arizona",dS:1,fav:"Michigan",fS:1,alert:38,region:"West",note:"Arizona ended a 25-year Final Four drought and has covered all 3 tournament spreads. Michigan is the -3.5 favorite but enters without Cason (ACL, OUT all tournament) with Cadeau as sole PG through 5 games. Lloyd's pace-and-space vs Wolverines' depleted backcourt creates real variance. Arizona ML +155 offers strong value if Kier (back, GTD) is healthy. Upset Alert 38/100."},
 ];
 
 var FOCUS_SCORES = [
-  // ── FINAL FOUR TEAMS ONLY ── April 4, 2026 · Lucas Oil Stadium, Indianapolis IN ──
+  // ── FINAL FOUR TEAMS ONLY ── April 4, 2026 · AT&T Stadium, Arlington TX ────
 
-  // SOUTH — Houston, TX · Toyota Center (March 26)
-  {team:"Iowa",score:78,region:"South",rc:"#22c55e",seed:9,coach:"Ben McCollum",coachTourney:"4 D2 titles, 1st yr D1",note:"🔥 CINDERELLA MOMENTUM. Iowa just beat defending champion Florida as a 9-seed — the biggest upset of the 2026 tournament. Ben McCollum's fearless team enters Houston on pure adrenaline. Tavion Banks (20 pts), Folgueiras (game-winning 3), Koch (4-of-5 from 3) — this roster has proven scorers. No major injury concerns. They now face Nebraska in what should be a winnable Sweet 16 matchup. High-focus, nothing-to-lose Cinderella mindset."},
-  {team:"Houston",score:85,region:"South",rc:"#22c55e",seed:2,coach:"Kelvin Sampson",coachTourney:"22-18 career, 1 Final Four",note:"Sampson's culture demands accountability above everything else. No transfer drama, no individual stats — just the system. Houston's S16 opponent is Illinois — and Sampson's defense-first scheme is designed for exactly this pressure-elimination format."},
-  {team:"Illinois",score:77,region:"South",rc:"#22c55e",seed:3,coach:"Brad Underwood",coachTourney:"6-6 career",note:"🔥 PROGRAM-DEFINING MOMENT. Underwood has never won past the Sweet 16 — and now he's in the Final Four. Illinois beat #2 Houston 65-55 in the S16 and stunned Iowa 71-59 in the Elite Eight. The entire team is playing with house money and maximum cohesion. The coaching ceiling question is now the only remaining risk at this stage."},
-  {team:"Nebraska",score:65,region:"South",rc:"#22c55e",seed:4,coach:"Fred Hoiberg",coachTourney:"5-5 career",note:"Hoiberg's Nebraska reached the S16 as a 4-seed — legitimate program rebuild. Their 3-point shooting system can get hot. Iowa is the momentum team after beating Florida, but Nebraska has the seed advantage and the 880-mile trip from Lincoln to Houston is manageable. Nebraska's defensive discipline and 3-point shooting are the real wildcards in this Cinderella matchup."},
+  // SEMIFINAL 1 — UConn vs Illinois
+  {team:"UConn",score:78,region:"East",rc:"#e63946",seed:2,coach:"Dan Hurley",coachTourney:"17-3 career, 2 titles",note:"Hurley upset #1 Duke 77-71 in the Elite Eight — the signature moment of this tournament run. Two-time defending champion culture. Traveling 1,700 miles to Arlington but Hurley's teams are mentally built for road environments. Demary Jr. ankle (GTD) is the only focus concern. 17-3 tournament record with 2 rings. UConn resets faster than any program in the country after adversity."},
+  {team:"Illinois",score:77,region:"South",rc:"#22c55e",seed:3,coach:"Brad Underwood",coachTourney:"8-6 career",note:"Illinois reached their first Final Four since 2005 — and they did it by beating #2 Houston and upsetting Iowa. Underwood's best team, physically and mentally. This squad has answered every challenge without being favored. Nothing-to-lose Cinderella mentality in the Final Four is a powerful focus multiplier. Wagler GTD (shoulder) is the only cloud — but Underwood builds depth. High focus, legitimate threat."},
 
-  // MIDWEST — Chicago, IL · United Center (March 27)
-  {team:"Michigan",score:72,region:"Midwest",rc:"#f59e0b",seed:1,coach:"Dusty May",coachTourney:"4-2 career",note:"L.J. Cason still OUT — but Cadeau has answered the challenge across six tournament games. May's culture has absorbed the adversity better than expected. Michigan has proven doubters wrong at every stage. The Cason absence remains a real fatigue risk over 40 Final Four minutes — but this team has earned its elevated score through resilience."},
-  {team:"Alabama",score:64,region:"Midwest",rc:"#f59e0b",seed:4,coach:"Nate Oats",coachTourney:"8-7 career",note:"Oats' up-tempo 71.8-possession attack is the best stylistic matchup to exploit Michigan's depleted backcourt (Cason OUT). High variance in March — Alabama either beats anyone or gets upset. This is the best upset value in the S16 because the stylistic mismatch is real."},
-  {team:"Iowa State",score:80,region:"Midwest",rc:"#f59e0b",seed:2,coach:"T.J. Otzelberger",coachTourney:"3-4 career",note:"Second-highest focus score in S16. Otzelberger culture = no drama, no noise. Tamin Lipsey carries the offense without complaint. Momcilovic GTD is the only concern — but Iowa State is system-first. They compete the same regardless of personnel changes. Trust the culture."},
-  {team:"Tennessee",score:72,region:"Midwest",rc:"#f59e0b",seed:6,coach:"Rick Barnes",coachTourney:"28-26 career, 2 Elite Eights",note:"Tennessee upset Virginia to reach the Sweet 16 on pure defensive identity. Barnes' physical, physical system is tournament-proven. Nate Ament GTD (knee) is the only injury concern — but Barnes has coached around injuries throughout his career. Against Iowa State, this becomes a chess match between two defensive-first programs. Tennessee enters as the hot, undervalued team in the Midwest."},
-
-  // EAST — Washington D.C. · Capital One Arena (March 27)
-  {team:"Duke",score:55,region:"East",rc:"#e63946",seed:1,coach:"Jon Scheyer",coachTourney:"4-2 career (0 Elite Eights)",note:"⚠️ S16 FOCUS RISK. Foster OUT. Boozer as sole PG: 'that can mess with your mind.' 7-man rotation. Scheyer has NEVER won an Elite Eight as head coach. The media pressure in Washington D.C. with a depleted roster is exactly the environment that exposes coaching weaknesses. Biggest coaching pressure point of the S16."},
-  {team:"St. John's",score:75,region:"East",rc:"#e63946",seed:5,coach:"Rick Pitino",coachTourney:"52-26 career, 2 Final Fours",note:"Pitino's masterpiece just reached the Sweet 16 by beating Kansas — their biggest win of the era. Playing 225 miles from Queens, NY, in a D.C. environment filled with NYC-corridor fan energy. Near-home crowd advantage is a real edge for a 5-seed facing a depleted Duke. Pitino has 52 career tournament wins — he knows how to win in March. St. John's enters as a legitimate underdog with top-coaching."},
-  {team:"Michigan State",score:79,region:"East",rc:"#e63946",seed:3,coach:"Tom Izzo",coachTourney:"54-23 career, 1 title, 8 Final Fours",note:"Tom Izzo is the greatest March coach alive. 54 career tournament wins is the highest of any active coach. Michigan State's 3-seed in Washington D.C. (540 miles, same Eastern TZ) is manageable. Izzo always has his teams mentally locked in. Against UConn in D.C., this is the most elite coaching matchup of the S16."},
-  {team:"UConn",score:78,region:"East",rc:"#e63946",seed:3,coach:"Dan Hurley",coachTourney:"15-3 career, 2 titles",note:"🏆 DYNASTY ON THE LINE. Hurley upset Duke to reach the Final Four — chasing a historically unprecedented 3rd straight national title. No team has ever won 3 consecutive in the modern era. The weight of that history is real, but Hurley's locker room culture is the best in the sport at managing it. 15-3 career, 2 rings. The pressure is external — internally, this team is locked in."},
-
-  // WEST — San Jose, CA · SAP Center (March 26)
-  {team:"Arizona",score:82,region:"West",rc:"#2196f3",seed:1,coach:"Tommy Lloyd",coachTourney:"4-3 career",note:"✅ FINAL FOUR'S MOST FOCUSED TEAM. Won the Big 12 Title without Koa Peat — the ultimate proof of Lloyd's culture. Beat Purdue 79-64 in the Elite Eight without drama. Battle-tested, healthy, and playing with complete roster confidence. Burries and Love are locked in. Koa Peat absence fully absorbed. Highest focus score remaining — and it shows on the floor."},
-  {team:"Arkansas",score:57,region:"West",rc:"#2196f3",seed:5,coach:"John Calipari",coachTourney:"40-17 career, 1 title",note:"⚠️ S16 FADE FLAG. Calipari year-one rebuild + 1,900-mile trip + 2-hour TZ shift west into Arizona's CA recruiting territory. Transfer-heavy roster with below-average cohesion. Calipari is 40-17 career but the conditions here are his worst setup in years. The structural headwinds are too much stacked against Arizona in their own territory."},
-  {team:"Texas",score:61,region:"West",rc:"#2196f3",seed:11,coach:"Rodney Terry",coachTourney:"3-4 career",note:"⚡ CINDERELLA FATIGUE WATCH. Texas is the ultimate S16 story: First Four winner (beat NC State), then beat BYU in R1, then stunned #3 Gonzaga to reach the Sweet 16. Three games of adrenaline momentum — but also three games of physical fatigue. 1,800-mile trip to San Jose after all that work. Terry's team enters with maximum confidence but minimum fresh legs. Trust the heart, watch the body."},
-  {team:"Purdue",score:72,region:"West",rc:"#2196f3",seed:2,coach:"Matt Painter",coachTourney:"17-15 career, 1 Final Four",note:"Painter is the heavy favorite in the West after Iowa beat Florida and Texas eliminated Gonzaga. Now Purdue (#2) faces the most fatigued team in the S16 — Texas (First Four + R1 + R32 = 3 games). 2,000-mile trip to San Jose with a brutal 3-hour TZ shift (Eastern→Pacific) is the worst travel draw in the S16, but Painter's half-court precision and AdjO 119.8 should overpower a depleted 11-seed. Best S16 value cover."},
+  // SEMIFINAL 2 — Michigan vs Arizona
+  {team:"Michigan",score:72,region:"Midwest",rc:"#f59e0b",seed:1,coach:"Dusty May",coachTourney:"6-2 career",note:"L.J. Cason OUT — Cadeau has been the sole PG for 5 straight tournament games. That's a real mental load but Michigan has answered every time. May is a strong young coach but this is his hardest stage yet. The #1 seed pedigree and tournament momentum are significant positives. Lendeborg (14.9 PPG) carries the offense. Focus score reflects the Cason absence weight, not lack of talent."},
+  {team:"Arizona",score:82,region:"West",rc:"#2196f3",seed:1,coach:"Tommy Lloyd",coachTourney:"6-3 career",note:"Won the Big 12 Title and now the Final Four — all without Koa Peat (foot, OUT all tournament). Tommy Lloyd's culture is the highest-focus program in the Final Four. Arizona has covered every tournament spread and hasn't flinched at any point in this run. Burries and Love are locked in. Kier GTD (back) is monitored but Lloyd has proven this team absorbs injuries without losing identity. Top focus score."},
 ];
 
 var openCard = null; // tracks which popout is open
@@ -2545,11 +2818,9 @@ function renderUpsets(){
   document.getElementById('upsets-2025').innerHTML = h2;
 }
 
-var FINAL_FOUR_TEAMS = ["Illinois","UConn","Michigan","Arizona"];
-
 function renderFocus(){
   var html = "";
-  FOCUS_SCORES.filter(function(f){ return FINAL_FOUR_TEAMS.indexOf(f.team) !== -1; }).forEach(function(f){
+  FOCUS_SCORES.forEach(function(f){
     var color = focusColor(f.score);
     html += '<div class="focus-card" id="fc-'+f.team.replace(/[^a-z]/gi,'')+'card" onclick="toggleFocus(\''+f.team.replace(/'/g,"\\'")+'\')" style="border-color:#D9D5CC">';
     html += '<div style="display:flex;align-items:center;gap:8px">';
@@ -2601,218 +2872,156 @@ function showTab(id,btn){
 
 // tooltip init moved to DOMContentLoaded below
 
-// ── PARLAY DATA ───────────────────────────────────────────────────────────────
+// ── PARLAY DATA — FINAL FOUR · April 4, 2026 · AT&T Stadium, Arlington TX ────
 var TIER1_BETS = [
   {
-    game:"Houston -3.5 vs Illinois (S16 South · Houston · Mar 26)",
-    bet:"HOUSTON -3.5 (ATS)",
-    signal:"COVERS SPREAD",
-    confidence:82,
-    estOdds:"-110",
-    edge:"Best ATS cover play in the South. Houston plays AT HOME at Toyota Center — the only true home game in the S16. Sampson's defense-first system clamps everything at 64.4 possessions per game. Illinois is physical but Underwood has NEVER won past the Sweet 16. Home crowd + defensive identity = Houston covers the modest -3.5 line.",
-    layers:["🏠 Houston AT HOME — Toyota Center only true home game in S16","⏱️ Houston 64.4 poss — slowest S16 tempo controls game","👔 Underwood 0 Elite Eights vs Sampson 1 Final Four","💰 Houston NIL $11.5M + full health = dominant setup"],
-    color:"#22c55e"
-  },
-  {
-    game:"Houston vs Illinois UNDER 140.5 (S16 South · Houston · Mar 26)",
-    bet:"UNDER 140.5 (Houston vs Illinois)",
-    signal:"TAKE THE UNDER",
-    confidence:82,
-    estOdds:"-110",
-    edge:"Total settled at 140.5 — still too high for this matchup. Sampson's Houston defense makes this number inflated. Houston 64.4 poss (slowest in S16 field), AdjD elite — allows under 65 ppg. Illinois is a physical Big Ten half-court team. AT HOME + Sampson's defense = UNDER is the strong lean.",
-    layers:["⏱️ Houston 64.4 poss — slowest S16 tempo","🛡️ Sampson AdjD elite — allows under 65 ppg","📈 Total 140.5 inflated for defensive teams","🐢 Illinois Big Ten physical = half-court grinder"],
-    color:"#1A56DB"
-  },
-  {
-    game:"Iowa State vs Tennessee UNDER 140.5 (S16 Midwest · Chicago · Mar 27)",
-    bet:"UNDER 140.5 (Iowa State vs Tennessee)",
+    game:"UConn vs Illinois UNDER 133.5 (FF Semifinal 1 · Apr 4 · 6:09 PM ET)",
+    bet:"UNDER 133.5 (UConn vs Illinois)",
     signal:"TAKE THE UNDER",
     confidence:80,
     estOdds:"-110",
-    edge:"Iowa State AdjD 93.1 + Tennessee's SEC physical defense = S16's most defensive Midwest matchup. Total ticked up to 140.5 but still too high. Jefferson GTD (ankle) + Ament GTD (knee) both potentially missing = compressed offensive ceiling. UNDER 140.5 remains the lean.",
-    layers:["🛡️ Iowa State AdjD 93.1 + Tennessee SEC physical defense","⏱️ Both teams defensive-first — methodical pace","⚠️ Jefferson GTD (ISU) + Ament GTD (TN) = compressed offense","🐢 Two systems built to win low-60s games"],
+    edge:"This is a defensive grinder. UConn's Hurley runs a methodical half-court system — and Illinois under Underwood is Big Ten physical. Both teams want to control pace and punish mistakes. Demary Jr. ankle clouds UConn's facilitator speed. Total 133.5 is the lowest in the Final Four — sharp money likes the under in elimination-game pressure situations.",
+    layers:["🛡️ UConn half-court system + Illinois Big Ten physical = slow game","⚠️ Demary Jr. ankle limits UConn up-tempo facilitation","📉 133.5 already low — defensive variance in FF elimination game","🐢 Both coaches favor methodical execution over pace"],
     color:"#1A56DB"
   },
   {
-    game:"Arizona -8.5 vs Arkansas (S16 West · San Jose · Mar 26)",
-    bet:"ARIZONA -8.5 (ATS)",
+    game:"Michigan -3.5 vs Arizona (FF Semifinal 2 · Apr 4 · 8:49 PM ET)",
+    bet:"MICHIGAN -3.5 (ATS)",
     signal:"COVERS SPREAD",
-    confidence:84,
+    confidence:72,
     estOdds:"-110",
-    edge:"Arizona's CA recruiting base brings strong SAP Center support. Arkansas has the worst travel draw in the West (1,900mi + 2hr TZ shift west). Arizona won Big 12 WITHOUT Koa Peat — already battle-tested. Tommy Lloyd culture vs Calipari year-one rebuild. Structural ATS edge is real.",
-    layers:["🏠 Arizona CA recruiting base — strong SAP Center crowd","🚑 Arizona won Big 12 without Peat — battle-tested","👔 Lloyd culture vs Calipari year-one rebuild","🗺️ Arkansas 1,900mi + 2hr TZ = massive disadvantage"],
-    color:"#2196f3"
+    edge:"Michigan is the #1 seed and -180 ML favorite for a reason. Lendeborg (14.9 PPG) leads a battle-tested Wolverines squad that has answered 5 straight tournament challenges without Cason. Arizona is dangerous but Kier (back, GTD) is a critical injury check. Michigan's depth and tournament experience edge a fatigued Arizona team that's traveled the tournament's hardest road.",
+    layers:["🏆 Michigan #1 seed — 5 tournament wins, answered every challenge","🚑 Arizona Kier GTD — back tightness, perimeter spacing at risk","👔 Dusty May proving himself in March — steady hand","📊 Michigan AdjO elite — enough to cover -3.5 in neutral site FF"],
+    color:"#f59e0b"
   },
   {
-    game:"UConn ML vs Michigan State (S16 East · Washington D.C. · Mar 27)",
-    bet:"UCONN ML (-130)",
-    signal:"WIN BET",
+    game:"Illinois ML vs UConn (FF Semifinal 1 · Apr 4 · 6:09 PM ET)",
+    bet:"ILLINOIS ML (+118)",
+    signal:"UPSET VALUE",
     confidence:68,
-    estOdds:"-130",
-    edge:"Essentially a pick-em (line -1.5) but UConn ML at -130 is solid value. Hurley is 15-3 in March Madness with 2 titles chasing history. Travels 350 miles to D.C. — shorter trip than MSU's 540 miles. MSU's Ugochukwu (foot) is OUT. UConn -130 for a 2x champion with travel edge is reasonable.",
-    layers:["🏠 UConn 350mi to D.C. — shorter trip than MSU (540mi)","👔 Hurley 15-3, 2 titles — chasing historic 3rd","🚑 MSU Ugochukwu OUT — rotation thinned","📊 UConn AdjEM +27.2 — elite efficiency"],
-    color:"#e63946"
+    estOdds:"+118",
+    edge:"Illinois ML +118 is essentially even money for a team that's beaten #2 Houston and upset Iowa in the Elite Eight. Wagler's 25-point game showed what this team can do. UConn is favored but Demary Jr. ankle is the pivotal injury. Big Ten physicality can disrupt Hurley's system in a neutral-site battle. Best upset value in Final Four.",
+    layers:["⚠️ UConn Demary Jr. GTD — ankle, limited since Big East","🏆 Illinois beat #2 Houston + upset Iowa — battle-proven","💰 Illinois ML +118 — near-even money for proven team","🐢 Big Ten physical style disrupts UConn's half-court finesse"],
+    color:"#22c55e"
+  },
+  {
+    game:"Michigan vs Arizona OVER 144.5 (FF Semifinal 2 · Apr 4 · 8:49 PM ET)",
+    bet:"OVER 144.5 (Michigan vs Arizona)",
+    signal:"TAKE THE OVER",
+    confidence:68,
+    estOdds:"-110",
+    edge:"Lloyd's pace-and-space system pushes tempo and Arizona has covered all 3 tournament spreads. Michigan's AdjO is elite. With Kier possibly limited, Arizona opens the floor with spacing — creating more possessions. Total 144.5 is reasonable for two offensive-minded systems. OVER lean in the late game when pace typically opens up.",
+    layers:["⚡ Arizona pace-and-space pushes tempo vs Michigan AdjO elite","📊 Both teams score efficiently — no pure defensive grinders","🏀 Kier limited = Arizona spreads floor more, more possessions","⏰ Late night elimination game — pace opens up in 2nd half"],
+    color:"#ff6b35"
   },
 ];
 
 var TIER2_BETS = [
   {
-    game:"Alabama ML vs Michigan (S16 Midwest · Chicago · Mar 27)",
-    bet:"ALABAMA ML (+375)",
+    game:"Arizona ML vs Michigan (FF Semifinal 2 · Apr 4 · 8:49 PM ET)",
+    bet:"ARIZONA ML (+155)",
     signal:"UPSET",
-    alertScore:61,
-    estOdds:"+350 to +400",
-    edge:"Line settled at Michigan -9.5 (eased off -10.5) after Holloway suspension. Michigan Cason OUT + Alabama Holloway SUSP = both depleted — but Oats' 71.8-possession attack and Mark Sears (20.1 PPG, healthy) can still explode. At +375 ML, Alabama is the biggest-value swing bet of the S16. Total 172.5 is the highest in the field — this could be a shootout.",
-    layers:["📈 Holloway SUSP (16.8 PPG) — line settled at -9.5 after moving to -10.5","🚑 Cason OUT (MIC) + Holloway SUSP (ALA) — both depleted","💰 Alabama ML +375 — highest-value swing bet in S16","🏀 Sears healthy (20.1 PPG) + Oats 71.8-poss pace still dangerous"],
-    color:"#ff2200"
-  },
-  {
-    game:"St. John's ML vs Duke (S16 East · Washington D.C. · Mar 27)",
-    bet:"ST. JOHN'S ML (+230)",
-    signal:"UPSET",
-    alertScore:68,
-    estOdds:"+215 to +240",
-    edge:"Duke S16 upset risk 68/100. Foster DOUBTFUL (foot, 'outside chance'), Ngongba GTD (boot after R32) — Duke could be down to 7-man rotation or worse. Pitino's St. John's beat Kansas in R32, plays 225 miles from Queens. At +230 ML with Pitino's 52 career tourney wins vs Scheyer's 0 Elite Eights, this is still the best upset value in the East.",
-    layers:["🚑 Foster DOUBTFUL + Ngongba GTD — Duke possibly 7-man max","👔 Pitino 52 tourney wins vs Scheyer 0 Elite Eights","🏠 St. John's 225mi from Queens — near-home crowd via I-95","💰 St. John's ML +230 — best upset value in East bracket"],
+    alertScore:38,
+    estOdds:"+155",
+    edge:"Arizona has covered every tournament spread and enters with a 25-year drought-ending Final Four mindset. Michigan is the -180 ML favorite but enters without Cason (ACL, OUT all tournament) — Cadeau has been sole PG for 5 straight games. Kier (back, GTD) is the critical health check. Lloyd's pace-and-space at +155 against a depleted Michigan backcourt is the best pure ML value in the Final Four.",
+    layers:["📊 Arizona covered all 3 tournament spreads — trend is real","🚑 Michigan Cason OUT — Cadeau sole PG fatigue through 5 games","⚠️ Arizona Kier GTD — if healthy, Wildcats are legitimate threat","💰 Arizona ML +155 — best Final Four upset moneyline value"],
     color:"#ff6b35"
   },
   {
-    game:"Iowa ML vs Nebraska (S16 South · Houston · Mar 26) — CINDERELLA VALUE",
-    bet:"IOWA ML (+108)",
+    game:"Illinois +2.5 vs UConn (FF Semifinal 1 · Apr 4 · 6:09 PM ET)",
+    bet:"ILLINOIS +2.5 (ATS)",
     signal:"UPSET",
-    alertScore:52,
-    estOdds:"+100 to +115",
-    edge:"Fully a coin-flip — ML is Nebraska -130 / Iowa +108. Iowa's Cinderella momentum after beating defending champion Florida is completely priced in. Nebraska lost Essegian (OUT) + Jarusevicius (OUT) — real depth hit. Iowa ML +108 is essentially even-money for the tournament's hottest team. Best near-even Cinderella value in the S16.",
-    layers:["📉 Nebraska -130 / Iowa +108 — market says this is a coin flip","🔥 Iowa beat defending champs Florida — Cinderella momentum","🚑 Nebraska Essegian OUT + Jarusevicius OUT — depth hit","💰 Iowa ML +108 — even-money on the hottest team in S16"],
-    color:"#ff6b35"
-  },
-  {
-    game:"Texas ML vs Purdue (S16 West · San Jose · Mar 26) — CINDERELLA LONGSHOT",
-    bet:"TEXAS ML (+295)",
-    signal:"UPSET",
-    alertScore:35,
-    estOdds:"+280 to +310",
-    edge:"Purdue restored to -7.5 proper favorite, Texas ML settles around +295. Purdue's size and AdjO 119.8 is too much for a fatigued Texas team (First Four + R1 + R32 = 3 games). Pope GTD + Traore OUT for Texas hurts. Purdue -7.5 is the right side. Texas +295 is a true lottery ticket — only small stake.",
-    layers:["📊 Purdue AdjO 119.8 — #2 nationally, proper -7.5 favorite","⚡ Texas: 3 games of fatigue (First Four + R1 + R32)","🚑 Pope GTD + Traore OUT (TEX) — limited firepower","🎰 Texas ML +295 — lottery ticket only, small stake"],
-    color:"#f0c040"
+    alertScore:45,
+    estOdds:"-110",
+    edge:"Illinois +2.5 is the safer version of the Illinois upset play. You only need a cover, not an outright win. Underwood's teams fight in every elimination game — they've never been blown out in this run. Wagler GTD (shoulder) is the key check: if he plays, Illinois absolutely covers. Demary Jr. ankle for UConn creates a ceiling on their point-of-attack pressure. Illinois +2.5 is the best ATS value in the semifinal.",
+    layers:["🏆 Illinois never blown out — always competitive in March","⚠️ Wagler GTD — if he plays, Illinois covers comfortably","🚑 Demary Jr. GTD — UConn facilitator limited","📉 Small spread +2.5 — low risk for proven competitive team"],
+    color:"#ff9800"
   },
 ];
 
 var TIER3_BETS = [
   {
-    game:"Houston vs Illinois (S16 South · Houston · Mar 26)",
-    bet:"UNDER 140.5",
-    estLine:"140.5",
+    game:"UConn vs Illinois (FF Semifinal 1 · Apr 4 · 6:09 PM ET)",
+    bet:"UNDER 133.5",
+    estLine:"133.5",
     estOdds:"-110",
     confidence:80,
-    edge:"Total settled at 140.5 — still too high for this matchup. Houston 64.4 poss (slowest S16 tempo) + Illinois Big Ten physical = the S16's slowest game. Sampson's defense at home (Toyota Center) clamps everything. Two defensive-first teams in a grinder won't hit 140 points. Projected final: 62-66 range.",
-    layers:["⏱️ Houston 64.4 poss — slowest S16 tempo","🛡️ Sampson AdjD — allows under 65 ppg at home","📈 Total 140.5 too high for defensive teams","🐢 Illinois Big Ten physical = half-court battle"],
+    edge:"Lowest total of the Final Four. UConn's Hurley is methodical and Illinois is Big Ten physical — both coaches favor grinding over running. Demary Jr. ankle limits UConn's up-tempo facilitation. Elimination game pressure + both teams' defensive identities points to a low-60s battle. UNDER 133.5 is a strong lean.",
+    layers:["⏱️ Both teams prefer controlled half-court pace","🛡️ UConn elite defense + Illinois Big Ten physical","⚠️ Demary Jr. ankle limits UConn up-tempo pace","🐢 Lowest FF total — market already pricing in slow game"],
     signal:"LEAN UNDER",color:"#4a9eff"
   },
   {
-    game:"Iowa State vs Tennessee (S16 Midwest · Chicago · Mar 27)",
-    bet:"UNDER 140.5",
-    estLine:"140.5",
-    estOdds:"-110",
-    confidence:80,
-    edge:"Total ticked up to 140.5 but Iowa State AdjD 93.1 vs Tennessee's SEC physical defense is still a defensive grind. Jefferson GTD (ISU ankle) + Ament GTD (TEN knee) both potentially missing = compressed offensive ceiling. UNDER 140.5 is the lean — two defensive-first programs built to win low-scoring games.",
-    layers:["🛡️ Iowa State AdjD 93.1 + Tennessee physical defense","⏱️ Both teams defensive-first — controlled pace","⚠️ Jefferson GTD (ISU) + Ament GTD (TN) — lower offense","🐢 Both systems built to win games under 65-70 ppg"],
-    signal:"LEAN UNDER",color:"#4a9eff"
-  },
-  {
-    game:"Purdue vs Texas (S16 West · San Jose · Mar 26)",
-    bet:"LEAN UNDER 147.5",
-    estLine:"147.5",
+    game:"Michigan vs Arizona (FF Semifinal 2 · Apr 4 · 8:49 PM ET)",
+    bet:"OVER 144.5",
+    estLine:"144.5",
     estOdds:"-110",
     confidence:65,
-    edge:"Purdue plays methodical half-court basketball (68.8 poss). Texas is running on Cinderella fumes after three tournament games — fatigue naturally compresses scoring pace. Pope GTD (Texas) + Cox GTD (Purdue) both potentially limited = less scoring firepower on both sides. Lean UNDER 147.5.",
-    layers:["⏱️ Purdue 68.8 poss — methodical half-court","⚡ Texas fatigued after First Four + R1 + R32","🚑 Pope GTD (TEX) + Cox GTD (PUR) — both reduced","🐢 Tired team + disciplined defense = compressed scoring"],
-    signal:"LEAN UNDER",color:"#4a9eff"
-  },
-  {
-    game:"Duke vs St. John's (S16 East · Washington D.C. · Mar 27)",
-    bet:"LEAN OVER 141.5",
-    estLine:"141.5",
-    estOdds:"-110",
-    confidence:63,
-    edge:"Duke without Foster (DOUBTFUL) needs Boozer to carry — more possessions, elevated pace. St. John's pushes pace at 66.2 poss and Capital One Arena will be flooded with NYC fans via I-95/Amtrak. In a loud frantic elimination atmosphere, OVER 141.5 is playable. Duke AdjO still elite despite rotation concerns.",
-    layers:["⚡ Duke elevated pace without Foster + Boozer carries","🏠 St. John's 225mi from Queens — NYC fans flood D.C.","🏟️ Capital One Arena elimination energy = faster pace","📊 Duke still top 5 offense nationally despite injuries"],
-    signal:"LEAN OVER",color:"#ff6b35"
-  },
-  {
-    game:"Michigan vs Alabama (S16 Midwest · Chicago · Mar 27)",
-    bet:"LEAN OVER 172.5",
-    estLine:"172.5",
-    estOdds:"-110",
-    confidence:62,
-    edge:"Total settled at 172.5 — still the highest in the S16. With Holloway SUSP (Alabama) and Cason OUT (Michigan), both teams are depleted but Alabama's 71.8-possession attack still pushes pace relentlessly. Sears (20.1 PPG, healthy) + Michigan's AdjO 120.8 = scoring potential despite injuries. Lean OVER 172.5 as a secondary play.",
-    layers:["⚡ Alabama 71.8 poss — even without Holloway, pace is the identity","📊 Michigan AdjO 120.8 — elite offense still present","📈 Total 172.5 highest in S16 — pace game expected","🚑 Both teams depleted but Sears (20.1 PPG) still healthy"],
+    edge:"Lloyd's pace-and-space creates possessions. Michigan's AdjO is elite. With Kier possibly limited, Arizona spreads the floor more, increasing pace. Both teams want to run when they get the chance. Higher total (144.5) for the late game — pace opens up in a Final Four elimination environment. Lean OVER.",
+    layers:["⚡ Arizona pace-and-space pushes tempo","📊 Michigan AdjO elite — produces points efficiently","⏰ Late night, high-stakes game — pace opens 2nd half","🏀 Kier limited = more floor spacing = more possessions"],
     signal:"LEAN OVER",color:"#ff6b35"
   },
 ];
 
 var PARLAYS = [
   {
-    name:"THE S16 CHALK HAMMER",
-    legs:["Houston -3.5 ATS (vs Illinois)","Arizona -8.5 ATS (vs Arkansas)","UConn ML -130 (vs Michigan State)"],
-    estOdds:"+420 to +520",
+    name:"THE FINAL FOUR CHALK HAMMER",
+    legs:["Michigan -3.5 ATS (vs Arizona)","UConn vs Illinois UNDER 133.5","UConn ML -140 (vs Illinois)"],
+    estOdds:"+420 to +500",
     units:"1 unit",
-    rationale:"Three high-confidence S16 plays stacked. Houston plays AT HOME (Toyota Center) — only true home game in S16, Sampson defense clamps Illinois. Arizona with CA recruiting base vs Arkansas worst travel draw (1,900mi). UConn with 350-mile near-home trip and Hurley chasing 3rd title. All three have structural edges.",
+    rationale:"Three high-confidence Final Four plays stacked. Michigan as the #1 seed covers against an Arizona team missing Kier (GTD). The UConn/Illinois under as a defensive grinder with Demary Jr. limited. UConn ML for the 2-time champion in a neutral-site clash. All three have structural edges.",
     risk:"LOW-MED",
     riskColor:"#22c55e",
-    tags:["3-LEG","FAVORITES","S16 EDGE"]
+    tags:["3-LEG","FAVORITES","FF EDGE"]
+  },
+  {
+    name:"THE UPSET DOUBLE",
+    legs:["Illinois ML +118 (vs UConn)","Arizona ML +155 (vs Michigan)"],
+    estOdds:"+480 to +560",
+    units:"0.5 unit",
+    rationale:"Both underdog ML plays with strong data backing. Illinois ML +118 is near even-money for a team that beat Houston and Iowa. Arizona ML +155 for a team that's covered every tournament game against a Michigan squad running without Cason. Both have legitimate paths.",
+    risk:"MED-HIGH",
+    riskColor:"#ff9800",
+    tags:["2-LEG","UPSETS","FF ALERT"]
   },
   {
     name:"THE UNDER WALL",
-    legs:["Houston vs Illinois UNDER 140.5","Iowa State vs Tennessee UNDER 140.5","Purdue vs Texas LEAN UNDER 147.5"],
-    estOdds:"+480 to +580",
+    legs:["UConn vs Illinois UNDER 133.5","Michigan vs Arizona LEAN OVER 144.5"],
+    estOdds:"+280 to +340",
     units:"1 unit",
-    rationale:"Three defensive/tempo-controlled games. Houston 64.4 poss + Sampson defense AT HOME = UNDER 140.5. Iowa State AdjD 93.1 + Tennessee physical defense + Jefferson/Ament GTD = UNDER 140.5. Purdue's disciplined half-court vs fatigued Texas = UNDER 147.5. Totals are inflated — fade all three.",
+    rationale:"Split-game total strategy: Take the under in the defensive grinder (UConn/Illinois) and the over in the pace matchup (Michigan/Arizona). Both totals have strong directional signals from the stylistic matchups.",
     risk:"MED",
     riskColor:"#f0c040",
-    tags:["3-LEG","UNDERS","ANALYTICS"]
+    tags:["2-LEG","TOTALS","ANALYTICS"]
   },
   {
-    name:"THE S16 UPSET DOUBLE",
-    legs:["St. John's ML (+230 vs Duke)","Iowa ML (+108 vs Nebraska)"],
-    estOdds:"+560 to +680",
-    units:"0.5 unit",
-    rationale:"Two ML upset plays with data backing. Duke 7-man rotation (Foster DOUBTFUL, Ngongba GTD) vs Pitino's St. John's near-home at +235. Iowa Cinderella momentum after beating Florida — line compressed to -1.5, Iowa ML +123 at essentially a pick-em. Best near-term upset parlay on the board.",
-    risk:"MED-HIGH",
-    riskColor:"#ff9800",
-    tags:["2-LEG","UPSETS","S16 ALERT"]
-  },
-  {
-    name:"THE VIBE CODER S16 PARLAY",
-    legs:["Houston -2.5 ATS (Sampson home grinder lock)","Iowa State vs Tennessee UNDER 140.5 (defensive chess)","St. John's ML +230 (upset risk 68/100)","Iowa ML +108 (Cinderella keeps rolling)"],
-    estOdds:"+2200 to +2800",
+    name:"THE FINAL FOUR NARRATIVE PARLAY",
+    legs:["Illinois +2.5 ATS (upset cover)","Michigan -3.5 ATS (chalk cover)","UConn vs Illinois UNDER 133.5","Michigan vs Arizona OVER 144.5"],
+    estOdds:"+1800 to +2200",
     units:"0.25 unit (lottery ticket)",
-    rationale:"The site's S16 signature picks in one narrative parlay. Houston cover as the home analytics play, Iowa State/Tennessee under for the defensive grind, St. John's for the best pure upset value, Iowa to keep their Cinderella run going past Nebraska. All four picks have strong data signals.",
+    rationale:"The site's Final Four signature picks in one narrative parlay. Illinois covers the small spread, Michigan covers as the #1 seed, UConn/Illinois stays under in the defensive grind, Michigan/Arizona goes over in the pace matchup. All four picks have strong analytical signals.",
     risk:"HIGH",
     riskColor:"#ff4444",
-    tags:["4-LEG","SIGNATURE","S16 NARRATIVE"]
+    tags:["4-LEG","SIGNATURE","FF NARRATIVE"]
   },
   {
-    name:"THE SHARP S16 PLAY",
-    legs:["UConn ML -130 (travel edge + 2-time champ)","Iowa State vs Tennessee UNDER 140.5 (defensive chess)","Purdue vs Texas LEAN UNDER 147.5 (fatigue + control)"],
-    estOdds:"+420 to +520",
-    units:"1-2 units",
-    rationale:"Three analytically-backed S16 edges: UConn's near-home advantage in D.C. (350mi vs MSU 540mi), the Iowa State/Tennessee defensive grinder under, and Purdue controlling a fatigued Texas team. Moderate combined odds with strong data backing each leg.",
+    name:"THE SHARP FF PLAY",
+    legs:["Illinois ML +118 (upset value)","Michigan -3.5 ATS (chalk cover)","UConn vs Illinois UNDER 133.5"],
+    estOdds:"+520 to +620",
+    units:"1 unit",
+    rationale:"Three analytically-backed Final Four edges: Illinois ML at near even-money for a proven Cinderella, Michigan covering as the #1 seed, and the UConn/Illinois under in a defensive grinder. Moderate combined odds with strong data backing each leg.",
     risk:"MED",
     riskColor:"#f0c040",
-    tags:["3-LEG","ANALYTICS","S16 VALUE"]
+    tags:["3-LEG","ANALYTICS","FF VALUE"]
   },
 ];
 
 var FUTURES_BETS = [
-  {team:"Iowa",pick:"CINDERELLA FINAL FOUR",estOdds:"+2200 to +2800",signal:"WATCH LIST",signalColor:"#f0c040",note:"🔥 THE TOURNAMENT'S BIGGEST STORY. Iowa already beat defending champion Florida as a 9-seed. If they beat Nebraska in S16 (a winnable matchup), they become the most dangerous Cinderella in recent memory. Tiny futures play with massive upside — Ben McCollum won 4 D2 titles and this fearless team shows it."},
-  {team:"UConn",pick:"WIN TITLE",estOdds:"+700 to +950",signal:"BET IT",signalColor:"#22c55e",note:"Hurley 15-3, 2 titles, traveling 350 miles to D.C. (shorter than MSU's 540 miles). Chasing a historically unprecedented 3rd straight title. If they beat Michigan State in S16, the East bracket is their path to complete the dynasty. I-95 corridor fan support at Capital One Arena."},
-  {team:"Michigan",pick:"ELITE EIGHT",estOdds:"+350 to +500",signal:"VALUE BET",signalColor:"#4a9eff",note:"Top offense + defense. Near-home crowd in Chicago (240mi from Ann Arbor). The Cason OUT concern is real vs Alabama's pace — but Holloway SUSP for Alabama equalizes both teams' backcourt depth. If Michigan survives S16, they have a legitimate path to the Elite Eight. Dusty May continues to prove himself in March."},
-  {team:"Iowa State",pick:"FINAL FOUR",estOdds:"+500 to +700",signal:"VALUE BET",signalColor:"#4a9eff",note:"Second-highest focus score in S16 (80/100). Otzelberger's defense-first culture is elite. Momcilovic GTD is the only concern — system overcomes it. Iowa State path through Tennessee and potentially Michigan is very winnable. Best value in the Midwest bracket."},
-  {team:"Arizona",pick:"FINAL FOUR",estOdds:"+400 to +550",signal:"VALUE BET",signalColor:"#4a9eff",note:"Won Big 12 Title WITHOUT Koa Peat — battle-tested before S16. Playing in California (San Jose, 800mi from Tucson) — Arizona heavy CA recruiting base brings strong SAP Center support. If they beat Arkansas, Texas or Purdue is next. Lloyd's culture is proven resilient. Best value in the West."},
-  {team:"Texas",pick:"FADE FUTURES (fatigue)",estOdds:"Any",signal:"AVOID / FADE",signalColor:"#ff4444",note:"⚠️ FIRST FOUR FATIGUE FADE. Texas has played three tournament games — First Four vs NC State, R1 vs BYU, R32 vs Gonzaga. That's a full extra game of physical depletion heading into the Sweet 16 against Purdue. The Cinderella story is real but the body doesn't lie. Fade Texas futures beyond S16."},
-  {team:"Duke",pick:"AVOID (Scheyer ceiling)",estOdds:"Any",signal:"AVOID / FADE",signalColor:"#ff4444",note:"Scheyer has never won an Elite Eight as head coach. Foster DOUBTFUL (foot, 'outside chance') + Ngongba GTD (boot after R32) = 7-man max rotation. St. John's plays near-home (225mi from Queens) with Pitino's 52 career tourney wins. Duke is an expensive bet at -290 ML in a game where 68/100 upset risk score says St. John's at +235 covers. Fade Duke at heavy juice."},
-  {team:"Alabama",pick:"DARK HORSE ELITE 8",estOdds:"+1400 to +1800",signal:"WATCH LIST",signalColor:"#f0c040",note:"If Alabama upsets Michigan in S16 on the strength of their 71.8-poss pace attack, they become the hot team in the Midwest bracket. Oats' style creates chaos — and Iowa State/Tennessee in the next round is a winnable path. Tiny futures play if Alabama ML hits first."},
+  {team:"Michigan",pick:"WIN TITLE",estOdds:"+350",signal:"BET IT",signalColor:"#22c55e",note:"AI champion pick. #1 seed with tournament-tested pedigree. Lendeborg (14.9 PPG) leads a squad that answered every challenge without Cason (ACL, OUT all tournament). Beat Tennessee 78-65 in E8. Dusty May proving himself in March. -180 ML in SF2 vs Arizona, then potential championship vs UConn or Illinois."},
+  {team:"UConn",pick:"WIN TITLE",estOdds:"+400",signal:"VALUE BET",signalColor:"#4a9eff",note:"Hurley 17-3, 2 titles, chasing a historic 3rd straight. Upset #1 Duke 77-71 in E8. -140 ML favorite in SF1 vs Illinois. Demary Jr. ankle is the key injury check. If healthy, UConn is the most dangerous team in Arlington. Dynasty-completing run is on the table."},
+  {team:"Illinois",pick:"WIN TITLE",estOdds:"+900",signal:"WATCH LIST",signalColor:"#f0c040",note:"First Final Four since 2005. Beat #2 Houston and upset Iowa in E8. Wagler (25 pts vs Iowa) GTD is key. ML +118 vs UConn is near even-money. If Illinois upsets UConn, they'd face Michigan or Arizona — a winnable path to the championship for Underwood's most dangerous team ever."},
+  {team:"Arizona",pick:"WIN TITLE",estOdds:"+700",signal:"WATCH LIST",signalColor:"#f0c040",note:"Ended a 25-year Final Four drought. Beat Purdue 79-64 in E8. Covered all 3 tournament spreads. Lloyd's culture is battle-tested without Peat (OUT all tournament). ML +155 vs Michigan is strong value. If Arizona upsets Michigan, they'd face UConn or Illinois in the championship — a very winnable path."},
+  {team:"Duke",pick:"ELIMINATED — E8",estOdds:"N/A",signal:"ELIMINATED",signalColor:"#ff4444",note:"UConn upset Duke 77-71 in the Elite Eight — the biggest result of E8 Sunday. Scheyer's Blue Devils exit without reaching the Final Four. Foster's return (11 pts vs SJU) wasn't enough to stop Hurley's squad."},
+  {team:"Tennessee",pick:"ELIMINATED — E8",estOdds:"N/A",signal:"ELIMINATED",signalColor:"#ff4444",note:"Michigan beat Tennessee 78-65 in the Elite Eight. Barnes' physical defense couldn't slow Lendeborg and the Wolverines' offense. Vols exit without their first Final Four appearance in program history."},
 ];
 
 function renderParlay(){
@@ -2941,77 +3150,26 @@ function renderParlay(){
 // Built from: KenPom AdjEM gap, NIL delta, injury impact, tempo average, focus scores
 
 // ── ORIGINAL R64 GAME PREDICTIONS (archived) ─────────────────────────────────
-// These have been replaced by Sweet 16 predictions below.
-// The array remains here for reference only — renderGamePredictions uses S16 data.
+// Final Four predictions — 2 semifinal games · April 4, 2026 · AT&T Stadium, Arlington TX
 
 var GAME_PREDICTIONS = [
-  // ── SWEET 16 · EAST · WASHINGTON D.C. (March 27) ─────────────────────────
-  { region:"East", rc:"#e63946",
-    fav:"Duke", favSeed:1, dog:"St. John's", dogSeed:5,
-    spread:-6.5, ml:-285, ou:141.5, ouLean:"LEAN OVER",
+  // ── FINAL FOUR · SEMIFINAL 1 · APR 4 · 6:09 PM ET ───────────────────────
+  { region:"Semifinal 1", rc:"#e63946",
+    fav:"UConn", favSeed:2, dog:"Illinois", dogSeed:3,
+    spread:-2.5, ml:-140, ou:133.5, ouLean:"LEAN UNDER",
     betRating:"UPSET ALERT", betColor:"#ff6b35",
-    spreadLean:"ST. JOHN'S +6.5", mlLean:"ST. JOHN'S ML (+230)",
-    edge:"Duke's S16 weakness fully exposed: Foster DOUBTFUL (foot, 'outside chance'), Ngongba GTD (wore boot after R32), 7-man rotation max. Pitino's St. John's just beat Kansas in R32 and plays 225 miles from Queens — NYC fans flood Capital One Arena via I-95. Pitino has 52 career tourney wins vs Scheyer's 0 Elite Eights. St. John's +230 ML at 68/100 upset risk is the best value in the East.",
-    flags:["🚑 Foster DOUBTFUL + Ngongba GTD — Duke 7-man max","👔 Pitino 52 tourney wins vs Scheyer 0 Elite Eights","🏠 St. John's 225mi from Queens — NYC fans flood D.C. via I-95","⚠️ Upset Risk 68/100 — St. John's +230 ML is the play"] },
+    spreadLean:"ILLINOIS +2.5", mlLean:"ILLINOIS ML (+118)",
+    edge:"Illinois is the Final Four's top upset alert. Underwood's squad beat #2 Houston and stunned Iowa in the E8 without ever being favored. Wagler (25 pts vs Iowa) GTD (shoulder) is the critical injury check. UConn's Demary Jr. ankle (limited since Big East) clouds their half-court facilitator role. Big Ten physicality vs Hurley finesse — tight, physical grind expected. UNDER 133.5 and Illinois +2.5 ATS both have strong value. 6:09 PM ET · TBS.",
+    flags:["⚠️ UConn Demary Jr. GTD — ankle, limited since Big East tournament","🚑 Illinois Wagler GTD — 25 pts vs Iowa, shoulder, monitor Apr 3","👔 Hurley 17-3, 2 titles vs Underwood 8-6 — coaching edge UConn","🏆 Illinois first FF since 2005 — Cinderella ML +118 is live value"] },
 
-  { region:"East", rc:"#e63946",
-    fav:"UConn", favSeed:3, dog:"Michigan State", dogSeed:2,
-    spread:-1.5, ml:-130, ou:134.5, ouLean:"LEAN UNDER",
-    betRating:"VALUE BET", betColor:"#22c55e",
-    spreadLean:"UCONN -1.5", mlLean:"UCONN ML (-130)",
-    edge:"Pick-em — line holds flat at -1.5. UConn travels 350 miles to D.C. (shorter than MSU's 540 miles) and Hurley is 15-3 in March with 2 titles chasing a historic 3rd. MSU missing Divine Ugochukwu (foot, OUT) — rotation thinned. Low total (134.5) confirms a true defensive grinder. UConn -130 is solid value for a 2x champion with the shorter travel.",
-    flags:["🏠 UConn 350mi to D.C. — shorter trip than MSU (540mi)","👔 Hurley 15-3, 2 titles vs Izzo 54-23 — elite coaching duel","🚑 MSU Ugochukwu OUT — rotation thinned","📉 Total 134.5 — lowest in S16, true defensive grinder"] },
-
-  // ── SWEET 16 · WEST · SAN JOSE, CA (March 26) ───────────────────────────
-  { region:"West", rc:"#2196f3",
-    fav:"Arizona", favSeed:1, dog:"Arkansas", dogSeed:5,
-    spread:-7.5, ml:-375, ou:164.5, ouLean:"LEAN OVER",
-    betRating:"COVER", betColor:"#4ade80",
-    spreadLean:"ARIZONA -7.5", mlLean:"ARIZONA ML (-375)",
-    edge:"Arizona plays in California (San Jose, 800mi from Tucson) — heavy CA recruiting base means SAP Center will have strong Wildcat crowd support. Arkansas traveled 1,900 miles + 2-hour TZ shift west. Peat OUT but Arizona won the Big 12 WITHOUT him — battle-tested. High total (164.5) signals an up-tempo game. OVER lean with two teams that can score and Arizona's home-region crowd.",
-    flags:["🏠 Arizona CA recruiting base — strong SAP Center crowd","🗺️ Arkansas 1,900mi + 2hr TZ — worst West travel draw","⚡ Total 164.5 — high-scoring game expected","🚑 Peat OUT but Arizona already proven without him"] },
-
-  { region:"West", rc:"#2196f3",
-    fav:"Purdue", favSeed:2, dog:"Texas", dogSeed:11,
-    spread:-7.5, ml:-375, ou:147.5, ouLean:"LEAN UNDER",
-    betRating:"COVER", betColor:"#4ade80",
-    spreadLean:"PURDUE -7.5", mlLean:"PURDUE ML (-375)",
-    edge:"Line settled at Purdue -7.5 after briefly tightening. Purdue gets proper respect back as the disciplined half-court #2 seed. Texas (First Four + R1 + R32 = 3 games of fatigue) vs Purdue's size and AdjO 119.8. Jordan Pope (ankle, GTD) + Lassina Traore (knee, OUT) limit Texas's upside. CJ Cox GTD for Purdue also a factor. Purdue -7.5 is the right side — Texas ML +295 is a longshot lottery ticket.",
-    flags:["📊 Purdue AdjO 119.8 — #2 nationally, proper favorite again","⚡ Texas: 3 games of fatigue (First Four + R1 + R32)","🚑 Pope GTD + Traore OUT (TEX) vs Cox GTD (PUR)","🗺️ Purdue 2,000mi + 3hr TZ shift — real travel counter"] },
-
-  // ── SWEET 16 · SOUTH · HOUSTON, TX (March 26) ───────────────────────────
-  { region:"South", rc:"#22c55e",
-    fav:"Nebraska", favSeed:4, dog:"Iowa", dogSeed:9,
-    spread:-1.5, ml:-130, ou:131.5, ouLean:"LEAN OVER",
-    betRating:"UPSET ALERT", betColor:"#ff6b35",
-    spreadLean:"IOWA +1.5", mlLean:"IOWA ML (+108)",
-    edge:"Line compressed to -1.5 and ML now -130/-108 — essentially a coin flip. Iowa's Cinderella momentum after beating defending champion Florida is fully priced in. Ben McCollum's fearless team (Tavion Banks 20 pts, Folgueiras game-winning 3) vs Hoiberg's 3-point system. Nebraska's Essegian OUT + Jarusevicius OUT hurts depth. Iowa +108 is dead-even value for the hottest team in the tournament.",
-    flags:["📉 Line -1.5, ML -130/-108 — true coin-flip game","🔥 Iowa upset defending champ Florida — Cinderella momentum","🚑 Nebraska: Essegian OUT + Jarusevicius OUT — depth hit","🎰 Iowa ML +108 — even-money value for tournament's hottest team"] },
-
-  { region:"South", rc:"#22c55e",
-    fav:"Houston", favSeed:2, dog:"Illinois", dogSeed:3,
-    spread:-2.5, ml:-155, ou:140.5, ouLean:"LEAN UNDER",
-    betRating:"UNDER LEAN", betColor:"#1A56DB",
-    spreadLean:"HOUSTON -2.5", mlLean:"HOUSTON ML (-155)",
-    edge:"Houston spread settled back to -2.5 — home crowd advantage is real but not as dominant as earlier lines implied. AT HOME at Toyota Center. Sampson plays 64.4 possessions per game — slowest in the S16 field. Defense clamps everything. UNDER 140.5 is the lean — two defensive-first teams with Sampson's clock-management system grinding for 40 minutes.",
-    flags:["🏠 Houston AT HOME — Toyota Center only true home game in S16","⏱️ Sampson 64.4 poss — slowest tempo in S16 field","📉 UNDER 140.5 lean — Sampson defense elite","👔 Underwood 0 Elite Eights vs Sampson 1 Final Four"] },
-
-  // ── SWEET 16 · MIDWEST · CHICAGO, IL (March 27) ─────────────────────────
-  { region:"Midwest", rc:"#f59e0b",
-    fav:"Michigan", favSeed:1, dog:"Alabama", dogSeed:4,
-    spread:-9.5, ml:-485, ou:172.5, ouLean:"LEAN OVER",
+  // ── FINAL FOUR · SEMIFINAL 2 · APR 4 · 8:49 PM ET ───────────────────────
+  { region:"Semifinal 2", rc:"#f59e0b",
+    fav:"Michigan", favSeed:1, dog:"Arizona", dogSeed:1,
+    spread:-3.5, ml:-180, ou:144.5, ouLean:"LEAN OVER",
     betRating:"UPSET ALERT", betColor:"#ff9800",
-    spreadLean:"ALABAMA +9.5", mlLean:"ALABAMA ML (+375)",
-    edge:"Line settled at Michigan -9.5 (pulled back from -10.5) after Aden Holloway suspension (16.8 PPG). Alabama ML +375 remains the most interesting swing bet of the S16: Oats' 71.8-possession pace attack vs Michigan's Cason-depleted backcourt is still a nightmare matchup. Total (172.5) is highest in S16 — this is expected to be a track meet. Alabama +9.5 ATS + ML +375 for the upset are both playable.",
-    flags:["📈 Holloway SUSP (16.8 PPG) — line moved, now settled -9.5","🚑 Michigan Cason OUT + Alabama Holloway SUSP — both depleted","💰 Alabama ML +375 — highest-value swing bet in S16","⚡ Total 172.5 — highest in S16, Oats 71.8-poss pace"] },
-
-  { region:"Midwest", rc:"#f59e0b",
-    fav:"Iowa State", favSeed:2, dog:"Tennessee", dogSeed:6,
-    spread:-3.5, ml:-185, ou:140.5, ouLean:"LEAN UNDER",
-    betRating:"UNDER LEAN", betColor:"#1A56DB",
-    spreadLean:"IOWA STATE -3.5", mlLean:"IOWA STATE ML (-185)",
-    edge:"Line tightened to -3.5 — Tennessee is getting respect as a dangerous 6-seed. Jefferson's status (ankle, missed R32) is the most critical GTD of the S16. If he plays, Iowa State covers easily. If he sits, Tennessee's physical SEC defense turns this into their exact pace. UNDER 140.5 despite the slightly elevated total — two defensive-first programs. Ament GTD for Tennessee too.",
-    flags:["⚠️ Jefferson GTD (ISU) — ankle, missed R32, most critical S16 status","🛡️ Iowa State AdjD 93.1 + Tennessee SEC physical defense","📉 UNDER 140.5 — both teams grind defensively","👔 Otzelberger system-first vs Barnes' proven March pedigree"] },
+    spreadLean:"ARIZONA +3.5", mlLean:"ARIZONA ML (+155)",
+    edge:"Arizona has covered all 3 tournament spreads and ended a 25-year Final Four drought. Michigan is the favorite but enters without Cason (ACL, OUT all tournament) — Cadeau as sole PG through 5 straight games is a real durability question. Kier (back, GTD for Arizona) is the key availability check. Lloyd's pace-and-space system creates natural mismatches vs Michigan's depleted backcourt. OVER 144.5 lean — both teams want to push pace. Arizona ML +155 is strong value for a team that hasn't stopped covering. 8:49 PM ET · TBS.",
+    flags:["🚑 Michigan Cason OUT all tournament — Cadeau sole PG fatigue risk","⚠️ Arizona Kier GTD — back tightness, monitor Apr 3 practice","📊 Arizona covered all 3 tournament spreads — trend is real","💰 Arizona ML +155 — best Final Four upset value"] },
 ];
 
 
@@ -3023,8 +3181,8 @@ function renderGamePredictions() {
   if (!el) return;
 
   // Group by region
-  var regions = ['East','West','South','Midwest'];
-  var rColors = {East:'#e63946',West:'#2196f3',South:'#22c55e',Midwest:'#f59e0b'};
+  var regions = ['Semifinal 1','Semifinal 2'];
+  var rColors = {'Semifinal 1':'#e63946','Semifinal 2':'#f59e0b'};
   var html = '';
 
   regions.forEach(function(rName) {
@@ -3041,8 +3199,29 @@ function renderGamePredictions() {
       var isUpset = g.betRating.includes('UPSET');
       var isLock = g.betRating === 'LOCK';
       var isUnder = g.betRating.includes('UNDER');
+      var res = g.result; // populated by ESPN API when game is FINAL
 
       html += '<div style="background:#FFFFFF;border:1px solid '+bc+'33;border-radius:12px;overflow:hidden;'+(isUpset?'border-left:3px solid '+bc:'border-top:2px solid '+bc)+'">';
+
+      // ── Result banner (shown when game is final) ───────────────────────────
+      if (res) {
+        var aiCorrect = (res.winner === g.fav && !isUpset) || (res.winner === g.dog && isUpset);
+        var rColor = res.isUpset ? '#C8102E' : '#16A34A';
+        var rLabel = res.isUpset ? '🔥 UPSET — ' + res.winner + ' wins' : '✅ ' + res.winner + ' wins';
+        var coverDiff = res.winScore - res.loseScore;
+        var spread = Math.abs(g.spread);
+        var favWon = res.winner === g.fav;
+        var coverResult = favWon
+          ? (coverDiff > spread ? '📊 ' + g.fav + ' COVERED (-' + spread + ')' : '📊 ' + g.fav + ' DID NOT COVER')
+          : ('📊 ' + g.dog + ' COVERED (+' + spread + ')');
+        html += '<div style="background:'+rColor+'12;border-bottom:1px solid '+rColor+'30;padding:6px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">';
+        html += '<span style="font-size:10px;font-weight:700;color:'+rColor+';letter-spacing:0.5px">'+rLabel+'</span>';
+        html += '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:12px;font-weight:700;color:#0B0F1E">'+res.winScore+'–'+res.loseScore+'</span>';
+        html += '</div>';
+        html += '<div style="background:#F8F7F4;border-bottom:1px solid #EEECE8;padding:4px 14px">';
+        html += '<span style="font-size:9px;color:#64748B">'+coverResult+'</span>';
+        html += '</div>';
+      }
 
       // Header
       html += '<div style="padding:12px 14px;background:'+bc+'0d;border-bottom:1px solid '+bc+'22">';
@@ -3053,9 +3232,11 @@ function renderGamePredictions() {
       html += '</div>';
       html += '</div>';
       html += '<div style="display:flex;align-items:baseline;gap:6px">';
-      html += '<span style="font-family:Barlow Condensed,sans-serif;font-size:20px;font-weight:900;color:#0B0F1E">'+g.fav+'</span>';
+      var favStyle = res ? (res.winner===g.fav ? 'color:#0B0F1E;font-weight:900' : 'color:#0B0F1E;opacity:0.3;text-decoration:line-through') : 'color:#0B0F1E';
+      var dogStyle = res ? (res.winner===g.dog ? 'color:'+(isUpset?bc:'#64748B')+';font-weight:700' : 'opacity:0.3;text-decoration:line-through;color:#64748B') : 'color:'+(isUpset?bc:'#64748B');
+      html += '<span style="font-family:Barlow Condensed,sans-serif;font-size:20px;font-weight:900;'+favStyle+'">'+g.fav+'</span>';
       html += '<span style="font-size:11px;color:#94A3B8">vs</span>';
-      html += '<span style="font-family:Barlow Condensed,sans-serif;font-size:16px;font-weight:700;color:'+(isUpset?bc:'#64748B')+'">'+g.dog+'</span>';
+      html += '<span style="font-family:Barlow Condensed,sans-serif;font-size:16px;font-weight:700;'+dogStyle+'">'+g.dog+'</span>';
       html += '</div>';
       html += '</div>';
 
@@ -3532,31 +3713,100 @@ var tickerSpeed = 0.5;
 var tickerPaused = false;
 
 // ── STATIC TICKER BUILDER ─────────────────────────────────────────────────────
-// Builds ticker items from data. Edit arrays below to update.
+// Builds ticker items from data. Pre-game items are tagged data-game-ref so
+// applyGameResults() removes them the moment that game lands in GAME_RESULTS.
+// Results are auto-generated from GAME_RESULTS — no manual edits needed.
 function buildStaticTickerItems() {
   var track = document.getElementById('ticker-track');
   if (!track) return;
 
   var items = [];
 
-  // ── FINAL FOUR STATUS ───────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'🏆 FINAL FOUR', text:'2026 NCAA Final Four · April 4 · Lucas Oil Stadium, Indianapolis, IN · Illinois vs UConn · Michigan vs Arizona' });
+  // ── AUTO-GENERATED RESULTS from GAME_RESULTS ──────────────────────────────
+  // Only entries with showInTicker:true appear here (E8+ results).
+  // S16 and earlier results stay in GAME_RESULTS for card/text updates but
+  // don't clutter the ticker with old news.
+  var seenResultKeys = {};
+  Object.keys(GAME_RESULTS).forEach(function(key) {
+    var r = GAME_RESULTS[key];
+    if (!r || !r.final || !r.showInTicker) return;
+    var canon = [r.winner, r.loser].sort().join('|');
+    if (seenResultKeys[canon]) return;
+    seenResultKeys[canon] = true;
+    var ws = r.winScore != null ? ' ' + r.winScore + '–' + r.loseScore : '';
+    if (r.isUpset) {
+      items.push({ cls:'tick-upset', badge:'💥 E8 UPSET',
+        text: r.winner + ws + ' def. ' + r.loser + ' — UPSET! Final Four bound' });
+    } else {
+      items.push({ cls:'tick-alert', badge:'✅ E8 FINAL',
+        text: r.winner + ws + ' def. ' + r.loser + ' — Final Four ✅' });
+    }
+  });
 
-  // ── ELITE 8 RESULTS ─────────────────────────────────────────────────────────
-  items.push({ cls:'tick-upset', badge:'✅ E8 FINAL', text:'Arizona 79–64 def. Purdue — Wildcats advance to Final Four!' });
-  items.push({ cls:'tick-upset', badge:'✅ E8 FINAL', text:'Michigan 78–65 def. Tennessee — Wolverines advance to Final Four!' });
-  items.push({ cls:'tick-upset', badge:'✅ E8 FINAL', text:'Illinois 71–59 def. Iowa — Illini advance to Final Four!' });
-  items.push({ cls:'tick-upset', badge:'🔥 E8 UPSET', text:'UConn 77–71 def. #1 Duke — Huskies advance to Final Four, chasing 3rd straight title!' });
-  items.push({ cls:'tick-upset', badge:'🔥 S16 UPSET', text:'Illinois 65–55 def. #2 Houston — Illini stun Sampson\'s Cougars at Toyota Center!' });
+  // ── FINAL FOUR STATUS ────────────────────────────────────────────────────────
+  items.push({ cls:'tick-alert', badge:'🏀 FINAL FOUR', text:'April 4 · AT&T Stadium, Arlington TX · 2 semifinal games · UConn vs Illinois 6:09 PM ET · Michigan vs Arizona 8:49 PM ET · TBS' });
 
-  // ── AI PICK ─────────────────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'🏆 AI PICK', text:'Championship pick: Arizona over Michigan · Semifinal: Illinois over UConn · F4: Illinois · UConn · Michigan · Arizona', gold:true });
+  // ── BRACKET BUSTERS injected dynamically by fetchTourneyHistory() via ESPN ──
 
-  // Render into DOM
+  // ── FF SCHEDULE ──────────────────────────────────────────────────────────────
+  items.push({ cls:'tick-alert', badge:'📅 APR 4 6:09', text:'SEMIFINAL 1: #2 UConn vs #3 Illinois · AT&T Stadium, Arlington TX · UConn -2.5 · O/U 133.5 · TBS' });
+  items.push({ cls:'tick-alert', badge:'📅 APR 4 8:49', text:'SEMIFINAL 2: #1 Michigan vs #1 Arizona · AT&T Stadium, Arlington TX · Michigan -3.5 · O/U 144.5 · TBS' });
+
+  // ── FF INJURIES ──────────────────────────────────────────────────────────────
+  items.push({ cls:'tick-inj', badge:'⚠️ GTD',    text:'UConn Silas Demary Jr. — ankle (Big East Championships) · limited since March · key facilitator · monitor Apr 3' });
+  items.push({ cls:'tick-inj', badge:'🚑 OUT',    text:'Michigan L.J. Cason — OUT all tournament (ACL season-ending) · Cadeau sole PG through 5 straight games · fatigue risk' });
+  items.push({ cls:'tick-inj', badge:'⚠️ GTD',    text:'Illinois Niccolo Wagler — shoulder · 25 pts vs Iowa in E8 · critical injury check for Illinois upset hopes · monitor Apr 3' });
+  items.push({ cls:'tick-inj', badge:'⚠️ GTD',    text:'Arizona Jaden Kier — back tightness · monitor Apr 3 practice · key guard for Wildcats pace-and-space attack' });
+
+  // ── FF PLAYER WATCH ───────────────────────────────────────────────────────────
+  items.push({ cls:'tick-alert', badge:'🌟 WATCH', text:'Niccolo Wagler (Illinois) — 25 pts vs Iowa in E8 · if healthy, he\'s the X-factor for an Illinois upset over UConn' });
+  items.push({ cls:'tick-alert', badge:'🌟 WATCH', text:'Yaxel Lendeborg (Michigan) — 14.9 ppg · leads Michigan with Cason OUT · No.1 seed firepower vs Lloyd\'s pace-and-space' });
+  items.push({ cls:'tick-alert', badge:'🌟 WATCH', text:'Tarris Reed Jr. (UConn) — must carry Huskies inside if Demary Jr. ankle limits his playmaking in Semifinal 1' });
+  items.push({ cls:'tick-alert', badge:'🌟 WATCH', text:'Caleb Love (Arizona) — explosive scorer for Wildcats · Arizona has covered all 3 tournament spreads coming in' });
+
+  // ── FF UPSET ALERTS ───────────────────────────────────────────────────────────
+  items.push({ cls:'tick-upset', badge:'🔥 UPSET WATCH', text:'Illinois vs UConn (6:09 ET) — Underwood\'s squad beat #2 Houston + stunned Iowa · Wagler GTD · Illinois +2.5 ML +118 · Upset Alert 45/100' });
+  items.push({ cls:'tick-upset', badge:'🔥 UPSET WATCH', text:'Arizona vs Michigan (8:49 ET) — Wildcats covered all 3 tournament spreads · Cason OUT = PG fatigue · Arizona ML +155 · Upset Alert 38/100' });
+
+  // ── FF SHARP PLAYS ────────────────────────────────────────────────────────────
+  items.push({ cls:'tick-alert', badge:'📊 FF SHARP', text:'UConn/Illinois UNDER 133.5 — Hurley finesse vs Big Ten physical grind · Demary Jr. ankle clouds UConn half-court offense · lean UNDER' });
+  items.push({ cls:'tick-alert', badge:'📊 FF SHARP', text:'Michigan/Arizona OVER 144.5 — both teams push pace · Lloyd space-and-pace + Michigan 90+ in every tourney game · lean OVER' });
+
+  // ── AI PICK ───────────────────────────────────────────────────────────────────
+  items.push({ cls:'tick-alert', badge:'🏆 AI PICK',  text:'AI Champion: Michigan 🏆 · Championship: Michigan vs UConn · Model picks Michigan over Arizona + UConn over Illinois', gold:true });
+  items.push({ cls:'tick-alert', badge:'📊 AI MODEL', text:'AI accuracy 62% this tournament · Illinois S16 UPSET HIT 🔥 · Iowa UPSET HIT 🔥 · UConn E8 UPSET HIT 🔥 · Michigan ✅ · Arizona ✅', gold:false });
+
+  // Render into DOM — stamp data-game-ref so applyGameResults() auto-removes
+  // pre-game items (injuries, GTD, upset alerts, sharp plays) when game is FINAL
   track.innerHTML = items.map(function(it) {
     var textStyle = it.gold ? 'color:#f0c040;font-weight:700' : 'color:rgba(255,255,255,0.9)';
-    return '<div class="tick-item"><span class="' + it.cls + '">' + it.badge + '</span><span style="' + textStyle + '">' + it.text + '</span></div>';
+    var gameAttr  = it.game ? ' data-game-ref="' + it.game + '"' : '';
+    return '<div class="tick-item"' + gameAttr + '><span class="' + it.cls + '">' + it.badge + '</span><span style="' + textStyle + '">' + it.text + '</span></div>';
   }).join('');
+}
+
+// ── TICKER REBUILD — syncs content + clone every 2 minutes ───────────────────
+// Re-runs buildStaticTickerItems() so auto-generated results stay fresh,
+// then removes the old clone and creates a new one with the updated content.
+// applyGameResults() is called after to immediately strip any completed games.
+function rebuildTicker() {
+  var wrap  = document.getElementById('ticker-track-wrap');
+  var track = document.getElementById('ticker-track');
+  if (!wrap || !track) return;
+  // Rebuild static content (auto-results + today's pre-game items)
+  buildStaticTickerItems();
+  // Re-apply completed-game removals immediately
+  if (Object.keys(GAME_RESULTS).length) applyGameResults();
+  // Re-inject any ESPN history items that were already fetched
+  // (they live in GAME_RESULTS so they're covered by auto-generation above)
+  // Replace clone with fresh copy of updated track
+  var oldClone = document.getElementById('ticker-track-clone');
+  if (oldClone) oldClone.remove();
+  tickerPos = 0;
+  track.style.transform = 'translateX(0)';
+  var newClone = track.cloneNode(true);
+  newClone.id = 'ticker-track-clone';
+  wrap.appendChild(newClone);
 }
 
 function startTicker() {
@@ -3597,6 +3847,196 @@ function updateTickerLabel(hasLive, hasFinished) {
     label.innerHTML = '🏀 NCAA';
     label.style.background = 'rgba(0,0,0,0.25)';
   }
+}
+
+// ── GAME RESULTS STORE (populated by ESPN API) ────────────────────────────────
+// key: "Fav|Dog" matching GAME_PREDICTIONS entries
+// value: { winner, loser, winScore, loseScore, isUpset }
+var GAME_RESULTS = {
+  // S16 results — used for card/text updates but NOT shown in ticker (no showInTicker)
+  "Duke|St. John's":       { winner:"Duke",     loser:"St. John's",    winScore:80, loseScore:75, isUpset:false, final:true },
+  "Nebraska|Iowa":         { winner:"Iowa",     loser:"Nebraska",      winScore:77, loseScore:71, isUpset:true,  final:true },
+  "Houston|Illinois":      { winner:"Illinois", loser:"Houston",       winScore:65, loseScore:55, isUpset:true,  final:true },
+  "Alabama|Michigan":      { winner:"Michigan", loser:"Alabama",       winScore:90, loseScore:77, isUpset:false, final:true },
+  "Michigan State|UConn":  { winner:"UConn",    loser:"Michigan State",winScore:67, loseScore:63, isUpset:false, final:true },
+  "Iowa State|Tennessee":  { winner:"Tennessee",loser:"Iowa State",    winScore:76, loseScore:62, isUpset:true,  final:true },
+  // E8 results — showInTicker:true means these appear in the live ticker
+  "Purdue|Arizona":        { winner:"Arizona",  loser:"Purdue",     winScore:79, loseScore:64, isUpset:false, final:true, showInTicker:true },
+  "Illinois|Iowa":         { winner:"Illinois", loser:"Iowa",       winScore:71, loseScore:59, isUpset:false, final:true, showInTicker:true },
+  "Michigan|Tennessee":    { winner:"Michigan", loser:"Tennessee",  winScore:78, loseScore:65, isUpset:false, final:true, showInTicker:true },
+  "Duke|UConn":            { winner:"UConn",    loser:"Duke",       winScore:77, loseScore:71, isUpset:true,  final:true, showInTicker:true }
+};
+
+// ESPN shortDisplayName → our display names
+var ESPN_NAME_MAP = {
+  'Connecticut': 'UConn', 'UConn Huskies': 'UConn',
+  'Michigan St.': 'Michigan State', 'Michigan State Spartans': 'Michigan State',
+  'Iowa St.': 'Iowa State', 'Iowa State Cyclones': 'Iowa State',
+  "St. John's (NY)": "St. John's", "SJU": "St. John's", "St. Johns": "St. John's", "St Johns": "St. John's",
+  'Purdue Boilermakers': 'Purdue', 'Duke Blue Devils': 'Duke',
+  'Iowa Hawkeyes': 'Iowa', 'Nebraska Cornhuskers': 'Nebraska',
+  'Michigan Wolverines': 'Michigan', 'Alabama Crimson Tide': 'Alabama',
+  'Houston Cougars': 'Houston', 'Illinois Fighting Illini': 'Illinois',
+  'Arizona Wildcats': 'Arizona', 'Arkansas Razorbacks': 'Arkansas',
+  'Tennessee Volunteers': 'Tennessee', 'Texas Longhorns': 'Texas',
+};
+function espnNorm(n) { return ESPN_NAME_MAP[n] || n; }
+
+// E8/Final Four dates — results from these dates get showInTicker:true
+var E8_PLUS_DATES = { '20260328':1, '20260329':1, '20260404':1, '20260406':1 };
+
+function storeGameResult(winnerRaw, loserRaw, winScore, loseScore, winnerSeed, loserSeed, gameDate) {
+  var winner = espnNorm(winnerRaw), loser = espnNorm(loserRaw);
+  var showInTicker = !!(gameDate && E8_PLUS_DATES[gameDate]);
+  var pred = null;
+  for (var i = 0; i < GAME_PREDICTIONS.length; i++) {
+    var g = GAME_PREDICTIONS[i];
+    if ((g.fav === winner || g.dog === winner) && (g.fav === loser || g.dog === loser)) {
+      pred = g; break;
+    }
+  }
+  if (pred) {
+    var key = pred.fav + '|' + pred.dog;
+    var wSeed = (winner === pred.fav) ? pred.favSeed : pred.dogSeed;
+    var lSeed = (loser === pred.fav) ? pred.favSeed : pred.dogSeed;
+    var isUpset = wSeed > lSeed;
+    GAME_RESULTS[key] = { winner: winner, loser: loser, winScore: winScore, loseScore: loseScore, isUpset: isUpset, final: true, showInTicker: showInTicker };
+    pred.result = GAME_RESULTS[key];
+  } else {
+    // No prediction card (E8/Final Four) — store both orderings so key always matches.
+    var isUpset = winnerSeed && loserSeed && winnerSeed > loserSeed;
+    var result = { winner: winner, loser: loser, winScore: winScore, loseScore: loseScore, isUpset: isUpset, final: true, showInTicker: showInTicker };
+    GAME_RESULTS[winner + '|' + loser] = result;
+    GAME_RESULTS[loser  + '|' + winner] = result;
+  }
+}
+
+// Update hero matchup cards (.matchup-card[data-game]) with final scores
+function applyGameResults() {
+  document.querySelectorAll('.matchup-card[data-game]').forEach(function(card) {
+    var key = card.getAttribute('data-game');
+    var r = GAME_RESULTS[key];
+    if (!r) return;
+    // Only apply once
+    if (card.querySelector('.mc-result-bar')) return;
+
+    var isUpset = r.isUpset;
+    var winColor = isUpset ? '#C8102E' : '#16A34A';
+    var score = r.winScore + '–' + r.loseScore;
+
+    // ① Insert result bar at top
+    var bar = document.createElement('div');
+    bar.className = 'mc-result-bar';
+    bar.style.cssText = 'background:' + winColor + '18;border-bottom:1px solid ' + winColor + '33;padding:4px 10px;display:flex;align-items:center;justify-content:space-between';
+    bar.innerHTML = '<span style="font-size:9px;font-weight:700;color:' + winColor + ';letter-spacing:0.5px">✅ FINAL</span>' +
+      '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;font-weight:700;color:#0B0F1E">' + score + '</span>';
+    card.insertBefore(bar, card.firstChild);
+
+    // ② Dim losing team rows + bold winner
+    card.querySelectorAll('.matchup-name').forEach(function(el) {
+      var name = el.textContent.replace('🔥','').trim();
+      if (name === r.loser) {
+        el.style.opacity = '0.35';
+        el.style.textDecoration = 'line-through';
+      } else if (name === r.winner) {
+        el.style.color = winColor;
+        el.style.fontWeight = '900';
+      }
+    });
+
+    // ③ Update region label
+    var regionEl = card.querySelector('.matchup-card-region');
+    if (regionEl) {
+      regionEl.textContent = regionEl.textContent.replace(/MAR \d+/, 'FINAL');
+    }
+
+    // ④ Replace AI PICK / UPSET WATCH badge with result badge
+    card.querySelectorAll('.matchup-badge').forEach(function(el) {
+      var aiPick = el.textContent.includes('AI PICK') || el.textContent.includes('CHAMPION PATH');
+      var correct = aiPick && !isUpset;
+      el.style.background = correct ? 'rgba(22,163,74,0.12)' : 'rgba(200,16,46,0.1)';
+      el.style.color = correct ? '#16A34A' : '#C8102E';
+      el.style.border = '1px solid ' + (correct ? 'rgba(22,163,74,0.25)' : 'rgba(200,16,46,0.2)');
+      el.textContent = correct ? '✅ CORRECT' : (isUpset ? '🔥 UPSET!' : '✅ WON');
+    });
+  });
+
+  // ── Auto-scanner: replace ANY stale descriptive text site-wide ──────────────
+  // Two-pass approach:
+  //  PASS 1 — explicit data-stale-game="Fav|Dog" tags: replace by key match,
+  //            no text content check needed (the tag IS the authority).
+  //  PASS 2 — untagged containers: scan .callout-detail, .intel-text, etc.
+  //            and replace any element ≥50 chars that mentions BOTH team names.
+  function applyResult(el, r) {
+    var winColor = r.isUpset ? '#C8102E' : '#16A34A';
+    var icon = r.isUpset ? '🔥 UPSET — ' : '✅ FINAL — ';
+    el.innerHTML = icon +
+      '<strong style="color:' + winColor + '">' + r.winner + '</strong>' +
+      ' def. ' + r.loser +
+      ' <strong style="font-family:\'IBM Plex Mono\',monospace;color:#0B0F1E">' +
+      r.winScore + '–' + r.loseScore + '</strong>';
+    el.style.color = '#64748B';
+    el.setAttribute('data-result-applied', '1');
+  }
+
+  // PASS 1: explicit tags — key match only, no text check
+  Object.keys(GAME_RESULTS).forEach(function(key) {
+    var r = GAME_RESULTS[key];
+    document.querySelectorAll('[data-stale-game="' + key + '"]:not([data-result-applied])').forEach(function(el) {
+      applyResult(el, r);
+    });
+  });
+
+  // PASS 2: auto-scan untagged descriptive containers for both team names
+  var AUTO_SELECTORS = [
+    '.callout-detail',
+    '.intel-text',
+    '.matchup-card [style*="border-top"]',
+    '.prediction-note',
+    '.edge-note',
+    '[class*="detail"]',
+    '[class*="note"]',
+    '[class*="desc"]'
+  ];
+  var _candidates = [];
+  AUTO_SELECTORS.forEach(function(sel) {
+    try {
+      document.querySelectorAll(sel).forEach(function(el) {
+        if (!el.getAttribute('data-result-applied') && _candidates.indexOf(el) === -1) {
+          _candidates.push(el);
+        }
+      });
+    } catch(e) {}
+  });
+  Object.keys(GAME_RESULTS).forEach(function(key) {
+    var r = GAME_RESULTS[key];
+    var parts = key.split('|');
+    var t1 = parts[0].toLowerCase();
+    var t2 = parts[1].toLowerCase();
+    _candidates.forEach(function(el) {
+      if (el.getAttribute('data-result-applied')) return;
+      var lc = el.textContent.toLowerCase();
+      // Must be descriptive text (≥50 chars) mentioning BOTH team names
+      if (lc.length < 50 || lc.indexOf(t1) === -1 || lc.indexOf(t2) === -1) return;
+      applyResult(el, r);
+    });
+  });
+
+  // ── Auto-remove stale pre-game ticker items when game is FINAL ───────────────
+  // Injury reports, GTD/DOUBTFUL, upset alerts, sharp plays all tagged with
+  // data-game-ref="Fav|Dog". Once that game is in GAME_RESULTS, they go away.
+  Object.keys(GAME_RESULTS).forEach(function(key) {
+    ['ticker-track', 'ticker-track-clone'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.querySelectorAll('[data-game-ref="' + key + '"]').forEach(function(node) {
+        node.remove();
+      });
+    });
+  });
+
+  // Re-render prediction cards to show result banners
+  safeRender(renderGamePredictions, 'predictions');
 }
 
 // ── ESPN PUBLIC API LIVE SCORES ───────────────────────────────────────────────
@@ -3662,96 +4102,211 @@ function injectScoreItems(liveHTML) {
   });
 }
 
+// Inject historical results (upsets + S16 finals) after the first static item
+function injectHistoryItems(items) {
+  ['ticker-track', 'ticker-track-clone'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    Array.from(el.querySelectorAll('.tick-history-item')).forEach(function(n){ n.remove(); });
+    var afterFirst = el.firstChild ? el.firstChild.nextSibling : null;
+    var frag = document.createDocumentFragment();
+    items.forEach(function(it) {
+      var d = document.createElement('div');
+      d.className = 'tick-item tick-history-item';
+      d.innerHTML = '<span class="' + it.cls + '">' + it.badge + '</span><span style="color:rgba(255,255,255,0.9)">' + it.text + '</span>';
+      frag.appendChild(d);
+    });
+    el.insertBefore(frag, afterFirst);
+  });
+}
+
+// ── TOURNAMENT HISTORY — all completed round results from ESPN ────────────────
+// Runs on load (30-min cache). Fetches R64 → R32 → S16 → E8 automatically.
+// All upsets from any round + every S16+ final populate the ticker dynamically.
+var _histFetchedAt = 0;
+
+async function fetchTourneyHistory() {
+  if (Date.now() - _histFetchedAt < 300000) return; // 5-min cache
+  var now = new Date();
+  var todayNum = parseInt(now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0'));
+  var allDates = ['20260319','20260320','20260321','20260322','20260326','20260327','20260328','20260329','20260404','20260406'];
+  var s16Plus  = {'20260326':1,'20260327':1,'20260328':1,'20260329':1,'20260404':1,'20260406':1};
+  var toFetch  = allDates.filter(function(d){ return parseInt(d) <= todayNum; });
+  if (!toFetch.length) return;
+
+  var allEvents = [], seenIds = {};
+  await Promise.all(toFetch.map(function(dateStr) {
+    return fetch(ESPN_URL + '&dates=' + dateStr, { cache:'default' })
+      .then(function(r){ return r.ok ? r.json() : {events:[]}; })
+      .then(function(data){
+        (data.events||[]).forEach(function(ev){
+          if (!seenIds[ev.id]) { seenIds[ev.id]=true; ev._d=dateStr; allEvents.push(ev); }
+        });
+      }).catch(function(){});
+  }));
+
+  var histItems = [];
+  allEvents.forEach(function(ev) {
+    var comp = (ev.competitions||[])[0]; if (!comp) return;
+    if (((ev.status||{}).type||{}).name !== 'STATUS_FINAL') return;
+    var competitors = comp.competitors||[];
+    var away = competitors.find(function(c){return c.homeAway==='away';});
+    var home = competitors.find(function(c){return c.homeAway==='home';});
+    if (!away||!home) return;
+
+    var aScore=parseInt(away.score||0,10), hScore=parseInt(home.score||0,10);
+    var awayWon = aScore > hScore;
+    var aName=espnNorm((away.team||{}).shortDisplayName||(away.team||{}).abbreviation||'');
+    var hName=espnNorm((home.team||{}).shortDisplayName||(home.team||{}).abbreviation||'');
+    var aSeed=parseInt((away.curatedRank||{}).current||0,10)||null;
+    var hSeed=parseInt((home.curatedRank||{}).current||0,10)||null;
+
+    var winName=awayWon?aName:hName, loseName=awayWon?hName:aName;
+    var winScore=awayWon?aScore:hScore, loseScore=awayWon?hScore:aScore;
+    var winSeed=awayWon?aSeed:hSeed, loseSeed=awayWon?hSeed:aSeed;
+    var ss=function(s){return s?'#'+s+' ':'';};
+    var scoreLine=winScore+'-'+loseScore;
+    var isUpset = winSeed && loseSeed && winSeed > loseSeed;
+    var isS16Plus = !!s16Plus[ev._d];
+
+    // Feed result into card updater — pass date so E8+ results get showInTicker:true
+    storeGameResult(winName, loseName, winScore, loseScore, winSeed, loseSeed, ev._d);
+
+    // Only surface S16+ results in the ticker — earlier round noise stays out
+    if (!isS16Plus) return;
+    if (isUpset) {
+      histItems.push({ cls:'tick-upset', badge:'💥 BUSTED',
+        text:ss(winSeed)+winName+' def. '+ss(loseSeed)+loseName+' '+scoreLine+' — UPSET!' });
+    } else {
+      histItems.push({ cls:'tick-alert', badge:'✅ S16 FINAL',
+        text:ss(winSeed)+winName+' def. '+ss(loseSeed)+loseName+' '+scoreLine });
+    }
+  });
+
+  if (histItems.length) injectHistoryItems(histItems);
+  if (Object.keys(GAME_RESULTS).length) applyGameResults();
+  _histFetchedAt = Date.now();
+}
+
+// Process a list of ESPN events: update ticker items AND store final results
+function processESPNEvents(events, scoreItems, flags) {
+  events.forEach(function(ev) {
+    var comp = (ev.competitions || [])[0];
+    if (!comp) return;
+    var competitors = comp.competitors || [];
+    var away = competitors.find(function(c){ return c.homeAway === 'away'; });
+    var home = competitors.find(function(c){ return c.homeAway === 'home'; });
+    if (!away || !home) return;
+
+    var status     = ev.status || {};
+    var stName     = (status.type || {}).name || '';
+    var isLive     = stName === 'STATUS_IN_PROGRESS';
+    var isFinal    = stName === 'STATUS_FINAL';
+    var isHalftime = stName === 'STATUS_HALFTIME';
+    if (!isLive && !isFinal && !isHalftime) return;
+
+    if (isLive || isHalftime) flags.hasLive = true;
+    if (isFinal) flags.hasFinished = true;
+
+    var awayScore = parseInt(away.score || 0, 10);
+    var homeScore = parseInt(home.score || 0, 10);
+    var awayAhead = awayScore > homeScore;
+    var homeAhead = homeScore > awayScore;
+
+    var awayName = espnNorm((away.team || {}).shortDisplayName || (away.team || {}).abbreviation || 'AWAY');
+    var homeName = espnNorm((home.team || {}).shortDisplayName || (home.team || {}).abbreviation || 'HOME');
+
+    var awaySeed = parseInt((away.curatedRank || {}).current || 0, 10) || null;
+    var homeSeed = parseInt((home.curatedRank || {}).current || 0, 10) || null;
+
+    // ── Store final result for card updates ─────────────────────────────────
+    if (isFinal) {
+      var winTeam = awayAhead ? awayName : homeName;
+      var loseTeam = awayAhead ? homeName : awayName;
+      var winScore = awayAhead ? awayScore : homeScore;
+      var loseScore = awayAhead ? homeScore : awayScore;
+      var d = new Date(); var todayStr = d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+      storeGameResult(winTeam, loseTeam, winScore, loseScore, awaySeed, homeSeed, todayStr);
+    }
+
+    // ── Build ticker HTML ────────────────────────────────────────────────────
+    var clock     = status.displayClock || '';
+    var period    = status.period || 1;
+    var periodLbl = isHalftime ? 'HALF' : getPeriodLabel(period);
+
+    var statusBadge = isLive
+      ? '<span class="tick-live">● LIVE</span>'
+      : isHalftime
+        ? '<span class="tick-live">HALF</span>'
+        : '<span class="tick-final">FINAL</span>';
+
+    var awayStyle = 'color:' + (awayAhead ? '#FFFFFF' : 'rgba(255,255,255,0.6)') + ';font-weight:' + (awayAhead ? '700' : '400');
+    var homeStyle = 'color:' + (homeAhead ? '#FFFFFF' : 'rgba(255,255,255,0.6)') + ';font-weight:' + (homeAhead ? '700' : '400');
+    var seedBadge = function(seed) { return seed ? '<sup style="font-size:7px;color:rgba(255,255,255,0.4);">' + seed + '</sup>' : ''; };
+    var clockBadge = (isLive && clock && !isHalftime) ? ' <span class="tick-clock">' + periodLbl + ' ' + clock + '</span>' : '';
+
+    var upsetBadge = '';
+    if (isFinal && awaySeed && homeSeed) {
+      if (awayAhead && awaySeed > homeSeed + 3) upsetBadge = ' <span class="tick-upset">🔥 UPSET</span>';
+      if (homeAhead && homeSeed > awaySeed + 3) upsetBadge = ' <span class="tick-upset">🔥 UPSET</span>';
+    }
+
+    scoreItems.push(
+      statusBadge +
+      ' <span style="' + awayStyle + '">' + awayName + seedBadge(awaySeed) + '</span>' +
+      ' <span class="tick-score">' + awayScore + '</span>' +
+      '<span style="color:rgba(255,255,255,0.3);margin:0 3px">–</span>' +
+      '<span class="tick-score">' + homeScore + '</span> ' +
+      '<span style="' + homeStyle + '">' + homeName + seedBadge(homeSeed) + '</span>' +
+      clockBadge + upsetBadge
+    );
+  });
+}
+
 async function fetchTickerScores() {
-  if (!isTourneyWindow()) return;
+  var liveMode = isTourneyWindow();
+  // Outside live windows still fetch to catch final results — just skip ticker UI injection
   try {
-    var resp = await fetch(ESPN_URL + '&t=' + Date.now(), { cache: 'no-store' });
-    if (!resp.ok) return;
-    var data = await resp.json();
-    var events = data.events || [];
-    if (!events.length) return;
+    // Always fetch today. Also fetch prior S16 dates so results persist after midnight.
+    var now = new Date();
+    var fmt = function(d) {
+      return d.getFullYear() + String(d.getMonth()+1).padStart(2,'0') + String(d.getDate()).padStart(2,'0');
+    };
+    var todayStr = fmt(now);
+    // All completed round dates always in scope so results persist after midnight
+    var pastDates = ['20260326','20260327','20260328','20260329'];
+    var datesToFetch = Array.from(new Set([todayStr].concat(pastDates)));
+
+    var allEvents = [];
+    var seenIds = {};
+    await Promise.all(datesToFetch.map(function(dateStr) {
+      return fetch(ESPN_URL + '&dates=' + dateStr + '&t=' + Date.now(), { cache:'no-store' })
+        .then(function(r){ return r.ok ? r.json() : {events:[]}; })
+        .then(function(d){
+          (d.events || []).forEach(function(ev) {
+            if (!seenIds[ev.id]) { seenIds[ev.id] = true; allEvents.push(ev); }
+          });
+        }).catch(function(){});
+    }));
+
+    if (!allEvents.length) return;
 
     var scoreItems = [];
-    var hasLive = false, hasFinished = false;
+    var flags = { hasLive: false, hasFinished: false };
+    processESPNEvents(allEvents, scoreItems, flags);
 
-    events.forEach(function(ev) {
-      var comp = (ev.competitions || [])[0];
-      if (!comp) return;
-      var competitors = comp.competitors || [];
-      var away = competitors.find(function(c){ return c.homeAway === 'away'; });
-      var home = competitors.find(function(c){ return c.homeAway === 'home'; });
-      if (!away || !home) return;
-
-      var status   = ev.status || {};
-      var stName   = (status.type || {}).name || '';
-      var isLive   = stName === 'STATUS_IN_PROGRESS';
-      var isFinal  = stName === 'STATUS_FINAL';
-      var isHalftime = stName === 'STATUS_HALFTIME';
-      if (!isLive && !isFinal && !isHalftime) return;
-
-      if (isLive || isHalftime) hasLive = true;
-      if (isFinal) hasFinished = true;
-
-      var awayScore = parseInt(away.score || 0, 10);
-      var homeScore = parseInt(home.score || 0, 10);
-      var awayAhead = awayScore > homeScore;
-      var homeAhead = homeScore > awayScore;
-
-      // Short team names — ESPN provides several variants
-      var awayName = (away.team || {}).shortDisplayName || (away.team || {}).abbreviation || 'AWAY';
-      var homeName = (home.team || {}).shortDisplayName || (home.team || {}).abbreviation || 'HOME';
-
-      // Seed detection from notes/competitors
-      var awaySeed = parseInt((away.curatedRank || {}).current || 0, 10) || null;
-      var homeSeed = parseInt((home.curatedRank || {}).current || 0, 10) || null;
-
-      // Clock / period
-      var clock  = status.displayClock || '';
-      var period = status.period || 1;
-      var periodLbl = isHalftime ? 'HALF' : getPeriodLabel(period);
-
-      // Build HTML
-      var statusBadge = isLive
-        ? '<span class="tick-live">● LIVE</span>'
-        : isHalftime
-          ? '<span class="tick-live">HALF</span>'
-          : '<span class="tick-final">FINAL</span>';
-
-      var awayStyle = 'color:' + (awayAhead ? '#FFFFFF' : 'rgba(255,255,255,0.6)') + ';font-weight:' + (awayAhead ? '700' : '400');
-      var homeStyle = 'color:' + (homeAhead ? '#FFFFFF' : 'rgba(255,255,255,0.6)') + ';font-weight:' + (homeAhead ? '700' : '400');
-
-      var seedBadge = function(seed) {
-        return seed ? '<sup style="font-size:7px;color:rgba(255,255,255,0.4);">' + seed + '</sup>' : '';
-      };
-
-      var clockBadge = (isLive && clock && !isHalftime)
-        ? ' <span class="tick-clock">' + periodLbl + ' ' + clock + '</span>'
-        : '';
-
-      // Upset detection: underdog (higher seed #) winning at final
-      var upsetBadge = '';
-      if (isFinal && awaySeed && homeSeed) {
-        if (awayAhead && awaySeed > homeSeed + 3) upsetBadge = ' <span class="tick-upset">🔥 UPSET</span>';
-        if (homeAhead && homeSeed > awaySeed + 3) upsetBadge = ' <span class="tick-upset">🔥 UPSET</span>';
-      }
-
-      scoreItems.push(
-        statusBadge +
-        ' <span style="' + awayStyle + '">' + awayName + seedBadge(awaySeed) + '</span>' +
-        ' <span class="tick-score">' + awayScore + '</span>' +
-        '<span style="color:rgba(255,255,255,0.3);margin:0 3px">–</span>' +
-        '<span class="tick-score">' + homeScore + '</span> ' +
-        '<span style="' + homeStyle + '">' + homeName + seedBadge(homeSeed) + '</span>' +
-        clockBadge + upsetBadge
-      );
-    });
-
-    if (scoreItems.length) {
+    // Live ticker UI only during game windows; card result updates always run
+    if (liveMode && scoreItems.length) {
       injectScoreItems(scoreItems);
-      updateTickerLabel(hasLive, hasFinished);
-      // Speed up scroll when live games are happening
-      tickerSpeed = hasLive ? 0.7 : 0.5;
+      updateTickerLabel(flags.hasLive, flags.hasFinished);
+      tickerSpeed = flags.hasLive ? 0.7 : 0.5;
     }
+
+    // Always apply final results to cards — this is the key path for post-game updates
+    if (flags.hasFinished || Object.keys(GAME_RESULTS).length) {
+      applyGameResults();
+    }
+
   } catch(e) {
     console.log('ESPN ticker fetch failed:', e.message || e);
   }
@@ -3804,6 +4359,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Build ticker items (First Four scores + injuries + sharp plays)
   buildStaticTickerItems();
+  // Apply any pre-seeded game results (ESPN API fallback for completed games)
+  if (Object.keys(GAME_RESULTS).length) applyGameResults();
 
   // Render all tabs
   safeRender(renderRegions, 'regions');
@@ -3817,6 +4374,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Start ticker scroll
   startTicker();
+
+  // Fetch all completed tournament results (R64→R32→S16→E8) — populates BUSTED items dynamically
+  fetchTourneyHistory();
+  // Refresh history every 5 min — short enough to catch a game ending
+  setInterval(fetchTourneyHistory, 300000);
+
+  // Rebuild ticker every 2 min: re-generates result items from GAME_RESULTS,
+  // strips completed pre-game items, and refreshes the scroll clone.
+  // This is what makes the ticker "live" — new results appear automatically
+  // as soon as they land in GAME_RESULTS (either via ESPN API or hardcoded).
+  setInterval(rebuildTicker, 120000);
 
   // Init tooltips
   initTooltips();
@@ -3885,10 +4453,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // ── 2. Update TIER 2 upset moneylines ─────────────────────────────────
       // Each entry maps to [favInPreds, dogInPreds] — the bet is always on the dog
       var t2keys = [
-        ['Michigan',  'Alabama'     ],   // TIER2[0] Alabama ML
-        ['Duke',      "St. John's"  ],   // TIER2[1] St. John's ML
-        ['Nebraska',  'Iowa'        ],   // TIER2[2] Iowa ML
-        ['Purdue',    'Texas'       ]    // TIER2[3] Texas ML
+        ['Michigan', 'Arizona'  ],   // TIER2[0] Arizona ML +155
+        ['UConn',    'Illinois' ],   // TIER2[1] Illinois +2.5 ATS (dogML skip — ATS bet)
       ];
       t2keys.forEach(function(pair, i) {
         if (!TIER2_BETS[i]) return;
@@ -3902,11 +4468,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // ── 3. Update TIER 3 over/under lines ─────────────────────────────────
       // Each entry maps to [fav, dog] and updates the total line
       var t3keys = [
-        ['Houston',     'Illinois',   'UNDER'],  // TIER3[0]
-        ['Iowa State',  'Tennessee',  'UNDER'],  // TIER3[1]
-        ['Purdue',      'Texas',      'UNDER'],  // TIER3[2]
-        ['Duke',        "St. John's", 'OVER' ],  // TIER3[3]
-        ['Michigan',    'Alabama',    'OVER' ]   // TIER3[4]
+        ['UConn',    'Illinois', 'UNDER'],  // TIER3[0] Under 133.5 UConn/Illinois
+        ['Michigan', 'Arizona',  'OVER' ],  // TIER3[1] Over 144.5 Michigan/Arizona
       ];
       t3keys.forEach(function(entry, i) {
         if (!TIER3_BETS[i]) return;
@@ -3919,11 +4482,10 @@ document.addEventListener('DOMContentLoaded', function() {
       // ── 4. Update TIER 1 best bets ────────────────────────────────────────
       // [fav, dog, type: 'spread'|'ou'|'ml', direction: 'UNDER'|'OVER'|null]
       var t1keys = [
-        ['Houston',    'Illinois',       'spread', null   ],  // TIER1[0] Houston ATS
-        ['Houston',    'Illinois',       'ou',     'UNDER'],  // TIER1[1] Houston/Illinois UNDER
-        ['Iowa State', 'Tennessee',      'ou',     'UNDER'],  // TIER1[2] Iowa State/TN UNDER
-        ['Arizona',    'Arkansas',       'spread', null   ],  // TIER1[3] Arizona ATS
-        ['UConn',      'Michigan State', 'ml',     null   ]   // TIER1[4] UConn ML
+        ['UConn',    'Illinois', 'ou',     'UNDER'],  // TIER1[0] Under 133.5 (UConn/Illinois)
+        ['Michigan', 'Arizona',  'spread', null   ],  // TIER1[1] Michigan -3.5 ATS
+        ['UConn',    'Illinois', 'dogml',  null   ],  // TIER1[2] Illinois ML — skip live update (dogml type = no-op)
+        ['Michigan', 'Arizona',  'ou',     'OVER' ],  // TIER1[3] Over 144.5 (Michigan/Arizona)
       ];
       t1keys.forEach(function(entry, i) {
         if (!TIER1_BETS[i]) return;
@@ -3943,24 +4505,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
-      // ── 5. Update hero card ML spans ──────────────────────────────────────
-      var sjPred = getPred('Duke', "St. John's");
-      if (sjPred && sjPred.dogML !== undefined) {
-        var elSJ = document.getElementById('hero-ml-stjohns');
-        if (elSJ) elSJ.textContent = (sjPred.dogML > 0 ? '+' : '') + sjPred.dogML + ' Moneyline';
-      }
-      var iaPred = getPred('Nebraska', 'Iowa');
-      if (iaPred && iaPred.dogML !== undefined) {
-        var elIA = document.getElementById('hero-ml-iowa');
-        if (elIA) elIA.textContent = (iaPred.dogML > 0 ? '+' : '') + iaPred.dogML + ' Moneyline';
-      }
+      // ── 5. (Final Four — no hero card ML spans to update) ─────────────────
 
-      // ── 6. Update Alabama upset callout (model section) ───────────────────
-      var alaPred = getPred('Michigan', 'Alabama');
-      if (alaPred && alaPred.dogML !== undefined) {
-        var elAla = document.getElementById('callout-alabama-ml-val');
-        if (elAla) elAla.textContent = (alaPred.dogML > 0 ? '+' : '') + alaPred.dogML + ' ML';
-      }
+      // ── 6. (Final Four — Tournament Intelligence cards have no odds IDs) ──
 
       // ── 7. LIVE badge on Predictions tab button ───────────────────────────
       var tabBtn = document.querySelector('[data-tab="predictions"]');
