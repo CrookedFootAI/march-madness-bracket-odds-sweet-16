@@ -3743,39 +3743,38 @@ function buildStaticTickerItems() {
     }
   });
 
-  // ── ELITE EIGHT STATUS ───────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'🏀 ELITE EIGHT', text:'March 29 · 2 games today · Michigan vs Tennessee 2:15 PM ET · Duke vs UConn 5:05 PM ET · CBS' });
+  // ── FINAL FOUR STATUS ────────────────────────────────────────────────────────
+  items.push({ cls:'tick-alert', badge:'🏀 FINAL FOUR', text:'April 4 · AT&T Stadium, Arlington TX · 2 semifinal games · UConn vs Illinois 6:09 PM ET · Michigan vs Arizona 8:49 PM ET · TBS' });
 
   // ── BRACKET BUSTERS injected dynamically by fetchTourneyHistory() via ESPN ──
 
-  // ── E8 TODAY — SCHEDULE ─────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'📅 TODAY 2:15',  game:"Michigan|Tennessee", text:'MIDWEST E8: #1 Michigan vs #6 Tennessee · United Center, Chicago · Michigan -7.5 · O/U 146.5 · CBS' });
-  items.push({ cls:'tick-alert', badge:'📅 TODAY 5:05',  game:"Duke|UConn",         text:'EAST E8: #1 Duke vs #2 UConn · Capital One Arena, Washington D.C. · Duke -5.5 · O/U 133.5 · CBS' });
+  // ── FF SCHEDULE ──────────────────────────────────────────────────────────────
+  items.push({ cls:'tick-alert', badge:'📅 APR 4 6:09', text:'SEMIFINAL 1: #2 UConn vs #3 Illinois · AT&T Stadium, Arlington TX · UConn -2.5 · O/U 133.5 · TBS' });
+  items.push({ cls:'tick-alert', badge:'📅 APR 4 8:49', text:'SEMIFINAL 2: #1 Michigan vs #1 Arizona · AT&T Stadium, Arlington TX · Michigan -3.5 · O/U 144.5 · TBS' });
 
-  // ── E8 TODAY — INJURIES ─────────────────────────────────────────────────────
-  items.push({ cls:'tick-inj', badge:'🚑 OUT',      game:"Michigan|Tennessee", text:'Michigan L.J. Cason — OUT (ACL season-ending) · Michigan -360 despite injury · depth question vs physical Vols' });
-  items.push({ cls:'tick-inj', badge:'✅ RETURNED', game:"Duke|UConn",         text:'Duke Caleb Foster — RETURNED (foot fracture) · played 19 min, scored 11 vs SJU · Duke now close to full strength' });
-  items.push({ cls:'tick-inj', badge:'✅ HEALTHY',  game:"Duke|UConn",         text:'Duke Patrick Ngongba II — HEALTHY · returned vs SJU · Duke rotation back to full depth for UConn' });
-  items.push({ cls:'tick-inj', badge:'⚠️ LIMITED', game:"Duke|UConn",         text:'UConn Silas Demary Jr. — ankle sprain (Big East Championships) · 23 min vs MSU but visibly limited both ends' });
+  // ── FF INJURIES ──────────────────────────────────────────────────────────────
+  items.push({ cls:'tick-inj', badge:'⚠️ GTD',    text:'UConn Silas Demary Jr. — ankle (Big East Championships) · limited since March · key facilitator · monitor Apr 3' });
+  items.push({ cls:'tick-inj', badge:'🚑 OUT',    text:'Michigan L.J. Cason — OUT all tournament (ACL season-ending) · Cadeau sole PG through 5 straight games · fatigue risk' });
+  items.push({ cls:'tick-inj', badge:'⚠️ GTD',    text:'Illinois Niccolo Wagler — shoulder · 25 pts vs Iowa in E8 · critical injury check for Illinois upset hopes · monitor Apr 3' });
+  items.push({ cls:'tick-inj', badge:'⚠️ GTD',    text:'Arizona Jaden Kier — back tightness · monitor Apr 3 practice · key guard for Wildcats pace-and-space attack' });
 
-  // ── E8 TODAY — PLAYER WATCH ─────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'🌟 WATCH',  game:"Michigan|Tennessee", text:'Yaxel Lendeborg (Michigan) 14.9 ppg — leads Wolverines into E8 · Michigan 90+ in all 3 tourney games' });
-  items.push({ cls:'tick-alert', badge:'🌟 WATCH',  game:"Michigan|Tennessee", text:'Ja\'Kobi Gillespie (Tennessee) 18.3 ppg — Vols need him to carry in pace-control win to upset Michigan' });
-  items.push({ cls:'tick-alert', badge:'🌟 WATCH',  game:"Duke|UConn",         text:'Cameron Boozer (Duke) — Player of the Year candidate · 22.8 ppg · leads Duke vs first underdog UConn all year' });
-  items.push({ cls:'tick-alert', badge:'🌟 WATCH',  game:"Duke|UConn",         text:'Tarris Reed Jr. + Alex Karaban (UConn) — must carry Huskies with Demary Jr. limited · inside-out attack key' });
+  // ── FF PLAYER WATCH ───────────────────────────────────────────────────────────
+  items.push({ cls:'tick-alert', badge:'🌟 WATCH', text:'Niccolo Wagler (Illinois) — 25 pts vs Iowa in E8 · if healthy, he\'s the X-factor for an Illinois upset over UConn' });
+  items.push({ cls:'tick-alert', badge:'🌟 WATCH', text:'Yaxel Lendeborg (Michigan) — 14.9 ppg · leads Michigan with Cason OUT · No.1 seed firepower vs Lloyd\'s pace-and-space' });
+  items.push({ cls:'tick-alert', badge:'🌟 WATCH', text:'Tarris Reed Jr. (UConn) — must carry Huskies inside if Demary Jr. ankle limits his playmaking in Semifinal 1' });
+  items.push({ cls:'tick-alert', badge:'🌟 WATCH', text:'Caleb Love (Arizona) — explosive scorer for Wildcats · Arizona has covered all 3 tournament spreads coming in' });
 
-  // ── E8 TODAY — UPSET ALERTS ─────────────────────────────────────────────────
-  items.push({ cls:'tick-upset', badge:'🔥 UPSET WATCH', game:"Michigan|Tennessee", text:'Tennessee vs Michigan (2:15 ET) — Barnes physical defense + Cason OUT = only crack in Michigan armor · +290 ML · Upset Alert 44/100' });
-  items.push({ cls:'tick-upset', badge:'🔥 UPSET WATCH', game:"Duke|UConn",         text:'UConn vs Duke (5:05 ET) — first time all season UConn is underdog · Demary Jr. ankle + Boozer is a problem · +180 ML · Upset Alert 34/100' });
+  // ── FF UPSET ALERTS ───────────────────────────────────────────────────────────
+  items.push({ cls:'tick-upset', badge:'🔥 UPSET WATCH', text:'Illinois vs UConn (6:09 ET) — Underwood\'s squad beat #2 Houston + stunned Iowa · Wagler GTD · Illinois +2.5 ML +118 · Upset Alert 45/100' });
+  items.push({ cls:'tick-upset', badge:'🔥 UPSET WATCH', text:'Arizona vs Michigan (8:49 ET) — Wildcats covered all 3 tournament spreads · Cason OUT = PG fatigue · Arizona ML +155 · Upset Alert 38/100' });
 
-  // ── E8 TODAY — SHARP PLAYS ──────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'📊 E8 SHARP', game:"Michigan|Tennessee", text:'Michigan vs Tennessee O/U 146.5 — OVER: Michigan 87.5 PPG + 90+ in every tourney game · lean OVER vs Vols' });
-  items.push({ cls:'tick-alert', badge:'📊 E8 SHARP', game:"Duke|UConn",         text:'Duke vs UConn UNDER 133.5 — Duke #1 defense nationally + UConn limited Demary Jr. = defensive grinder' });
+  // ── FF SHARP PLAYS ────────────────────────────────────────────────────────────
+  items.push({ cls:'tick-alert', badge:'📊 FF SHARP', text:'UConn/Illinois UNDER 133.5 — Hurley finesse vs Big Ten physical grind · Demary Jr. ankle clouds UConn half-court offense · lean UNDER' });
+  items.push({ cls:'tick-alert', badge:'📊 FF SHARP', text:'Michigan/Arizona OVER 144.5 — both teams push pace · Lloyd space-and-pace + Michigan 90+ in every tourney game · lean OVER' });
 
-
-  // ── AI PICK ─────────────────────────────────────────────────────────────────
-  items.push({ cls:'tick-alert', badge:'🏆 AI PICK',  text:'AI Champion: Michigan 🏆 · Championship: Michigan vs Duke · Final Four set: Arizona ✅ · Illinois ✅ · Michigan + Duke TBD', gold:true });
-  items.push({ cls:'tick-alert', badge:'📊 AI MODEL', text:'AI accuracy 62% this tournament · S16: Duke ✅ · Michigan ✅ · Arizona ✅ · Illinois UPSET HIT 🔥 · Iowa UPSET HIT 🔥', gold:false });
+  // ── AI PICK ───────────────────────────────────────────────────────────────────
+  items.push({ cls:'tick-alert', badge:'🏆 AI PICK',  text:'AI Champion: Michigan 🏆 · Championship: Michigan vs UConn · Model picks Michigan over Arizona + UConn over Illinois', gold:true });
+  items.push({ cls:'tick-alert', badge:'📊 AI MODEL', text:'AI accuracy 62% this tournament · Illinois S16 UPSET HIT 🔥 · Iowa UPSET HIT 🔥 · UConn E8 UPSET HIT 🔥 · Michigan ✅ · Arizona ✅', gold:false });
 
   // Render into DOM — stamp data-game-ref so applyGameResults() auto-removes
   // pre-game items (injuries, GTD, upset alerts, sharp plays) when game is FINAL
@@ -4469,11 +4468,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // ── 3. Update TIER 3 over/under lines ─────────────────────────────────
       // Each entry maps to [fav, dog] and updates the total line
       var t3keys = [
-        ['Houston',     'Illinois',   'UNDER'],  // TIER3[0]
-        ['Iowa State',  'Tennessee',  'UNDER'],  // TIER3[1]
-        ['Purdue',      'Texas',      'UNDER'],  // TIER3[2]
-        ['Duke',        "St. John's", 'OVER' ],  // TIER3[3]
-        ['Michigan',    'Alabama',    'OVER' ]   // TIER3[4]
+        ['UConn',    'Illinois', 'UNDER'],  // TIER3[0] Under 133.5 UConn/Illinois
+        ['Michigan', 'Arizona',  'OVER' ],  // TIER3[1] Over 144.5 Michigan/Arizona
       ];
       t3keys.forEach(function(entry, i) {
         if (!TIER3_BETS[i]) return;
@@ -4486,11 +4482,10 @@ document.addEventListener('DOMContentLoaded', function() {
       // ── 4. Update TIER 1 best bets ────────────────────────────────────────
       // [fav, dog, type: 'spread'|'ou'|'ml', direction: 'UNDER'|'OVER'|null]
       var t1keys = [
-        ['Houston',    'Illinois',       'spread', null   ],  // TIER1[0] Houston ATS
-        ['Houston',    'Illinois',       'ou',     'UNDER'],  // TIER1[1] Houston/Illinois UNDER
-        ['Iowa State', 'Tennessee',      'ou',     'UNDER'],  // TIER1[2] Iowa State/TN UNDER
-        ['Arizona',    'Arkansas',       'spread', null   ],  // TIER1[3] Arizona ATS
-        ['UConn',      'Michigan State', 'ml',     null   ]   // TIER1[4] UConn ML
+        ['UConn',    'Illinois', 'ou',     'UNDER'],  // TIER1[0] Under 133.5 (UConn/Illinois)
+        ['Michigan', 'Arizona',  'spread', null   ],  // TIER1[1] Michigan -3.5 ATS
+        ['UConn',    'Illinois', 'dogml',  null   ],  // TIER1[2] Illinois ML — skip live update (dogml type = no-op)
+        ['Michigan', 'Arizona',  'ou',     'OVER' ],  // TIER1[3] Over 144.5 (Michigan/Arizona)
       ];
       t1keys.forEach(function(entry, i) {
         if (!TIER1_BETS[i]) return;
@@ -4510,47 +4505,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
-      // ── 5. Update hero card ML spans ──────────────────────────────────────
-      var sjPred = getPred('Duke', "St. John's");
-      if (sjPred && sjPred.dogML !== undefined) {
-        var elSJ = document.getElementById('hero-ml-stjohns');
-        if (elSJ) elSJ.textContent = (sjPred.dogML > 0 ? '+' : '') + sjPred.dogML + ' Moneyline';
-      }
-      var iaPred = getPred('Nebraska', 'Iowa');
-      if (iaPred && iaPred.dogML !== undefined) {
-        var elIA = document.getElementById('hero-ml-iowa');
-        if (elIA) elIA.textContent = (iaPred.dogML > 0 ? '+' : '') + iaPred.dogML + ' Moneyline';
-      }
+      // ── 5. (Final Four — no hero card ML spans to update) ─────────────────
 
-      // ── 6. Update Alabama upset callout (model section) ───────────────────
-      var alaPred = getPred('Michigan', 'Alabama');
-      if (alaPred && alaPred.dogML !== undefined) {
-        var elAla = document.getElementById('callout-alabama-ml-val');
-        if (elAla) elAla.textContent = (alaPred.dogML > 0 ? '+' : '') + alaPred.dogML + ' ML';
-      }
-
-      // ── 6b. Update all 4 Tournament Intelligence card odds strips ─────────
-      var cardOdds = [
-        // [fav, dog, favMLId, dogMLId, spreadId, ouId]
-        ['Duke',    "St. John's", 'callout-duke-ml',  'callout-stjohns-ml', 'callout-duke-spread', 'callout-duke-ou'],
-        ['Nebraska','Iowa',       'callout-neb-ml',   'callout-iowa-ml',    'callout-neb-spread',  'callout-iowa-ou'],
-        ['Michigan','Alabama',    'callout-mich-ml',  null,                 'callout-mich-spread', 'callout-ala-ou'],
-        ['Purdue',  'Texas',      'callout-pur-ml',   'callout-texas-ml',   'callout-pur-spread',  'callout-texas-ou']
-      ];
-      cardOdds.forEach(function(row) {
-        var pred = getPred(row[0], row[1]);
-        if (!pred) return;
-        var elFavML = document.getElementById(row[2]);
-        if (elFavML && pred.ml !== undefined) elFavML.textContent = (pred.ml > 0 ? '+' : '') + pred.ml;
-        if (row[3]) {
-          var elDogML = document.getElementById(row[3]);
-          if (elDogML && pred.dogML !== undefined) elDogML.textContent = (pred.dogML > 0 ? '+' : '') + pred.dogML;
-        }
-        var elSp = document.getElementById(row[4]);
-        if (elSp && pred.spread !== undefined) elSp.textContent = (pred.spread > 0 ? '+' : '') + pred.spread;
-        var elOu = document.getElementById(row[5]);
-        if (elOu && pred.ou !== undefined) elOu.textContent = pred.ou;
-      });
+      // ── 6. (Final Four — Tournament Intelligence cards have no odds IDs) ──
 
       // ── 7. LIVE badge on Predictions tab button ───────────────────────────
       var tabBtn = document.querySelector('[data-tab="predictions"]');
