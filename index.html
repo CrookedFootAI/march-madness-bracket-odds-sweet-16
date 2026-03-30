@@ -609,7 +609,7 @@ nav{top:32px!important}
 <!-- NAV -->
 <nav>
   <div class="nav-logo">BRACKET AGENT 2026</div>
-  <div class="nav-deadline">🏀 SWEET 16 · MAR 26–27</div>
+  <div class="nav-deadline">🏆 FINAL FOUR · APR 4–7</div>
 </nav>
 
 <!-- HERO -->
@@ -2545,9 +2545,11 @@ function renderUpsets(){
   document.getElementById('upsets-2025').innerHTML = h2;
 }
 
+var FINAL_FOUR_TEAMS = ["Illinois","UConn","Michigan","Arizona"];
+
 function renderFocus(){
   var html = "";
-  FOCUS_SCORES.forEach(function(f){
+  FOCUS_SCORES.filter(function(f){ return FINAL_FOUR_TEAMS.indexOf(f.team) !== -1; }).forEach(function(f){
     var color = focusColor(f.score);
     html += '<div class="focus-card" id="fc-'+f.team.replace(/[^a-z]/gi,'')+'card" onclick="toggleFocus(\''+f.team.replace(/'/g,"\\'")+'\')" style="border-color:#D9D5CC">';
     html += '<div style="display:flex;align-items:center;gap:8px">';
@@ -3543,8 +3545,9 @@ function buildStaticTickerItems() {
   // ── ELITE 8 RESULTS ─────────────────────────────────────────────────────────
   items.push({ cls:'tick-upset', badge:'✅ E8 FINAL', text:'Arizona 79–64 def. Purdue — Wildcats advance to Final Four!' });
   items.push({ cls:'tick-upset', badge:'✅ E8 FINAL', text:'Michigan 78–65 def. Tennessee — Wolverines advance to Final Four!' });
-  items.push({ cls:'tick-upset', badge:'🔥 E8 UPSET', text:'Illinois 65–55 def. #2 Houston — Illini stun Sampson\'s Cougars, advance to Final Four!' });
+  items.push({ cls:'tick-upset', badge:'✅ E8 FINAL', text:'Illinois 71–59 def. Iowa — Illini advance to Final Four!' });
   items.push({ cls:'tick-upset', badge:'🔥 E8 UPSET', text:'UConn 77–71 def. #1 Duke — Huskies advance to Final Four, chasing 3rd straight title!' });
+  items.push({ cls:'tick-upset', badge:'🔥 S16 UPSET', text:'Illinois 65–55 def. #2 Houston — Illini stun Sampson\'s Cougars at Toyota Center!' });
 
   // ── AI PICK ─────────────────────────────────────────────────────────────────
   items.push({ cls:'tick-alert', badge:'🏆 AI PICK', text:'Championship pick: Arizona over Michigan · Semifinal: Illinois over UConn · F4: Illinois · UConn · Michigan · Arizona', gold:true });
