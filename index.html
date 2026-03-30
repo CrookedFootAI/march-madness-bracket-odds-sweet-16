@@ -1927,7 +1927,7 @@ var UPSETS_2025 = [
 ];
 
 var OUR_UPSETS = [
-  {dog:"Illinois",dS:3,fav:"UConn",fS:2,alert:45,region:"East",note:"Illinois is the Final Four's top upset alert. Underwood's squad beat #2 Houston 65-55 and stunned Iowa 71-59 in the Elite Eight — and they weren't favored in either game. Wagler dropped 25 vs Iowa. UConn's Demary Jr. ankle (limited since Big East) is the critical injury variable. Big Ten physicality vs Hurley finesse in a neutral-site grind — Illinois ML +118 is live value. Upset Alert 45/100."},
+  {dog:"Illinois",dS:3,fav:"UConn",fS:2,alert:45,region:"East",note:"Illinois is the Final Four's top upset alert. Underwood's squad beat #2 ranked Houston and stunned Iowa 71-59 in the Elite Eight — they weren't favored in either game. Wagler dropped 25 vs Iowa and is healthy entering Indianapolis. UConn's Demary Jr. ankle (limited since the Big East Tournament) is the most critical injury variable on the board. Illinois also brings the shortest trip (~120 mi) and the loudest crowd in Lucas Oil. Big Ten physicality vs Hurley finesse in a neutral-site grind — Illinois ML +118 is live value. Upset Alert 45/100."},
   {dog:"Arizona",dS:1,fav:"Michigan",fS:1,alert:38,region:"West",note:"Arizona ended a 25-year Final Four drought and has covered all 3 tournament spreads. Michigan is the -3.5 favorite but enters without Cason (ACL, OUT all tournament) with Cadeau as sole PG through 5 games. Lloyd's pace-and-space vs Wolverines' depleted backcourt creates real variance. Arizona ML +155 offers strong value if Kier (back, GTD) is healthy. Upset Alert 38/100."},
 ];
 
@@ -2795,7 +2795,7 @@ function renderUpsets(){
     html += '<div class="intel-icon">🔥</div><div>';
     html += '<div class="intel-title" style="color:#C8102E">#'+u.dS+' '+u.dog+' over #'+u.fS+' '+u.fav+'</div>';
     html += '<div style="font-size:10px;color:#64748B;margin-bottom:4px">'+u.region+' · Upset Risk Score: <span style="color:#C8102E;font-weight:700">'+u.alert+'/100</span> <span style="color:#94A3B8">(higher = more likely)</span></div>';
-    html += '<div class="intel-text">'+u.note+'</div>';
+    html += '<div class="intel-text" data-result-applied="1">'+u.note+'</div>';
     html += '</div></div>';
   });
   document.getElementById('our-upsets').innerHTML = html;
