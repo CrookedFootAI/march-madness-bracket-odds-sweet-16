@@ -1935,8 +1935,8 @@ var FOCUS_SCORES = [
   // ── FINAL FOUR TEAMS ONLY ── April 4, 2026 · Lucas Oil Stadium, Indianapolis, IN ────
 
   // SEMIFINAL 1 — UConn vs Illinois
-  {team:"UConn",score:78,region:"East",rc:"#e63946",seed:2,coach:"Dan Hurley",coachTourney:"17-3 career, 2 titles",note:"Hurley upset #1 Duke 77-71 in the Elite Eight — the signature moment of this tournament run. Two-time defending champion culture. Traveling ~1,000 miles to Indianapolis but Hurley's teams are mentally built for road environments. Demary Jr. ankle (GTD) is the only focus concern. 17-3 tournament record with 2 rings. UConn resets faster than any program in the country after adversity."},
-  {team:"Illinois",score:77,region:"South",rc:"#22c55e",seed:3,coach:"Brad Underwood",coachTourney:"8-6 career",note:"Illinois reached their first Final Four since 2005 — and they did it by beating #2 Houston and upsetting Iowa. Underwood's best team, physically and mentally. This squad has answered every challenge without being favored. Nothing-to-lose Cinderella mentality in the Final Four is a powerful focus multiplier. Wagler GTD (shoulder) is the only cloud — but Underwood builds depth. High focus, legitimate threat."},
+  {team:"UConn",score:78,region:"East",rc:"#e63946",seed:2,coach:"Dan Hurley",coachTourney:"17-3 career, 2 titles",note:"Hurley's Huskies upset #1 Duke 77-71 in the Elite Eight — the signature win of this tournament run and proof the dynasty still has teeth. Two-time defending champion culture means this roster has been here before under the brightest lights. Traveling ~1,000 miles to Indianapolis with no timezone shift (both Eastern). Demary Jr. ankle (GTD since Big East) is the only focus concern — if limited, Hurley's half-court system loses a critical facilitator. Highest-pedigree coach in the Final Four at 17-3 all-time. UConn resets faster than any program in the country after adversity. Championship DNA is the structural edge."},
+  {team:"Illinois",score:77,region:"South",rc:"#22c55e",seed:3,coach:"Brad Underwood",coachTourney:"8-6 career",note:"Illinois reached their first Final Four since 2005 — doing it by beating a No. 2 seed and a No. 9 seed without being favored in either game. Underwood's best team physically and mentally. Wagler (shoulder, GTD) dropped 25 vs Iowa in the E8 and enters Indianapolis healthy. Nothing-to-lose Cinderella mentality is a powerful focus multiplier at this stage. The Illini also make the shortest trip of any team (~120 mi from Champaign) — a home-region crowd at Lucas Oil is a real edge. Underwood builds depth and culture, not just talent. High focus, legitimate F4 threat."},
 
   // SEMIFINAL 2 — Michigan vs Arizona
   {team:"Michigan",score:72,region:"Midwest",rc:"#f59e0b",seed:1,coach:"Dusty May",coachTourney:"6-2 career",note:"L.J. Cason OUT — Cadeau has been the sole PG for 5 straight tournament games. That's a real mental load but Michigan has answered every time. May is a strong young coach but this is his hardest stage yet. The #1 seed pedigree and tournament momentum are significant positives. Lendeborg (14.9 PPG) carries the offense. Focus score reflects the Cason absence weight, not lack of talent."},
@@ -2831,7 +2831,7 @@ function renderFocus(){
     if(f.coach) html += '<div style="font-size:9px;color:#94A3B8;margin-top:2px">'+f.coach+' · '+f.coachTourney+'</div>';
     html += '</div>';
     html += '</div>';
-    html += '<div class="focus-detail" id="fd-'+f.team.replace(/[^a-z]/gi,'')+'detail" style="display:none">'+f.note+'</div>';
+    html += '<div class="focus-detail" id="fd-'+f.team.replace(/[^a-z]/gi,'')+'detail" style="display:none" data-result-applied="1">'+f.note+'</div>';
     html += '</div>';
   });
   document.getElementById('focus-grid').innerHTML = html;
@@ -3993,9 +3993,9 @@ function applyGameResults() {
     '.matchup-card [style*="border-top"]',
     '.prediction-note',
     '.edge-note',
-    '[class*="detail"]',
-    '[class*="note"]',
-    '[class*="desc"]'
+    '.matchup-card [class*="detail"]',   // scoped — prevents hitting .focus-detail, .inj-detail, etc.
+    '.matchup-card [class*="note"]',     // scoped — prevents hitting .inj-note, .focus-note, etc.
+    '.matchup-card [class*="desc"]'
   ];
   var _candidates = [];
   AUTO_SELECTORS.forEach(function(sel) {
