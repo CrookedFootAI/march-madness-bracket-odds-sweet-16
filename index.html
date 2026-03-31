@@ -794,7 +794,7 @@ nav{top:32px!important}
           <span style="font-size:10px;font-weight:700;background:rgba(26,86,219,0.1);color:#1A56DB;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">ILL ML +118</span>
           <span style="font-size:10px;color:#999;font-family:'Barlow Condensed',sans-serif">O/U 133.5 · Apr 4 · 6:09 PM ET</span>
         </div>
-        <div class="callout-detail">Illinois beat #2 Houston 65-55 and upset Iowa 71-59 — Underwood's most dangerous squad. UConn upset Duke 77-71 in E8 but Demary Jr. ankle (limited since Big East) clouds their facilitator role. Hurley has 2 titles; Illinois hasn't been to a FF since 2005. Wagler dropped 25 vs Iowa. Physical Big Ten style vs Hurley finesse — this is closer than the line suggests. Lucas Oil Stadium, Indianapolis, IN · TBS.</div>
+        <div class="callout-detail" data-stale-game="UConn|Illinois">Illinois punched their Final Four ticket by toppling a #2 seed and a #9 seed without being favored in either game — Wagler's 25-pt E8 performance was the signature moment. UConn's Demary Jr. ankle (limited since the Big East Tournament) is the pivotal injury check: if he's at 60%, Hurley's half-court system loses its primary facilitator. Underwood is 8-6 in March, Hurley is 17-3 with 2 titles — coaching edge UConn, but Illinois makes the shortest trip of any team (~120 mi) and brings a home-region crowd. IL ML +118 is near even-money for a battle-tested team. Lucas Oil Stadium, Indianapolis, IN · TBS.</div>
       </div>
       <!-- FF SEMIFINAL 2: Michigan vs Arizona -->
       <div class="callout-card cinderella">
@@ -808,7 +808,7 @@ nav{top:32px!important}
           <span style="font-size:10px;font-weight:700;background:rgba(200,16,46,0.1);color:#C8102E;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">ARIZ ML +155</span>
           <span style="font-size:10px;color:#999;font-family:'Barlow Condensed',sans-serif">O/U 144.5 · Apr 4 · 8:49 PM ET</span>
         </div>
-        <div class="callout-detail">Arizona ended a 25-year Final Four drought, rallying from halftime vs Purdue 79-64. Michigan without Cason (ACL) — Lendeborg 14.9 ppg leads the charge vs Tennessee 78-65. Wildcats run Lloyd's pace-and-space offense; Wolverines are No. 1 seed and 3.5-pt favorites. Arizona has covered all 3 tournament games. Lucas Oil Stadium, Indianapolis, IN · TBS.</div>
+        <div class="callout-detail" data-stale-game="Michigan|Arizona">Arizona ended a 25-year Final Four drought by rallying past Purdue 79-64 in the E8 — and has covered every single tournament spread. Koa Peat (foot) returned and is active for Indianapolis. Michigan is the -180 ML favorite but enters with Cason (ACL) still out — Cadeau has been the sole PG for 5 straight tournament games, creating real durability risk. Kier (back, GTD) is Arizona's key availability check. Lloyd's pace-and-space creates natural mismatches vs a depleted Wolverines backcourt. AZ ML +155 is the best upset value in the Final Four. Lucas Oil Stadium, Indianapolis, IN · TBS.</div>
       </div>
       <!-- FINAL FOUR SET -->
       <div class="callout-card lock">
@@ -823,7 +823,7 @@ nav{top:32px!important}
           <span style="font-size:10px;font-weight:700;background:rgba(22,163,74,0.1);color:#16A34A;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">MICH 78 · TENN 65 ✅</span>
           <span style="font-size:10px;font-weight:700;background:rgba(22,163,74,0.1);color:#16A34A;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">UCONN 77 · DUKE 71 ✅ UPSET</span>
         </div>
-        <div class="callout-detail">The bracket is set. UConn shocked #1 Duke 77-71 in the East — biggest upset of E8 Sunday. Michigan cruised past Tennessee 78-65. Illinois and Arizona punched their tickets Saturday. April 4 at Lucas Oil Stadium, Indianapolis, IN: UConn vs Illinois (6:09 PM ET) and Michigan vs Arizona (8:49 PM ET). Both on TBS.</div>
+        <div class="callout-detail" data-result-applied="1">The bracket is set. UConn shocked #1 Duke 77-71 in the East — biggest upset of E8 Sunday. Michigan handled the Vols 78-65 in Chicago. Illinois stunned Iowa 71-59 in the E8 (Wagler 25 pts). Arizona rallied past Purdue 79-64. April 4 at Lucas Oil Stadium, Indianapolis, IN: UConn vs Illinois 6:09 PM ET and Michigan vs Arizona 8:49 PM ET. Both on TBS. Illinois and Michigan own the crowd edge — shortest trips of any team in the Final Four.</div>
       </div>
       <!-- AI MODEL PICK -->
       <div class="callout-card upset">
@@ -836,7 +836,7 @@ nav{top:32px!important}
           <span style="font-size:10px;font-weight:700;background:rgba(184,149,42,0.12);color:#B8952A;padding:2px 7px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:0.5px">MICH CHAMP +350</span>
           <span style="font-size:10px;color:#999;font-family:'Barlow Condensed',sans-serif">Model accuracy 62% this tournament</span>
         </div>
-        <div class="callout-detail">Model calls Michigan over Arizona (Lendeborg + No. 1 seed pedigree) and UConn over Illinois (Hurley's championship DNA). Championship matchup: Michigan vs UConn. Michigan wins 🏆. Model correctly hit Illinois (S16 upset), Arizona (E8), and Michigan this tournament.</div>
+        <div class="callout-detail" data-result-applied="1">Model calls Michigan over Arizona (Lendeborg + #1 seed pedigree over Lloyd's pace system) and UConn over Illinois (Hurley's 17-3 championship DNA over Underwood's Cinderella). Projected championship: Michigan vs UConn. Michigan wins 🏆. Model accuracy this tournament: 62% — correctly called the Illini S16 upset, Arizona's E8 run, UConn's Duke upset, and Michigan advancing.</div>
       </div>
     </div>
   </div>
@@ -3988,7 +3988,7 @@ function applyGameResults() {
 
   // PASS 2: auto-scan untagged descriptive containers for both team names
   var AUTO_SELECTORS = [
-    '.callout-detail',
+    // .callout-detail removed — use explicit data-stale-game="Fav|Dog" on each card instead
     '.matchup-card .intel-text',   // only intel-text INSIDE matchup cards, not intel-grid editorial cards
     '.matchup-card [style*="border-top"]',
     '.prediction-note',
