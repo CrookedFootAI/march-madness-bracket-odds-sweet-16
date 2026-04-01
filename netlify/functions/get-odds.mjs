@@ -104,13 +104,13 @@ export default async (req, context) => {
       oddsLookup[`${dogName} vs ${favName}`] = entry;
     }
 
-    console.log(`✅ Returning odds for ${Object.keys(oddsLookup).length / 2} games`);
+    console.log(`✅ Returning odds for ${Object.keys(oddsLookup).length / 2} games | Requests remaining: ${res.headers.get('x-requests-remaining')} | Used: ${res.headers.get('x-requests-used')}`);
 
     return Response.json(
       { updatedAt: new Date().toISOString(), odds: oddsLookup },
       {
         headers: {
-          "Cache-Control": "public, max-age=300",
+          "Cache-Control": "public, max-age=1800",
           "Access-Control-Allow-Origin": "*",
         },
       }
