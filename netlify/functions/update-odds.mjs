@@ -129,7 +129,7 @@ export const handler = schedule("0 */2 * * *", async () => {
 
     const store = getStore({
       name: "march-madness",
-      siteID: process.env.SITE_ID,
+      siteID: "bf3f99a9-6c22-42cc-9755-bcfe773c01df",
       token: process.env.NETLIFY_TOKEN,
     });
     await store.setJSON("live-odds", {
