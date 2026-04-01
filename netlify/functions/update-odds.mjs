@@ -127,6 +127,7 @@ export const handler = schedule("0 */2 * * *", async () => {
       oddsLookup[`${dogName} vs ${favName}`] = entry;
     }
 
+    console.log("NETLIFY_TOKEN set:", !!process.env.NETLIFY_TOKEN);
     const store = getStore({
       name: "march-madness",
       siteID: "bf3f99a9-6c22-42cc-9755-bcfe773c01df",
