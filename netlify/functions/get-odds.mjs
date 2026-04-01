@@ -5,7 +5,7 @@ export default async (req, context) => {
     const store = getStore({
       name: "march-madness",
       siteID: "bf3f99a9-6c22-42cc-9755-bcfe773c01df",
-      token: process.env.NETLIFY_TOKEN,
+      token: process.env.BLOBS_TOKEN,
     });
     const data = await store.get("live-odds", { type: "json" });
 
