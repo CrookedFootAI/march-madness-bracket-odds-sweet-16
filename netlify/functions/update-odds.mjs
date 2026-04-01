@@ -127,7 +127,11 @@ export const handler = schedule("0 */2 * * *", async () => {
       oddsLookup[`${dogName} vs ${favName}`] = entry;
     }
 
-    const store = getStore("march-madness");
+    const store = getStore({
+      name: "march-madness",
+      siteID: process.env.SITE_ID,
+      token: process.env.NETLIFY_TOKEN,
+    });
     await store.setJSON("live-odds", {
       updatedAt: new Date().toISOString(),
       odds: oddsLookup,

@@ -2,7 +2,11 @@ import { getStore } from "@netlify/blobs";
 
 export default async (req, context) => {
   try {
-    const store = getStore("march-madness");
+    const store = getStore({
+      name: "march-madness",
+      siteID: process.env.SITE_ID,
+      token: process.env.NETLIFY_TOKEN,
+    });
     const data = await store.get("live-odds", { type: "json" });
 
     if (!data) {
