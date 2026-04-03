@@ -107,7 +107,14 @@ export default async (req, context) => {
     console.log(`✅ Returning odds for ${Object.keys(oddsLookup).length / 2} games | Requests remaining: ${res.headers.get('x-requests-remaining')} | Used: ${res.headers.get('x-requests-used')}`);
 
     return Response.json(
-      { updatedAt: new Date().toISOString(), odds: oddsLookup },
+      {
+        updatedAt: new Date().toISOString(),
+        odds: oddsLookup,
+        quota: {
+          remaining: res.headers.get('x-requests-remaining'),
+          used: res.headers.get('x-requests-used'),
+        }
+      },
       {
         headers: {
           "Cache-Control": "public, max-age=1800",
