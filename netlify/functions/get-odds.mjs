@@ -117,7 +117,7 @@ export default async (req, context) => {
       },
       {
         headers: {
-          "Cache-Control": "public, max-age=1800",
+          "Cache-Control": "public, max-age=7200",
           "Access-Control-Allow-Origin": "*",
         },
       }
